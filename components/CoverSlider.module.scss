@@ -1,0 +1,58 @@
+@use "styles/_config.scss" as config;
+@use "styles/_mixins.scss" as mixins;
+
+.slider {
+  position: relative;
+  margin: auto;
+
+  .media {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    cursor: pointer;
+
+    @include mixins.desktop {
+      height: 100dvh;
+    }
+    @include mixins.fourK {
+      height: 100dvh;
+    }
+  }
+
+  .video {
+    width: 100%;
+    height: 100dvh;
+    object-fit: cover;
+
+    @include mixins.desktop {
+      height: 100dvh;
+    }
+    @include mixins.fourK {
+      height: 100dvh;
+    }
+  }
+}
+
+.information {
+  @include mixins.row-space-between-center();
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  color: config.$white;
+  width: config.$content-width;
+  max-width: config.$max-widthHeigh;
+  cursor: pointer;
+
+  @include mixins.tabletLandscape {
+    width: config.$content-widthTablet;
+  }
+  @include mixins.tabletPortrait {
+    width: config.$content-widthTablet;
+  }
+  @include mixins.mobile {
+    width: calc(100% - 24px);
+  }
+}

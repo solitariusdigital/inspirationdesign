@@ -1,10 +1,12 @@
 import { useState, useContext, Fragment } from "react";
 import { StateContext } from "@/context/stateContext";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Router from "next/router";
 import classes from "./Menu.module.scss";
 import Image from "next/legacy/image";
-import logo from "@/assets/logo-black.png";
+import logoWhite from "@/assets/logo-white.png";
+import logoBlack from "@/assets/logo-black.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import Tooltip from "@mui/material/Tooltip";
 import CloseIcon from "@mui/icons-material/Close";
@@ -14,7 +16,12 @@ export default function Menu() {
   const { screenSize, setScreenSize } = useContext(StateContext);
   const [menuMobile, setMenuMobile] = useState(false);
 
+  const router = useRouter();
+  let pathname = router.pathname;
+
+  const isHome = pathname === "/";
   const fullSizeChatBox = screenSize !== "mobile";
+  const colorCode = isHome ? "white" : "black";
 
   const activateNav = (link, index) => {
     setMenuMobile(false);
@@ -34,7 +41,7 @@ export default function Menu() {
       <div className={classes.logo} onClick={() => window.location.assign("/")}>
         <Link href="/" passHref>
           <Image
-            src={logo}
+            src={isHome ? logoWhite : logoBlack}
             layout="fill"
             objectFit="contain"
             alt="logo"
@@ -43,7 +50,12 @@ export default function Menu() {
         </Link>
       </div>
       {fullSizeChatBox ? (
-        <nav className={classes.fullSizeNavigation}>
+        <nav
+          className={classes.fullSizeNavigation}
+          style={{
+            color: colorCode,
+          }}
+        >
           {navigationTopBar.map((nav, index) => (
             <Fragment key={index}>
               <Link
@@ -64,7 +76,7 @@ export default function Menu() {
               <CloseIcon
                 className="icon"
                 onClick={() => setMenuMobile(!menuMobile)}
-                sx={{ fontSize: 30 }}
+                sx={{ fontSize: 30, color: colorCode }}
               />
             </Tooltip>
           ) : (
@@ -72,7 +84,7 @@ export default function Menu() {
               <MenuIcon
                 className="icon"
                 onClick={() => setMenuMobile(!menuMobile)}
-                sx={{ fontSize: 30 }}
+                sx={{ fontSize: 30, color: colorCode }}
               />
             </Tooltip>
           )}

@@ -90,3 +90,12 @@ small {
 .main {
   min-height: 100dvh;
 }
+
+.swiper-button-next::after {
+  color: config.$white;
+  scale: 0.6;
+}
+.swiper-button-prev::after {
+  color: config.$white;
+  scale: 0.6;
+}
