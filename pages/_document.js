@@ -9,19 +9,10 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
           />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
             crossOrigin="true"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;500&family=Zen+Dots&display=swap"
-            rel="stylesheet"
           />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/icon.png"></link>
@@ -30,11 +21,6 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script
-            defer
-            src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon='{"token": "eb1f5d3ddd9f49abbc419a17ac3e78df"}'
-          ></script>
         </body>
       </Html>
     );

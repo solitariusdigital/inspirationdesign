@@ -4,8 +4,8 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "MuseTechLab",
-  "short_name": "MuseTechLab",
+  "name": "Inspiration Design",
+  "short_name": "Inspiration Design",
   "icons": [
     {
       "src": "/icon-192x192.png",

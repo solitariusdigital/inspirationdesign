@@ -5,8 +5,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: config.$font;
-  font-weight: 300;
 }
 
 body {
@@ -19,6 +17,31 @@ a {
   text-decoration: none;
 }
 
-button {
-  @include mixins.button(config.$white, config.$black, 180px);
+ul {
+  list-style-type: none;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem); /* 40px min, scales, 64px max */
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3rem); /* 32px min, scales, 48px max */
+}
+
+h3 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem); /* 24px min, scales, 36px max */
+}
+
+h4 {
+  font-size: clamp(1.25rem, 3vw, 1.6875rem); /* 20px min, scales, 27px max */
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.125rem); /* 16px min, scales, 18px max */
+  line-height: 1.5;
+}
+
+small {
+  font-size: clamp(0.875rem, 1.5vw, 1rem); /* 14px min, scales, 16px max */
 }
