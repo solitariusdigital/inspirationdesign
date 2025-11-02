@@ -21,16 +21,6 @@ export default function Home() {
       type: "image",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider01-2.jpg",
-      title: "Ventura",
-      type: "image",
-    },
-    {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2017/12/1.jpg",
-      title: "Tukair Residence",
-      type: "image",
-    },
-    {
       link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
       title: "Project",
       type: "image",
@@ -41,7 +31,7 @@ export default function Home() {
       type: "image",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider01-2.jpg",
+      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
       title: "Project",
       type: "image",
     },
@@ -53,6 +43,11 @@ export default function Home() {
     {
       link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
       title: "Project",
+      type: "image",
+    },
+    {
+      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      title: "Zayani Residence",
       type: "image",
     },
     {
@@ -98,23 +93,142 @@ export default function Home() {
           construction management for new buildings and renovations.
         </h3>
       </section>
-      <section className={classes.gridLayout}>
-        {gridImages.map((project, index) => (
-          <div key={index} className={classes.imageBox}>
+      <sectin className={classes.services}>
+        <h2
+          style={{
+            fontFamily: "EnglishExtraLight",
+          }}
+        >
+          Expertise
+        </h2>
+        <div className={classes.infoBox}>
+          <div className={classes.info}>
+            <h3>Building & Interior Design</h3>
+            <p
+              style={{
+                fontFamily: "EnglishExtraLight",
+              }}
+            >
+              Inspiration Design is a turnkey design firm, specializing in
+              creative designs for residential and commercial projects, with
+              exclusive construction management for new buildings and
+              renovations.
+            </p>
+          </div>
+          <div className={classes.imageBox}>
             <Image
               className={classes.image}
-              src={project.link}
-              blurDataURL={project.link}
+              src={
+                "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg"
+              }
+              blurDataURL={
+                "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg"
+              }
               placeholder="blur"
-              alt={project.title}
+              alt="Building & Interior Design"
               layout="fill"
-              objectFit="cover"
+              objectFit="contain"
               as="image"
               priority
             />
-            <h4>{project.title}</h4>
           </div>
-        ))}
+        </div>
+        <div
+          className={classes.infoBox}
+          style={{
+            direction: "rtl",
+          }}
+        >
+          <div className={classes.info}>
+            <h3>Lighting Design</h3>
+            <p
+              style={{
+                fontFamily: "EnglishExtraLight",
+                direction: "ltr",
+              }}
+            >
+              Inspiration Design is a turnkey design firm, specializing in
+              creative designs for residential and commercial projects, with
+              exclusive construction management for new buildings and
+              renovations.
+            </p>
+          </div>
+          <div className={classes.imageBox}>
+            <Image
+              className={classes.image}
+              src={
+                "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg"
+              }
+              blurDataURL={
+                "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg"
+              }
+              placeholder="blur"
+              alt="Lighting Design"
+              layout="fill"
+              objectFit="contain"
+              as="image"
+              priority
+            />
+          </div>
+        </div>
+        <div className={classes.infoBox}>
+          <div className={classes.info}>
+            <h3>LFS Construction</h3>
+            <p
+              style={{
+                fontFamily: "EnglishExtraLight",
+              }}
+            >
+              Inspiration Design is a turnkey design firm, specializing in
+              creative designs for residential and commercial projects, with
+              exclusive.
+            </p>
+          </div>
+          <div className={classes.imageBox}>
+            <Image
+              className={classes.image}
+              src={
+                "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg"
+              }
+              blurDataURL={
+                "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg"
+              }
+              placeholder="blur"
+              alt="LFS Construction"
+              layout="fill"
+              objectFit="contain"
+              as="image"
+              priority
+            />
+          </div>
+        </div>
+      </sectin>
+      <section className={classes.projects}>
+        <h2
+          style={{
+            fontFamily: "EnglishExtraLight",
+          }}
+        >
+          Projects
+        </h2>
+        <div className={classes.gridLayout}>
+          {gridImages.map((project, index) => (
+            <div key={index} className={classes.imageBox}>
+              <Image
+                className={classes.image}
+                src={project.link}
+                blurDataURL={project.link}
+                placeholder="blur"
+                alt={project.title}
+                layout="fill"
+                objectFit="cover"
+                as="image"
+                priority
+              />
+              <h4>{project.title}</h4>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
