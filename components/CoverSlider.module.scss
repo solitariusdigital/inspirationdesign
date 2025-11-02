@@ -39,20 +39,20 @@
   position: absolute;
   z-index: 2;
   left: 50%;
-  bottom: 30px;
+  bottom: 50px;
   transform: translateX(-50%);
   color: config.$white;
   width: config.$content-width;
   max-width: config.$max-widthHeigh;
   cursor: pointer;
 
+  @include mixins.mobile {
+    width: calc(100% - 24px);
+  }
   @include mixins.tabletLandscape {
     width: config.$content-widthTablet;
   }
   @include mixins.tabletPortrait {
     width: config.$content-widthTablet;
-  }
-  @include mixins.mobile {
-    width: calc(100% - 24px);
   }
 }

@@ -12,6 +12,11 @@
     format("truetype");
 }
 @font-face {
+  font-family: "EnglishExtraLight";
+  src: url("../assets/fonts/ZalandoSansSemiExpanded-ExtraLight.ttf")
+    format("truetype");
+}
+@font-face {
   font-family: "EnglishMedium";
   src: url("../assets/fonts/ZalandoSansSemiExpanded-Medium.ttf")
     format("truetype");
@@ -34,7 +39,6 @@
 }
 
 body {
-  user-select: none;
   background: config.$background;
 }
 
@@ -49,6 +53,7 @@ ul {
 
 html {
   font-size: clamp(16px, 1vw + 0.5rem, 20px);
+  line-height: 1.5;
 }
 h1 {
   font-size: 2.5em;
@@ -64,7 +69,6 @@ h4 {
 }
 p {
   font-size: 1em;
-  line-height: 1.5;
 }
 small {
   font-size: 0.875em;
@@ -94,8 +98,16 @@ small {
 .swiper-button-next::after {
   color: config.$white;
   scale: 0.6;
+
+  @include mixins.mobile {
+    scale: 0.4;
+  }
 }
 .swiper-button-prev::after {
   color: config.$white;
   scale: 0.6;
+
+  @include mixins.mobile {
+    scale: 0.4;
+  }
 }

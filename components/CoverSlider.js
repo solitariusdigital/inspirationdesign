@@ -28,9 +28,9 @@ export default function CoverSlider({ covers }) {
           delay: 5000,
           disableOnInteraction: false,
         }}
+        effect="fade"
         modules={[Navigation, Autoplay, EffectFade]}
         onSlideChange={updateIndex}
-        effect="fade"
       >
         {covers
           // .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))

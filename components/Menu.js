@@ -14,13 +14,14 @@ import CloseIcon from "@mui/icons-material/Close";
 export default function Menu() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
   const { screenSize, setScreenSize } = useContext(StateContext);
+  const { menuDisplay, setMenuDisplay } = useContext(StateContext);
   const [menuMobile, setMenuMobile] = useState(false);
 
   const router = useRouter();
   let pathname = router.pathname;
 
   const isHome = pathname === "/";
-  const fullSizeChatBox = screenSize !== "mobile";
+  const fullSizeScreen = screenSize !== "mobile";
   const colorCode = isHome ? "white" : "black";
 
   const activateNav = (link, index) => {
@@ -37,60 +38,33 @@ export default function Menu() {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={classes.logo} onClick={() => window.location.assign("/")}>
-        <Link href="/" passHref>
-          <Image
-            src={isHome ? logoWhite : logoBlack}
-            layout="fill"
-            objectFit="contain"
-            alt="logo"
-            as="image"
-          />
-        </Link>
-      </div>
-      {fullSizeChatBox ? (
-        <nav
-          className={classes.fullSizeNavigation}
-          style={{
-            color: colorCode,
-          }}
+    <>
+      {menuDisplay && (
+        <div
+          className={`${classes.container} ${
+            fullSizeScreen ? "animate__animated animate__slideInDown" : ""
+          }`}
         >
-          {navigationTopBar.map((nav, index) => (
-            <Fragment key={index}>
-              <Link
-                className={!nav.active ? classes.nav : classes.navActive}
-                onClick={() => activateNav(nav.link, index)}
-                href={nav.link}
-                passHref
-              >
-                {nav.title}
-              </Link>
-            </Fragment>
-          ))}
-        </nav>
-      ) : (
-        <nav>
-          {menuMobile ? (
-            <Tooltip title="Close">
-              <CloseIcon
-                className="icon"
-                onClick={() => setMenuMobile(!menuMobile)}
-                sx={{ fontSize: 30, color: colorCode }}
+          <div
+            className={classes.logo}
+            onClick={() => window.location.assign("/")}
+          >
+            <Link href="/" passHref>
+              <Image
+                src={isHome ? logoWhite : logoBlack}
+                layout="fill"
+                objectFit="contain"
+                alt="logo"
+                as="image"
               />
-            </Tooltip>
-          ) : (
-            <Tooltip title="Menu">
-              <MenuIcon
-                className="icon"
-                onClick={() => setMenuMobile(!menuMobile)}
-                sx={{ fontSize: 30, color: colorCode }}
-              />
-            </Tooltip>
-          )}
-          {menuMobile && (
+            </Link>
+          </div>
+          {fullSizeScreen ? (
             <nav
-              className={`${classes.mobileNavigation} animate__animated animate__slideInLeft`}
+              className={classes.fullSizeNavigation}
+              style={{
+                color: colorCode,
+              }}
             >
               {navigationTopBar.map((nav, index) => (
                 <Fragment key={index}>
@@ -105,9 +79,49 @@ export default function Menu() {
                 </Fragment>
               ))}
             </nav>
+          ) : (
+            <nav>
+              {menuMobile ? (
+                <Tooltip title="Close">
+                  <CloseIcon
+                    className="icon"
+                    onClick={() => setMenuMobile(!menuMobile)}
+                    sx={{ fontSize: 30, color: colorCode }}
+                  />
+                </Tooltip>
+              ) : (
+                <Tooltip title="Menu">
+                  <MenuIcon
+                    className="icon"
+                    onClick={() => setMenuMobile(!menuMobile)}
+                    sx={{ fontSize: 30, color: colorCode }}
+                  />
+                </Tooltip>
+              )}
+              {menuMobile && (
+                <nav
+                  className={`${classes.mobileNavigation} animate__animated animate__slideInLeft`}
+                >
+                  {navigationTopBar.map((nav, index) => (
+                    <Fragment key={index}>
+                      <Link
+                        className={
+                          !nav.active ? classes.nav : classes.navActive
+                        }
+                        onClick={() => activateNav(nav.link, index)}
+                        href={nav.link}
+                        passHref
+                      >
+                        {nav.title}
+                      </Link>
+                    </Fragment>
+                  ))}
+                </nav>
+              )}
+            </nav>
           )}
-        </nav>
+        </div>
       )}
-    </div>
+    </>
   );
 }

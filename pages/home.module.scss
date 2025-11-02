@@ -1,2 +1,28 @@
 @use "styles/_config.scss" as config;
 @use "styles/_mixins.scss" as mixins;
+
+.information {
+  text-align: center;
+  margin: 80px auto;
+  width: config.$content-width;
+  max-width: config.$max-widthHeigh;
+
+  @include mixins.mobile {
+    width: calc(100% - 24px);
+  }
+  @include mixins.tabletLandscape {
+    width: config.$content-widthTablet;
+  }
+  @include mixins.tabletPortrait {
+    width: config.$content-widthTablet;
+  }
+
+  h3 {
+    margin-top: 24px;
+    color: config.$grey;
+
+    @include mixins.mobile {
+      width: 100%;
+    }
+  }
+}

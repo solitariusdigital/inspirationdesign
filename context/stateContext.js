@@ -3,6 +3,7 @@ export const StateContext = createContext();
 
 export const StateProvider = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [menuDisplay, setMenuDisplay] = useState(true);
   const [screenSize, setScreenSize] = useState(
     "desktop" || "tablet-landscape" || "tablet-portrait" || "mobile"
   );
@@ -35,6 +36,8 @@ export const StateProvider = (props) => {
     setScreenSize,
     navigationTopBar,
     setNavigationTopBar,
+    menuDisplay,
+    setMenuDisplay,
   };
   return (
     <StateContext.Provider value={stateContext}>
