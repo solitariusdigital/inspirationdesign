@@ -1,0 +1,66 @@
+@use "styles/_config.scss" as config;
+@use "styles/_mixins.scss" as mixins;
+
+.container {
+  position: relative;
+
+  user-select: none;
+  width: config.$content-width;
+  max-width: config.$max-widthHeigh;
+  @include mixins.row-space-between-center();
+
+  @include mixins.mobile {
+    width: calc(100% - 24px);
+  }
+  @include mixins.tablet {
+    width: config.$content-widthTablet;
+  }
+  @include mixins.tabletPortrait {
+    width: config.$content-widthTablet;
+  }
+
+  .fullSizeNavigation {
+    width: 50%;
+    @include mixins.row-space-between-center();
+  }
+
+  .mobileNavigation {
+    position: absolute;
+    right: 0px;
+    top: 100px;
+    width: 100%;
+    padding: 8px 0px;
+    display: flex;
+    flex-direction: column;
+    @include mixins.transparentBackground(0.1, config.$black);
+
+    .nav {
+      color: config.$white;
+    }
+
+    .nav,
+    .navActive {
+      margin: 8px;
+      margin-left: 16px;
+    }
+  }
+
+  .nav {
+    cursor: pointer;
+    marg &:hover {
+      color: config.$brand;
+    }
+  }
+
+  .navActive {
+    color: config.$brand;
+    cursor: pointer;
+  }
+
+  .logo {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+  }
+}

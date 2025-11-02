@@ -13,7 +13,7 @@ export const StateProvider = (props) => {
       active: false,
     },
     {
-      title: "About Us",
+      title: "About",
       link: "/about",
       active: false,
     },
@@ -23,7 +23,7 @@ export const StateProvider = (props) => {
       active: false,
     },
     {
-      title: "Contact Us",
+      title: "Contact",
       link: "/contact",
       active: false,
     },

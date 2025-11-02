@@ -1,0 +1,7 @@
+@use "styles/_config.scss" as config;
+@use "styles/_mixins.scss" as mixins;
+
+.container {
+  height: 100px;
+  background: red;
+}
