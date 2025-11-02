@@ -1,6 +1,32 @@
 @use "config" as config;
 @use "mixins" as mixins;
 
+@font-face {
+  font-family: "English";
+  src: url("../assets/fonts/ZalandoSansSemiExpanded-Regular.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "EnglishLight";
+  src: url("../assets/fonts/ZalandoSansSemiExpanded-Light.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "EnglishMedium";
+  src: url("../assets/fonts/ZalandoSansSemiExpanded-Medium.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "EnglishBold";
+  src: url("../assets/fonts/ZalandoSansSemiExpanded-Bold.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "EnglishExtraBold";
+  src: url("../assets/fonts/ZalandoSansSemiExpanded-ExtraBold.ttf")
+    format("truetype");
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

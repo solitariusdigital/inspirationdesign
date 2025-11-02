@@ -42,7 +42,11 @@ export default function RootLayout({ children }) {
   }, []);
 
   return (
-    <>
+    <div
+      style={{
+        fontFamily: "English",
+      }}
+    >
       <section className="menu">
         <Menu />
       </section>
@@ -52,6 +56,6 @@ export default function RootLayout({ children }) {
       <section>
         <Footer />
       </section>
-    </>
+    </div>
   );
 }
