@@ -8,9 +8,27 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 
-export default function CoverSlider({ covers }) {
+export default function CoverSlider() {
   const { screenSize, setScreenSize } = useContext(StateContext);
   const [current, setCurrent] = useState(0);
+
+  const covers = [
+    {
+      link: "https://inspirationdesigns.ca/wp-content/uploads/2017/12/1.jpg",
+      title: "Project",
+      type: "image",
+    },
+    {
+      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      title: "Project",
+      type: "image",
+    },
+    {
+      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider01-2.jpg",
+      title: "Project",
+      type: "image",
+    },
+  ];
 
   const updateIndex = (swiperInstance) => {
     if (swiperInstance === null) return;

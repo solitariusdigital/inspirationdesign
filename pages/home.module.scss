@@ -26,3 +26,45 @@
     }
   }
 }
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+  gap: 12px;
+  width: config.$content-width;
+  max-width: config.$max-widthHeigh;
+  margin: auto;
+  margin-bottom: 80px;
+
+  .imageBox {
+    position: relative;
+    aspect-ratio: 16 / 9;
+
+    .image {
+      &:hover {
+        @include mixins.background-anime();
+        cursor: pointer;
+      }
+    }
+
+    h4 {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      bottom: 10px;
+      transform: translateX(-50%);
+      color: config.$white;
+    }
+  }
+
+  @include mixins.mobile {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    width: calc(100% - 24px);
+  }
+  @include mixins.tabletLandscape {
+    width: config.$content-widthTablet;
+  }
+  @include mixins.tabletPortrait {
+    width: config.$content-widthTablet;
+  }
+}
