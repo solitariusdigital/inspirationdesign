@@ -12,7 +12,7 @@
   @include mixins.mobile {
     width: calc(100% - 24px);
   }
-  @include mixins.tablet {
+  @include mixins.tabletLandscape {
     width: config.$content-widthTablet;
   }
   @include mixins.tabletPortrait {
