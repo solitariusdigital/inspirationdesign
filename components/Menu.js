@@ -45,10 +45,7 @@ export default function Menu() {
             fullSizeScreen ? "animate__animated animate__slideInDown" : ""
           }`}
         >
-          <div
-            className={classes.logo}
-            onClick={() => window.location.assign("/")}
-          >
+          <div className={classes.logo}>
             <Link href="/" passHref>
               <Image
                 src={isHome ? logoWhite : logoBlack}

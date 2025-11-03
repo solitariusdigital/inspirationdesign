@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useContext, Fragment, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { StateContext } from "@/context/stateContext";
-import Menu from "@/components/Menu";
-import Footer from "@/components/Footer";
 import Image from "next/legacy/image";
 import logoBlack from "@/assets/logo-black.png";
+import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({ children }) {
   const { screenSize, setScreenSize } = useContext(StateContext);

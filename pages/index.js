@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect, useContext, Fragment } from "react";
+import { useState, useEffect, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./home.module.scss";
 import CoverSlider from "@/components/CoverSlider";
 import Image from "next/legacy/image";
 
 export default function Home() {
+  const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
+
   const gridImages = [
     {
       link: "https://inspirationdesigns.ca/wp-content/uploads/2017/12/1.jpg",
@@ -74,6 +76,13 @@ export default function Home() {
       link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
     },
   ];
+
+  useEffect(() => {
+    navigationTopBar.map((nav) => {
+      nav.active = false;
+    });
+    setNavigationTopBar([...navigationTopBar]);
+  }, []);
 
   return (
     <div className={classes.container}>
