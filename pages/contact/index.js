@@ -4,8 +4,7 @@ import classes from "./contact.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 
 export default function Contact() {
-  const headLocationLink =
-    "https://www.google.com/maps/place/Simply+Office+-+Harbourfront+Business+Centre/@49.3131036,-123.0833461,104m/data=!3m1!1e3!4m6!3m5!1s0x5486714b7d55d611:0x38c867df0a60889b!8m2!3d49.3131648!4d-123.0834074!16s%2Fg%2F11g1dvpt5f?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D";
+  const headLocationLink = "https://maps.app.goo.gl/PL91GoWmYGTzhMqt6";
 
   return (
     <>
@@ -51,8 +50,12 @@ export default function Contact() {
         >
           <div>
             <h4>Contact us</h4>
-            <p>T 604 971 0270</p>
-            <p>C 604 365 9191</p>
+            <p onClick={() => window.open(`tel:+16049710270`, "_self")}>
+              T 604 971 0270
+            </p>
+            <p onClick={() => window.open(`tel:+16043659191`, "_self")}>
+              C 604 365 9191
+            </p>
             <p>info@inspirationdesigns.ca</p>
           </div>
           <div>
