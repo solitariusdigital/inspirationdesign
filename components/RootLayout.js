@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useContext, Fragment, useEffect } from "react";
 import { StateContext } from "@/context/stateContext";
 import Menu from "@/components/Menu";
@@ -5,6 +6,7 @@ import Footer from "@/components/Footer";
 
 export default function RootLayout({ children }) {
   const { screenSize, setScreenSize } = useContext(StateContext);
+  const { menuDisplay, setMenuDisplay } = useContext(StateContext);
 
   const handleResize = () => {
     let element = document.getElementById("detailsInformation");
@@ -38,7 +40,23 @@ export default function RootLayout({ children }) {
       window.removeEventListener("resize", handleResizeDebounced);
       clearTimeout(window._resizeTimeout);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    let prevScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY <= 250) {
+        setMenuDisplay(true);
+      } else if (currentScrollY > prevScrollY) {
+        setMenuDisplay(false);
+      }
+      prevScrollY = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
