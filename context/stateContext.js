@@ -10,7 +10,7 @@ export const StateProvider = (props) => {
   const [navigationTopBar, setNavigationTopBar] = useState([
     {
       title: "Projects",
-      link: "/solutions",
+      link: "/projects",
       active: false,
     },
     {
