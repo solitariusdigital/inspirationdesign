@@ -95,6 +95,13 @@ small {
   min-height: 100dvh;
 }
 
+.icon {
+  &:hover {
+    color: config.$brand;
+    cursor: pointer;
+  }
+}
+
 .appload {
   position: absolute;
   left: 50%;

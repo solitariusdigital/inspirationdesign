@@ -44,19 +44,16 @@ $screen-fourK: 6000px;
 @mixin button($color, $subColor) {
   width: 150px;
   height: 40px;
+  color: $subColor;
   background: $color;
   border: 1px solid $color;
-  font-size: config.$small-font;
-  color: $subColor;
   @include border-radius(5px);
 
-  @include allDesktop() {
-    &:hover {
-      cursor: pointer;
-      color: $subColor;
-      border: 1px solid $color;
-      background: config.$background;
-    }
+  &:hover {
+    cursor: pointer;
+    color: $color;
+    border: 1px solid $color;
+    background: config.$background;
   }
 }
 
@@ -64,7 +61,6 @@ $screen-fourK: 6000px;
   padding: 12px;
   height: 50px;
   color: config.$black;
-  font-size: config.$small-font;
   outline: none;
   border: 1px solid config.$lightgrey;
   font-weight: 300;
@@ -72,7 +68,7 @@ $screen-fourK: 6000px;
 
   &:focus {
     outline: none;
-    border: 1px solid config.$yellow;
+    border: 1px solid config.$brand;
   }
 }
 
