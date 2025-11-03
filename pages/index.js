@@ -94,7 +94,7 @@ export default function Home() {
           construction management for new buildings and renovations.
         </h3>
       </section>
-      <sectin className={classes.services}>
+      <section className={classes.services}>
         <h2
           style={{
             fontFamily: "EnglishExtraLight",
@@ -136,7 +136,7 @@ export default function Home() {
             </div>
           </div>
         ))}
-      </sectin>
+      </section>
       <section className={classes.projects}>
         <h2
           style={{
