@@ -40,7 +40,7 @@ export default function Footer() {
           </Fragment>
         ))}
       </nav>
-      <div>
+      <div className={classes.icons}>
         <Link href="" target="_blank" rel="noopener noreferrer" passHref>
           <LinkedInIcon sx={{ fontSize: 24 }} className={classes.icon} />
         </Link>

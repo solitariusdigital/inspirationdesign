@@ -15,10 +15,10 @@
     height: fit-content;
     width: calc(100% - 24px);
   }
-  @include mixins.tabletLandscape {
+  @include mixins.tabletPortrait {
     width: config.$content-widthTablet;
   }
-  @include mixins.tabletPortrait {
+  @include mixins.tabletLandscape {
     width: config.$content-widthTablet;
   }
 
@@ -28,7 +28,7 @@
 
     @include mixins.mobile {
       width: 100%;
-      margin-bottom: 24px;
+      margin-bottom: 12px;
     }
   }
 
@@ -47,16 +47,27 @@
     cursor: pointer;
   }
 
-  .icon {
-    margin-right: 8px;
+  .icons {
+    min-width: 15%;
+    @include mixins.row-space-between-center();
 
     @include mixins.mobile {
-      margin-right: 4px;
+      width: 35%;
+    }
+    @include mixins.tabletPortrait {
+      width: 30%;
+    }
+    @include mixins.tabletLandscape {
+      width: 20%;
     }
 
-    &:hover {
-      color: config.$brand;
-      cursor: pointer;
+    .icon {
+      display: flex;
+
+      &:hover {
+        color: config.$brand;
+        cursor: pointer;
+      }
     }
   }
 }
