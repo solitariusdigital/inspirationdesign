@@ -4,8 +4,8 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Inspiration Design",
-  "short_name": "Inspiration Design",
+  "name": "Inspiration Designs",
+  "short_name": "Inspiration Designs",
   "icons": [
     {
       "src": "/icon-192x192.png",
