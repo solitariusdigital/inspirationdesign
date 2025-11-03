@@ -2,7 +2,9 @@
 import { useState, useEffect, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./home.module.scss";
+import { NextSeo } from "next-seo";
 import CoverSlider from "@/components/CoverSlider";
+import logoBlack from "@/assets/logo-black.png";
 import Image from "next/legacy/image";
 
 export default function Home() {
@@ -85,94 +87,118 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={classes.container}>
-      <section>
-        <CoverSlider />
-      </section>
-      <section className={classes.information}>
-        <h1>
-          Designing spaces, light, and systems for healthier, smarter buildings.
-        </h1>
-        <h3
-          style={{
-            fontFamily: "EnglishExtraLight",
-          }}
-        >
-          Inspiration Design is a turnkey design firm, specializing in creative
-          designs for residential and commercial projects, with exclusive
-          construction management for new buildings and renovations.
-        </h3>
-      </section>
-      <section className={classes.services}>
-        <h2
-          style={{
-            fontFamily: "EnglishExtraLight",
-          }}
-        >
-          Expertise
-        </h2>
-        {expertise.map((service, index) => (
-          <div
-            key={index}
-            className={classes.infoBox}
+    <>
+      <NextSeo
+        title="Design Firm"
+        description="Inspiration Design is a turnkey design firm, specializing in creative designs for residential and commercial projects."
+        canonical="https://inspirationdesigns.ca"
+        openGraph={{
+          type: "website",
+          locale: "en_CA",
+          url: "https://inspirationdesigns.ca",
+          title: "Design Firm",
+          description:
+            "Inspiration Design is a turnkey design firm, specializing in creative designs for residential and commercial projects.",
+          siteName: "Design Firm",
+          images: {
+            url: logoBlack,
+            width: 1200,
+            height: 630,
+            alt: "Inspiration Design",
+          },
+        }}
+        robots="index, follow"
+      />
+      <div className={classes.container}>
+        <section>
+          <CoverSlider />
+        </section>
+        <section className={classes.information}>
+          <h1>
+            Designing spaces, light, and systems for healthier, smarter
+            buildings.
+          </h1>
+          <h3
             style={{
-              direction: index % 2 ? "rtl" : "ltr",
+              fontFamily: "EnglishExtraLight",
             }}
           >
-            <div className={classes.info}>
-              <h3>{service.title}</h3>
-              <p
-                style={{
-                  fontFamily: "EnglishExtraLight",
-                  direction: "ltr",
-                }}
-              >
-                {service.description}
-              </p>
-            </div>
-            <div className={classes.imageBox}>
-              <Image
-                className={classes.image}
-                src={service.link}
-                blurDataURL={service.link}
-                placeholder="blur"
-                alt={service.title}
-                layout="fill"
-                objectFit="contain"
-                as="image"
-                priority
-              />
-            </div>
-          </div>
-        ))}
-      </section>
-      <section className={classes.projects}>
-        <h2
-          style={{
-            fontFamily: "EnglishExtraLight",
-          }}
-        >
-          Projects
-        </h2>
-        <div className={classes.gridLayout}>
-          {gridImages.map((project, index) => (
-            <div key={index} className={classes.imageBox}>
-              <Image
-                className={classes.image}
-                src={project.link}
-                blurDataURL={project.link}
-                placeholder="blur"
-                alt={project.title}
-                layout="fill"
-                objectFit="cover"
-                as="image"
-                priority
-              />
-              <h5>{project.title}</h5>
+            Inspiration Design is a turnkey design firm, specializing in
+            creative designs for residential and commercial projects, with
+            exclusive construction management for new buildings and renovations.
+          </h3>
+        </section>
+        <section className={classes.services}>
+          <h2
+            style={{
+              fontFamily: "EnglishExtraLight",
+            }}
+          >
+            Expertise
+          </h2>
+          {expertise.map((service, index) => (
+            <div
+              key={index}
+              className={classes.infoBox}
+              style={{
+                direction: index % 2 ? "rtl" : "ltr",
+              }}
+            >
+              <div className={classes.info}>
+                <h3>{service.title}</h3>
+                <p
+                  style={{
+                    fontFamily: "EnglishExtraLight",
+                    direction: "ltr",
+                  }}
+                >
+                  {service.description}
+                </p>
+              </div>
+              <div className={classes.imageBox}>
+                <Image
+                  className={classes.image}
+                  src={service.link}
+                  blurDataURL={service.link}
+                  placeholder="blur"
+                  alt={service.title}
+                  layout="fill"
+                  objectFit="contain"
+                  as="image"
+                  priority
+                />
+              </div>
             </div>
           ))}
-        </div>
-      </section>
-    </div>
+        </section>
+        <section className={classes.projects}>
+          <h2
+            style={{
+              fontFamily: "EnglishExtraLight",
+            }}
+          >
+            Projects
+          </h2>
+          <div className={classes.gridLayout}>
+            {gridImages.map((project, index) => (
+              <div key={index} className={classes.imageBox}>
+                <Image
+                  className={classes.image}
+                  src={project.link}
+                  blurDataURL={project.link}
+                  placeholder="blur"
+                  alt={project.title}
+                  layout="fill"
+                  objectFit="cover"
+                  as="image"
+                  priority
+                />
+                <h5>{project.title}</h5>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </>
   );
 }

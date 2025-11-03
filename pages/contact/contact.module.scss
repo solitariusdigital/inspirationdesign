@@ -1,2 +1,75 @@
 @use "styles/_config.scss" as config;
 @use "styles/_mixins.scss" as mixins;
+
+.container {
+  width: config.$content-width;
+  max-width: config.$max-widthHeigh;
+  margin: auto;
+  margin-top: 120px;
+
+  @include mixins.mobile {
+    width: calc(100% - 24px);
+  }
+  @include mixins.tabletLandscape {
+    width: config.$content-widthTablet;
+  }
+  @include mixins.tabletPortrait {
+    width: config.$content-widthTablet;
+  }
+
+  .text {
+    text-align: center;
+
+    p {
+      width: 60%;
+      margin: 12px auto;
+      color: config.$grey;
+
+      @include mixins.mobile {
+        width: 100%;
+      }
+      @include mixins.tabletLandscape {
+        width: 100%;
+      }
+      @include mixins.tabletPortrait {
+        width: 100%;
+      }
+    }
+  }
+
+  .contact {
+    @include mixins.row-space-between-center();
+    margin: auto;
+    margin: 50px 0px;
+
+    @include mixins.mobile {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% - 24px);
+    }
+
+    div {
+      width: 100%;
+
+      @include mixins.mobile {
+        margin-bottom: 12px;
+      }
+
+      h4 {
+        margin-bottom: 12px;
+      }
+
+      .direction {
+        width: fit-content;
+        color: config.$black;
+        border-bottom: 1px solid config.$black;
+
+        &:hover {
+          color: config.$brand;
+          border-bottom: 1px solid config.$brand;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
