@@ -127,3 +127,13 @@ small {
     scale: 0.4;
   }
 }
+
+::selection {
+  background: config.$brand;
+  color: config.$white;
+}
+
+::-moz-selection {
+  background: config.$brand;
+  color: config.$white;
+}
