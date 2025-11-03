@@ -3,10 +3,13 @@ import { useState, useContext, Fragment, useEffect } from "react";
 import { StateContext } from "@/context/stateContext";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
+import Image from "next/legacy/image";
+import logoBlack from "@/assets/logo-black.png";
 
 export default function RootLayout({ children }) {
   const { screenSize, setScreenSize } = useContext(StateContext);
   const { menuDisplay, setMenuDisplay } = useContext(StateContext);
+  const [appLoader, setAppLoader] = useState(false);
 
   const handleResize = () => {
     let element = document.getElementById("detailsInformation");
@@ -27,6 +30,12 @@ export default function RootLayout({ children }) {
     }
     setScreenSize(screenSize);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAppLoader(true);
+    }, 1000);
+  }, []);
 
   useEffect(() => {
     const handleResizeDebounced = () => {
@@ -60,20 +69,37 @@ export default function RootLayout({ children }) {
   }, []);
 
   return (
-    <div
-      style={{
-        fontFamily: "English",
-      }}
-    >
-      <section className="menu">
-        <Menu />
-      </section>
-      <section className="main">
-        <main>{children}</main>
-      </section>
-      <section className="footer">
-        <Footer />
-      </section>
-    </div>
+    <>
+      {appLoader ? (
+        <div
+          style={{
+            fontFamily: "English",
+          }}
+        >
+          <section className="menu">
+            <Menu />
+          </section>
+          <section className="main">
+            <main>{children}</main>
+          </section>
+          <section className="footer">
+            <Footer />
+          </section>
+        </div>
+      ) : (
+        <div className="appload">
+          {logoBlack && (
+            <Image
+              src={logoBlack}
+              layout="fill"
+              objectFit="contain"
+              alt="logo"
+              as="image"
+              priority
+            />
+          )}
+        </div>
+      )}
+    </>
   );
 }
