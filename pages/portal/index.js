@@ -6,6 +6,7 @@ import Router from "next/router";
 import secureLocalStorage from "react-secure-storage";
 import AES from "crypto-js/aes";
 import { enc } from "crypto-js";
+import Admin from "@/components/Admin";
 import { validateEmail } from "@/services/utility";
 
 export default function Portal() {
@@ -14,6 +15,15 @@ export default function Portal() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState("");
+  const [displayAdmin, setDisplayAdmin] = useState(false);
+
+  useEffect(() => {
+    if (!currentUser) {
+      setDisplayAdmin(false);
+    } else {
+      setDisplayAdmin(true);
+    }
+  }, [currentUser]);
 
   useEffect(() => {
     navigationTopBar.map((nav) => {
@@ -24,19 +34,20 @@ export default function Portal() {
   }, []);
 
   const handleLogin = () => {
-    if (!email || !password) {
-      showAlert("Email & Password are required");
-      return;
-    }
-    if (!validateEmail(email)) {
-      showAlert("Invalid email");
-      return;
-    }
-    if (password.length < 8) {
-      showAlert("Password must be minimum 8 characters");
-      return;
-    }
-    signInUser();
+    // if (!email || !password) {
+    //   showAlert("Email & Password are required");
+    //   return;
+    // }
+    // if (!validateEmail(email)) {
+    //   showAlert("Invalid email");
+    //   return;
+    // }
+    // if (password.length < 8) {
+    //   showAlert("Password must be minimum 8 characters");
+    //   return;
+    // }
+    // signInUser();
+    setDisplayAdmin(true);
   };
 
   const signInUser = async () => {
@@ -71,51 +82,57 @@ export default function Portal() {
 
   return (
     <div className={classes.container}>
-      <h3>Portal</h3>
-      <div className={classes.form}>
-        <div className={classes.input}>
-          <div className={classes.bar}>
-            <p className={classes.label}>Email</p>
-            <CloseIcon
-              className="icon"
-              onClick={() => setEmail("")}
-              sx={{ fontSize: 16 }}
-            />
+      {!displayAdmin ? (
+        <>
+          <h3>Portal</h3>
+          <div className={classes.form}>
+            <div className={classes.input}>
+              <div className={classes.bar}>
+                <p className={classes.label}>Email</p>
+                <CloseIcon
+                  className="icon"
+                  onClick={() => setEmail("")}
+                  sx={{ fontSize: 16 }}
+                />
+              </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                autoComplete="off"
+                dir="ltr"
+              />
+            </div>
+            <div className={classes.input}>
+              <div className={classes.bar}>
+                <p className={classes.label}>Password</p>
+                <CloseIcon
+                  className="icon"
+                  onClick={() => setPassword("")}
+                  sx={{ fontSize: 16 }}
+                />
+              </div>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                autoComplete="off"
+                dir="ltr"
+              />
+            </div>
+            <div className={classes.formAction}>
+              <p className={classes.alert}>{alert}</p>
+              <button onClick={() => handleLogin()}>Sign in</button>
+            </div>
           </div>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            autoComplete="off"
-            dir="ltr"
-          />
-        </div>
-        <div className={classes.input}>
-          <div className={classes.bar}>
-            <p className={classes.label}>Password</p>
-            <CloseIcon
-              className="icon"
-              onClick={() => setPassword("")}
-              sx={{ fontSize: 16 }}
-            />
-          </div>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            autoComplete="off"
-            dir="ltr"
-          />
-        </div>
-        <div className={classes.formAction}>
-          <p className={classes.alert}>{alert}</p>
-          <button onClick={() => handleLogin()}>Sign in</button>
-        </div>
-      </div>
+        </>
+      ) : (
+        <Admin />
+      )}
     </div>
   );
 }
