@@ -29,6 +29,9 @@
 
 .services {
   text-align: center;
+  background: config.$dark;
+  color: config.$white;
+  padding: 24px 0px;
 
   .infoBox {
     display: grid;
