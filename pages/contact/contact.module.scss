@@ -11,11 +11,12 @@
 
     p {
       width: 60%;
+      max-width: config.$max-widthHeigh;
       margin: 12px auto;
       color: config.$grey;
 
       @include mixins.mobile {
-        width: 100%;
+        width: calc(100% - 24px);
       }
       @include mixins.tabletPortrait {
         width: 80%;
@@ -74,6 +75,93 @@
           cursor: pointer;
         }
       }
+    }
+  }
+}
+
+.formBox {
+  width: 60%;
+  margin: 100px auto;
+  max-width: config.$max-widthHeigh;
+  text-align: center;
+  user-select: none;
+
+  @include mixins.mobile {
+    width: calc(100% - 24px);
+  }
+  @include mixins.tabletPortrait {
+    width: config.$content-widthTablet;
+  }
+  @include mixins.tabletLandscape {
+    width: config.$content-widthTablet;
+  }
+
+  h4 {
+    margin-bottom: 12px;
+  }
+
+  .form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    gap: 8px;
+
+    @include mixins.mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+    }
+  }
+
+  .input {
+    margin: 12px 0px;
+  }
+
+  .bar {
+    @include mixins.row-space-between-center();
+    margin-bottom: 8px;
+    font-size: medium;
+  }
+
+  .label {
+    color: config.$grey;
+
+    span {
+      color: config.$brand;
+    }
+  }
+
+  .count {
+    font-size: small;
+  }
+
+  input,
+  textarea {
+    @include mixins.input();
+    width: 100%;
+  }
+
+  textarea {
+    height: 250px;
+    max-height: 250px;
+    min-height: 250px;
+    max-width: 100%;
+    min-width: 100%;
+  }
+
+  .formAction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      @include mixins.button(config.$brand, config.$white);
+    }
+
+    .alert {
+      height: 20px;
+      margin: 16px 0px;
+      color: config.$brand;
+      font-size: medium;
     }
   }
 }
