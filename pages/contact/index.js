@@ -70,7 +70,7 @@ export default function Contact() {
       />
       <div className={classes.container}>
         <div className={classes.text}>
-          <h3>Let's light together</h3>
+          <h3>Let's work together</h3>
           <p
             style={{
               fontFamily: "EnglishExtraLight",
