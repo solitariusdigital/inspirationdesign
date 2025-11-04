@@ -12,6 +12,7 @@ export default function Contact() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [alert, setAlert] = useState("");
+  const [notification, setNotification] = useState(false);
 
   const headLocationLink = "https://maps.app.goo.gl/PL91GoWmYGTzhMqt6";
   const maxWords = 150;
@@ -22,14 +23,19 @@ export default function Contact() {
   const remainingWords = maxWords - currentWordCount;
 
   const handleSubmit = () => {
-    if (!name || !email || !message) {
-      showAlert("Required fields *");
-      return;
-    }
-    if (!validateEmail(email)) {
-      showAlert("Invalid email");
-      return;
-    }
+    // if (!name || !email || !message) {
+    //   showAlert("Required fields *");
+    //   return;
+    // }
+    // if (!validateEmail(email)) {
+    //   showAlert("Invalid email");
+    //   return;
+    // }
+
+    setNotification(true);
+    setTimeout(() => {
+      setNotification(false);
+    }, 5000);
   };
 
   const showAlert = (message) => {
@@ -228,8 +234,16 @@ export default function Contact() {
             </p>
           </div>
           <div className={classes.formAction}>
-            <p className={classes.alert}>{alert}</p>
-            <button onClick={() => handleSubmit()}>Submit</button>
+            {!notification ? (
+              <>
+                <p className={classes.alert}>{alert}</p>
+                <button onClick={() => handleSubmit()}>Submit</button>
+              </>
+            ) : (
+              <h5 className={classes.notification}>
+                Thanks for contacting us! We will be in touch with you shortly.
+              </h5>
+            )}
           </div>
         </div>
       </div>

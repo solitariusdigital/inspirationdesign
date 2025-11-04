@@ -163,5 +163,18 @@
       color: config.$brand;
       font-size: medium;
     }
+
+    .notification {
+      width: 40%;
+      padding: 12px;
+      margin-top: 16px;
+      background: config.$dark;
+      color: config.$white;
+      @include mixins.border-radius(5px);
+
+      @include mixins.mobile {
+        width: 100%;
+      }
+    }
   }
 }
