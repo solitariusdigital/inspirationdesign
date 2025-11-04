@@ -11,13 +11,13 @@ $screen-fourK: 6000px;
     @content;
   }
 }
-@mixin tabletLandscape {
-  @media (min-width: #{$screen-mobile}) and (max-width: #{$screen-tablet}) and (orientation: landscape) {
+@mixin tabletPortrait {
+  @media (min-width: #{$screen-mobile}) and (max-width: #{$screen-tablet}) and (orientation: portrait) {
     @content;
   }
 }
-@mixin tabletPortrait {
-  @media (min-width: #{$screen-mobile}) and (max-width: #{$screen-tablet}) and (orientation: portrait) {
+@mixin tabletLandscape {
+  @media (min-width: #{$screen-mobile}) and (max-width: #{$screen-tablet}) and (orientation: landscape) {
     @content;
   }
 }

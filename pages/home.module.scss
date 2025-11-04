@@ -10,10 +10,10 @@
   @include mixins.mobile {
     width: calc(100% - 24px);
   }
-  @include mixins.tabletLandscape {
+  @include mixins.tabletPortrait {
     width: config.$content-widthTablet;
   }
-  @include mixins.tabletPortrait {
+  @include mixins.tabletLandscape {
     width: config.$content-widthTablet;
   }
 
@@ -45,11 +45,10 @@
       flex-direction: column;
       width: calc(100% - 24px);
     }
-
-    @include mixins.tabletLandscape {
+    @include mixins.tabletPortrait {
       width: config.$content-widthTablet;
     }
-    @include mixins.tabletPortrait {
+    @include mixins.tabletLandscape {
       width: config.$content-widthTablet;
     }
 
@@ -113,10 +112,10 @@
       grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
       width: calc(100% - 24px);
     }
-    @include mixins.tabletLandscape {
+    @include mixins.tabletPortrait {
       width: config.$content-widthTablet;
     }
-    @include mixins.tabletPortrait {
+    @include mixins.tabletLandscape {
       width: config.$content-widthTablet;
     }
   }
