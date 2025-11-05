@@ -1,36 +1,32 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function Progress({
+export default function Light({
   color = "#FCEF91",
   height = 1,
   border = true,
-  duration = 4000, // time for one full sweep (ms)
-  tailWidth = 20, // width of the light tail (in %)
-  timer,
+  duration = 4000,
+  tailWidth = 20,
+  timer = 0,
 }) {
   const [progress, setProgress] = useState(0);
+  const frameRef = useRef(null);
+  const startRef = useRef(null);
 
   useEffect(() => {
-    let frameId;
-    const timeoutId = setTimeout(() => {
-      let start = performance.now();
+    const startAnimation = () => {
+      if (!startRef.current) startRef.current = performance.now();
       const animate = (time) => {
-        const elapsed = time - start;
-        let percentage = Math.min((elapsed / duration) * 100, 100);
-        setProgress(percentage);
-        if (elapsed >= duration) {
-          // Restart from 0 smoothly
-          start = performance.now();
-        }
-        frameId = requestAnimationFrame(animate);
+        const elapsed = (time - startRef.current) % duration;
+        setProgress((elapsed / duration) * 100);
+        frameRef.current = requestAnimationFrame(animate);
       };
-      frameId = requestAnimationFrame(animate);
-    }, timer);
+      frameRef.current = requestAnimationFrame(animate);
+    };
 
+    const timeoutId = setTimeout(startAnimation, timer);
     return () => {
+      cancelAnimationFrame(frameRef.current);
       clearTimeout(timeoutId);
-      cancelAnimationFrame(frameId);
     };
   }, [duration, timer]);
 
@@ -50,11 +46,10 @@ export default function Progress({
     width: "100%",
     background: `linear-gradient(
       90deg,
-      transparent ${progress - tailWidth < 0 ? 0 : progress - tailWidth}%,
+      transparent ${Math.max(progress - tailWidth, 0)}%,
       ${color} ${progress}%,
       transparent ${progress + 0.1}%
     )`,
-    transition: "background 0.05s linear",
   };
 
   return (
