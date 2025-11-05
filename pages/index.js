@@ -193,7 +193,7 @@ export default function Home() {
                   as="image"
                   priority
                 />
-                <h5>{project.title}</h5>
+                <h4>{project.title}</h4>
               </div>
             ))}
           </div>
