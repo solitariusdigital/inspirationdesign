@@ -47,6 +47,7 @@ $screen-fourK: 6000px;
   color: $subColor;
   background: $color;
   border: 1px solid $color;
+  font-size: medium;
   font-family: "English";
   @include border-radius(5px);
 

@@ -17,7 +17,7 @@ export default function News() {
           title: "News",
           description:
             "Inspiration Design is a turnkey design firm, specializing in creative designs for residential and commercial projects.",
-          siteName: "Design Firm",
+          siteName: "Inspiration Design",
           images: {
             url: logoBlack,
             width: 1200,

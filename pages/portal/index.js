@@ -1,6 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./portal.module.scss";
+import { NextSeo } from "next-seo";
+import logoBlack from "@/assets/logo-black.png";
 import CloseIcon from "@mui/icons-material/Close";
 import Router from "next/router";
 import secureLocalStorage from "react-secure-storage";
@@ -81,58 +83,81 @@ export default function Portal() {
   };
 
   return (
-    <div className={classes.container}>
-      {!displayAdmin ? (
-        <>
-          <h3>Portal</h3>
-          <div className={classes.form}>
-            <div className={classes.input}>
-              <div className={classes.bar}>
-                <p className={classes.label}>Email</p>
-                <CloseIcon
-                  className="icon"
-                  onClick={() => setEmail("")}
-                  sx={{ fontSize: 16 }}
+    <>
+      <NextSeo
+        title="Portal"
+        description="Inspiration Design is a turnkey design firm, specializing in creative designs for residential and commercial projects."
+        canonical="https://inspirationdesigns.ca/portal"
+        openGraph={{
+          type: "website",
+          locale: "en_CA",
+          url: "https://inspirationdesigns.ca/portal",
+          title: "Portal",
+          description:
+            "Inspiration Design is a turnkey design firm, specializing in creative designs for residential and commercial projects.",
+          siteName: "Inspiration Design",
+          images: {
+            url: logoBlack,
+            width: 1200,
+            height: 630,
+            alt: "Inspiration Design",
+          },
+        }}
+        robots="index, follow"
+      />
+      <div className={classes.container}>
+        {!displayAdmin ? (
+          <>
+            <h3>Portal</h3>
+            <div className={classes.form}>
+              <div className={classes.input}>
+                <div className={classes.bar}>
+                  <p className={classes.label}>Email</p>
+                  <CloseIcon
+                    className="icon"
+                    onClick={() => setEmail("")}
+                    sx={{ fontSize: 16 }}
+                  />
+                </div>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  autoComplete="off"
+                  dir="ltr"
                 />
               </div>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                autoComplete="off"
-                dir="ltr"
-              />
-            </div>
-            <div className={classes.input}>
-              <div className={classes.bar}>
-                <p className={classes.label}>Password</p>
-                <CloseIcon
-                  className="icon"
-                  onClick={() => setPassword("")}
-                  sx={{ fontSize: 16 }}
+              <div className={classes.input}>
+                <div className={classes.bar}>
+                  <p className={classes.label}>Password</p>
+                  <CloseIcon
+                    className="icon"
+                    onClick={() => setPassword("")}
+                    sx={{ fontSize: 16 }}
+                  />
+                </div>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  autoComplete="off"
+                  dir="ltr"
                 />
               </div>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                autoComplete="off"
-                dir="ltr"
-              />
+              <div className={classes.formAction}>
+                <p className={classes.alert}>{alert}</p>
+                <button onClick={() => handleLogin()}>Sign in</button>
+              </div>
             </div>
-            <div className={classes.formAction}>
-              <p className={classes.alert}>{alert}</p>
-              <button onClick={() => handleLogin()}>Sign in</button>
-            </div>
-          </div>
-        </>
-      ) : (
-        <Admin />
-      )}
-    </div>
+          </>
+        ) : (
+          <Admin />
+        )}
+      </div>
+    </>
   );
 }

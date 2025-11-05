@@ -5,5 +5,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 120px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.navigation {
+  width: 30%;
+  height: 40px;
+  border: 1px solid config.$grey;
+  text-transform: capitalize;
+  font-size: medium;
+  @include mixins.border-radius(5px);
+  @include mixins.row-space-between-center();
+  justify-content: space-around;
+
+  @include mixins.mobile {
+    width: 50%;
+  }
+
+  .nav {
+    &:hover {
+      cursor: pointer;
+      color: config.$brand;
+    }
+  }
+
+  .navActive {
+    color: config.$brand;
+  }
 }
