@@ -3,10 +3,9 @@ import { StateContext } from "@/context/stateContext";
 import classes from "./CoverSlider.module.scss";
 import Image from "next/legacy/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, EffectFade } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/effect-fade";
 
 export default function CoverSlider() {
   const { screenSize, setScreenSize } = useContext(StateContext);
@@ -46,8 +45,7 @@ export default function CoverSlider() {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        effect="fade"
-        modules={[Navigation, Autoplay, EffectFade]}
+        modules={[Navigation, Autoplay]}
         onSlideChange={updateIndex}
       >
         {covers
