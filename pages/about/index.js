@@ -3,6 +3,7 @@ import { NextSeo } from "next-seo";
 import classes from "./about.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 
 export default function About() {
   const testimonials = [
@@ -228,6 +229,7 @@ export default function About() {
             {publications.map((item, index) => (
               <div key={index} className={classes.publication}>
                 <h5>{item}</h5>
+                <CircleOutlinedIcon sx={{ fontSize: 12 }} />
               </div>
             ))}
           </div>

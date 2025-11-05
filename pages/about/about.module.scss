@@ -70,6 +70,7 @@
     padding: 8px;
     height: fit-content;
     border: 1px solid config.$grey;
+    text-align: left;
     @include mixins.border-radius(5px);
   }
 }
@@ -94,5 +95,11 @@
     margin: auto;
     padding-bottom: 12px;
     color: config.$grey;
+    @include mixins.row-space-between-center();
+    flex-direction: row-reverse;
+
+    h5 {
+      margin-left: 8px;
+    }
   }
 }
