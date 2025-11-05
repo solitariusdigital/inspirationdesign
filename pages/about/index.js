@@ -11,15 +11,15 @@ export default function About() {
       link: "",
     },
     {
-      title: "French Ambassador in Bahrain",
+      title: "French Ambassador In Bahrain",
       link: "",
     },
     {
-      title: "NYIT, New York Intitute of Technolongy",
+      title: "NYIT, New York Intitute Of Technolongy",
       link: "",
     },
     {
-      title: "University of Bahrain",
+      title: "University Of Bahrain",
       link: "",
     },
     {
@@ -27,7 +27,7 @@ export default function About() {
       link: "",
     },
     {
-      title: "Zain Jewellery",
+      title: "Zain Jewelery",
       link: "",
     },
     {
@@ -60,6 +60,48 @@ export default function About() {
     },
   ];
 
+  const awards = [
+    {
+      title: "Jewelery Arabia Recognition For Best Design And Fitout",
+      year: "2010",
+    },
+    {
+      title: "Bahrain City Center Recognition For Best Fitout",
+      year: "2009",
+    },
+    {
+      title:
+        "NYIT New York Institute Of Technology - Recognition For Cooperation",
+      year: "2009",
+    },
+    {
+      title: "University Of Bahrain - Recognition For Cooperation",
+      year: "2009",
+    },
+    {
+      title: "French Embassy - Recognition For Arkheo Exhibition",
+      year: "2008",
+    },
+  ];
+
+  const publications = [
+    "Abadi Magazine, Autumn 1998, Article about City of Shiraz Entrance Monument competition, Fourth prize to Parastoo Jafari",
+    "A Collection of Articles presented at the second Environmental Engineering and architecture Forum “optimal Housing”, June 22-24, 1999, Article by Parastoo Jafari, PhD in Architecture;” Building Safety, Fire- resistant building Design, and suitable Architectural Building Materials and Techniques",
+    "Kanoon News, Tehran Faculty of architecture news paper, winter 2000, Article about Parastoo Jafari’s speech on contemporary architecture",
+    "Architecture & Urbanism 54-55/ February 2000, Special issue; Contemporary Architectural Design, Article ” Evolution of Iranian Architecture in view of the influences of western technology” by Parastoo Jafari",
+    "Gulf Weekly, Vol. 6, October 31- November 6, 2007, Page 11, ” Jacque’s Memento”; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
+    "Alayam News, 2nd November 2007, No. 6781, Last page; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
+    "Gulf Daily News, Vol XXX, No. 224, 30th October 2007, Page 20, Heritage on Show; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
+    "Gulf Daily News, Vol XXX, No. 225, 31th October 2007, Page 19, Exhibition digs in to the past; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
+    "Gulf Daily News, Vol XXX, No. 216, 22nd October 2007, Page 18, Heritage Expo Focus; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
+    "Alayam News, 31st, October 2007, No. 6779, Page16, Arkheo; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
+    "Middle East Interiors, November 2007 pp.20-21, “Growth-driven Inspiration”; Article about Inspiration Interior Design company and its projects",
+    "Middle East Interiors, April 2009, pp.36-39, “Drawing on Inspiration”; Article about Inspiration Interior Design company and its projects",
+    "Middle East Interiors, May 2009, pp.30-32, “Design calls for dexterity”; Article about Inspiration Interior Design company and its projects",
+    "Middle East Interiors, November 2009, pp.30-32, “Inspired to succeed”; Article about Inspiration Interior Design company and its projects",
+    "Gulf News, 18 November 2009, Page 3, Article about International Jewllery Arabia and Al Zain stand designed by Inspiration Interior Design",
+  ];
+
   return (
     <>
       <NextSeo
@@ -84,7 +126,7 @@ export default function About() {
         robots="index, follow"
       />
       <div className={classes.container}>
-        <div className={classes.text}>
+        <div className={classes.info}>
           <h3>Turnkey Creative Solutions</h3>
           <p
             style={{
@@ -121,7 +163,7 @@ export default function About() {
             materials manufacturer.
           </p>
         </div>
-        <div className={classes.text}>
+        <div className={classes.info}>
           <h3>Experience & Design Philosophy</h3>
           <p
             style={{
@@ -158,13 +200,34 @@ export default function About() {
             performance, durability, ventilation, and maintenance.
           </p>
         </div>
-        <div className={classes.text}>
+        <div className={classes.info}>
           <h3>Testimonials</h3>
           <div className={classes.gridLayout}>
             {testimonials.map((item, index) => (
               <div key={index} className={classes.item}>
                 <h5>{item.title}</h5>
                 <ArrowForwardIosIcon sx={{ fontSize: 12 }} />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={classes.info}>
+          <h3>Awards</h3>
+          <div className={classes.gridLayout}>
+            {awards.map((item, index) => (
+              <div key={index} className={classes.award}>
+                <h5>{item.year}</h5>
+                <h5>{item.title}</h5>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={classes.info}>
+          <h3>Publications</h3>
+          <div className={classes.publicationLayout}>
+            {publications.map((item, index) => (
+              <div key={index} className={classes.publication}>
+                <h5>{item}</h5>
               </div>
             ))}
           </div>
