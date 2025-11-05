@@ -3,11 +3,9 @@ import classes from "./Form.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 
 export default function NewsForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState("");
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
+  const [description, setDescription] = useState("");
   const [alert, setAlert] = useState("");
 
   return (
@@ -17,110 +15,68 @@ export default function NewsForm() {
         <div className={classes.input}>
           <div className={classes.bar}>
             <p className={classes.label}>
-              Name
+              Title
               <span>*</span>
             </p>
             <CloseIcon
               className="icon"
-              onClick={() => setName("")}
+              onClick={() => setTitle("")}
               sx={{ fontSize: 16 }}
             />
           </div>
           <input
             placeholder="..."
             type="text"
-            id="name"
-            name="name"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
+            id="title"
+            name="title"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
             autoComplete="off"
           ></input>
         </div>
         <div className={classes.input}>
           <div className={classes.bar}>
             <p className={classes.label}>
-              Email
+              Date
               <span>*</span>
             </p>
             <CloseIcon
               className="icon"
-              onClick={() => setEmail("")}
-              sx={{ fontSize: 16 }}
-            />
-          </div>
-          <input
-            placeholder="..."
-            type="email"
-            id="email"
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            autoComplete="off"
-            dir="ltr"
-          />
-        </div>
-        <div className={classes.input}>
-          <div className={classes.bar}>
-            <p className={classes.label}>Phone</p>
-            <CloseIcon
-              className="icon"
-              onClick={() => setPhone("")}
-              sx={{ fontSize: 16 }}
-            />
-          </div>
-          <input
-            placeholder="..."
-            type="tel"
-            id="phone"
-            name="phone"
-            onChange={(e) => setPhone(e.target.value)}
-            value={phone}
-            autoComplete="off"
-            dir="ltr"
-          />
-        </div>
-        <div className={classes.input}>
-          <div className={classes.bar}>
-            <p className={classes.label}>
-              Subject
-              <span>*</span>
-            </p>
-            <CloseIcon
-              className="icon"
-              onClick={() => setSubject("")}
+              onClick={() => setDate("")}
               sx={{ fontSize: 16 }}
             />
           </div>
           <input
             placeholder="..."
             type="text"
-            id="subject"
-            name="subject"
-            onChange={(e) => setSubject(e.target.value)}
-            value={subject}
+            id="date"
+            name="date"
+            onChange={(e) => setDate(e.target.value)}
+            value={date}
             autoComplete="off"
-          ></input>
+            dir="ltr"
+          />
         </div>
       </div>
       <div className={classes.input}>
         <div className={classes.bar}>
           <p className={classes.label}>
-            Message
+            Description
             <span>*</span>
           </p>
           <CloseIcon
             className="icon"
-            onClick={() => setMessage("")}
+            onClick={() => setDescription("")}
             sx={{ fontSize: 16 }}
           />
         </div>
         <textarea
           placeholder="..."
           type="text"
-          id="message"
-          name="message"
-          onChange={(e) => setMessage(e.target.value)}
-          value={message}
+          id="description"
+          name="description"
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
           autoComplete="off"
         ></textarea>
       </div>
