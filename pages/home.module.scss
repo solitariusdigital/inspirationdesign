@@ -3,35 +3,42 @@
 
 .information {
   text-align: center;
-  margin: 100px auto;
-  width: config.$content-width;
-  max-width: config.$max-widthHeigh;
+  margin: auto;
+  background: config.$dark;
+  padding: 100px 0px;
+  color: config.$white;
 
-  @include mixins.mobile {
-    width: calc(100% - 24px);
-  }
-  @include mixins.tabletPortrait {
-    width: config.$content-widthTablet;
-  }
-  @include mixins.tabletLandscape {
-    width: config.$content-widthTablet;
-  }
-
-  h3 {
-    margin-top: 24px;
-    color: config.$grey;
+  .text {
+    margin: auto;
+    width: config.$content-width;
+    max-width: config.$max-widthHeigh;
 
     @include mixins.mobile {
-      width: 100%;
+      width: calc(100% - 24px);
     }
+    @include mixins.tabletPortrait {
+      width: config.$content-widthTablet;
+    }
+    @include mixins.tabletLandscape {
+      width: config.$content-widthTablet;
+    }
+  }
+
+  .light {
+    margin: 12px 0px !important;
   }
 }
 
 .services {
+  position: relative;
   text-align: center;
   background: config.$dark;
   color: config.$white;
   padding: 24px 0px;
+
+  .light {
+    margin-top: 12px !important;
+  }
 
   .infoBox {
     display: grid;
@@ -61,7 +68,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 8px;
+      padding: 0px 8px;
+
+      .light {
+        margin: 8px 0px !important;
+      }
     }
 
     .imageBox {

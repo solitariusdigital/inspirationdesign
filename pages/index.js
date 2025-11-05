@@ -6,6 +6,7 @@ import { NextSeo } from "next-seo";
 import CoverSlider from "@/components/CoverSlider";
 import logoBlack from "@/assets/logo-black.png";
 import Image from "next/legacy/image";
+import Light from "@/components/Light";
 
 export default function Home() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
@@ -114,11 +115,15 @@ export default function Home() {
           <CoverSlider />
         </section>
         <section className={classes.information}>
-          <h1>
-            Designing spaces, light, and systems for healthier, smarter
+          <h1 className={classes.text}>
+            Designing spaces, light and systems for healthier, smarter
             buildings.
           </h1>
+          <div className={classes.light}>
+            <Light timer={500} />
+          </div>
           <h3
+            className={classes.text}
             style={{
               fontFamily: "EnglishExtraLight",
             }}
@@ -129,13 +134,10 @@ export default function Home() {
           </h3>
         </section>
         <section className={classes.services}>
-          <h2
-            style={{
-              fontFamily: "EnglishExtraLight",
-            }}
-          >
-            Expertise
-          </h2>
+          <h2>Expertise</h2>
+          <div className={classes.light}>
+            <Light timer={2000} />
+          </div>
           {expertise.map((service, index) => (
             <div
               key={index}
@@ -146,9 +148,13 @@ export default function Home() {
             >
               <div className={classes.info}>
                 <h3>{service.title}</h3>
+                <div className={classes.light}>
+                  <Light timer={500 * index} />
+                </div>
+
                 <p
                   style={{
-                    fontFamily: "EnglishExtraLight",
+                    fontFamily: "EnglishLight",
                     direction: "ltr",
                   }}
                 >
@@ -172,13 +178,7 @@ export default function Home() {
           ))}
         </section>
         <section className={classes.projects}>
-          <h2
-            style={{
-              fontFamily: "EnglishExtraLight",
-            }}
-          >
-            Projects
-          </h2>
+          <h2>Projects</h2>
           <div className={classes.gridLayout}>
             {gridImages.map((project, index) => (
               <div key={index} className={classes.imageBox}>

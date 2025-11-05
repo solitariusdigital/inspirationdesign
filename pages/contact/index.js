@@ -73,7 +73,7 @@ export default function Contact() {
           <h3>Let's work together</h3>
           <p
             style={{
-              fontFamily: "EnglishExtraLight",
+              fontFamily: "EnglishLight",
             }}
           >
             We welcome inquiries from new and existing clients, job seekers, and
@@ -81,12 +81,7 @@ export default function Contact() {
             please don't hesitate to contact us. We're eager to hear from you.
           </p>
         </div>
-        <div
-          className={classes.contact}
-          style={{
-            fontFamily: "EnglishLight",
-          }}
-        >
+        <div className={classes.contact}>
           <div className={classes.contactBox}>
             <div>
               <h4>Contact us</h4>
