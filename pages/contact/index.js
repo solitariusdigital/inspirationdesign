@@ -23,7 +23,7 @@ export default function Contact() {
   const remainingWords = maxWords - currentWordCount;
 
   const handleSubmit = () => {
-    // if (!name || !email || !message) {
+    // if (!name || !email || !subject || !message) {
     //   showAlert("Required fields *");
     //   return;
     // }
@@ -184,7 +184,10 @@ export default function Contact() {
             </div>
             <div className={classes.input}>
               <div className={classes.bar}>
-                <p className={classes.label}>Subject</p>
+                <p className={classes.label}>
+                  Subject
+                  <span>*</span>
+                </p>
                 <CloseIcon
                   className="icon"
                   onClick={() => setSubject("")}
