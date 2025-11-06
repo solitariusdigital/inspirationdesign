@@ -12,15 +12,21 @@
 .navigation {
   width: 30%;
   height: 40px;
-  border: 1px solid config.$grey;
+  border: 1px solid config.$lightgrey;
   text-transform: capitalize;
   font-size: medium;
-  @include mixins.border-radius(5px);
+  @include mixins.border-radius(50px);
   @include mixins.row-space-between-center();
   justify-content: space-around;
 
   @include mixins.mobile {
-    width: 50%;
+    width: calc(100% - 24px);
+  }
+  @include mixins.tabletPortrait {
+    width: 40%;
+  }
+  @include mixins.tabletLandscape {
+    width: 40%;
   }
 
   .nav {

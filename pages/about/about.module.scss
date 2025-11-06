@@ -6,9 +6,42 @@
   margin-top: 120px;
   margin-bottom: 100px;
 
+  .navigation {
+    width: 40%;
+    height: 40px;
+    border: 1px solid config.$lightgrey;
+    text-transform: capitalize;
+    font-size: medium;
+    margin: auto;
+    @include mixins.border-radius(50px);
+    @include mixins.row-space-between-center();
+    justify-content: space-around;
+
+    @include mixins.mobile {
+      width: calc(100% - 24px);
+    }
+    @include mixins.tabletPortrait {
+      width: 50%;
+    }
+    @include mixins.tabletLandscape {
+      width: 50%;
+    }
+
+    .nav {
+      &:hover {
+        cursor: pointer;
+        color: config.$brand;
+      }
+    }
+
+    .navActive {
+      color: config.$brand;
+    }
+  }
+
   .info {
     text-align: center;
-    margin: 50px 0px;
+    margin-top: 50px;
 
     p {
       width: 60%;
@@ -76,7 +109,6 @@
 }
 
 .publicationLayout {
-  width: 60%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
   gap: 8px;
