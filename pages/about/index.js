@@ -217,7 +217,13 @@ export default function About() {
           <div className={classes.gridLayout}>
             {awards.map((item, index) => (
               <div key={index} className={classes.award}>
-                <h5>{item.year}</h5>
+                <h5
+                  style={{
+                    fontFamily: "EnglishMedium",
+                  }}
+                >
+                  {item.year}
+                </h5>
                 <h5>{item.title}</h5>
               </div>
             ))}

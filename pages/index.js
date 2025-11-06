@@ -190,10 +190,17 @@ export default function Home() {
                   alt={project.title}
                   layout="fill"
                   objectFit="cover"
-                  as="image"
                   priority
                 />
-                <h4>{project.title}</h4>
+                <div className={classes.overlay}>
+                  <h4
+                    style={{
+                      fontFamily: "EnglishLight",
+                    }}
+                  >
+                    {project.title}
+                  </h4>
+                </div>
               </div>
             ))}
           </div>

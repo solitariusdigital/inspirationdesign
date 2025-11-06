@@ -47,26 +47,45 @@ export default function Contact() {
             <div>
               <h4>Contact us</h4>
               <p
+                style={{
+                  fontFamily: "EnglishLight",
+                }}
                 className={classes.phone}
                 onClick={() => window.open(`tel:+16049710270`, "_self")}
               >
                 T 604 971 0270
               </p>
               <p
+                style={{
+                  fontFamily: "EnglishLight",
+                }}
                 className={classes.phone}
                 onClick={() => window.open(`tel:+16043659191`, "_self")}
               >
                 C 604 365 9191
               </p>
-              <p>info@inspirationdesigns.ca</p>
+              <p
+                style={{
+                  fontFamily: "EnglishLight",
+                }}
+              >
+                info@inspirationdesigns.ca
+              </p>
             </div>
             <div>
               <h4>Reach us</h4>
-              <p>
+              <p
+                style={{
+                  fontFamily: "EnglishLight",
+                }}
+              >
                 Harbourfront Business Centre, 500 – 224 West Esplanade North
                 Vancouver V7M 1A4
               </p>
               <p
+                style={{
+                  fontFamily: "EnglishLight",
+                }}
                 className={classes.direction}
                 onClick={() => window.open(headLocationLink)}
               >

@@ -43,9 +43,9 @@
   .infoBox {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-    gap: 8px;
+    gap: 16px;
     align-items: center;
-    margin: 50px auto;
+    margin: 24px auto;
     text-align: left;
     width: config.$content-width;
     max-width: config.$max-widthHeigh;
@@ -103,23 +103,42 @@
     .imageBox {
       position: relative;
       aspect-ratio: 16 / 9;
+      cursor: pointer;
 
       .image {
-        &:hover {
-          @include mixins.background-anime();
-          cursor: pointer;
-        }
+        transition: transform 0.4s ease;
       }
-
-      h4 {
+      .overlay {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.4s ease;
+        @include mixins.transparentBackground(0.4, config.$lightgrey);
+      }
+      .overlay h4 {
         position: absolute;
         z-index: 2;
+        top: 50%;
         left: 50%;
-        bottom: 8px;
-        transform: translateX(-50%);
-        color: config.$white;
+        transform: translate(-50%, -50%);
+        color: config.$black;
         user-select: none;
+        opacity: 0;
+        transition: opacity 0.4s ease;
       }
+    }
+
+    .imageBox:hover .overlay {
+      opacity: 1;
+    }
+    .imageBox:hover .overlay h4 {
+      opacity: 1;
+    }
+    .imageBox:hover .image {
+      transform: scale(1.05);
     }
 
     @include mixins.mobile {
