@@ -9,13 +9,10 @@
   .navigation {
     width: 40%;
     height: 40px;
-    border: 1px solid config.$lightgrey;
     text-transform: capitalize;
     font-size: medium;
     margin: auto;
-    @include mixins.border-radius(50px);
     @include mixins.row-space-between-center();
-    justify-content: space-around;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
@@ -36,6 +33,7 @@
 
     .navActive {
       color: config.$brand;
+      border-bottom: 1px solid config.$brand;
     }
   }
 

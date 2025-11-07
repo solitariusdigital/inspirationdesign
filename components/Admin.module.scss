@@ -10,23 +10,21 @@
 }
 
 .navigation {
-  width: 30%;
+  width: 20%;
   height: 40px;
-  border: 1px solid config.$lightgrey;
   text-transform: capitalize;
   font-size: medium;
-  @include mixins.border-radius(50px);
+  margin: auto;
   @include mixins.row-space-between-center();
-  justify-content: space-around;
 
   @include mixins.mobile {
-    width: calc(100% - 24px);
+    width: 40%;
   }
   @include mixins.tabletPortrait {
-    width: 40%;
+    width: 30%;
   }
   @include mixins.tabletLandscape {
-    width: 40%;
+    width: 30%;
   }
 
   .nav {
@@ -38,5 +36,6 @@
 
   .navActive {
     color: config.$brand;
+    border-bottom: 1px solid config.$brand;
   }
 }
