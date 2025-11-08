@@ -76,9 +76,11 @@ export default function RootLayout({ children }) {
             fontFamily: "EnglishLight",
           }}
         >
-          <section className="menu">
-            <Menu />
-          </section>
+          {menuDisplay && (
+            <section className="menu animate__animated animate__slideInDown">
+              <Menu />
+            </section>
+          )}
           <section className="main">
             <main>{children}</main>
           </section>

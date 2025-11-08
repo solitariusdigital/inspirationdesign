@@ -298,7 +298,7 @@ export default function About() {
             <div className={classes.publicationLayout}>
               {publications.map((item, index) => (
                 <div key={index} className={classes.publication}>
-                  <h5>{item}</h5>
+                  <p>{item}</p>
                   <CircleOutlinedIcon sx={{ fontSize: 12 }} />
                 </div>
               ))}

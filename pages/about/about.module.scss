@@ -127,9 +127,12 @@
     flex-direction: row-reverse;
     text-align: left;
     align-items: flex-start;
+    margin-bottom: 8px;
 
-    h5 {
-      margin-left: 8px;
+    p {
+      width: 100%;
+      margin: 0px;
+      margin-left: 4px;
     }
   }
 }
