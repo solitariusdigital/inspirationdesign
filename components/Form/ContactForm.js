@@ -1,15 +1,27 @@
-import { useState, useContext, Fragment } from "react";
+import { useState, useContext, useEffect } from "react";
 import classes from "./Form.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
+import Image from "next/legacy/image";
+import loading from "@/assets/loading.png";
+import { validateEmail } from "@/services/utility";
+import db from "@/services/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  doc,
+  deleteDoc,
+} from "@firebase/firestore";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
   const [phone, setPhone] = useState("");
+  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [alert, setAlert] = useState("");
   const [notification, setNotification] = useState(false);
+  const [disableButton, setDisableButton] = useState(false);
 
   const maxWords = 150;
   const currentWordCount = message.trim()
@@ -17,20 +29,61 @@ export default function ContactForm() {
     : 0;
   const remainingWords = maxWords - currentWordCount;
 
-  const handleSubmit = () => {
-    // if (!name || !email || !subject || !message) {
-    //   showAlert("Required fields *");
-    //   return;
-    // }
-    // if (!validateEmail(email)) {
-    //   showAlert("Invalid email");
-    //   return;
-    // }
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(collection(db, "inquiry"));
+      const data = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      console.log(data);
+    };
 
-    setNotification(true);
-    setTimeout(() => {
-      setNotification(false);
-    }, 5000);
+    fetchData();
+  }, []);
+
+  const handleDelete = async (id) => {
+    const docRef = doc(db, "inquiry", id);
+    await deleteDoc(docRef);
+  };
+
+  const handleSubmit = async () => {
+    if (!name || !email || !phone || !subject || !message) {
+      showAlert("All fields Required");
+      setDisableButton(false);
+      return;
+    }
+    if (!validateEmail(email)) {
+      showAlert("Invalid email");
+      setDisableButton(false);
+      return;
+    }
+    setDisableButton(true);
+    try {
+      const docRef = await addDoc(collection(db, "inquiry"), {
+        name: name.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        subject: subject.trim(),
+        message: message.trim(),
+        createdAt: new Date().toISOString(),
+      });
+      if (docRef.id) {
+        setDisableButton(false);
+        setNotification(true);
+        setName("");
+        setEmail("");
+        setPhone("");
+        setSubject("");
+        setMessage("");
+        setTimeout(() => {
+          setNotification(false);
+        }, 5000);
+      }
+    } catch (error) {
+      console.error("Error adding document:", error);
+      showAlert("Failed to send. Please try again later.");
+    }
   };
 
   const showAlert = (message) => {
@@ -97,7 +150,10 @@ export default function ContactForm() {
         </div>
         <div className={classes.input}>
           <div className={classes.bar}>
-            <p className={classes.label}>Phone</p>
+            <p className={classes.label}>
+              Phone
+              <span>*</span>
+            </p>
             <CloseIcon
               className="icon"
               onClick={() => setPhone("")}
@@ -168,7 +224,13 @@ export default function ContactForm() {
         {!notification ? (
           <>
             <p className={classes.alert}>{alert}</p>
-            <button onClick={() => handleSubmit()}>Submit</button>
+            {!disableButton ? (
+              <button disabled={disableButton} onClick={() => handleSubmit()}>
+                Submit
+              </button>
+            ) : (
+              <Image width={50} height={50} src={loading} alt="isLoading" />
+            )}
           </>
         ) : (
           <h5 className={classes.notification}>
