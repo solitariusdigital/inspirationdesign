@@ -63,20 +63,20 @@ export default function Home() {
     {
       title: "Building & Interior Design",
       description:
-        "Inspiration Design is a turnkey design firm, specializing icreative designs for residential and commercial projects, with exclusive construction management for new buildings and renovations.",
+        "We offer unified Building and Interior Design services, developing the structure and inner space in seamless coordination. We design spaces that are structurally sound and code-compliant, prioritizing client vision and user well-being. The outcome is a high-quality, impactful built environment where interiors and architecture exist in perfect harmony.",
       link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/1.jpg",
     },
     {
       title: "Lighting Design",
       description:
-        "Inspiration Design is a turnkey design firm, specializing icreative designs for residential and commercial projects, with exclusive construction management for new buildings and renovations.",
+        "We create intentional lighting environments that enhance architecture and human experience. Our work balances artistic vision with technical precision, carefully specifying light quality, fixtures, and controls. We prioritize developing sustainable, energy-efficient schemes, translating light into a functional and emotive layer that reveals the full potential of the space.",
       link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/9.jpg",
     },
     {
-      title: "LFS Construction",
+      title: "Light Steel Framing",
       description:
-        "Inspiration Design is a turnkey design firm, specializing icreative designs for residential and commercial projects, with exclusive construction management for new buildings and renovations.",
-      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/7.jpg",
+        "We specialize in LSF, offering a precise, efficient, and modern construction method. LSF uses pre-fabricated, cold-formed steel components for rapid on-site assembly. This framing is lightweight, non-combustible, and provides superior durability over wood, ensuring faster project completion and long-term quality.",
+      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/LFS-construction.jpg",
     },
   ];
 

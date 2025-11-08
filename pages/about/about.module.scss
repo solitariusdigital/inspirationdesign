@@ -71,7 +71,7 @@
   max-width: config.$max-widthHeigh;
 
   @include mixins.mobile {
-    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
     width: calc(100% - 24px);
   }
   @include mixins.tabletPortrait {
@@ -83,9 +83,9 @@
 
   .item {
     padding: 8px;
-    height: fit-content;
+    height: 50px;
     text-align: left;
-    border: 1px solid config.$grey;
+    border: 1px solid config.$lightgrey;
     @include mixins.border-radius(5px);
     @include mixins.row-space-between-center();
 
@@ -99,7 +99,7 @@
   .award {
     padding: 8px;
     height: fit-content;
-    border: 1px solid config.$grey;
+    border: 1px solid config.$lightgrey;
     text-align: left;
     @include mixins.border-radius(5px);
   }
