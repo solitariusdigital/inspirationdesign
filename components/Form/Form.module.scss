@@ -93,7 +93,6 @@
     margin-top: 16px;
     background: config.$dark;
     color: config.$white;
-    @include mixins.border-radius(5px);
 
     @include mixins.mobile {
       width: 100%;

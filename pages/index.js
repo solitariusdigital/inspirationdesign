@@ -73,8 +73,8 @@ export default function Home() {
       description:
         "We create intentional lighting environments that enhance architecture and human experience. Our work balances artistic vision with technical precision, carefully specifying light quality, fixtures, and controls. We prioritize developing sustainable, energy-efficient schemes, translating light into a functional and emotive layer that reveals the full potential of the space.",
       link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/5.png",
-      objectFit: "contain",
-      aspectRatio: 4 / 3,
+      objectFit: "cover",
+      aspectRatio: 3 / 4,
     },
     {
       title: "Light Steel Framing",
