@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
     let prevScrollY = window.scrollY;
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY <= 250) {
+      if (currentScrollY <= 0) {
         setMenuDisplay(true);
       } else if (currentScrollY > prevScrollY) {
         setMenuDisplay(false);
@@ -73,7 +73,7 @@ export default function RootLayout({ children }) {
       {appLoader ? (
         <div
           style={{
-            fontFamily: "English",
+            fontFamily: "EnglishLight",
           }}
         >
           <section className="menu">

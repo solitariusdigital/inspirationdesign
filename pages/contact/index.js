@@ -31,12 +31,14 @@ export default function Contact() {
       />
       <div className={classes.container}>
         <div className={classes.text}>
-          <h3>Let's work together</h3>
-          <p
+          <h3
             style={{
-              fontFamily: "EnglishLight",
+              fontFamily: "English",
             }}
           >
+            Let's work together
+          </h3>
+          <p>
             We welcome inquiries from new and existing clients, job seekers, and
             anyone who wants to connect. If you have a unique project in mind,
             please don't hesitate to contact us. We're eager to hear from you.
@@ -45,47 +47,40 @@ export default function Contact() {
         <div className={classes.contact}>
           <div className={classes.contactBox}>
             <div>
-              <h4>Contact us</h4>
-              <p
+              <h4
                 style={{
-                  fontFamily: "EnglishLight",
+                  fontFamily: "English",
                 }}
+              >
+                Contact us
+              </h4>
+              <p
                 className={classes.phone}
                 onClick={() => window.open(`tel:+16049710270`, "_self")}
               >
                 T 604 971 0270
               </p>
               <p
-                style={{
-                  fontFamily: "EnglishLight",
-                }}
                 className={classes.phone}
                 onClick={() => window.open(`tel:+16043659191`, "_self")}
               >
                 C 604 365 9191
               </p>
-              <p
-                style={{
-                  fontFamily: "EnglishLight",
-                }}
-              >
-                info@inspirationdesigns.ca
-              </p>
+              <p>info@inspirationdesigns.ca</p>
             </div>
             <div>
-              <h4>Reach us</h4>
-              <p
+              <h4
                 style={{
-                  fontFamily: "EnglishLight",
+                  fontFamily: "English",
                 }}
               >
+                Reach us
+              </h4>
+              <p>
                 Harbourfront Business Centre, 500 – 224 West Esplanade North
                 Vancouver V7M 1A4
               </p>
               <p
-                style={{
-                  fontFamily: "EnglishLight",
-                }}
                 className={classes.direction}
                 onClick={() => window.open(headLocationLink)}
               >

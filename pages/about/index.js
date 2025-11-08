@@ -146,21 +146,19 @@ export default function About() {
         {pageType === "company" && (
           <>
             <div className={classes.info}>
-              <h3>Turnkey Creative Solutions</h3>
-              <p
+              <h3
                 style={{
-                  fontFamily: "EnglishLight",
+                  fontFamily: "English",
                 }}
               >
+                Turnkey Creative Solutions
+              </h3>
+              <p>
                 Inspiration Design is a turnkey design firm founded in 2006,
                 providing creative design and exclusive construction management
                 for residential and commercial renovations and new builds.
               </p>
-              <p
-                style={{
-                  fontFamily: "EnglishLight",
-                }}
-              >
+              <p>
                 The firm has grown into a full-service provider offering
                 building design, interior design and lighting design.
                 Inspiration Design has successfully completed over 40 diverse
@@ -168,11 +166,7 @@ export default function About() {
                 working closely with top international architects, designers,
                 and builders.
               </p>
-              <p
-                style={{
-                  fontFamily: "EnglishLight",
-                }}
-              >
+              <p>
                 Founder Parastoo Jafari drives the firm with her comprehensive
                 experience as a building designer with advanced education in
                 architecture and engineering. She holds a Master's degree from
@@ -184,33 +178,27 @@ export default function About() {
               </p>
             </div>
             <div className={classes.info}>
-              <h3>Experience & Design Philosophy</h3>
-              <p
+              <h3
                 style={{
-                  fontFamily: "EnglishLight",
+                  fontFamily: "English",
                 }}
               >
+                Experience & Design Philosophy
+              </h3>
+              <p>
                 Inspiration Design has a privileged history of working on
                 diverse international projects, including prestigious
                 commissions for Royal families and European Embassies in the
                 Middle East, along with high-end houses in West Vancouver.
               </p>
-              <p
-                style={{
-                  fontFamily: "EnglishLight",
-                }}
-              >
+              <p>
                 Our work balances a contemporary vision with the client's
                 requested aesthetic, covering a vast range of architectural
                 styles. We prioritize understanding and meeting client aesthetic
                 and operational objectives while strictly adhering to budget and
                 schedule, which has helped us maintain an extensive client base.
               </p>
-              <p
-                style={{
-                  fontFamily: "EnglishLight",
-                }}
-              >
+              <p>
                 We view our profession as both art and science. We are committed
                 to building healthier structures using advanced construction
                 knowledge and technology. We achieve this by consciously
@@ -221,22 +209,20 @@ export default function About() {
               </p>
             </div>
             <div className={classes.info}>
-              <h3>Full-Service Architectural Expertise</h3>
-              <p
+              <h3
                 style={{
-                  fontFamily: "EnglishLight",
+                  fontFamily: "English",
                 }}
               >
+                Full-Service Architectural Expertise
+              </h3>
+              <p>
                 Inspiration Design is dedicated to utilizing the latest
                 technologies and materials in the field. The company is led by
                 founder Parastoo Jafari, who holds a PhD in Architecture and the
                 CACB certification.
               </p>
-              <p
-                style={{
-                  fontFamily: "EnglishLight",
-                }}
-              >
+              <p>
                 Dr. Jafari ensures the firm remains current with advancements
                 through active membership in professional organizations,
                 including RAIC (Royal Architectural Institute of Canada), IDIBC,
@@ -258,7 +244,13 @@ export default function About() {
         )}
         {pageType === "testimonials" && (
           <div className={classes.info}>
-            <h3>Testimonials</h3>
+            <h3
+              style={{
+                fontFamily: "English",
+              }}
+            >
+              Testimonials
+            </h3>
             <div className={classes.gridLayout}>
               {testimonials.map((item, index) => (
                 <div key={index} className={classes.item}>
@@ -271,7 +263,13 @@ export default function About() {
         )}
         {pageType === "awards" && (
           <div className={classes.info}>
-            <h3>Awards</h3>
+            <h3
+              style={{
+                fontFamily: "English",
+              }}
+            >
+              Awards
+            </h3>
             <div className={classes.gridLayout}>
               {awards.map((item, index) => (
                 <div key={index} className={classes.award}>
@@ -290,7 +288,13 @@ export default function About() {
         )}
         {pageType === "publications" && (
           <div className={classes.info}>
-            <h3>Publications</h3>
+            <h3
+              style={{
+                fontFamily: "English",
+              }}
+            >
+              Publications
+            </h3>
             <div className={classes.publicationLayout}>
               {publications.map((item, index) => (
                 <div key={index} className={classes.publication}>

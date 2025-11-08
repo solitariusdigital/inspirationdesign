@@ -41,9 +41,7 @@ export default function Menu() {
     <>
       {menuDisplay && (
         <div
-          className={`${classes.container} ${
-            fullSizeScreen ? "animate__animated animate__slideInDown" : ""
-          }`}
+          className={`${classes.container} animate__animated animate__slideInDown`}
         >
           <div className={classes.logo}>
             <Link href="/" passHref>

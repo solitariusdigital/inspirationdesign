@@ -42,7 +42,13 @@ export default function ContactForm() {
 
   return (
     <div className={classes.formBox}>
-      <h4>Submit your inquiry</h4>
+      <h4
+        style={{
+          fontFamily: "English",
+        }}
+      >
+        Submit your inquiry
+      </h4>
       <div className={classes.form}>
         <div className={classes.input}>
           <div className={classes.bar}>

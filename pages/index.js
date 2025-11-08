@@ -115,7 +115,12 @@ export default function Home() {
           <CoverSlider />
         </section>
         <section className={classes.information}>
-          <h1 className={classes.text}>
+          <h1
+            className={classes.text}
+            style={{
+              fontFamily: "English",
+            }}
+          >
             Designing spaces, light and systems for healthier, smarter
             buildings.
           </h1>
@@ -134,7 +139,13 @@ export default function Home() {
           </h3>
         </section>
         <section className={classes.services}>
-          <h2>Expertise</h2>
+          <h2
+            style={{
+              fontFamily: "English",
+            }}
+          >
+            Expertise
+          </h2>
           <div className={classes.light}>
             <Light timer={2000} />
           </div>
@@ -147,14 +158,19 @@ export default function Home() {
               }}
             >
               <div className={classes.info}>
-                <h3>{service.title}</h3>
+                <h3
+                  style={{
+                    fontFamily: "English",
+                  }}
+                >
+                  {service.title}
+                </h3>
                 <div className={classes.light}>
                   <Light timer={500 * index} />
                 </div>
 
                 <p
                   style={{
-                    fontFamily: "EnglishLight",
                     direction: "ltr",
                   }}
                 >
@@ -178,7 +194,13 @@ export default function Home() {
           ))}
         </section>
         <section className={classes.projects}>
-          <h2>Projects</h2>
+          <h2
+            style={{
+              fontFamily: "English",
+            }}
+          >
+            Projects
+          </h2>
           <div className={classes.gridLayout}>
             {gridImages.map((project, index) => (
               <div key={index} className={classes.imageBox}>
@@ -193,13 +215,7 @@ export default function Home() {
                   priority
                 />
                 <div className={classes.overlay}>
-                  <h4
-                    style={{
-                      fontFamily: "EnglishLight",
-                    }}
-                  >
-                    {project.title}
-                  </h4>
+                  <h4>{project.title}</h4>
                 </div>
               </div>
             ))}

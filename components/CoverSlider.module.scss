@@ -10,17 +10,19 @@
     position: relative;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
     cursor: pointer;
+    aspect-ratio: 4 / 3;
 
     .image {
-      object-position: 50% 10%;
+      object-position: 50% 0%;
     }
 
     @include mixins.desktop {
+      aspect-ratio: 16 / 9;
       height: 100dvh;
     }
     @include mixins.fourK {
+      aspect-ratio: 16 / 9;
       height: 100dvh;
     }
   }
