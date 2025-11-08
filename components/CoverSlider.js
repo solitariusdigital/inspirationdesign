@@ -3,9 +3,10 @@ import { StateContext } from "@/context/stateContext";
 import classes from "./CoverSlider.module.scss";
 import Image from "next/legacy/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/effect-fade";
 
 export default function CoverSlider() {
   const { screenSize, setScreenSize } = useContext(StateContext);
@@ -13,18 +14,23 @@ export default function CoverSlider() {
 
   const covers = [
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2017/12/1.jpg",
-      title: "Project",
+      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/1.jpg",
+      title: "Chinatown Millennium Gate",
       type: "image",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
-      title: "Project",
+      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/2.jpg",
+      title: "Chinatown Millennium Gate",
       type: "image",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider01-2.jpg",
-      title: "Project",
+      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/3.jpg",
+      title: "Chinatown Millennium Gate",
+      type: "image",
+    },
+    {
+      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/4.jpg",
+      title: "Chinatown Millennium Gate",
       type: "image",
     },
   ];
@@ -42,10 +48,11 @@ export default function CoverSlider() {
         navigation={true}
         loop={true}
         autoplay={{
-          delay: 5000,
+          delay: 2000,
           disableOnInteraction: false,
         }}
-        modules={[Navigation, Autoplay]}
+        effect="fade"
+        modules={[Navigation, Autoplay, EffectFade]}
         onSlideChange={updateIndex}
       >
         {covers
@@ -58,6 +65,7 @@ export default function CoverSlider() {
               >
                 {project.type === "image" ? (
                   <Image
+                    className={classes.image}
                     src={project.link}
                     blurDataURL={project.link}
                     placeholder="blur"

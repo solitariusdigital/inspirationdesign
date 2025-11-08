@@ -13,6 +13,10 @@
     aspect-ratio: 16 / 9;
     cursor: pointer;
 
+    .image {
+      object-position: 50% 10%;
+    }
+
     @include mixins.desktop {
       height: 100dvh;
     }

@@ -64,19 +64,19 @@ export default function Home() {
       title: "Building & Interior Design",
       description:
         "Inspiration Design is a turnkey design firm, specializing icreative designs for residential and commercial projects, with exclusive construction management for new buildings and renovations.",
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/1.jpg",
     },
     {
       title: "Lighting Design",
       description:
         "Inspiration Design is a turnkey design firm, specializing icreative designs for residential and commercial projects, with exclusive construction management for new buildings and renovations.",
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/9.jpg",
     },
     {
       title: "LFS Construction",
       description:
         "Inspiration Design is a turnkey design firm, specializing icreative designs for residential and commercial projects, with exclusive construction management for new buildings and renovations.",
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/7.jpg",
     },
   ];
 

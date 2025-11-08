@@ -11,6 +11,11 @@ const nextConfig = {
         hostname: "inspirationdesigns.ca",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "cloudstorage.storage.iran.liara.space",
+        pathname: "**",
+      },
     ],
   },
 };
