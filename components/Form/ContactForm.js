@@ -36,7 +36,7 @@ export default function ContactForm() {
         ...doc.data(),
         id: doc.id,
       }));
-      console.log(data);
+      console.log(data, "data fetched");
     };
 
     fetchData();
