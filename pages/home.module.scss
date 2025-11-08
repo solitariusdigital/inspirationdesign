@@ -35,6 +35,7 @@
   background: config.$dark;
   color: config.$white;
   padding: 24px 0px;
+  padding-bottom: 120px;
 
   .light {
     margin-top: 12px !important;
@@ -46,9 +47,12 @@
     gap: 16px;
     align-items: center;
     margin: 24px auto;
-    text-align: left;
     width: config.$content-width;
     max-width: config.$max-widthHeigh;
+
+    p {
+      text-align: left;
+    }
 
     @include mixins.mobile {
       display: flex;
@@ -63,12 +67,11 @@
     }
 
     .info {
-      width: 100%;
+      width: 95%;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0px 8px;
 
       .light {
         margin: 8px 0px !important;
@@ -78,7 +81,6 @@
     .imageBox {
       width: 100%;
       position: relative;
-      aspect-ratio: 16 / 9;
 
       .image {
         &:hover {

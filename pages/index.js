@@ -64,19 +64,25 @@ export default function Home() {
       title: "Building & Interior Design",
       description:
         "We offer unified Building and Interior Design services, developing the structure and inner space in seamless coordination. We design spaces that are structurally sound and code-compliant, prioritizing client vision and user well-being. The outcome is a high-quality, impactful built environment where interiors and architecture exist in perfect harmony.",
-      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/1.jpg",
+      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/10.jpg",
+      objectFit: "cover",
+      aspectRatio: 16 / 9,
     },
     {
       title: "Lighting Design",
       description:
         "We create intentional lighting environments that enhance architecture and human experience. Our work balances artistic vision with technical precision, carefully specifying light quality, fixtures, and controls. We prioritize developing sustainable, energy-efficient schemes, translating light into a functional and emotive layer that reveals the full potential of the space.",
-      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/9.jpg",
+      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/5.png",
+      objectFit: "contain",
+      aspectRatio: 4 / 3,
     },
     {
       title: "Light Steel Framing",
       description:
         "We specialize in LSF, offering a precise, efficient, and modern construction method. LSF uses pre-fabricated, cold-formed steel components for rapid on-site assembly. This framing is lightweight, non-combustible, and provides superior durability over wood, ensuring faster project completion and long-term quality.",
       link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/LFS-construction.jpg",
+      objectFit: "cover",
+      aspectRatio: 16 / 9,
     },
   ];
 
@@ -168,7 +174,6 @@ export default function Home() {
                 <div className={classes.light}>
                   <Light timer={500 * index} />
                 </div>
-
                 <p
                   style={{
                     direction: "ltr",
@@ -177,7 +182,10 @@ export default function Home() {
                   {service.description}
                 </p>
               </div>
-              <div className={classes.imageBox}>
+              <div
+                className={classes.imageBox}
+                style={{ aspectRatio: service.aspectRatio }}
+              >
                 <Image
                   className={classes.image}
                   src={service.link}
@@ -185,7 +193,7 @@ export default function Home() {
                   placeholder="blur"
                   alt={service.title}
                   layout="fill"
-                  objectFit="contain"
+                  objectFit={service.objectFit}
                   as="image"
                   priority
                 />

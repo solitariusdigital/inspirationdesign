@@ -4,7 +4,7 @@ export default function Light({
   color = "#f9f1b6ff",
   height = 1,
   border = true,
-  duration = 8000,
+  duration = 9000,
   tailWidth = 20,
   timer = 0,
 }) {
