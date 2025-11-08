@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import classes from "./Form.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/legacy/image";
-import loading from "@/assets/loading.png";
+import loading from "@/assets/loading.svg";
 import { validateEmail } from "@/services/utility";
 import db from "@/services/firestore";
 import {
