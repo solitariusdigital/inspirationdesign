@@ -91,7 +91,7 @@ export default function CoverSlider() {
           ))}
       </Swiper>
       <div className={classes.information}>
-        {screenSize !== "mobile" && <h4>{covers[current].title}</h4>}
+        <h4>{covers[current].title}</h4>
       </div>
     </div>
   );

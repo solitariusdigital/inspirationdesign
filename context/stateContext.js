@@ -19,13 +19,13 @@ export const StateProvider = (props) => {
       active: false,
     },
     {
-      title: "News",
-      link: "/news",
+      title: "Contact",
+      link: "/contact",
       active: false,
     },
     {
-      title: "Contact",
-      link: "/contact",
+      title: "News",
+      link: "/news",
       active: false,
     },
   ]);

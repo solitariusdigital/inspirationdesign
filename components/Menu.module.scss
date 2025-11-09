@@ -32,7 +32,7 @@
     padding: 8px 0px;
     display: flex;
     flex-direction: column;
-    @include mixins.transparentBackground(0.05, config.$dark);
+    @include mixins.transparentBackground(0.1, config.$dark);
 
     .nav {
       color: config.$white;
