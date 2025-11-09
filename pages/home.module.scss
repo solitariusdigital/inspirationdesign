@@ -35,7 +35,7 @@
   background: config.$dark;
   color: config.$white;
   padding: 24px 0px;
-  padding-bottom: 110px;
+  padding-bottom: 120px;
 
   @include mixins.mobile {
     padding-bottom: 90px;
