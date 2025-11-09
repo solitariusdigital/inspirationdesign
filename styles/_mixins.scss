@@ -64,10 +64,12 @@ $screen-fourK: 6000px;
   color: config.$black;
   outline: none;
   border: 1px solid config.$grey;
+  background: config.$background;
   font-family: "English";
 
   &:focus {
     outline: none;
+    background: config.$background;
     border: 1px solid config.$brand;
   }
 }
