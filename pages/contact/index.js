@@ -40,7 +40,7 @@ export default function Contact() {
           </h3>
           <p>
             We welcome inquiries from new and existing clients and anyone who
-            wants to design. If you have a unique project in mind, please don't
+            wants to connect. If you have a unique project in mind, please don't
             hesitate to contact us. We're eager to design your next home or
             space.
           </p>

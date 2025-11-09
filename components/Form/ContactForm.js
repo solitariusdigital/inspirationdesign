@@ -1,6 +1,5 @@
 import { useState, useContext, useEffect } from "react";
 import classes from "./Form.module.scss";
-import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/legacy/image";
 import loading from "@/assets/loading.svg";
 import { validateEmail } from "@/services/utility";
@@ -100,7 +99,7 @@ export default function ContactForm() {
           fontFamily: "English",
         }}
       >
-        Submit your inquiry
+        Send your inquiry
       </h4>
       <div className={classes.form}>
         <div className={classes.input}>
@@ -109,11 +108,6 @@ export default function ContactForm() {
               Name
               <span>*</span>
             </p>
-            <CloseIcon
-              className="icon"
-              onClick={() => setName("")}
-              sx={{ fontSize: 16 }}
-            />
           </div>
           <input
             type="text"
@@ -130,11 +124,6 @@ export default function ContactForm() {
               Email
               <span>*</span>
             </p>
-            <CloseIcon
-              className="icon"
-              onClick={() => setEmail("")}
-              sx={{ fontSize: 16 }}
-            />
           </div>
           <input
             type="email"
@@ -152,11 +141,6 @@ export default function ContactForm() {
               Phone
               <span>*</span>
             </p>
-            <CloseIcon
-              className="icon"
-              onClick={() => setPhone("")}
-              sx={{ fontSize: 16 }}
-            />
           </div>
           <input
             type="tel"
@@ -174,11 +158,6 @@ export default function ContactForm() {
               Subject
               <span>*</span>
             </p>
-            <CloseIcon
-              className="icon"
-              onClick={() => setSubject("")}
-              sx={{ fontSize: 16 }}
-            />
           </div>
           <input
             type="text"
@@ -196,11 +175,6 @@ export default function ContactForm() {
             Message
             <span>*</span>
           </p>
-          <CloseIcon
-            className="icon"
-            onClick={() => setMessage("")}
-            sx={{ fontSize: 16 }}
-          />
         </div>
         <textarea
           type="text"
@@ -221,7 +195,7 @@ export default function ContactForm() {
             <p className={classes.alert}>{alert}</p>
             {!disableButton ? (
               <button disabled={disableButton} onClick={() => handleSubmit()}>
-                Submit
+                Send
               </button>
             ) : (
               <Image width={50} height={50} src={loading} alt="isLoading" />
