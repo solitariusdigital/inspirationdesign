@@ -106,6 +106,16 @@
           linear-gradient(config.$black, config.$black),
           linear-gradient(config.$white, config.$white);
         animation: rotate 25s linear infinite;
+        transform-origin: center center;
+        will-change: transform;
+      }
+      @include mixins.mobile {
+        .imageBox::before {
+          left: -25%;
+          top: -25%;
+          width: 150%;
+          height: 150%;
+        }
       }
       .imageWrapper {
         position: relative;
