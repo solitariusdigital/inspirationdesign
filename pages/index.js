@@ -186,17 +186,18 @@ export default function Home() {
                 className={classes.imageBox}
                 style={{ aspectRatio: service.aspectRatio }}
               >
-                <Image
-                  className={classes.image}
-                  src={service.link}
-                  blurDataURL={service.link}
-                  placeholder="blur"
-                  alt={service.title}
-                  layout="fill"
-                  objectFit={service.objectFit}
-                  as="image"
-                  priority
-                />
+                <div className={classes.imageWrapper}>
+                  <Image
+                    className={classes.image}
+                    src={service.link}
+                    blurDataURL={service.link}
+                    placeholder="blur"
+                    alt={service.title}
+                    layout="fill"
+                    objectFit={service.objectFit}
+                    priority
+                  />
+                </div>
               </div>
             </div>
           ))}

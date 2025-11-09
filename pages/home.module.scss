@@ -84,30 +84,44 @@
     }
 
     .imageBox {
-      position: relative;
       width: 100%;
-      border: 1px solid transparent;
-      background: linear-gradient(config.$black, config.$black) padding-box,
-        linear-gradient(120deg, config.$black, config.$white, config.$black)
-          border-box;
-      background-size: 200% 100%;
-      animation: shimmer 10s linear infinite;
+      position: relative;
+      z-index: 0;
+      padding: 1px;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        background-repeat: no-repeat;
+        background-size: 50% 50%;
+        background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+        background-image: linear-gradient(config.$black, config.$black),
+          linear-gradient(config.$white, config.$white),
+          linear-gradient(config.$black, config.$black),
+          linear-gradient(config.$white, config.$white);
+        animation: rotate 25s linear infinite;
+      }
+      .imageWrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .image {
+        position: relative !important;
+        z-index: 1;
+      }
     }
 
-    @keyframes shimmer {
-      0% {
-        background-position: 200% 0;
-      }
+    @keyframes rotate {
       100% {
-        background-position: -200% 0;
-      }
-    }
-
-    .image {
-      user-select: none;
-
-      &:hover {
-        cursor: pointer;
+        transform: rotate(1turn);
       }
     }
   }
