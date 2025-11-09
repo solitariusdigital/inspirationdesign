@@ -90,6 +90,7 @@
 
       .image {
         border: 1px solid config.$white;
+        user-select: none;
 
         &:hover {
           cursor: pointer;
@@ -117,6 +118,7 @@
 
       .image {
         transition: transform 0.4s ease;
+        user-select: none;
       }
       .overlay {
         position: absolute;

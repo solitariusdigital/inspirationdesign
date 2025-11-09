@@ -61,6 +61,8 @@
       }
 
       .phone {
+        width: fit-content;
+
         &:hover {
           color: config.$brand;
           cursor: pointer;

@@ -16,6 +16,7 @@
   font-size: medium;
   margin: auto;
   @include mixins.row-space-between-center();
+  user-select: none;
 
   @include mixins.mobile {
     width: 40%;

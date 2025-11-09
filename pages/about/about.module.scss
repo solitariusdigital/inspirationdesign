@@ -13,6 +13,8 @@
     font-size: medium;
     margin: auto;
     @include mixins.row-space-between-center();
+    max-width: config.$max-widthHeigh;
+    user-select: none;
 
     @include mixins.mobile {
       width: calc(100% - 24px);

@@ -116,7 +116,6 @@ export default function ContactForm() {
             />
           </div>
           <input
-            placeholder="..."
             type="text"
             id="name"
             name="name"
@@ -138,7 +137,6 @@ export default function ContactForm() {
             />
           </div>
           <input
-            placeholder="..."
             type="email"
             id="email"
             name="email"
@@ -161,7 +159,6 @@ export default function ContactForm() {
             />
           </div>
           <input
-            placeholder="..."
             type="tel"
             id="phone"
             name="phone"
@@ -184,7 +181,6 @@ export default function ContactForm() {
             />
           </div>
           <input
-            placeholder="..."
             type="text"
             id="subject"
             name="subject"
@@ -207,7 +203,6 @@ export default function ContactForm() {
           />
         </div>
         <textarea
-          placeholder="..."
           type="text"
           id="message"
           name="message"

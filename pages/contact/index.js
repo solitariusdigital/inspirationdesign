@@ -36,12 +36,13 @@ export default function Contact() {
               fontFamily: "English",
             }}
           >
-            Let's work together
+            Let's Design Together
           </h3>
           <p>
-            We welcome inquiries from new and existing clients, job seekers, and
-            anyone who wants to connect. If you have a unique project in mind,
-            please don't hesitate to contact us. We're eager to hear from you.
+            We welcome inquiries from new and existing clients and anyone who
+            wants to design. If you have a unique project in mind, please don't
+            hesitate to contact us. We're eager to design your next home or
+            space.
           </p>
         </div>
         <div className={classes.contact}>

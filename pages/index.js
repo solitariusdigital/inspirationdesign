@@ -2,10 +2,10 @@
 import { useState, useEffect, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./home.module.scss";
+import Image from "next/legacy/image";
 import { NextSeo } from "next-seo";
 import CoverSlider from "@/components/CoverSlider";
 import logoBlack from "@/assets/logo-black.png";
-import Image from "next/legacy/image";
 import Light from "@/components/Light";
 
 export default function Home() {
