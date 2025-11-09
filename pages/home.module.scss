@@ -85,6 +85,7 @@
 
     .imageBox {
       width: 100%;
+      height: 100%;
       position: relative;
       z-index: 0;
       padding: 1px;
@@ -109,18 +110,10 @@
         transform-origin: center center;
         will-change: transform;
       }
-      @include mixins.mobile {
-        .imageBox::before {
-          left: -25%;
-          top: -25%;
-          width: 150%;
-          height: 150%;
-        }
-      }
       .imageWrapper {
         position: relative;
         width: 100%;
-        height: 100%;
+        height: 100% !important;
         overflow: hidden;
       }
       .image {
