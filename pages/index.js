@@ -152,9 +152,9 @@ export default function Home() {
           >
             Expertise
           </h2>
-          {/* <div className={classes.light}>
+          <div className={classes.light}>
             <Light timer={2000} />
-          </div> */}
+          </div>
           {expertise.map((service, index) => (
             <div
               key={index}
@@ -186,18 +186,16 @@ export default function Home() {
                 className={classes.imageBox}
                 style={{ aspectRatio: service.aspectRatio }}
               >
-                <div className={classes.imageWrapper}>
-                  <Image
-                    className={classes.image}
-                    src={service.link}
-                    blurDataURL={service.link}
-                    placeholder="blur"
-                    alt={service.title}
-                    layout="fill"
-                    objectFit={service.objectFit}
-                    priority
-                  />
-                </div>
+                <Image
+                  className={classes.image}
+                  src={service.link}
+                  blurDataURL={service.link}
+                  placeholder="blur"
+                  alt={service.title}
+                  layout="fill"
+                  objectFit={service.objectFit}
+                  priority
+                />
               </div>
             </div>
           ))}
