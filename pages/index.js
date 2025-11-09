@@ -152,9 +152,9 @@ export default function Home() {
           >
             Expertise
           </h2>
-          <div className={classes.light}>
+          {/* <div className={classes.light}>
             <Light timer={2000} />
-          </div>
+          </div> */}
           {expertise.map((service, index) => (
             <div
               key={index}

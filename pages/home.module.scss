@@ -84,17 +84,30 @@
     }
 
     .imageBox {
-      width: 100%;
       position: relative;
-      border: 1px solid config.$white;
+      width: 100%;
+      border: 1px solid transparent;
+      background: linear-gradient(config.$black, config.$black) padding-box,
+        linear-gradient(120deg, config.$black, config.$white, config.$black)
+          border-box;
+      background-size: 200% 100%;
+      animation: shimmer 10s linear infinite;
+    }
 
-      .image {
-        border: 1px solid config.$white;
-        user-select: none;
+    @keyframes shimmer {
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: -200% 0;
+      }
+    }
 
-        &:hover {
-          cursor: pointer;
-        }
+    .image {
+      user-select: none;
+
+      &:hover {
+        cursor: pointer;
       }
     }
   }
