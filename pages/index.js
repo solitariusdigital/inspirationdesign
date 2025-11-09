@@ -186,10 +186,7 @@ export default function Home() {
                 className={classes.imageBox}
                 style={{ aspectRatio: service.aspectRatio }}
               >
-                <div
-                  className={classes.imageWrapper}
-                  style={{ aspectRatio: service.aspectRatio }}
-                >
+                <div className={classes.imageWrapper}>
                   <Image
                     className={classes.image}
                     src={service.link}
