@@ -5,8 +5,10 @@ import Image from "next/legacy/image";
 import logoWhite from "@/assets/logo-white.png";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
+import secureLocalStorage from "react-secure-storage";
 
 export default function RootLayout({ children }) {
+  const { currentUser, setCurrentUser } = useContext(StateContext);
   const { screenSize, setScreenSize } = useContext(StateContext);
   const { menuDisplay, setMenuDisplay } = useContext(StateContext);
   const [appLoader, setAppLoader] = useState(false);
@@ -32,6 +34,12 @@ export default function RootLayout({ children }) {
   };
 
   useEffect(() => {
+    const localCurrentUser = JSON.parse(
+      secureLocalStorage.getItem("currentUser")
+    );
+    if (localCurrentUser) {
+      setCurrentUser(localCurrentUser);
+    }
     setTimeout(() => {
       setAppLoader(true);
     }, 1200);

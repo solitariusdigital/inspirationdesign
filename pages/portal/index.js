@@ -4,12 +4,13 @@ import classes from "./portal.module.scss";
 import { NextSeo } from "next-seo";
 import logoBlack from "@/assets/logo-black.png";
 import CloseIcon from "@mui/icons-material/Close";
-import Router from "next/router";
 import secureLocalStorage from "react-secure-storage";
-import AES from "crypto-js/aes";
-import { enc } from "crypto-js";
 import Admin from "@/components/Admin";
 import { validateEmail } from "@/services/utility";
+import AES from "crypto-js/aes";
+import { enc } from "crypto-js";
+import db from "@/services/firestore";
+import { collection, getDocs } from "@firebase/firestore";
 
 export default function Portal() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
@@ -35,29 +36,28 @@ export default function Portal() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleLogin = () => {
-    // if (!email || !password) {
-    //   showAlert("Email & Password are required");
-    //   return;
-    // }
-    // if (!validateEmail(email)) {
-    //   showAlert("Invalid email");
-    //   return;
-    // }
-    // if (password.length < 8) {
-    //   showAlert("Password must be minimum 8 characters");
-    //   return;
-    // }
-    // signInUser();
-    setDisplayAdmin(true);
-  };
+  const handleLogin = async () => {
+    if (!email || !password) {
+      showAlert("Email & Password are required");
+      return;
+    }
+    if (!validateEmail(email)) {
+      showAlert("Invalid email");
+      return;
+    }
 
-  const signInUser = async () => {
+    const querySnapshot = await getDocs(collection(db, "admin"));
+    const data = querySnapshot.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+
+    const userData = data.find((user) => user.email === email);
     if (userData) {
       if (decryptPassword(userData.password) === password) {
+        setDisplayAdmin(true);
         setCurrentUser(userData);
         secureLocalStorage.setItem("currentUser", JSON.stringify(userData));
-        Router.push("/admin");
       } else {
         showAlert("Wrong password");
       }
