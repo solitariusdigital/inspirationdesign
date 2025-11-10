@@ -4,6 +4,8 @@ import classes from "./portal.module.scss";
 import { NextSeo } from "next-seo";
 import logoBlack from "@/assets/logo-black.png";
 import CloseIcon from "@mui/icons-material/Close";
+import loading from "@/assets/loading.svg";
+import Image from "next/legacy/image";
 import secureLocalStorage from "react-secure-storage";
 import Admin from "@/components/Admin";
 import { validateEmail } from "@/services/utility";
@@ -18,6 +20,7 @@ export default function Portal() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState("");
+  const [disableButton, setDisableButton] = useState(false);
   const [displayAdmin, setDisplayAdmin] = useState(false);
 
   useEffect(() => {
@@ -26,7 +29,8 @@ export default function Portal() {
     } else {
       setDisplayAdmin(true);
     }
-  }, [currentUser]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     navigationTopBar.map((nav) => {
@@ -39,12 +43,15 @@ export default function Portal() {
   const handleLogin = async () => {
     if (!email || !password) {
       showAlert("Email & Password are required");
+      setDisableButton(false);
       return;
     }
     if (!validateEmail(email)) {
       showAlert("Invalid email");
+      setDisableButton(false);
       return;
     }
+    setDisableButton(true);
 
     const querySnapshot = await getDocs(collection(db, "admin"));
     const data = querySnapshot.docs.map((doc) => ({
@@ -64,6 +71,7 @@ export default function Portal() {
     } else {
       showAlert("Email does not exist");
     }
+    setDisableButton(false);
   };
 
   // dencrypt password
@@ -80,6 +88,12 @@ export default function Portal() {
     setTimeout(() => {
       setAlert("");
     }, 3000);
+  };
+
+  const logout = () => {
+    window.location.assign("/");
+    secureLocalStorage.removeItem("currentUser");
+    setCurrentUser(null);
   };
 
   return (
@@ -150,12 +164,21 @@ export default function Portal() {
               </div>
               <div className={classes.formAction}>
                 <p className={classes.alert}>{alert}</p>
-                <button onClick={() => handleLogin()}>Sign in</button>
+                {!disableButton ? (
+                  <button onClick={() => handleLogin()}>Login</button>
+                ) : (
+                  <Image width={50} height={50} src={loading} alt="isLoading" />
+                )}
               </div>
             </div>
           </>
         ) : (
-          <Admin />
+          <>
+            <Admin />
+            <p className={classes.logout} onClick={() => logout()}>
+              Logout
+            </p>
+          </>
         )}
       </div>
     </>
