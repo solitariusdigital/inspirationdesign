@@ -97,12 +97,18 @@ small {
 }
 
 .appload {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100px;
+  position: relative;
+  background: config.$black;
+  height: 100vh;
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 120px;
+  }
 }
 
 .swiper-button-next::after {

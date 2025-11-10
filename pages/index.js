@@ -66,7 +66,7 @@ export default function Home() {
         "We offer unified Building and Interior Design services, developing the structure and inner space in seamless coordination. We design spaces that are structurally sound and code-compliant, prioritizing client vision and user well-being. The outcome is a high-quality, impactful built environment where interiors and architecture exist in perfect harmony.",
       link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/10.jpg",
       objectFit: "cover",
-      aspectRatio: 16 / 9,
+      aspectRatio: 16 / 11,
     },
     {
       title: "Lighting Design",
@@ -82,7 +82,7 @@ export default function Home() {
         "We specialize in LSF, offering a precise, efficient, and modern construction method. LSF uses pre-fabricated, cold-formed steel components for rapid on-site assembly. This framing is lightweight, non-combustible, and provides superior durability over wood, ensuring faster project completion and long-term quality.",
       link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/LFS-construction.jpg",
       objectFit: "cover",
-      aspectRatio: 16 / 9,
+      aspectRatio: 16 / 11,
     },
   ];
 

@@ -2,7 +2,7 @@
 import { useState, useContext, useEffect } from "react";
 import { StateContext } from "@/context/stateContext";
 import Image from "next/legacy/image";
-import logoBlack from "@/assets/logo-black.png";
+import logoWhite from "@/assets/logo-white.png";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 
@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     setTimeout(() => {
       setAppLoader(true);
-    }, 1000);
+    }, 1200);
   }, []);
 
   useEffect(() => {
@@ -89,16 +89,18 @@ export default function RootLayout({ children }) {
           </section>
         </div>
       ) : (
-        <div className="appload">
-          {logoBlack && (
-            <Image
-              src={logoBlack}
-              layout="fill"
-              objectFit="contain"
-              alt="logo"
-              as="image"
-              priority
-            />
+        <div className="appload animate__animated animate__pulse">
+          {logoWhite && (
+            <div className="logo ">
+              <Image
+                src={logoWhite}
+                layout="fill"
+                objectFit="contain"
+                alt="logo"
+                as="image"
+                priority
+              />
+            </div>
           )}
         </div>
       )}
