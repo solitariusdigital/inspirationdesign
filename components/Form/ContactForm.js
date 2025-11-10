@@ -1,16 +1,10 @@
-import { useState, useContext, useEffect } from "react";
+import { useState } from "react";
 import classes from "./Form.module.scss";
 import Image from "next/legacy/image";
 import loading from "@/assets/loading.svg";
-import { validateEmail } from "@/services/utility";
+import { validateEmail, isValidPhoneNumber } from "@/services/utility";
 import db from "@/services/firestore";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  doc,
-  deleteDoc,
-} from "@firebase/firestore";
+import { collection, addDoc } from "@firebase/firestore";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -28,24 +22,6 @@ export default function ContactForm() {
     : 0;
   const remainingWords = maxWords - currentWordCount;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, "inquiry"));
-      const data = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      console.log(data, "data fetched");
-    };
-
-    fetchData();
-  }, []);
-
-  const handleDelete = async (id) => {
-    const docRef = doc(db, "inquiry", id);
-    await deleteDoc(docRef);
-  };
-
   const handleSubmit = async () => {
     if (!name || !email || !phone || !subject || !message) {
       showAlert("All fields Required");
@@ -54,6 +30,11 @@ export default function ContactForm() {
     }
     if (!validateEmail(email)) {
       showAlert("Invalid email");
+      setDisableButton(false);
+      return;
+    }
+    if (!isValidPhoneNumber(phone)) {
+      showAlert("Invalid phone");
       setDisableButton(false);
       return;
     }

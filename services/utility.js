@@ -8,14 +8,15 @@ export function sixGenerator() {
 
 export function convertDate(date) {
   const options = {
-    timeZone: "Asia/Tehran",
+    timeZone: "America/Vancouver",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
     hour: "2-digit",
     minute: "2-digit",
+    hour12: false,
   };
-  return new Date(date).toLocaleString("fa-IR", options);
+  return new Date(date).toLocaleString("en-CA", options);
 }
 
 export function replaceSpacesAndHyphens(str) {
@@ -51,6 +52,12 @@ export function areAllStatesValid(states) {
 export function validateEmail(value) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(value);
+}
+
+export function isValidPhoneNumber(phone) {
+  const cleaned = phone.replace(/\s+/g, "");
+  const phoneRegex = /^\+?\d{10,15}$/;
+  return phoneRegex.test(cleaned);
 }
 
 export function extractParagraphs(text) {

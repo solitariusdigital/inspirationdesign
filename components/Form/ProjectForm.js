@@ -11,7 +11,7 @@ export default function ProjectForm() {
 
   return (
     <div className={classes.formBox}>
-      <h4>Projects</h4>
+      <h4>Add Project</h4>
       <div className={classes.form}>
         <div className={classes.input}>
           <div className={classes.bar}>
@@ -26,7 +26,6 @@ export default function ProjectForm() {
             />
           </div>
           <input
-            placeholder="..."
             type="text"
             id="title"
             name="title"
@@ -48,7 +47,6 @@ export default function ProjectForm() {
             />
           </div>
           <input
-            placeholder="..."
             type="text"
             id="location"
             name="location"
@@ -71,7 +69,6 @@ export default function ProjectForm() {
             />
           </div>
           <input
-            placeholder="..."
             type="tel"
             id="year"
             name="year"
@@ -95,7 +92,6 @@ export default function ProjectForm() {
           />
         </div>
         <textarea
-          placeholder="..."
           type="text"
           id="description"
           name="description"
@@ -106,7 +102,7 @@ export default function ProjectForm() {
       </div>
       <div className={classes.formAction}>
         <p className={classes.alert}>{alert}</p>
-        <button onClick={() => handleSubmit()}>Submit</button>
+        <button onClick={() => handleSubmit()}>Save</button>
       </div>
     </div>
   );

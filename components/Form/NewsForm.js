@@ -10,7 +10,7 @@ export default function NewsForm() {
 
   return (
     <div className={classes.formBox}>
-      <h4>News</h4>
+      <h4>Add News</h4>
       <div className={classes.form}>
         <div className={classes.input}>
           <div className={classes.bar}>
@@ -25,7 +25,6 @@ export default function NewsForm() {
             />
           </div>
           <input
-            placeholder="..."
             type="text"
             id="title"
             name="title"
@@ -47,7 +46,6 @@ export default function NewsForm() {
             />
           </div>
           <input
-            placeholder="..."
             type="text"
             id="date"
             name="date"
@@ -71,7 +69,6 @@ export default function NewsForm() {
           />
         </div>
         <textarea
-          placeholder="..."
           type="text"
           id="description"
           name="description"
@@ -82,7 +79,7 @@ export default function NewsForm() {
       </div>
       <div className={classes.formAction}>
         <p className={classes.alert}>{alert}</p>
-        <button onClick={() => handleSubmit()}>Submit</button>
+        <button onClick={() => handleSubmit()}>Save</button>
       </div>
     </div>
   );

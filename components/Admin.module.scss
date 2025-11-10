@@ -38,3 +38,55 @@
     color: config.$brand;
   }
 }
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  gap: 8px;
+  margin: 50px auto;
+  width: config.$content-width;
+  max-width: config.$max-widthHeigh;
+
+  @include mixins.mobile {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    width: calc(100% - 24px);
+  }
+  @include mixins.tabletPortrait {
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    width: config.$content-widthTablet;
+  }
+  @include mixins.tabletLandscape {
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    width: config.$content-widthTablet;
+  }
+
+  .item {
+    padding: 8px;
+    height: fit-content;
+    text-align: left;
+    border: 1px solid config.$lightgrey;
+    background: config.$white;
+
+    &:hover {
+      border: 1px solid config.$brand;
+    }
+
+    .row {
+      @include mixins.row-space-between-center();
+      margin-top: 8px;
+
+      .title {
+        color: config.$grey;
+        font-size: medium;
+      }
+    }
+
+    .message {
+      margin-bottom: 16px;
+
+      p {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
