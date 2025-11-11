@@ -11,7 +11,13 @@ export default function ProjectForm() {
 
   return (
     <div className={classes.formBox}>
-      <h4>Add Project</h4>
+      <h4
+        style={{
+          fontFamily: "TitilliumLight",
+        }}
+      >
+        Add Project
+      </h4>
       <div className={classes.form}>
         <div className={classes.input}>
           <div className={classes.bar}>

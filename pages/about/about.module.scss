@@ -56,17 +56,16 @@
       width: 60%;
       max-width: config.$max-widthHeigh;
       margin: 12px auto;
-      color: config.$grey;
       text-align: left;
 
       @include mixins.mobile {
         width: 100%;
       }
       @include mixins.tabletPortrait {
-        width: 80%;
+        width: config.$content-widthTablet;
       }
       @include mixins.tabletLandscape {
-        width: 80%;
+        width: config.$content-widthTablet;
       }
     }
   }
@@ -132,7 +131,6 @@
   }
 
   .publication {
-    color: config.$grey;
     @include mixins.row-space-between-center();
     flex-direction: row-reverse;
     text-align: left;

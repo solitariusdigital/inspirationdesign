@@ -10,7 +10,13 @@ export default function NewsForm() {
 
   return (
     <div className={classes.formBox}>
-      <h4>Add News</h4>
+      <h4
+        style={{
+          fontFamily: "TitilliumLight",
+        }}
+      >
+        Add News
+      </h4>
       <div className={classes.form}>
         <div className={classes.input}>
           <div className={classes.bar}>

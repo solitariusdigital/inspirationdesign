@@ -24,7 +24,6 @@
       width: 60%;
       max-width: config.$max-widthHeigh;
       margin: 12px auto;
-      color: config.$grey;
       text-align: left;
 
       @include mixins.mobile {

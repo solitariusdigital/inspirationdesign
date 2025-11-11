@@ -18,13 +18,13 @@
   user-select: none;
 
   @include mixins.mobile {
-    width: 40%;
+    width: 50%;
   }
   @include mixins.tabletPortrait {
-    width: 30%;
+    width: 40%;
   }
   @include mixins.tabletLandscape {
-    width: 30%;
+    width: 40%;
   }
 
   .nav {
