@@ -1,4 +1,3 @@
-"use client";
 import { useState, useContext, useEffect } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./portal.module.scss";
@@ -44,14 +43,14 @@ export default function Portal() {
       const userData = result.user;
       if (userData.email !== allowedEmail) {
         await signOut(auth);
-        showAlert("Access denied: this account is not authorized.");
+        showAlert("Access denied - This account is not authorized.");
         return;
       }
       setDisplayAdmin(true);
       setCurrentUser(userData);
       secureLocalStorage.setItem("currentUser", JSON.stringify(userData));
     } catch (error) {
-      showAlert("Google login error: " + (error.message || "Unknown error"));
+      showAlert("Google login error - " + (error.message || "Unknown error"));
     } finally {
       setDisableButton(false);
     }
@@ -64,7 +63,7 @@ export default function Portal() {
       setCurrentUser(null);
       Router.push("/");
     } catch (error) {
-      showAlert("Logout error: " + (error.message || "Unknown error"));
+      showAlert("Logout error - " + (error.message || "Unknown error"));
     }
   };
 

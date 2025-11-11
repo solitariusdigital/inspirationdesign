@@ -16,7 +16,7 @@
     width: config.$content-widthTablet;
   }
   @include mixins.tabletLandscape {
-    width: config.$content-widthTablet;
+    width: 60%;
   }
 
   h4 {

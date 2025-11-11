@@ -29,7 +29,7 @@ export default function Admin() {
   }, [inquiries]);
 
   const handleDelete = async (id) => {
-    let confirmationMessage = "Delete item, are you sure?";
+    let confirmationMessage = "Delete - Are you sure?";
     let confirm = window.confirm(confirmationMessage);
     if (confirm) {
       const docRef = doc(db, "inquiry", id);
