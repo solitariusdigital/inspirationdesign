@@ -10,7 +10,6 @@
 }
 
 .information {
-  text-align: center;
   margin: auto;
   background: config.$dark;
   padding: 100px 0px;
@@ -23,7 +22,6 @@
 
     @include mixins.mobile {
       width: calc(100% - 24px);
-      text-align: left;
     }
     @include mixins.tabletPortrait {
       width: config.$content-widthTablet;
@@ -62,10 +60,7 @@
     margin: 24px auto;
     width: config.$content-width;
     max-width: config.$max-widthHeigh;
-
-    p {
-      text-align: left;
-    }
+    text-align: left;
 
     @include mixins.mobile {
       display: flex;

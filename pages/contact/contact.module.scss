@@ -8,7 +8,12 @@
 
   .text {
     text-align: center;
-    margin-bottom: 50px;
+    margin: 50px auto;
+
+    @include mixins.mobile {
+      width: calc(100% - 24px);
+      text-align: left;
+    }
 
     h3 {
       margin-bottom: 24px;
@@ -23,7 +28,7 @@
       text-align: left;
 
       @include mixins.mobile {
-        width: calc(100% - 24px);
+        width: 100%;
       }
       @include mixins.tabletPortrait {
         width: 80%;

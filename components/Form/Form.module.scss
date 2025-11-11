@@ -10,6 +10,7 @@
 
   @include mixins.mobile {
     width: calc(100% - 24px);
+    text-align: left;
   }
   @include mixins.tabletPortrait {
     width: config.$content-widthTablet;

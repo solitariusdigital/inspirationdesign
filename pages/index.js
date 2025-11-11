@@ -127,8 +127,7 @@ export default function Home() {
               fontFamily: "TitilliumLight",
             }}
           >
-            Designing spaces, light and systems for healthier, smarter
-            buildings.
+            Designing spaces, light & systems for healthier, smarter buildings.
           </h1>
           <div className={classes.light}>
             <Light timer={500} />
