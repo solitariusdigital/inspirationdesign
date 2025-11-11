@@ -37,7 +37,12 @@ export default function Menu() {
   };
 
   return (
-    <div className={classes.container}>
+    <div
+      className={classes.container}
+      style={{
+        fontFamily: "TitilliumLight",
+      }}
+    >
       <div className={classes.logo}>
         <Link href="/" passHref>
           <Image
