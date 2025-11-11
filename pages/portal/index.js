@@ -1,27 +1,24 @@
+"use client";
 import { useState, useContext, useEffect } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./portal.module.scss";
 import { NextSeo } from "next-seo";
 import logoBlack from "@/assets/logo-black.png";
-import CloseIcon from "@mui/icons-material/Close";
+import Router from "next/router";
 import loading from "@/assets/loading.svg";
 import Image from "next/legacy/image";
 import secureLocalStorage from "react-secure-storage";
 import Admin from "@/components/Admin";
-import { validateEmail } from "@/services/utility";
-import AES from "crypto-js/aes";
-import { enc } from "crypto-js";
-import db from "@/services/firestore";
-import { collection, getDocs } from "@firebase/firestore";
+import { signInWithPopup, signOut } from "firebase/auth";
+import { auth, googleProvider } from "@/services/firebase";
 
 export default function Portal() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [alert, setAlert] = useState("");
   const [disableButton, setDisableButton] = useState(false);
   const [displayAdmin, setDisplayAdmin] = useState(false);
+  const allowedEmail = "inspirationdesignsgroup@gmail.com";
 
   useEffect(() => {
     if (!currentUser) {
@@ -41,59 +38,41 @@ export default function Portal() {
   }, []);
 
   const handleLogin = async () => {
-    if (!email || !password) {
-      showAlert("Email & Password are required");
-      setDisableButton(false);
-      return;
-    }
-    if (!validateEmail(email)) {
-      showAlert("Invalid email");
-      setDisableButton(false);
-      return;
-    }
-    setDisableButton(true);
-
-    const querySnapshot = await getDocs(collection(db, "admin"));
-    const data = querySnapshot.docs.map((doc) => ({
-      ...doc.data(),
-      id: doc.id,
-    }));
-
-    const userData = data.find((user) => user.email === email);
-    if (userData) {
-      if (decryptPassword(userData.password) === password) {
-        setDisplayAdmin(true);
-        setCurrentUser(userData);
-        secureLocalStorage.setItem("currentUser", JSON.stringify(userData));
-      } else {
-        showAlert("Wrong password");
+    try {
+      setDisableButton(true);
+      const result = await signInWithPopup(auth, googleProvider);
+      const userData = result.user;
+      if (userData.email !== allowedEmail) {
+        await signOut(auth);
+        showAlert("Access denied: this account is not authorized.");
+        return;
       }
-    } else {
-      showAlert("Email does not exist");
+      setDisplayAdmin(true);
+      setCurrentUser(userData);
+      secureLocalStorage.setItem("currentUser", JSON.stringify(userData));
+    } catch (error) {
+      showAlert("Google login error: " + (error.message || "Unknown error"));
+    } finally {
+      setDisableButton(false);
     }
-    setDisableButton(false);
   };
 
-  // dencrypt password
-  const decryptPassword = (password) => {
-    let decryptedBytes = AES.decrypt(
-      password,
-      process.env.NEXT_PUBLIC_CRYPTO_SECRETKEY
-    );
-    return decryptedBytes.toString(enc.Utf8);
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      secureLocalStorage.removeItem("currentUser");
+      setCurrentUser(null);
+      Router.push("/");
+    } catch (error) {
+      showAlert("Logout error: " + (error.message || "Unknown error"));
+    }
   };
 
   const showAlert = (message) => {
     setAlert(message);
     setTimeout(() => {
       setAlert("");
-    }, 3000);
-  };
-
-  const logout = () => {
-    window.location.assign("/");
-    secureLocalStorage.removeItem("currentUser");
-    setCurrentUser(null);
+    }, 5000);
   };
 
   return (
@@ -122,50 +101,20 @@ export default function Portal() {
       <div className={classes.container}>
         {!displayAdmin ? (
           <>
-            <h3>Portal</h3>
+            <h3
+              style={{
+                fontFamily: "TitilliumLight",
+              }}
+            >
+              Portal
+            </h3>
             <div className={classes.form}>
-              <div className={classes.input}>
-                <div className={classes.bar}>
-                  <p className={classes.label}>Email</p>
-                  <CloseIcon
-                    className="icon"
-                    onClick={() => setEmail("")}
-                    sx={{ fontSize: 16 }}
-                  />
-                </div>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                  autoComplete="off"
-                  dir="ltr"
-                />
-              </div>
-              <div className={classes.input}>
-                <div className={classes.bar}>
-                  <p className={classes.label}>Password</p>
-                  <CloseIcon
-                    className="icon"
-                    onClick={() => setPassword("")}
-                    sx={{ fontSize: 16 }}
-                  />
-                </div>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  autoComplete="off"
-                  dir="ltr"
-                />
-              </div>
               <div className={classes.formAction}>
                 <p className={classes.alert}>{alert}</p>
                 {!disableButton ? (
-                  <button onClick={() => handleLogin()}>Login</button>
+                  <button onClick={() => handleLogin()}>
+                    Login with Google
+                  </button>
                 ) : (
                   <Image width={50} height={50} src={loading} alt="isLoading" />
                 )}

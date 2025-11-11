@@ -1,4 +1,5 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getAnalytics, isSupported } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -13,7 +14,10 @@ const firebaseConfig = {
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-let analytics;
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+
+let analytics = null;
 if (typeof window !== "undefined") {
   isSupported().then((supported) => {
     if (supported) {
@@ -22,4 +26,4 @@ if (typeof window !== "undefined") {
   });
 }
 
-export { app, analytics };
+export { app, auth, googleProvider, analytics };
