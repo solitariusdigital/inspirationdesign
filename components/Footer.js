@@ -25,12 +25,7 @@ export default function Footer() {
   };
 
   return (
-    <div
-      className={classes.container}
-      style={{
-        fontFamily: "English",
-      }}
-    >
+    <div className={classes.container}>
       <nav className={classes.fullSizeNavigation}>
         {navigationTopBar.map((nav, index) => (
           <Fragment key={index}>

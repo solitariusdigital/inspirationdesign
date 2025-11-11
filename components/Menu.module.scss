@@ -3,11 +3,11 @@
 
 .container {
   position: relative;
-  user-select: none;
   width: config.$content-width;
   max-width: config.$max-widthHeigh;
   @include mixins.row-space-between-center();
   user-select: none;
+  text-transform: uppercase;
 
   @include mixins.mobile {
     width: calc(100% - 24px);

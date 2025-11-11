@@ -133,13 +133,13 @@ export default function Projects() {
                     priority
                   />
                 </div>
-                <h5
+                <h4
                   style={{
-                    fontFamily: "English",
+                    fontFamily: "TitilliumLight",
                   }}
                 >
                   {project.title}
-                </h5>
+                </h4>
               </div>
             ))}
         </div>

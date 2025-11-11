@@ -48,7 +48,7 @@ $screen-fourK: 6000px;
   background: $color;
   border: 1px solid $color;
   font-size: medium;
-  font-family: "English";
+  font-family: "TitilliumLight";
 
   &:hover {
     cursor: pointer;
@@ -66,7 +66,7 @@ $screen-fourK: 6000px;
   border: 1px solid config.$grey;
   background: config.$background;
   font-size: medium;
-  font-family: "English";
+  font-family: "TitilliumLight";
 
   &:focus {
     outline: none;

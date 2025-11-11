@@ -2,28 +2,16 @@
 @use "mixins" as mixins;
 
 @font-face {
-  font-family: "English";
-  src: url("../assets/fonts/KantumruyPro-Regular.ttf") format("truetype");
+  font-family: "TitilliumThin";
+  src: url("../assets/fonts/Titillium-Thin.otf") format("truetype");
 }
 @font-face {
-  font-family: "EnglishLight";
-  src: url("../assets/fonts/KantumruyPro-Light.ttf") format("truetype");
+  font-family: "TitilliumLight";
+  src: url("../assets/fonts/Titillium-Light.otf") format("truetype");
 }
 @font-face {
-  font-family: "EnglishExtraLight";
-  src: url("../assets/fonts/KantumruyPro-ExtraLight.ttf") format("truetype");
-}
-@font-face {
-  font-family: "EnglishMedium";
-  src: url("../assets/fonts/KantumruyPro-Medium.ttf") format("truetype");
-}
-@font-face {
-  font-family: "EnglishSemiBold";
-  src: url("../assets/fonts/KantumruyPro-SemiBold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "EnglishBold";
-  src: url("../assets/fonts/KantumruyPro-Bold.ttf") format("truetype");
+  font-family: "TitilliumLight";
+  src: url("../assets/fonts/Titillium-Regular.otf") format("truetype");
 }
 
 * {
@@ -62,7 +50,7 @@ h4 {
 }
 p {
   font-size: 1em;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 small {
   font-size: 0.875em;

@@ -45,7 +45,7 @@ export default function CoverSlider() {
     <div className={classes.slider}>
       <Swiper
         spaceBetween={0}
-        navigation={true}
+        navigation={false}
         loop={true}
         autoplay={{
           delay: 1500,

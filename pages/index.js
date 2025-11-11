@@ -124,7 +124,7 @@ export default function Home() {
           <h1
             className={classes.text}
             style={{
-              fontFamily: "English",
+              fontFamily: "TitilliumLight",
             }}
           >
             Designing spaces, light and systems for healthier, smarter
@@ -136,7 +136,7 @@ export default function Home() {
           <h3
             className={classes.text}
             style={{
-              fontFamily: "EnglishExtraLight",
+              textTransform: "none",
             }}
           >
             Inspiration Design is a turnkey design firm, specializing in
@@ -147,14 +147,11 @@ export default function Home() {
         <section className={classes.services}>
           <h2
             style={{
-              fontFamily: "English",
+              fontFamily: "TitilliumLight",
             }}
           >
             Expertise
           </h2>
-          <div className={classes.light}>
-            <Light timer={2000} />
-          </div>
           {expertise.map((service, index) => (
             <div
               key={index}
@@ -166,7 +163,7 @@ export default function Home() {
               <div className={classes.info}>
                 <h3
                   style={{
-                    fontFamily: "English",
+                    fontFamily: "TitilliumLight",
                   }}
                 >
                   {service.title}
@@ -203,7 +200,7 @@ export default function Home() {
         <section className={classes.projects}>
           <h2
             style={{
-              fontFamily: "English",
+              fontFamily: "TitilliumLight",
             }}
           >
             Projects
@@ -222,7 +219,13 @@ export default function Home() {
                   priority
                 />
                 <div className={classes.overlay}>
-                  <h4>{project.title}</h4>
+                  <h4
+                    style={{
+                      fontFamily: "TitilliumLight",
+                    }}
+                  >
+                    {project.title}
+                  </h4>
                 </div>
               </div>
             ))}

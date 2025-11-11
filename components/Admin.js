@@ -60,7 +60,7 @@ export default function Admin() {
               <p>{item.subject}</p>
               <p
                 style={{
-                  fontFamily: "English",
+                  fontFamily: "TitilliumLight",
                 }}
               >
                 {item.message}

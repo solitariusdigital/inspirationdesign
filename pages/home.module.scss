@@ -1,6 +1,14 @@
 @use "styles/_config.scss" as config;
 @use "styles/_mixins.scss" as mixins;
 
+.container {
+  h1,
+  h2,
+  h3 {
+    text-transform: uppercase;
+  }
+}
+
 .information {
   text-align: center;
   margin: auto;

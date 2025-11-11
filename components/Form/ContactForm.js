@@ -77,7 +77,7 @@ export default function ContactForm() {
     <div className={classes.formBox}>
       <h4
         style={{
-          fontFamily: "English",
+          fontFamily: "TitilliumLight",
         }}
       >
         Send your inquiry

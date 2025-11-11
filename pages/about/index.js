@@ -148,7 +148,7 @@ export default function About() {
             <div className={classes.info}>
               <h3
                 style={{
-                  fontFamily: "English",
+                  fontFamily: "TitilliumLight",
                 }}
               >
                 Turnkey Creative Solutions
@@ -180,7 +180,7 @@ export default function About() {
             <div className={classes.info}>
               <h3
                 style={{
-                  fontFamily: "English",
+                  fontFamily: "TitilliumLight",
                 }}
               >
                 Experience & Design Philosophy
@@ -211,7 +211,7 @@ export default function About() {
             <div className={classes.info}>
               <h3
                 style={{
-                  fontFamily: "English",
+                  fontFamily: "TitilliumLight",
                 }}
               >
                 Full-Service Architectural Expertise
@@ -246,7 +246,7 @@ export default function About() {
           <div className={classes.info}>
             <h3
               style={{
-                fontFamily: "English",
+                fontFamily: "TitilliumLight",
               }}
             >
               Testimonials
@@ -265,7 +265,7 @@ export default function About() {
           <div className={classes.info}>
             <h3
               style={{
-                fontFamily: "English",
+                fontFamily: "TitilliumLight",
               }}
             >
               Awards
@@ -275,7 +275,7 @@ export default function About() {
                 <div key={index} className={classes.award}>
                   <h5
                     style={{
-                      fontFamily: "EnglishMedium",
+                      fontFamily: "TitilliumLight",
                     }}
                   >
                     {item.year}
@@ -290,7 +290,7 @@ export default function About() {
           <div className={classes.info}>
             <h3
               style={{
-                fontFamily: "English",
+                fontFamily: "TitilliumLight",
               }}
             >
               Publications

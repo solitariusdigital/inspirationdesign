@@ -81,7 +81,7 @@ export default function RootLayout({ children }) {
       {appLoader ? (
         <div
           style={{
-            fontFamily: "EnglishLight",
+            fontFamily: "TitilliumThin",
           }}
         >
           {menuDisplay && (
