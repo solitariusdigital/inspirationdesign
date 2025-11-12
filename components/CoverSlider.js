@@ -46,7 +46,7 @@ export default function CoverSlider() {
         navigation={false}
         loop={true}
         autoplay={{
-          delay: 500,
+          delay: 1000,
           disableOnInteraction: false,
         }}
         effect="fade"

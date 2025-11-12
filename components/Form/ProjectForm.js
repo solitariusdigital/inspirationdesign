@@ -23,18 +23,17 @@ export default function ProjectForm() {
   const categories = ["residential", "commercial", "lighting", "construction"];
 
   const handleSubmit = async () => {
-    if (
-      !title ||
-      !location ||
-      !year ||
-      !category ||
-      !subCategory ||
-      !description
-    ) {
+    if (!title || !location || !year || !category || !description) {
       showAlert("All fields Required");
       setDisableButton(false);
       return;
     }
+    if (imagesPreview.length === 0) {
+      showAlert("Select images");
+      setDisableButton(false);
+      return;
+    }
+
     setDisableButton(true);
     try {
       const docRef = await addDoc(collection(db, "project"), {
@@ -62,6 +61,7 @@ export default function ProjectForm() {
   };
 
   const removeImageInputFile = () => {
+    setImagesPreview([]);
     const input = document.getElementById("inputImage");
     input.value = null;
   };
@@ -182,41 +182,6 @@ export default function ProjectForm() {
           />
         </div>
       </div>
-      <div className={classes.mediaContainer}>
-        <div className={classes.media}>
-          <label className="file">
-            <input
-              onChange={handleImageChange}
-              id="inputImage"
-              type="file"
-              accept="image/*"
-              multiple
-            />
-            <p>Images</p>
-          </label>
-          <CloseIcon
-            className={classes.clearMedia}
-            onClick={() => {
-              setImagesPreview([]);
-              removeImageInputFile();
-            }}
-            sx={{ fontSize: 16 }}
-          />
-          <div className={classes.preview}>
-            {imagesPreview.map((image, index) => (
-              <Image
-                key={index}
-                width={300}
-                height={200}
-                objectFit="contain"
-                src={image.link}
-                alt="image"
-                priority
-              />
-            ))}
-          </div>
-        </div>
-      </div>
       <div className={classes.input}>
         <div className={classes.bar}>
           <p className={classes.label}>
@@ -237,6 +202,41 @@ export default function ProjectForm() {
           value={description}
           autoComplete="off"
         ></textarea>
+      </div>
+      <div className={classes.mediaContainer}>
+        <div>
+          <label className="file">
+            <input
+              onChange={handleImageChange}
+              id="inputImage"
+              type="file"
+              accept="image/*"
+              multiple
+            />
+            <p>Select Images</p>
+          </label>
+          <CloseIcon
+            className={classes.clearMedia}
+            sx={{ fontSize: 16 }}
+            onClick={() => {
+              removeImageInputFile();
+            }}
+          />
+          {imagesPreview.length > 0 && (
+            <div className={classes.imageBox}>
+              {imagesPreview.map((image, index) => (
+                <div className={classes.image} key={index}>
+                  <Image
+                    src={image.link}
+                    layout="fill"
+                    objectFit="cover"
+                    alt="image"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
       <div className={classes.formAction}>
         <p className={classes.alert}>{alert}</p>

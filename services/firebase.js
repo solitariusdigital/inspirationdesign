@@ -28,5 +28,5 @@ if (typeof window !== "undefined") {
     }
   });
 }
-// Exports
+
 export { app, auth, googleProvider, analytics, storage };

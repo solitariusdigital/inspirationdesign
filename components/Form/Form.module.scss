@@ -78,27 +78,23 @@
   }
 
   .mediaContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-    gap: 12px;
-    width: 100%;
+    margin-top: 24px;
 
-    .media {
-      width: 100%;
+    .imageBox {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+      gap: 12px;
+
+      .image {
+        aspect-ratio: 16 / 11;
+        position: relative;
+      }
     }
-  }
 
-  .clearMedia {
-    margin-top: 20px;
-    cursor: pointer;
-  }
-
-  .preview {
-    position: relative;
-    margin-top: 20px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    .clearMedia {
+      margin-top: 20px;
+      cursor: pointer;
+    }
   }
 
   .formAction {
