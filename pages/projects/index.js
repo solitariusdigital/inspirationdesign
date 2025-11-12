@@ -6,19 +6,13 @@ import FirebaseImage from "@/components/FirebaseImage";
 
 export default function Projects() {
   const [pageType, setPageType] = useState(
-    "all" ||
-      "residential" ||
-      "commercial" ||
-      "lighting" ||
-      "interior" ||
-      "construction"
+    "all" || "residential" || "commercial" || "lighting" || "construction"
   );
   const navigation = [
     "all",
     "residential",
     "commercial",
     "lighting",
-    "interior",
     "construction",
   ];
 

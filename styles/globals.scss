@@ -99,6 +99,25 @@ small {
   }
 }
 
+// input file
+label.file input[type="file"] {
+  display: none;
+}
+.file {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid config.$grey;
+  padding: 8px;
+  color: config.$grey;
+  height: 50px;
+  cursor: pointer;
+}
+.file:hover {
+  color: config.$brand;
+  border: 1px solid config.$brand;
+}
+
 .swiper-button-next::after {
   color: config.$white;
   scale: 0.6;

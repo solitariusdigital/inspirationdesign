@@ -59,9 +59,14 @@
   }
 
   input,
-  textarea {
+  textarea,
+  select {
     @include mixins.input();
     width: 100%;
+  }
+
+  select {
+    text-transform: capitalize;
   }
 
   textarea {
@@ -70,6 +75,30 @@
     min-height: 250px;
     max-width: 100%;
     min-width: 100%;
+  }
+
+  .mediaContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    gap: 12px;
+    width: 100%;
+
+    .media {
+      width: 100%;
+    }
+  }
+
+  .clearMedia {
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  .preview {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   }
 
   .formAction {
