@@ -10,8 +10,14 @@ import logoBlack from "@/assets/logo-black.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import Tooltip from "@mui/material/Tooltip";
 import CloseIcon from "@mui/icons-material/Close";
+import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
+import LogoutIcon from "@mui/icons-material/Logout";
+import secureLocalStorage from "react-secure-storage";
+import { signOut } from "firebase/auth";
+import { auth } from "@/services/firebase";
 
 export default function Menu() {
+  const { currentUser, setCurrentUser } = useContext(StateContext);
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
   const { screenSize, setScreenSize } = useContext(StateContext);
   const [menuMobile, setMenuMobile] = useState(false);
@@ -36,6 +42,17 @@ export default function Menu() {
     setNavigationTopBar([...navigationTopBar]);
   };
 
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      secureLocalStorage.removeItem("currentUser");
+      setCurrentUser(null);
+      Router.push("/");
+    } catch (error) {
+      console.error("Logout error - " + (error.message || "Unknown error"));
+    }
+  };
+
   return (
     <div
       className={classes.container}
@@ -54,6 +71,24 @@ export default function Menu() {
           />
         </Link>
       </div>
+      {currentUser && (
+        <div className={classes.portal}>
+          <Tooltip title="Logout">
+            <LogoutIcon
+              className="icon"
+              sx={{ fontSize: 18, color: colorCode }}
+              onClick={() => logout()}
+            />
+          </Tooltip>
+          <Tooltip title="Portal">
+            <SpaceDashboardIcon
+              className="icon"
+              sx={{ fontSize: 18, color: colorCode }}
+              onClick={() => Router.push("/portal")}
+            />
+          </Tooltip>
+        </div>
+      )}
       {fullSizeScreen ? (
         <nav
           className={classes.fullSizeNavigation}

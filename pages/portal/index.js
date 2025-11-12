@@ -3,7 +3,6 @@ import { StateContext } from "@/context/stateContext";
 import classes from "./portal.module.scss";
 import { NextSeo } from "next-seo";
 import logoBlack from "@/assets/logo-black.png";
-import Router from "next/router";
 import loading from "@/assets/loading.svg";
 import Image from "next/legacy/image";
 import secureLocalStorage from "react-secure-storage";
@@ -53,17 +52,6 @@ export default function Portal() {
       showAlert("Google login error - " + (error.message || "Unknown error"));
     } finally {
       setDisableButton(false);
-    }
-  };
-
-  const logout = async () => {
-    try {
-      await signOut(auth);
-      secureLocalStorage.removeItem("currentUser");
-      setCurrentUser(null);
-      Router.push("/");
-    } catch (error) {
-      showAlert("Logout error - " + (error.message || "Unknown error"));
     }
   };
 
@@ -121,12 +109,7 @@ export default function Portal() {
             </div>
           </>
         ) : (
-          <>
-            <Admin />
-            <p className={classes.logout} onClick={() => logout()}>
-              Logout
-            </p>
-          </>
+          <Admin />
         )}
       </div>
     </>

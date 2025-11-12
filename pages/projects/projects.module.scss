@@ -55,6 +55,7 @@
   .imageBox {
     position: relative;
     aspect-ratio: 16 / 9;
+    box-shadow: config.$card-shadow;
     cursor: pointer;
 
     .image {

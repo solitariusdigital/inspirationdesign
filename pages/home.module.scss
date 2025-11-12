@@ -82,6 +82,10 @@
       flex-direction: column;
       justify-content: center;
 
+      @include mixins.mobile {
+        width: 100%;
+      }
+
       .light {
         margin: 8px 0px !important;
       }
@@ -118,6 +122,7 @@
     .imageBox {
       position: relative;
       aspect-ratio: 16 / 9;
+      box-shadow: config.$card-shadow;
       cursor: pointer;
 
       .image {

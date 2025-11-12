@@ -9,16 +9,6 @@
   margin-bottom: 100px;
 }
 
-.logout {
-  color: config.$grey;
-  font-size: medium;
-
-  &:hover {
-    cursor: pointer;
-    color: config.$brand;
-  }
-}
-
 .form {
   position: relative;
   width: 500px;

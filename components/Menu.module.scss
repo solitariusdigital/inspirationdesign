@@ -63,4 +63,20 @@
     height: 100px;
     cursor: pointer;
   }
+
+  .portal {
+    position: absolute;
+    left: 15%;
+
+    @include mixins.mobile {
+      left: auto;
+      right: 10%;
+    }
+    @include mixins.tabletPortrait {
+      left: 25%;
+    }
+    @include mixins.tabletLandscape {
+      left: 20%;
+    }
+  }
 }
