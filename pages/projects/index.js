@@ -1,8 +1,8 @@
-import { useState, useContext, Fragment } from "react";
+import { useState, useContext } from "react";
 import { NextSeo } from "next-seo";
 import classes from "./projects.module.scss";
-import Image from "next/legacy/image";
 import logoBlack from "@/assets/logo-black.png";
+import FirebaseImage from "@/components/FirebaseImage";
 
 export default function Projects() {
   const [pageType, setPageType] = useState(
@@ -24,55 +24,55 @@ export default function Projects() {
 
   const gridImages = [
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2017/12/1.jpg",
+      path: "Resources/10.jpg",
       title: "Queens",
       type: "image",
       category: "residential",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      path: "Resources/9.jpg",
       title: "Zayani Residence",
       type: "image",
       category: "commercial",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      path: "Resources/9.jpg",
       title: "Project",
       type: "image",
       category: "residential",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider01-2.jpg",
+      path: "Resources/10.jpg",
       title: "Project",
       type: "image",
       category: "lighting",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      path: "Resources/9.jpg",
       title: "Project",
       type: "image",
       category: "commercial",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2017/12/1.jpg",
+      path: "Resources/10.jpg",
       title: "Project",
       type: "image",
       category: "residential",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      path: "Resources/9.jpg",
       title: "Project",
       type: "image",
       category: "residential",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      path: "Resources/10.jpg",
       title: "Zayani Residence",
       type: "image",
       category: "interior",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider01-2.jpg",
+      path: "Resources/9.jpg",
       title: "Project",
       type: "image",
       category: "construction",
@@ -122,16 +122,7 @@ export default function Projects() {
             .map((project, index) => (
               <div key={index}>
                 <div className={classes.imageBox}>
-                  <Image
-                    className={classes.image}
-                    src={project.link}
-                    blurDataURL={project.link}
-                    placeholder="blur"
-                    alt={project.title}
-                    layout="fill"
-                    objectFit="cover"
-                    priority
-                  />
+                  <FirebaseImage path={project.path} alt={project.title} />
                 </div>
                 <h4
                   style={{

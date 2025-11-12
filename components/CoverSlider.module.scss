@@ -6,16 +6,12 @@
   margin: auto;
   user-select: none;
 
-  .media {
+  .image {
     position: relative;
     width: 100%;
     height: auto;
-    cursor: pointer;
-    aspect-ratio: 4 / 3.5;
-
-    .image {
-      object-position: 50% 0%;
-    }
+    background: config.$black;
+    aspect-ratio: 4 / 3.3;
 
     @include mixins.tabletLandscape {
       aspect-ratio: 16 / 9;
@@ -27,19 +23,6 @@
     }
     @include mixins.fourK {
       aspect-ratio: 16 / 9;
-      height: 100dvh;
-    }
-  }
-
-  .video {
-    width: 100%;
-    height: 100dvh;
-    object-fit: cover;
-
-    @include mixins.desktop {
-      height: 100dvh;
-    }
-    @include mixins.fourK {
       height: 100dvh;
     }
   }

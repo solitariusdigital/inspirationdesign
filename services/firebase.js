@@ -1,6 +1,7 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getAnalytics, isSupported } from "firebase/analytics";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -13,10 +14,12 @@ const firebaseConfig = {
 };
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-
+// Auth
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
-
+// Storage
+const storage = getStorage(app);
+// Analytics (guarded for SSR)
 let analytics = null;
 if (typeof window !== "undefined") {
   isSupported().then((supported) => {
@@ -25,5 +28,5 @@ if (typeof window !== "undefined") {
     }
   });
 }
-
-export { app, auth, googleProvider, analytics };
+// Exports
+export { app, auth, googleProvider, analytics, storage };

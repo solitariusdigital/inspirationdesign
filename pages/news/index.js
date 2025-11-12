@@ -1,4 +1,4 @@
-import { useState, useContext, Fragment } from "react";
+import { useState, useContext } from "react";
 import { NextSeo } from "next-seo";
 import classes from "./news.module.scss";
 import logoBlack from "@/assets/logo-black.png";

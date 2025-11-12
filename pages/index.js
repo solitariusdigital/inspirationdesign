@@ -2,60 +2,69 @@
 import { useState, useEffect, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./home.module.scss";
-import Image from "next/legacy/image";
 import { NextSeo } from "next-seo";
 import CoverSlider from "@/components/CoverSlider";
 import logoBlack from "@/assets/logo-black.png";
 import Light from "@/components/Light";
+import FirebaseImage from "@/components/FirebaseImage";
 
 export default function Home() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
 
   const gridImages = [
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2017/12/1.jpg",
+      path: "Resources/10.jpg",
       title: "Queens",
       type: "image",
+      category: "residential",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      path: "Resources/9.jpg",
       title: "Zayani Residence",
       type: "image",
+      category: "commercial",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      path: "Resources/9.jpg",
       title: "Project",
       type: "image",
+      category: "residential",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider01-2.jpg",
+      path: "Resources/10.jpg",
       title: "Project",
       type: "image",
+      category: "lighting",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      path: "Resources/9.jpg",
       title: "Project",
       type: "image",
+      category: "commercial",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2017/12/1.jpg",
+      path: "Resources/10.jpg",
       title: "Project",
       type: "image",
+      category: "residential",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      path: "Resources/9.jpg",
       title: "Project",
       type: "image",
+      category: "residential",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider02-3.jpg",
+      path: "Resources/10.jpg",
       title: "Zayani Residence",
       type: "image",
+      category: "interior",
     },
     {
-      link: "https://inspirationdesigns.ca/wp-content/uploads/2020/06/Home-Slider01-2.jpg",
+      path: "Resources/9.jpg",
       title: "Project",
       type: "image",
+      category: "construction",
     },
   ];
 
@@ -64,7 +73,7 @@ export default function Home() {
       title: "Building & Interior Design",
       description:
         "We offer unified Building and Interior Design services, developing the structure and inner space in seamless coordination. We design spaces that are structurally sound and code-compliant, prioritizing client vision and user well-being. The outcome is a high-quality, impactful built environment where interiors and architecture exist in perfect harmony.",
-      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/10.jpg",
+      path: "Resources/Building.jpg",
       objectFit: "cover",
       aspectRatio: 16 / 11,
     },
@@ -72,7 +81,7 @@ export default function Home() {
       title: "Lighting Design",
       description:
         "We create intentional lighting environments that enhance architecture and human experience. Our work balances artistic vision with technical precision, carefully specifying light quality, fixtures, and controls. We prioritize developing sustainable, energy-efficient schemes, translating light into a functional and emotive layer that reveals the full potential of the space.",
-      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/5.png",
+      path: "Resources/Lighting.jpg",
       objectFit: "cover",
       aspectRatio: 3 / 4,
     },
@@ -80,7 +89,7 @@ export default function Home() {
       title: "Light Steel Framing",
       description:
         "We specialize in LSF, offering a precise, efficient, and modern construction method. LSF uses pre-fabricated, cold-formed steel components for rapid on-site assembly. This framing is lightweight, non-combustible, and provides superior durability over wood, ensuring faster project completion and long-term quality.",
-      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/LFS-construction.jpg",
+      path: "Resources/LFS.jpg",
       objectFit: "cover",
       aspectRatio: 16 / 11,
     },
@@ -180,17 +189,14 @@ export default function Home() {
               </div>
               <div
                 className={classes.imageBox}
-                style={{ aspectRatio: service.aspectRatio }}
+                style={{
+                  aspectRatio: service.aspectRatio,
+                }}
               >
-                <Image
-                  className={classes.image}
-                  src={service.link}
-                  blurDataURL={service.link}
-                  placeholder="blur"
+                <FirebaseImage
+                  path={service.path}
                   alt={service.title}
-                  layout="fill"
                   objectFit={service.objectFit}
-                  priority
                 />
               </div>
             </div>
@@ -207,16 +213,7 @@ export default function Home() {
           <div className={classes.gridLayout}>
             {gridImages.map((project, index) => (
               <div key={index} className={classes.imageBox}>
-                <Image
-                  className={classes.image}
-                  src={project.link}
-                  blurDataURL={project.link}
-                  placeholder="blur"
-                  alt={project.title}
-                  layout="fill"
-                  objectFit="cover"
-                  priority
-                />
+                <FirebaseImage path={project.path} alt={project.title} />
                 <div className={classes.overlay}>
                   <h4
                     style={{

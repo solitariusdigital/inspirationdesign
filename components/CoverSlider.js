@@ -1,35 +1,33 @@
-import { useState, useContext } from "react";
-import { StateContext } from "@/context/stateContext";
+import { useState } from "react";
 import classes from "./CoverSlider.module.scss";
-import Image from "next/legacy/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, EffectFade } from "swiper/modules";
+import FirebaseImage from "@/components/FirebaseImage";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 
 export default function CoverSlider() {
-  const { screenSize, setScreenSize } = useContext(StateContext);
   const [current, setCurrent] = useState(0);
 
   const covers = [
     {
-      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/1.jpg",
+      path: "Resources/1.jpg",
       title: "Chinatown Millennium Gate",
       type: "image",
     },
     {
-      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/2.jpg",
+      path: "Resources/2.jpg",
       title: "Chinatown Millennium Gate",
       type: "image",
     },
     {
-      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/3.jpg",
+      path: "Resources/3.jpg",
       title: "Chinatown Millennium Gate",
       type: "image",
     },
     {
-      link: "https://cloudstorage.storage.iran.liara.space/inspirationdesign/4.jpg",
+      path: "Resources/4.jpg",
       title: "Chinatown Millennium Gate",
       type: "image",
     },
@@ -55,40 +53,13 @@ export default function CoverSlider() {
         modules={[Navigation, Autoplay, EffectFade]}
         onSlideChange={updateIndex}
       >
-        {covers
-          // .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
-          .map((project, index) => (
-            <SwiperSlide key={index}>
-              <div
-                className={classes.media}
-                // onClick={() => Router.push(project.link)}
-              >
-                {project.type === "image" ? (
-                  <Image
-                    className={classes.image}
-                    src={project.link}
-                    blurDataURL={project.link}
-                    placeholder="blur"
-                    alt={project.title}
-                    layout="fill"
-                    objectFit="cover"
-                    as="image"
-                    priority
-                  />
-                ) : (
-                  <video
-                    className={classes.video}
-                    src={project.link + "#t=0.1"}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                  />
-                )}
-              </div>
-            </SwiperSlide>
-          ))}
+        {covers.map((project, index) => (
+          <SwiperSlide key={index}>
+            <div className={classes.image}>
+              <FirebaseImage path={project.path} alt={project.title} />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
       <div className={classes.information}>
         <h4>{covers[current].title}</h4>
