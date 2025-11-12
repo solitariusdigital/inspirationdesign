@@ -91,9 +91,12 @@
       }
     }
 
-    .clearMedia {
+    .icon {
       margin-top: 20px;
       cursor: pointer;
+      &:hover {
+        color: config.$brand;
+      }
     }
   }
 

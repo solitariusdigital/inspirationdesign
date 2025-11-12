@@ -16,7 +16,7 @@ export default function Admin() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, "inquiry"));
+      const querySnapshot = await getDocs(collection(db, "Inquiries"));
       const data = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
@@ -32,7 +32,7 @@ export default function Admin() {
     let confirmationMessage = "Delete - Are you sure?";
     let confirm = window.confirm(confirmationMessage);
     if (confirm) {
-      const docRef = doc(db, "inquiry", id);
+      const docRef = doc(db, "Inquiries", id);
       await deleteDoc(docRef);
       setInquiries();
     }

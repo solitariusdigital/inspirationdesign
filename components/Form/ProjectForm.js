@@ -5,22 +5,31 @@ import loading from "@/assets/loading.svg";
 import CloseIcon from "@mui/icons-material/Close";
 import imageCompression from "browser-image-compression";
 import db from "@/services/firestore";
+import { storage } from "@/services/firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "@firebase/firestore";
+import { fourGenerator, sixGenerator } from "@/services/utility";
 
 export default function ProjectForm() {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [year, setYear] = useState("");
   const [category, setCategory] = useState("");
-  const [subCategory, setSubCategory] = useState("");
   const [description, setDescription] = useState("");
   const [alert, setAlert] = useState("");
   const [disableButton, setDisableButton] = useState(false);
-
   const [imagesPreview, setImagesPreview] = useState([]);
   const [uploadImages, setUploadImages] = useState([]);
-
   const categories = ["residential", "commercial", "lighting", "construction"];
+
+  const compressImage = async (file) => {
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1280,
+      useWebWorker: true,
+    };
+    return await imageCompression(file, options);
+  };
 
   const handleSubmit = async () => {
     if (!title || !location || !year || !category || !description) {
@@ -33,38 +42,45 @@ export default function ProjectForm() {
       setDisableButton(false);
       return;
     }
-
     setDisableButton(true);
     try {
-      const docRef = await addDoc(collection(db, "project"), {
+      const links = [];
+      const folder = `pro${sixGenerator()}`;
+      for (const media of uploadImages) {
+        const name = `img${fourGenerator()}`;
+        const compressedFile = await compressImage(media);
+        const storageRef = ref(storage, `Projects/${folder}/${name}`);
+        const snapshot = await uploadBytes(storageRef, compressedFile);
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        links.push(downloadURL);
+      }
+      const docRef = await addDoc(collection(db, "Projects"), {
         title: title.trim(),
         location: location.trim(),
         year: year.trim(),
         category: category,
-        subCategory: subCategory,
         description: description.trim(),
+        links: links,
+        hero: links[0],
         createdAt: new Date().toISOString(),
       });
       if (docRef.id) {
-        setDisableButton(false);
         setTitle("");
         setLocation("");
         setYear("");
         setCategory("");
-        setSubCategory("");
         setDescription("");
+        removeImageInputFile();
+        setDisableButton(false);
+        showAlert("Project saved successfully!");
       }
     } catch (error) {
       console.error("Error adding document:", error);
       showAlert("Failed to save. Please try again later.");
+      setDisableButton(false);
     }
   };
 
-  const removeImageInputFile = () => {
-    setImagesPreview([]);
-    const input = document.getElementById("inputImage");
-    input.value = null;
-  };
   const handleImageChange = (event) => {
     const array = Array.from(event.target.files);
     setUploadImages(array);
@@ -74,6 +90,13 @@ export default function ProjectForm() {
         link: URL.createObjectURL(item),
       }))
     );
+  };
+
+  const removeImageInputFile = () => {
+    setImagesPreview([]);
+    setUploadImages([]);
+    const input = document.getElementById("inputImage");
+    input.value = null;
   };
 
   const showAlert = (message) => {
@@ -216,7 +239,7 @@ export default function ProjectForm() {
             <p>Select Images</p>
           </label>
           <CloseIcon
-            className={classes.clearMedia}
+            className={classes.icon}
             sx={{ fontSize: 16 }}
             onClick={() => {
               removeImageInputFile();

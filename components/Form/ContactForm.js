@@ -40,7 +40,7 @@ export default function ContactForm() {
     }
     setDisableButton(true);
     try {
-      const docRef = await addDoc(collection(db, "inquiry"), {
+      const docRef = await addDoc(collection(db, "Inquiries"), {
         name: name.trim(),
         email: email.trim(),
         phone: phone.trim(),
