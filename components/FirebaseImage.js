@@ -25,7 +25,8 @@ export default function FirebaseImage({ path, alt, objectFit = "cover" }) {
     objectFit: objectFit,
     objectPosition: "50% 0%",
     opacity: loaded ? 1 : 0,
-    transition: "opacity 0.2s ease-in",
+    filter: loaded ? "none" : "blur(20px)",
+    transition: "opacity 0.2s ease-in, filter 0.3s ease-in",
   };
 
   return (
