@@ -5,12 +5,11 @@ import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "@/services/firebase";
 
 export default function FirebaseImage({ path, alt, objectFit = "cover" }) {
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     if (!path) return;
-
     const imageRef = ref(storage, path);
     getDownloadURL(imageRef)
       .then((downloadURL) => {
@@ -37,7 +36,7 @@ export default function FirebaseImage({ path, alt, objectFit = "cover" }) {
       style={imageStyle}
       unoptimized
       priority
-      onLoadingComplete={() => setLoaded(true)}
+      onLoad={() => setLoaded(true)}
     />
   );
 }

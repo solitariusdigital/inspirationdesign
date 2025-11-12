@@ -68,6 +68,7 @@ export default function Menu() {
             objectFit="contain"
             alt="logo"
             as="image"
+            priority
           />
         </Link>
       </div>
