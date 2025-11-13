@@ -6,7 +6,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import imageCompression from "browser-image-compression";
 import db from "@/services/firestore";
 import { storage } from "@/services/firebase";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes } from "firebase/storage";
 import { collection, addDoc } from "@firebase/firestore";
 import { fourGenerator, sixGenerator } from "@/services/utility";
 
@@ -20,6 +20,7 @@ export default function ProjectForm() {
   const [disableButton, setDisableButton] = useState(false);
   const [imagesPreview, setImagesPreview] = useState([]);
   const [uploadImages, setUploadImages] = useState([]);
+  const [progress, setProgress] = useState(0);
   const categories = ["residential", "commercial", "lighting", "construction"];
 
   const compressImage = async (file) => {
@@ -43,16 +44,21 @@ export default function ProjectForm() {
       return;
     }
     setDisableButton(true);
+
+    const totalSteps = imagesPreview.length;
+    const progressIncrement = 100 / totalSteps;
+
     try {
-      const links = [];
+      const path = [];
       const folder = `pro${sixGenerator()}`;
       for (const media of uploadImages) {
         const name = `img${fourGenerator()}`;
+        const imgPath = `Projects/${folder}/${name}`;
         const compressedFile = await compressImage(media);
-        const storageRef = ref(storage, `Projects/${folder}/${name}`);
-        const snapshot = await uploadBytes(storageRef, compressedFile);
-        const downloadURL = await getDownloadURL(snapshot.ref);
-        links.push(downloadURL);
+        const storageRef = ref(storage, imgPath);
+        await uploadBytes(storageRef, compressedFile);
+        path.push(imgPath);
+        setProgress((prevProgress) => prevProgress + progressIncrement);
       }
       const docRef = await addDoc(collection(db, "Projects"), {
         title: title.trim(),
@@ -60,8 +66,9 @@ export default function ProjectForm() {
         year: year.trim(),
         category: category,
         description: description.trim(),
-        links: links,
-        hero: links[0],
+        path: path,
+        hero: path[0],
+        active: false,
         createdAt: new Date().toISOString(),
       });
       if (docRef.id) {
@@ -71,6 +78,7 @@ export default function ProjectForm() {
         setCategory("");
         setDescription("");
         removeImageInputFile();
+        setProgress(100);
         setDisableButton(false);
         showAlert("Project saved successfully!");
       }
@@ -268,7 +276,12 @@ export default function ProjectForm() {
             Save
           </button>
         ) : (
-          <Image width={50} height={50} src={loading} alt="isLoading" />
+          <>
+            <p className={classes.progress}>
+              Uploading {Math.round(progress)}%
+            </p>
+            <Image width={50} height={50} src={loading} alt="isLoading" />
+          </>
         )}
       </div>
     </div>
