@@ -87,3 +87,28 @@
     width: config.$content-widthTablet;
   }
 }
+
+.newsArticle {
+  margin: auto;
+  margin-top: 120px;
+  margin-bottom: 100px;
+  width: config.$content-width;
+  max-width: config.$max-widthHeigh;
+
+  @include mixins.mobile {
+    width: calc(100% - 24px);
+  }
+  @include mixins.tabletPortrait {
+    width: config.$content-widthTablet;
+  }
+  @include mixins.tabletLandscape {
+    width: config.$content-widthTablet;
+  }
+
+  .imageBox {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    margin-top: 24px;
+    box-shadow: config.$card-shadow;
+  }
+}

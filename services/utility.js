@@ -65,3 +65,15 @@ export function extractParagraphs(text) {
     .split(/-{3,}|\n\n+/)
     .filter((paragraph) => paragraph.trim() !== "");
 }
+
+export function isValidDateFormat(dateString) {
+  if (typeof dateString !== "string") return false;
+  // ISO/Canadian official date format: yyyy-mm-dd
+  const regex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+  return regex.test(dateString);
+}
+
+export function convertDateName(date) {
+  const newDate = new Date(date);
+  return newDate.toLocaleString("en-US", { month: "long", year: "numeric" });
+}

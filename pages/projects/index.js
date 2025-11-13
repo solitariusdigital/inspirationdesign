@@ -60,7 +60,7 @@ export default function Projects() {
         }}
         robots="index, follow"
       />
-      {/* <div className={classes.container}>
+      <div className={classes.container}>
         <div className={classes.navigation}>
           {navigation.map((nav, index) => (
             <p
@@ -109,7 +109,7 @@ export default function Projects() {
               </div>
             ))}
         </div>
-      </div> */}
+      </div>
     </>
   );
 }

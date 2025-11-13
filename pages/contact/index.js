@@ -29,7 +29,7 @@ export default function Contact() {
         }}
         robots="index, follow"
       />
-      {/* <div className={classes.container}>
+      <div className={classes.container}>
         <div className={classes.text}>
           <h3
             style={{
@@ -91,7 +91,7 @@ export default function Contact() {
           </div>
         </div>
         <ContactForm />
-      </div> */}
+      </div>
     </>
   );
 }

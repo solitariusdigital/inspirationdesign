@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ref, getDownloadURL } from "firebase/storage";

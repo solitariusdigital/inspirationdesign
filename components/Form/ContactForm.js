@@ -24,7 +24,7 @@ export default function ContactForm() {
 
   const handleSubmit = async () => {
     if (!name || !email || !phone || !subject || !message) {
-      showAlert("All fields Required");
+      showAlert("All fields required");
       setDisableButton(false);
       return;
     }
@@ -49,13 +49,13 @@ export default function ContactForm() {
         createdAt: new Date().toISOString(),
       });
       if (docRef.id) {
-        setDisableButton(false);
-        setNotification(true);
         setName("");
         setEmail("");
         setPhone("");
         setSubject("");
         setMessage("");
+        setDisableButton(false);
+        setNotification(true);
         setTimeout(() => {
           setNotification(false);
         }, 5000);

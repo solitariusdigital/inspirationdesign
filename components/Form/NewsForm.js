@@ -1,12 +1,119 @@
 import { useState } from "react";
 import classes from "./Form.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
+import Image from "next/legacy/image";
+import loading from "@/assets/loading.svg";
+import imageCompression from "browser-image-compression";
+import db from "@/services/firestore";
+import { storage } from "@/services/firebase";
+import { ref, uploadBytes } from "firebase/storage";
+import { collection, addDoc } from "@firebase/firestore";
+import {
+  fourGenerator,
+  sixGenerator,
+  isValidDateFormat,
+} from "@/services/utility";
 
 export default function NewsForm() {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
   const [alert, setAlert] = useState("");
+  const [disableButton, setDisableButton] = useState(false);
+  const [imagesPreview, setImagesPreview] = useState([]);
+  const [uploadImages, setUploadImages] = useState([]);
+  const [progress, setProgress] = useState(0);
+
+  const compressImage = async (file) => {
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1280,
+      useWebWorker: true,
+    };
+    return await imageCompression(file, options);
+  };
+
+  const handleSubmit = async () => {
+    if (!title || !date || !description) {
+      showAlert("All fields required");
+      setDisableButton(false);
+      return;
+    }
+    if (!isValidDateFormat(date)) {
+      showAlert("Invalid date");
+      return;
+    }
+    if (imagesPreview.length === 0) {
+      showAlert("Select images");
+      setDisableButton(false);
+      return;
+    }
+    setDisableButton(true);
+
+    const totalSteps = imagesPreview.length;
+    const progressIncrement = 100 / totalSteps;
+
+    try {
+      const path = [];
+      const folder = `news${sixGenerator()}`;
+      for (const media of uploadImages) {
+        const name = `img${fourGenerator()}`;
+        const imgPath = `News/${folder}/${name}`;
+        const compressedFile = await compressImage(media);
+        const storageRef = ref(storage, imgPath);
+        await uploadBytes(storageRef, compressedFile);
+        path.push(imgPath);
+        setProgress((prevProgress) => prevProgress + progressIncrement);
+      }
+      const docRef = await addDoc(collection(db, "News"), {
+        title: title.trim(),
+        date: date.trim(),
+        description: description.trim(),
+        path: path,
+        hero: path[0],
+        active: false,
+        createdAt: new Date().toISOString(),
+      });
+      if (docRef.id) {
+        setTitle("");
+        setDate("");
+        setDescription("");
+        removeImageInputFile();
+        setProgress(100);
+        setDisableButton(false);
+        showAlert("News saved successfully!");
+      }
+    } catch (error) {
+      console.error("Error adding document:", error);
+      showAlert("Failed to save. Please try again later.");
+      setDisableButton(false);
+    }
+  };
+
+  const handleImageChange = (event) => {
+    const array = Array.from(event.target.files);
+    setUploadImages(array);
+    setImagesPreview(
+      array.map((item) => ({
+        file: item,
+        link: URL.createObjectURL(item),
+      }))
+    );
+  };
+
+  const removeImageInputFile = () => {
+    setImagesPreview([]);
+    setUploadImages([]);
+    const input = document.getElementById("inputImage");
+    input.value = null;
+  };
+
+  const showAlert = (message) => {
+    setAlert(message);
+    setTimeout(() => {
+      setAlert("");
+    }, 3000);
+  };
 
   return (
     <div className={classes.formBox}>
@@ -52,6 +159,7 @@ export default function NewsForm() {
             />
           </div>
           <input
+            placeholder="yyyy-mm-dd"
             type="text"
             id="date"
             name="date"
@@ -83,9 +191,55 @@ export default function NewsForm() {
           autoComplete="off"
         ></textarea>
       </div>
+      <div className={classes.mediaContainer}>
+        <div>
+          <label className="file">
+            <input
+              onChange={handleImageChange}
+              id="inputImage"
+              type="file"
+              accept="image/*"
+              multiple
+            />
+            <p>Select Images</p>
+          </label>
+          <CloseIcon
+            className={classes.icon}
+            sx={{ fontSize: 16 }}
+            onClick={() => {
+              removeImageInputFile();
+            }}
+          />
+          {imagesPreview.length > 0 && (
+            <div className={classes.imageBox}>
+              {imagesPreview.map((image, index) => (
+                <div className={classes.image} key={index}>
+                  <Image
+                    src={image.link}
+                    layout="fill"
+                    objectFit="cover"
+                    alt="image"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
       <div className={classes.formAction}>
         <p className={classes.alert}>{alert}</p>
-        <button onClick={() => handleSubmit()}>Save</button>
+        {!disableButton ? (
+          <button disabled={disableButton} onClick={() => handleSubmit()}>
+            Save
+          </button>
+        ) : (
+          <>
+            <p className={classes.progress}>
+              Uploading {Math.round(progress)}%
+            </p>
+            <Image width={50} height={50} src={loading} alt="isLoading" />
+          </>
+        )}
       </div>
     </div>
   );

@@ -1,9 +1,33 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
+import { StateContext } from "@/context/stateContext";
 import { NextSeo } from "next-seo";
-import classes from "./news.module.scss";
+import classes from "@/pages/projects/projects.module.scss";
 import logoBlack from "@/assets/logo-black.png";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import Tooltip from "@mui/material/Tooltip";
+import Link from "next/link";
+import { replaceSpacesAndHyphens } from "@/services/utility";
+import FirebaseImage from "@/components/FirebaseImage";
+import db from "@/services/firestore";
+import { collection, getDocs } from "@firebase/firestore";
 
 export default function News() {
+  const { currentUser, setCurrentUser } = useContext(StateContext);
+  const [displayNews, setDisplayNews] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(collection(db, "News"));
+      const data = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setDisplayNews(data.sort((a, b) => b.year - a.year));
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
       <NextSeo
@@ -27,6 +51,45 @@ export default function News() {
         }}
         robots="index, follow"
       />
+      <div className={classes.container}>
+        <div className={classes.gridLayout}>
+          {displayNews?.map((news, index) => {
+            const newsLink = `/news/${replaceSpacesAndHyphens(news.title)}`;
+            return (
+              <Link
+                key={index}
+                className={classes.item}
+                href={newsLink}
+                passHref
+              >
+                <div className={classes.card}>
+                  {currentUser && (
+                    <div className={classes.visibility}>
+                      {news.active ? (
+                        <Tooltip title="Visible">
+                          <VerifiedUserIcon
+                            sx={{ fontSize: 18, color: "#84994F" }}
+                          />
+                        </Tooltip>
+                      ) : (
+                        <Tooltip title="Hidden">
+                          <VisibilityOffIcon
+                            sx={{ fontSize: 18, color: "#bf1a1a" }}
+                          />
+                        </Tooltip>
+                      )}
+                    </div>
+                  )}
+                  <div className={classes.imageBox}>
+                    <FirebaseImage path={news.hero} alt={news.title} />
+                  </div>
+                  <h4 style={{ fontFamily: "TitilliumLight" }}>{news.title}</h4>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }

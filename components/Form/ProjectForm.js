@@ -34,7 +34,7 @@ export default function ProjectForm() {
 
   const handleSubmit = async () => {
     if (!title || !location || !year || !category || !description) {
-      showAlert("All fields Required");
+      showAlert("All fields required");
       setDisableButton(false);
       return;
     }
