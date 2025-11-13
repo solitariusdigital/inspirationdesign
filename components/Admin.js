@@ -26,7 +26,7 @@ export default function Admin() {
       );
     };
     fetchData();
-  }, [inquiries]);
+  }, []);
 
   const handleDelete = async (id) => {
     let confirmationMessage = "Delete - Are you sure?";
@@ -34,7 +34,7 @@ export default function Admin() {
     if (confirm) {
       const docRef = doc(db, "Inquiries", id);
       await deleteDoc(docRef);
-      setInquiries();
+      setInquiries(null);
     }
   };
 

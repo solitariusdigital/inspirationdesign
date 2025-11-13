@@ -1,13 +1,22 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
+import { StateContext } from "@/context/stateContext";
 import { NextSeo } from "next-seo";
 import classes from "./projects.module.scss";
 import logoBlack from "@/assets/logo-black.png";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import Tooltip from "@mui/material/Tooltip";
 import FirebaseImage from "@/components/FirebaseImage";
+import db from "@/services/firestore";
+import { collection, getDocs } from "@firebase/firestore";
 
 export default function Projects() {
+  const { currentUser, setCurrentUser } = useContext(StateContext);
   const [pageType, setPageType] = useState(
     "all" || "residential" || "commercial" || "lighting" || "construction"
   );
+  const [displayProjects, setDisplayProjects] = useState(null);
+
   const navigation = [
     "all",
     "residential",
@@ -16,62 +25,17 @@ export default function Projects() {
     "construction",
   ];
 
-  const gridImages = [
-    {
-      path: "Resources/10.jpg",
-      title: "Queens",
-      type: "image",
-      category: "residential",
-    },
-    {
-      path: "Resources/9.jpg",
-      title: "Zayani Residence",
-      type: "image",
-      category: "commercial",
-    },
-    {
-      path: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "residential",
-    },
-    {
-      path: "Resources/10.jpg",
-      title: "Project",
-      type: "image",
-      category: "lighting",
-    },
-    {
-      path: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "commercial",
-    },
-    {
-      path: "Resources/10.jpg",
-      title: "Project",
-      type: "image",
-      category: "residential",
-    },
-    {
-      path: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "residential",
-    },
-    {
-      path: "Resources/10.jpg",
-      title: "Zayani Residence",
-      type: "image",
-      category: "interior",
-    },
-    {
-      path: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "construction",
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(collection(db, "Projects"));
+      const data = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setDisplayProjects(data.sort((a, b) => b.year - a.year));
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -109,14 +73,31 @@ export default function Projects() {
           ))}
         </div>
         <div className={classes.gridLayout}>
-          {gridImages
-            .filter(
+          {displayProjects
+            ?.filter(
               (project) => pageType === "all" || project.category === pageType
             )
             .map((project, index) => (
-              <div key={index}>
+              <div key={index} className={classes.card}>
+                {currentUser && (
+                  <div className={classes.visibility}>
+                    {project.active ? (
+                      <Tooltip title="Visible">
+                        <VerifiedUserIcon
+                          sx={{ fontSize: 18, color: "#84994F" }}
+                        />
+                      </Tooltip>
+                    ) : (
+                      <Tooltip title="Hidden">
+                        <VisibilityOffIcon
+                          sx={{ fontSize: 18, color: "#bf1a1a" }}
+                        />
+                      </Tooltip>
+                    )}
+                  </div>
+                )}
                 <div className={classes.imageBox}>
-                  <FirebaseImage path={project.path} alt={project.title} />
+                  <FirebaseImage path={project.hero} alt={project.title} />
                 </div>
                 <h4
                   style={{

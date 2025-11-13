@@ -52,18 +52,23 @@
   width: config.$content-width;
   max-width: config.$max-widthHeigh;
 
+  .card {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+
+    .visibility {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 1;
+    }
+  }
+
   .imageBox {
     position: relative;
     aspect-ratio: 16 / 9;
     box-shadow: config.$card-shadow;
-    cursor: pointer;
-
-    .image {
-      user-select: none;
-      &:hover {
-        @include mixins.background-anime();
-      }
-    }
   }
 
   h4 {

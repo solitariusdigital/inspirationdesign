@@ -7,61 +7,64 @@ import CoverSlider from "@/components/CoverSlider";
 import logoBlack from "@/assets/logo-black.png";
 import Light from "@/components/Light";
 import FirebaseImage from "@/components/FirebaseImage";
+import db from "@/services/firestore";
+import { collection, getDocs } from "@firebase/firestore";
 
 export default function Home() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
+  const [displayProjects, setDisplayProjects] = useState(null);
 
   const gridImages = [
     {
-      path: "Resources/10.jpg",
+      hero: "Resources/10.jpg",
       title: "Queens",
       type: "image",
       category: "residential",
     },
     {
-      path: "Resources/9.jpg",
+      hero: "Resources/9.jpg",
       title: "Zayani Residence",
       type: "image",
       category: "commercial",
     },
     {
-      path: "Resources/9.jpg",
+      hero: "Resources/9.jpg",
       title: "Project",
       type: "image",
       category: "residential",
     },
     {
-      path: "Resources/10.jpg",
+      hero: "Resources/10.jpg",
       title: "Project",
       type: "image",
       category: "lighting",
     },
     {
-      path: "Resources/9.jpg",
+      hero: "Resources/9.jpg",
       title: "Project",
       type: "image",
       category: "commercial",
     },
     {
-      path: "Resources/10.jpg",
+      hero: "Resources/10.jpg",
       title: "Project",
       type: "image",
       category: "residential",
     },
     {
-      path: "Resources/9.jpg",
+      hero: "Resources/9.jpg",
       title: "Project",
       type: "image",
       category: "residential",
     },
     {
-      path: "Resources/10.jpg",
+      hero: "Resources/10.jpg",
       title: "Zayani Residence",
       type: "image",
       category: "interior",
     },
     {
-      path: "Resources/9.jpg",
+      hero: "Resources/9.jpg",
       title: "Project",
       type: "image",
       category: "construction",
@@ -94,6 +97,18 @@ export default function Home() {
       aspectRatio: 16 / 11,
     },
   ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(collection(db, "Projects"));
+      const data = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setDisplayProjects(data.sort((a, b) => b.year - a.year));
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     navigationTopBar.map((nav) => {
@@ -211,20 +226,22 @@ export default function Home() {
             Projects
           </h2>
           <div className={classes.gridLayout}>
-            {gridImages.map((project, index) => (
-              <div key={index} className={classes.imageBox}>
-                <FirebaseImage path={project.path} alt={project.title} />
-                <div className={classes.overlay}>
-                  <h4
-                    style={{
-                      fontFamily: "TitilliumLight",
-                    }}
-                  >
-                    {project.title}
-                  </h4>
+            {gridImages
+              ?.map((project, index) => (
+                <div key={index} className={classes.imageBox}>
+                  <FirebaseImage path={project.hero} alt={project.title} />
+                  <div className={classes.overlay}>
+                    <h4
+                      style={{
+                        fontFamily: "TitilliumLight",
+                      }}
+                    >
+                      {project.title}
+                    </h4>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+              .slice(0, 9)}
           </div>
         </section>
       </div>

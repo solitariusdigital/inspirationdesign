@@ -210,6 +210,7 @@ export default function ProjectForm() {
             value={year}
             autoComplete="off"
             dir="ltr"
+            maxLength={4}
           />
         </div>
       </div>
