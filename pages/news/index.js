@@ -27,7 +27,6 @@ export default function News() {
         }}
         robots="index, follow"
       />
-      <div>News</div>
     </>
   );
 }
