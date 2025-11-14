@@ -26,6 +26,7 @@ import { getStorage, ref, listAll, deleteObject } from "firebase/storage";
 
 export default function NewsArticle() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
+  const { editNews, setEditNews } = useContext(StateContext);
   const [displayNews, setDisplayNews] = useState(null);
   const router = useRouter();
   const slug = router.asPath.replace(/^\/news\//, "");
@@ -115,7 +116,7 @@ export default function NewsArticle() {
         robots="index, follow"
       />
       {displayNews && (
-        <article className={classes.newsArticle}>
+        <article className={classes.cardBox}>
           {currentUser && (
             <div className={classes.controlPanel}>
               {displayNews.active ? (
@@ -154,7 +155,13 @@ export default function NewsArticle() {
               </Tooltip>
             </div>
           )}
-          <h2>{displayNews.title}</h2>
+          <h2
+            style={{
+              fontFamily: "TitilliumLight",
+            }}
+          >
+            {displayNews.title}
+          </h2>
           <p>{convertDateName(displayNews.date)}</p>
           <div className={classes.imageBox}>
             <FirebaseImage path={displayNews.hero} alt={displayNews.title} />

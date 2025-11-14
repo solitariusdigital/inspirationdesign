@@ -1,8 +1,8 @@
 import { useState } from "react";
 import classes from "./CoverSlider.module.scss";
+import FirebaseImage from "@/components/FirebaseImage";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, EffectFade } from "swiper/modules";
-import FirebaseImage from "@/components/FirebaseImage";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";

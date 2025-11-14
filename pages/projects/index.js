@@ -6,6 +6,8 @@ import logoBlack from "@/assets/logo-black.png";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Tooltip from "@mui/material/Tooltip";
+import Link from "next/link";
+import { replaceSpacesAndHyphens } from "@/services/utility";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
 import { collection, getDocs } from "@firebase/firestore";
@@ -16,7 +18,6 @@ export default function Projects() {
     "all" || "residential" || "commercial" || "lighting" || "construction"
   );
   const [displayProjects, setDisplayProjects] = useState(null);
-
   const navigation = [
     "all",
     "residential",
@@ -32,9 +33,15 @@ export default function Projects() {
         ...doc.data(),
         id: doc.id,
       }));
-      setDisplayProjects(data.sort((a, b) => b.year - a.year));
+      const sorted = data.sort((a, b) => b.year - a.year);
+      if (currentUser) {
+        setDisplayProjects(sorted);
+      } else {
+        setDisplayProjects(sorted.filter((news) => news.active));
+      }
     };
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -77,37 +84,49 @@ export default function Projects() {
             ?.filter(
               (project) => pageType === "all" || project.category === pageType
             )
-            .map((project, index) => (
-              <div key={index} className={classes.card}>
-                {currentUser && (
-                  <div className={classes.visibility}>
-                    {project.active ? (
-                      <Tooltip title="Visible">
-                        <VerifiedUserIcon
-                          sx={{ fontSize: 18, color: "#84994F" }}
-                        />
-                      </Tooltip>
-                    ) : (
-                      <Tooltip title="Hidden">
-                        <VisibilityOffIcon
-                          sx={{ fontSize: 18, color: "#bf1a1a" }}
-                        />
-                      </Tooltip>
-                    )}
-                  </div>
-                )}
-                <div className={classes.imageBox}>
-                  <FirebaseImage path={project.hero} alt={project.title} />
-                </div>
-                <h4
-                  style={{
-                    fontFamily: "TitilliumLight",
-                  }}
+            .map((project, index) => {
+              const projectLink = `/projects/${replaceSpacesAndHyphens(
+                project.title
+              )}`;
+              return (
+                <Link
+                  key={index}
+                  className={classes.item}
+                  href={projectLink}
+                  passHref
                 >
-                  {project.title}
-                </h4>
-              </div>
-            ))}
+                  <div key={index} className={classes.card}>
+                    {currentUser && (
+                      <div className={classes.visibility}>
+                        {project.active ? (
+                          <Tooltip title="Visible">
+                            <VerifiedUserIcon
+                              sx={{ fontSize: 18, color: "#84994F" }}
+                            />
+                          </Tooltip>
+                        ) : (
+                          <Tooltip title="Hidden">
+                            <VisibilityOffIcon
+                              sx={{ fontSize: 18, color: "#bf1a1a" }}
+                            />
+                          </Tooltip>
+                        )}
+                      </div>
+                    )}
+                    <div className={classes.imageBox}>
+                      <FirebaseImage path={project.hero} alt={project.title} />
+                    </div>
+                    <h4
+                      style={{
+                        fontFamily: "TitilliumLight",
+                      }}
+                    >
+                      {project.title}
+                    </h4>
+                  </div>
+                </Link>
+              );
+            })}
         </div>
       </div>
     </>

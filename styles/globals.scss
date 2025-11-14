@@ -135,6 +135,19 @@ label.file input[type="file"] {
     scale: 0.4;
   }
 }
+.swiper-pagination {
+  position: relative;
+  bottom: 30px !important;
+
+  .swiper-pagination-bullet {
+    background: config.$white !important;
+    opacity: 0.7 !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: config.$brand !important;
+    opacity: 1 !important;
+  }
+}
 
 ::selection {
   background: config.$brand;
