@@ -17,7 +17,7 @@ export default function FirebaseImage({ path, alt, objectFit = "cover" }) {
       .catch((err) => console.error("Error loading Firebase image:", err));
   }, [path]);
 
-  if (!url) return <p style={{ fontSize: "small" }}>...</p>;
+  if (!url) return;
 
   const imageStyle = {
     objectFit: objectFit,
@@ -25,6 +25,8 @@ export default function FirebaseImage({ path, alt, objectFit = "cover" }) {
     opacity: loaded ? 1 : 0,
     filter: loaded ? "none" : "blur(20px)",
     transition: "opacity 0.2s ease-in, filter 0.3s ease-in",
+    boxShadow: `rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px`,
   };
 
   return (

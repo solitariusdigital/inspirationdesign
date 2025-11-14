@@ -44,7 +44,7 @@ export default function NewsForm() {
       return;
     }
     if (imagesPreview.length === 0) {
-      showAlert("Select images");
+      showAlert("Select image");
       setDisableButton(false);
       return;
     }
@@ -199,9 +199,8 @@ export default function NewsForm() {
               id="inputImage"
               type="file"
               accept="image/*"
-              multiple
             />
-            <p>Select Images</p>
+            <p>Select Image</p>
           </label>
           <CloseIcon
             className={classes.icon}

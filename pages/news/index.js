@@ -7,7 +7,7 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Tooltip from "@mui/material/Tooltip";
 import Link from "next/link";
-import { replaceSpacesAndHyphens } from "@/services/utility";
+import { replaceSpacesAndHyphens, sliceString } from "@/services/utility";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
 import { collection, getDocs } from "@firebase/firestore";
@@ -23,9 +23,15 @@ export default function News() {
         ...doc.data(),
         id: doc.id,
       }));
-      setDisplayNews(data.sort((a, b) => b.year - a.year));
+      const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+      if (currentUser) {
+        setDisplayNews(sorted);
+      } else {
+        setDisplayNews(sorted.filter((news) => news.active));
+      }
     };
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -84,6 +90,9 @@ export default function News() {
                     <FirebaseImage path={news.hero} alt={news.title} />
                   </div>
                   <h4 style={{ fontFamily: "TitilliumLight" }}>{news.title}</h4>
+                  <p className={classes.description}>
+                    {sliceString(news.description, 90)}
+                  </p>
                 </div>
               </Link>
             );

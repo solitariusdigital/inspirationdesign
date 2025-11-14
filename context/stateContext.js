@@ -7,6 +7,8 @@ export const StateProvider = (props) => {
   const [screenSize, setScreenSize] = useState(
     "desktop" || "tablet-landscape" || "tablet-portrait" || "mobile"
   );
+  const [editProject, setEditProject] = useState(null);
+  const [editNews, setEditNews] = useState(null);
   const [navigationTopBar, setNavigationTopBar] = useState([
     {
       title: "Projects",
@@ -38,6 +40,10 @@ export const StateProvider = (props) => {
     setNavigationTopBar,
     menuDisplay,
     setMenuDisplay,
+    editProject,
+    setEditProject,
+    editNews,
+    setEditNews,
   };
   return (
     <StateContext.Provider value={stateContext}>
