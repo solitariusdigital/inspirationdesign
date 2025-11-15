@@ -10,9 +10,21 @@ import db from "@/services/firestore";
 import { collection, getDocs, doc, deleteDoc } from "@firebase/firestore";
 
 export default function Admin() {
+  const { editProject, setEditProject } = useContext(StateContext);
+  const { editNews, setEditNews } = useContext(StateContext);
   const [pageType, setPageType] = useState("projects" || "news" || "inquiries");
   const navigation = ["projects", "news", "inquiries"];
   const [inquiries, setInquiries] = useState(null);
+
+  useEffect(() => {
+    if (editProject) {
+      setPageType("projects");
+    }
+    if (editNews) {
+      setPageType("news");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

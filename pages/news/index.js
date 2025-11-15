@@ -74,13 +74,13 @@ export default function News() {
                       {news.active ? (
                         <Tooltip title="Visible">
                           <VerifiedUserIcon
-                            sx={{ fontSize: 18, color: "#84994F" }}
+                            sx={{ fontSize: 18, color: "#ffffff" }}
                           />
                         </Tooltip>
                       ) : (
                         <Tooltip title="Hidden">
                           <VisibilityOffIcon
-                            sx={{ fontSize: 18, color: "#bf1a1a" }}
+                            sx={{ fontSize: 18, color: "#ffffff" }}
                           />
                         </Tooltip>
                       )}

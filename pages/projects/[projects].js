@@ -32,6 +32,7 @@ import { getStorage, ref, listAll, deleteObject } from "firebase/storage";
 export default function Project() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { editProject, setEditProject } = useContext(StateContext);
+  const { editNews, setEditNews } = useContext(StateContext);
   const [displayProject, setDisplayProject] = useState(null);
   const router = useRouter();
   const slug = router.asPath.replace(/^\/projects\//, "");
@@ -82,10 +83,7 @@ export default function Project() {
       const docRef = doc(db, "Projects", project.id);
       await deleteDoc(docRef);
       const storage = getStorage();
-      const folderRef = ref(
-        storage,
-        `Projects/${getPrjectFolder(project.hero)}`
-      );
+      const folderRef = ref(storage, `Projects/${project.folder}`);
       const items = await listAll(folderRef);
       for (const itemRef of items.items) {
         await deleteObject(itemRef);
@@ -94,10 +92,6 @@ export default function Project() {
     } catch (error) {
       console.error("Error deleting project:", error);
     }
-  };
-
-  const getPrjectFolder = (path) => {
-    return path.split("/")[1];
   };
 
   return (
@@ -151,6 +145,7 @@ export default function Project() {
                   onClick={() => {
                     Router.push("/portal");
                     setEditProject(displayProject);
+                    setEditNews(null);
                   }}
                 />
               </Tooltip>

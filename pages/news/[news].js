@@ -27,6 +27,7 @@ import { getStorage, ref, listAll, deleteObject } from "firebase/storage";
 export default function NewsArticle() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { editNews, setEditNews } = useContext(StateContext);
+  const { editProject, setEditProject } = useContext(StateContext);
   const [displayNews, setDisplayNews] = useState(null);
   const router = useRouter();
   const slug = router.asPath.replace(/^\/news\//, "");
@@ -77,7 +78,7 @@ export default function NewsArticle() {
       const docRef = doc(db, "News", news.id);
       await deleteDoc(docRef);
       const storage = getStorage();
-      const folderRef = ref(storage, `News/${getNewsFolder(news.hero)}`);
+      const folderRef = ref(storage, `News/${news.folder}`);
       const items = await listAll(folderRef);
       for (const itemRef of items.items) {
         await deleteObject(itemRef);
@@ -86,10 +87,6 @@ export default function NewsArticle() {
     } catch (error) {
       console.error("Error deleting news:", error);
     }
-  };
-
-  const getNewsFolder = (path) => {
-    return path.split("/")[1];
   };
 
   return (
@@ -143,6 +140,7 @@ export default function NewsArticle() {
                   onClick={() => {
                     Router.push("/portal");
                     setEditNews(displayNews);
+                    setEditProject(null);
                   }}
                 />
               </Tooltip>

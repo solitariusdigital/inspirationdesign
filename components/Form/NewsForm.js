@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { StateContext } from "@/context/stateContext";
 import classes from "./Form.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/legacy/image";
 import loading from "@/assets/loading.svg";
 import imageCompression from "browser-image-compression";
+import Router from "next/router";
 import db from "@/services/firestore";
 import { storage } from "@/services/firebase";
 import { ref, uploadBytes } from "firebase/storage";
-import { collection, addDoc } from "@firebase/firestore";
+import { collection, addDoc, doc, updateDoc } from "@firebase/firestore";
 import {
   fourGenerator,
   sixGenerator,
@@ -15,9 +17,10 @@ import {
 } from "@/services/utility";
 
 export default function NewsForm() {
-  const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
-  const [description, setDescription] = useState("");
+  const { editNews, setEditNews } = useContext(StateContext);
+  const [title, setTitle] = useState(editNews?.title || "");
+  const [date, setDate] = useState(editNews?.date || "");
+  const [description, setDescription] = useState(editNews?.description || "");
   const [alert, setAlert] = useState("");
   const [disableButton, setDisableButton] = useState(false);
   const [imagesPreview, setImagesPreview] = useState([]);
@@ -43,7 +46,7 @@ export default function NewsForm() {
       showAlert("Invalid date");
       return;
     }
-    if (imagesPreview.length === 0) {
+    if (!editNews && imagesPreview.length === 0) {
       showAlert("Select image");
       setDisableButton(false);
       return;
@@ -54,8 +57,8 @@ export default function NewsForm() {
     const progressIncrement = 100 / totalSteps;
 
     try {
-      const path = [];
-      const folder = `news${sixGenerator()}`;
+      const path = editNews?.path || [];
+      const folder = editNews?.folder || `news${sixGenerator()}`;
       for (const media of uploadImages) {
         const name = `img${fourGenerator()}`;
         const imgPath = `News/${folder}/${name}`;
@@ -65,15 +68,23 @@ export default function NewsForm() {
         path.push(imgPath);
         setProgress((prevProgress) => prevProgress + progressIncrement);
       }
-      const docRef = await addDoc(collection(db, "News"), {
+      const newsObject = {
         title: title.trim(),
         date: date.trim(),
         description: description.trim(),
         path: path,
-        hero: path[0],
+        hero: path.at(-1),
+        folder: folder,
         active: false,
         createdAt: new Date().toISOString(),
-      });
+      };
+      let docRef = null;
+      if (editNews) {
+        docRef = doc(db, "News", editNews.id);
+        await updateDoc(docRef, newsObject);
+      } else {
+        docRef = await addDoc(collection(db, "News"), newsObject);
+      }
       if (docRef.id) {
         setTitle("");
         setDate("");
@@ -81,7 +92,11 @@ export default function NewsForm() {
         removeImageInputFile();
         setProgress(100);
         setDisableButton(false);
+        setEditNews(null);
         showAlert("News saved successfully!");
+        setTimeout(() => {
+          Router.push("/news");
+        }, 500);
       }
     } catch (error) {
       console.error("Error adding document:", error);

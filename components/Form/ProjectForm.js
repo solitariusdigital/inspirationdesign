@@ -1,21 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { StateContext } from "@/context/stateContext";
 import classes from "./Form.module.scss";
 import Image from "next/legacy/image";
 import loading from "@/assets/loading.svg";
 import CloseIcon from "@mui/icons-material/Close";
 import imageCompression from "browser-image-compression";
+import Router from "next/router";
 import db from "@/services/firestore";
 import { storage } from "@/services/firebase";
 import { ref, uploadBytes } from "firebase/storage";
-import { collection, addDoc } from "@firebase/firestore";
+import { collection, addDoc, doc, updateDoc } from "@firebase/firestore";
 import { fourGenerator, sixGenerator } from "@/services/utility";
 
 export default function ProjectForm() {
-  const [title, setTitle] = useState("");
-  const [location, setLocation] = useState("");
-  const [year, setYear] = useState("");
-  const [category, setCategory] = useState("");
-  const [description, setDescription] = useState("");
+  const { editProject, setEditProject } = useContext(StateContext);
+  const [title, setTitle] = useState(editProject?.title || "");
+  const [location, setLocation] = useState(editProject?.location || "");
+  const [year, setYear] = useState(editProject?.year || "");
+  const [category, setCategory] = useState(editProject?.category || "");
+  const [description, setDescription] = useState(
+    editProject?.description || ""
+  );
   const [alert, setAlert] = useState("");
   const [disableButton, setDisableButton] = useState(false);
   const [imagesPreview, setImagesPreview] = useState([]);
@@ -38,7 +43,7 @@ export default function ProjectForm() {
       setDisableButton(false);
       return;
     }
-    if (imagesPreview.length === 0) {
+    if (!editProject && imagesPreview.length === 0) {
       showAlert("Select images");
       setDisableButton(false);
       return;
@@ -49,8 +54,8 @@ export default function ProjectForm() {
     const progressIncrement = 100 / totalSteps;
 
     try {
-      const path = [];
-      const folder = `pro${sixGenerator()}`;
+      const path = editProject?.path || [];
+      const folder = editProject?.folder || `pro${sixGenerator()}`;
       for (const media of uploadImages) {
         const name = `img${fourGenerator()}`;
         const imgPath = `Projects/${folder}/${name}`;
@@ -60,7 +65,7 @@ export default function ProjectForm() {
         path.push(imgPath);
         setProgress((prevProgress) => prevProgress + progressIncrement);
       }
-      const docRef = await addDoc(collection(db, "Projects"), {
+      const projectObject = {
         title: title.trim(),
         location: location.trim(),
         year: year.trim(),
@@ -68,9 +73,17 @@ export default function ProjectForm() {
         description: description.trim(),
         path: path,
         hero: path[0],
+        folder: folder,
         active: false,
         createdAt: new Date().toISOString(),
-      });
+      };
+      let docRef = null;
+      if (editProject) {
+        docRef = doc(db, "Projects", editProject.id);
+        await updateDoc(docRef, projectObject);
+      } else {
+        docRef = await addDoc(collection(db, "Projects"), projectObject);
+      }
       if (docRef.id) {
         setTitle("");
         setLocation("");
@@ -80,7 +93,11 @@ export default function ProjectForm() {
         removeImageInputFile();
         setProgress(100);
         setDisableButton(false);
+        setEditProject(null);
         showAlert("Project saved successfully!");
+        setTimeout(() => {
+          Router.push("/projects");
+        }, 500);
       }
     } catch (error) {
       console.error("Error adding document:", error);
@@ -121,7 +138,7 @@ export default function ProjectForm() {
           fontFamily: "TitilliumLight",
         }}
       >
-        Add Project
+        {editProject ? "Edit" : "Add"} Project
       </h4>
       <div className={classes.form}>
         <div className={classes.input}>
