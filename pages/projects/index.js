@@ -112,13 +112,16 @@ export default function Projects() {
                     <div className={classes.imageBox}>
                       <FirebaseImage path={project.hero} alt={project.title} />
                     </div>
-                    <h4
-                      style={{
-                        fontFamily: "TitilliumLight",
-                      }}
-                    >
-                      {project.title}
-                    </h4>
+                    <div className={classes.row}>
+                      <h4
+                        style={{
+                          fontFamily: "TitilliumLight",
+                        }}
+                      >
+                        {project.title}
+                      </h4>
+                      <h5>{project.year}</h5>
+                    </div>
                   </div>
                 </Link>
               );

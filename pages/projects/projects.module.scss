@@ -55,7 +55,6 @@
   .card {
     position: relative;
     user-select: none;
-    cursor: pointer;
 
     .visibility {
       position: absolute;
@@ -67,16 +66,20 @@
       background: config.$background;
     }
 
-    &:hover {
-      h4 {
-        color: config.$brand;
-      }
+    .row {
+      @include mixins.row-space-between-center();
     }
   }
 
   .imageBox {
     position: relative;
     aspect-ratio: 16 / 9;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.03);
+      cursor: pointer;
+    }
   }
 
   h4 {
@@ -99,10 +102,17 @@
 .controlPanel {
   @include mixins.row-space-between-center();
   margin: auto;
-  width: 15%;
+  width: 10%;
 
   @include mixins.mobile {
-    width: 20%;
+    width: 25%;
+    margin-bottom: 12px;
+  }
+  @include mixins.tabletPortrait {
+    width: 15%;
+  }
+  @include mixins.tabletLandscape {
+    width: 15%;
   }
 }
 
@@ -126,8 +136,15 @@
   .imageBox {
     position: relative;
     aspect-ratio: 16 / 9;
-    margin: 24px 0px;
+    margin: 12px 0px;
     user-select: none;
+  }
+
+  .swiperImage {
+    position: relative;
+    aspect-ratio: 4 / 3.5;
+    user-select: none;
+    cursor: grab;
   }
 
   .control {
@@ -141,6 +158,12 @@
   }
 
   .description {
-    margin-top: 12px;
+    margin: auto;
+    margin-top: 24px;
+    width: 100%;
+
+    @include mixins.allDesktop {
+      width: config.$content-widthTablet;
+    }
   }
 }

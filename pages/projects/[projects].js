@@ -34,6 +34,7 @@ export default function Project() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { editProject, setEditProject } = useContext(StateContext);
   const { editNews, setEditNews } = useContext(StateContext);
+  const { screenSize, setScreenSize } = useContext(StateContext);
   const [displayProject, setDisplayProject] = useState(null);
   const router = useRouter();
   const slug = router.asPath.replace(/^\/projects\//, "");
@@ -52,7 +53,7 @@ export default function Project() {
     };
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [displayProject]);
 
   const handlePublish = async (project, type) => {
     const confirmMessage = `${type} project, Are you sure?`;
@@ -112,7 +113,7 @@ export default function Project() {
       console.error("Error deleting image:", error);
       alert("Failed to delete image.");
     }
-    router.reload(router.asPath);
+    setDisplayProject(null);
   };
 
   const makeHeroImage = async (image) => {
@@ -121,6 +122,26 @@ export default function Project() {
     if (!confirm) return;
     const docRef = doc(db, "Projects", displayProject.id);
     await updateDoc(docRef, { hero: image });
+    setDisplayProject(null);
+  };
+
+  const generateSwipeCount = () => {
+    let count = 0;
+    switch (screenSize) {
+      case "desktop":
+        count = 3;
+        break;
+      case "tablet-landscape":
+        count = 3;
+        break;
+      case "tablet-portrait":
+        count = 3;
+        break;
+      case "mobile":
+        count = 1;
+        break;
+    }
+    return count;
   };
 
   return (
@@ -196,8 +217,15 @@ export default function Project() {
           </h2>
           <h3>{displayProject.location}</h3>
           <p>{displayProject.year}</p>
+          <div className={classes.imageBox}>
+            <FirebaseImage
+              path={displayProject.hero}
+              alt={displayProject.title}
+            />
+          </div>
           <Swiper
-            spaceBetween={0}
+            spaceBetween={12}
+            slidesPerView={generateSwipeCount()}
             navigation={true}
             loop={true}
             modules={[Navigation, Pagination]}
@@ -207,7 +235,7 @@ export default function Project() {
           >
             {displayProject.path.map((image, index) => (
               <SwiperSlide key={index}>
-                <div className={classes.imageBox}>
+                <div className={classes.swiperImage}>
                   {currentUser && (
                     <div className={classes.control}>
                       <Tooltip title="Delete Image">
