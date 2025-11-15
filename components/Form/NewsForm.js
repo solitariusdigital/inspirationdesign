@@ -214,7 +214,7 @@ export default function NewsForm() {
               type="file"
               accept="image/*"
             />
-            <p>Select Image</p>
+            <p>Select Single Image</p>
           </label>
           <CloseIcon
             className={classes.icon}

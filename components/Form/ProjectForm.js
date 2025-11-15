@@ -219,6 +219,7 @@ export default function ProjectForm() {
             />
           </div>
           <input
+            placeholder="yyyy"
             type="tel"
             id="year"
             name="year"
@@ -261,7 +262,7 @@ export default function ProjectForm() {
               accept="image/*"
               multiple
             />
-            <p>Select Images</p>
+            <p>Select Multiple Images</p>
           </label>
           <CloseIcon
             className={classes.icon}
