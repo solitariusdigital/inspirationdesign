@@ -125,25 +125,6 @@ export default function Project() {
     setDisplayProject(null);
   };
 
-  const generateSwipeCount = () => {
-    let count = 0;
-    switch (screenSize) {
-      case "desktop":
-        count = 3;
-        break;
-      case "tablet-landscape":
-        count = 3;
-        break;
-      case "tablet-portrait":
-        count = 3;
-        break;
-      case "mobile":
-        count = 1;
-        break;
-    }
-    return count;
-  };
-
   return (
     <>
       <NextSeo
@@ -225,7 +206,7 @@ export default function Project() {
           </div>
           <Swiper
             spaceBetween={12}
-            slidesPerView={generateSwipeCount()}
+            slidesPerView={screenSize === "mobile" ? 1 : 3}
             navigation={true}
             loop={true}
             modules={[Navigation, Pagination]}

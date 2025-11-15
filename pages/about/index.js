@@ -11,6 +11,72 @@ export default function About() {
   );
   const navigation = ["company", "testimonials", "awards", "publications"];
 
+  const companySection = [
+    {
+      title: "Turnkey Creative Solutions",
+      paragraphs: [
+        `Inspiration Design is a turnkey design firm founded in 2006,
+      providing creative design and exclusive construction management
+      for residential and commercial renovations and new builds.`,
+        `The firm has grown into a full-service provider offering
+      building design, interior design and lighting design.
+      Inspiration Design has successfully completed over 40 diverse
+      projects; including high-end homes, hotels, and retail spaces by
+      working closely with top international architects, designers,
+      and builders.`,
+        `Founder Parastoo Jafari drives the firm with her comprehensive
+      experience as a building designer with advanced education in
+      architecture and engineering. She holds a Master's degree from
+      "Ecole D’Architecture de Bordeaux," France, and a Ph.D. in
+      architecture, and is a registered architect. Her extensive
+      international design background is further strengthened by 12
+      years of technical management experience at a leading German
+      building materials manufacturer.`,
+      ],
+    },
+    {
+      title: "Experience & Design Philosophy",
+      paragraphs: [
+        `Inspiration Design has a privileged history of working on
+      diverse international projects, including prestigious
+      commissions for Royal families and European Embassies in the
+      Middle East, along with high-end houses in West Vancouver.`,
+        `Our work balances a contemporary vision with the client's
+      requested aesthetic, covering a vast range of architectural
+      styles. We prioritize understanding and meeting client aesthetic
+      and operational objectives while strictly adhering to budget and
+      schedule, which has helped us maintain an extensive client base.`,
+        `We view our profession as both art and science. We are committed
+      to building healthier structures using advanced construction
+      knowledge and technology. We achieve this by consciously
+      focusing on environmental responsibility and sustainability. We
+      carefully analyze all project data; including site, orientation,
+      building codes, and materials to ensure optimal solutions for
+      energy performance, durability, ventilation, and maintenance.`,
+      ],
+    },
+    {
+      title: "Full-Service Architectural Expertise",
+      paragraphs: [
+        `Inspiration Design is dedicated to utilizing the latest
+      technologies and materials in the field. The company is led by
+      founder Parastoo Jafari, who holds a PhD in Architecture and the
+      CACB certification.`,
+        `Dr. Jafari ensures the firm remains current with advancements
+      through active membership in professional organizations,
+      including RAIC (Royal Architectural Institute of Canada), IDIBC,
+      and WIA (Women in Architecture).`,
+        `We handle all design aspects from initial building concept
+      development and interior schemes to executing precise lighting
+      design and producing all necessary construction documentation.`,
+        `We manage all logistical and financial phases, including
+      preliminary site studies, cost estimation, regulatory compliance
+      and complete project execution, from contract negotiations to
+      consultation and final site supervision.`,
+      ],
+    },
+  ];
+
   const testimonials = [
     {
       title: "AFDON Construction Company",
@@ -145,101 +211,18 @@ export default function About() {
         </div>
         {pageType === "company" && (
           <>
-            <div className={classes.info}>
-              <h3
-                style={{
-                  fontFamily: "TitilliumLight",
-                }}
-              >
-                Turnkey Creative Solutions
-              </h3>
-              <p>
-                Inspiration Design is a turnkey design firm founded in 2006,
-                providing creative design and exclusive construction management
-                for residential and commercial renovations and new builds.
-              </p>
-              <p>
-                The firm has grown into a full-service provider offering
-                building design, interior design and lighting design.
-                Inspiration Design has successfully completed over 40 diverse
-                projects; including high-end homes, hotels, and retail spaces by
-                working closely with top international architects, designers,
-                and builders.
-              </p>
-              <p>
-                Founder Parastoo Jafari drives the firm with her comprehensive
-                experience as a building designer with advanced education in
-                architecture and engineering. She holds a Master's degree from
-                "Ecole D’Architecture de Bordeaux," France, and a Ph.D. in
-                architecture, and is a registered architect. Her extensive
-                international design background is further strengthened by 12
-                years of technical management experience at a leading German
-                building materials manufacturer.
-              </p>
-            </div>
-            <div className={classes.info}>
-              <h3
-                style={{
-                  fontFamily: "TitilliumLight",
-                }}
-              >
-                Experience & Design Philosophy
-              </h3>
-              <p>
-                Inspiration Design has a privileged history of working on
-                diverse international projects, including prestigious
-                commissions for Royal families and European Embassies in the
-                Middle East, along with high-end houses in West Vancouver.
-              </p>
-              <p>
-                Our work balances a contemporary vision with the client's
-                requested aesthetic, covering a vast range of architectural
-                styles. We prioritize understanding and meeting client aesthetic
-                and operational objectives while strictly adhering to budget and
-                schedule, which has helped us maintain an extensive client base.
-              </p>
-              <p>
-                We view our profession as both art and science. We are committed
-                to building healthier structures using advanced construction
-                knowledge and technology. We achieve this by consciously
-                focusing on environmental responsibility and sustainability. We
-                carefully analyze all project data; including site, orientation,
-                building codes, and materials to ensure optimal solutions for
-                energy performance, durability, ventilation, and maintenance.
-              </p>
-            </div>
-            <div className={classes.info}>
-              <h3
-                style={{
-                  fontFamily: "TitilliumLight",
-                }}
-              >
-                Full-Service Architectural Expertise
-              </h3>
-              <p>
-                Inspiration Design is dedicated to utilizing the latest
-                technologies and materials in the field. The company is led by
-                founder Parastoo Jafari, who holds a PhD in Architecture and the
-                CACB certification.
-              </p>
-              <p>
-                Dr. Jafari ensures the firm remains current with advancements
-                through active membership in professional organizations,
-                including RAIC (Royal Architectural Institute of Canada), IDIBC,
-                and WIA (Women in Architecture).
-              </p>
-              <p>
-                We handle all design aspects from initial building concept
-                development and interior schemes to executing precise lighting
-                design and producing all necessary construction documentation.
-              </p>
-              <p>
-                We manage all logistical and financial phases, including
-                preliminary site studies, cost estimation, regulatory compliance
-                and complete project execution, from contract negotiations to
-                consultation and final site supervision.
-              </p>
-            </div>
+            {companySection.map((section, index) => (
+              <div key={index} className={classes.info}>
+                <h3 style={{ fontFamily: "TitilliumLight" }}>
+                  {section.title}
+                </h3>
+                {section.paragraphs.map((text, i) => (
+                  <p key={i} className={classes.text}>
+                    {text}
+                  </p>
+                ))}
+              </div>
+            ))}
           </>
         )}
         {pageType === "testimonials" && (
@@ -254,7 +237,7 @@ export default function About() {
             <div className={classes.gridLayout}>
               {testimonials.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <h5>{item.title}</h5>
+                  <p>{item.title}</p>
                   <ArrowForwardIosIcon sx={{ fontSize: 12 }} />
                 </div>
               ))}
@@ -280,7 +263,7 @@ export default function About() {
                   >
                     {item.year}
                   </h5>
-                  <h5>{item.title}</h5>
+                  <p>{item.title}</p>
                 </div>
               ))}
             </div>

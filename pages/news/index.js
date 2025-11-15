@@ -87,7 +87,7 @@ export default function News() {
                   </div>
                   <h4 style={{ fontFamily: "TitilliumLight" }}>{news.title}</h4>
                   <p className={classes.description}>
-                    {sliceString(news.description, 90)}
+                    {sliceString(news.description, 80)}
                   </p>
                 </div>
               </Link>
