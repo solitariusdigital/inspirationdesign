@@ -137,7 +137,7 @@
         justify-content: center;
         align-items: center;
         transition: opacity 0.4s ease;
-        @include mixins.transparentBackground(0.4, config.$lightgrey);
+        @include mixins.transparentBackground(0.5, config.$dark);
       }
       .overlay h4 {
         position: absolute;
@@ -145,7 +145,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: config.$black;
+        color: config.$white;
         user-select: none;
         opacity: 0;
         transition: opacity 0.4s ease;
