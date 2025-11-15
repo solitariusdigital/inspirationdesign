@@ -91,7 +91,6 @@ export default function NewsForm() {
         setDescription("");
         removeImageInputFile();
         setProgress(100);
-        setDisableButton(false);
         setEditNews(null);
         showAlert("News saved successfully!");
         setTimeout(() => {
@@ -101,8 +100,8 @@ export default function NewsForm() {
     } catch (error) {
       console.error("Error adding document:", error);
       showAlert("Failed to save. Please try again later.");
-      setDisableButton(false);
     }
+    setDisableButton(false);
   };
 
   const handleImageChange = (event) => {

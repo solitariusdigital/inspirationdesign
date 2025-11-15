@@ -37,7 +37,7 @@ export default function Projects() {
       if (currentUser) {
         setDisplayProjects(sorted);
       } else {
-        setDisplayProjects(sorted.filter((news) => news.active));
+        setDisplayProjects(sorted.filter((project) => project.active));
       }
     };
     fetchData();
@@ -100,15 +100,11 @@ export default function Projects() {
                       <div className={classes.visibility}>
                         {project.active ? (
                           <Tooltip title="Visible">
-                            <VerifiedUserIcon
-                              sx={{ fontSize: 18, color: "#ffffff" }}
-                            />
+                            <VerifiedUserIcon sx={{ fontSize: 18 }} />
                           </Tooltip>
                         ) : (
                           <Tooltip title="Hidden">
-                            <VisibilityOffIcon
-                              sx={{ fontSize: 18, color: "#ffffff" }}
-                            />
+                            <VisibilityOffIcon sx={{ fontSize: 18 }} />
                           </Tooltip>
                         )}
                       </div>

@@ -92,7 +92,6 @@ export default function ProjectForm() {
         setDescription("");
         removeImageInputFile();
         setProgress(100);
-        setDisableButton(false);
         setEditProject(null);
         showAlert("Project saved successfully!");
         setTimeout(() => {
@@ -102,8 +101,8 @@ export default function ProjectForm() {
     } catch (error) {
       console.error("Error adding document:", error);
       showAlert("Failed to save. Please try again later.");
-      setDisableButton(false);
     }
+    setDisableButton(false);
   };
 
   const handleImageChange = (event) => {

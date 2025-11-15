@@ -9,6 +9,7 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import StarIcon from "@mui/icons-material/Star";
 import Tooltip from "@mui/material/Tooltip";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -94,6 +95,34 @@ export default function Project() {
     }
   };
 
+  const handleDeleteImage = async (image, index) => {
+    const confirmMessage = "Delete image, Are you sure?";
+    const confirm = window.confirm(confirmMessage);
+    if (!confirm) return;
+    try {
+      const storage = getStorage();
+      const storageRef = ref(storage, image);
+      await deleteObject(storageRef);
+
+      const newPath = [...displayProject.path];
+      newPath.splice(index, 1);
+      const docRef = doc(db, "Projects", displayProject.id);
+      await updateDoc(docRef, { path: newPath });
+    } catch (error) {
+      console.error("Error deleting image:", error);
+      alert("Failed to delete image.");
+    }
+    router.reload(router.asPath);
+  };
+
+  const makeHeroImage = async (image) => {
+    const confirmMessage = "Make hero, Are you sure?";
+    const confirm = window.confirm(confirmMessage);
+    if (!confirm) return;
+    const docRef = doc(db, "Projects", displayProject.id);
+    await updateDoc(docRef, { hero: image });
+  };
+
   return (
     <>
       <NextSeo
@@ -138,7 +167,7 @@ export default function Project() {
                   />
                 </Tooltip>
               )}
-              <Tooltip title="Edit">
+              <Tooltip title="Edit Project">
                 <EditIcon
                   className="icon"
                   sx={{ fontSize: 24 }}
@@ -149,7 +178,7 @@ export default function Project() {
                   }}
                 />
               </Tooltip>
-              <Tooltip title="Delete">
+              <Tooltip title="Delete Project">
                 <DeleteOutlineIcon
                   className="icon"
                   sx={{ fontSize: 24 }}
@@ -176,10 +205,30 @@ export default function Project() {
               clickable: true,
             }}
           >
-            {displayProject.path.map((project, index) => (
+            {displayProject.path.map((image, index) => (
               <SwiperSlide key={index}>
                 <div className={classes.imageBox}>
-                  <FirebaseImage path={project} alt={displayProject.title} />
+                  {currentUser && (
+                    <div className={classes.control}>
+                      <Tooltip title="Delete Image">
+                        <DeleteOutlineIcon
+                          className="icon"
+                          sx={{ fontSize: 20 }}
+                          onClick={() => handleDeleteImage(image, index)}
+                        />
+                      </Tooltip>
+                      <Tooltip title="Make Hero">
+                        <StarIcon
+                          className="icon"
+                          sx={{ fontSize: 20 }}
+                          onClick={() => {
+                            makeHeroImage(image);
+                          }}
+                        />
+                      </Tooltip>
+                    </div>
+                  )}
+                  <FirebaseImage path={image} alt={displayProject.title} />
                 </div>
               </SwiperSlide>
             ))}

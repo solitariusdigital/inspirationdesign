@@ -73,15 +73,11 @@ export default function News() {
                     <div className={classes.visibility}>
                       {news.active ? (
                         <Tooltip title="Visible">
-                          <VerifiedUserIcon
-                            sx={{ fontSize: 18, color: "#ffffff" }}
-                          />
+                          <VerifiedUserIcon sx={{ fontSize: 18 }} />
                         </Tooltip>
                       ) : (
                         <Tooltip title="Hidden">
-                          <VisibilityOffIcon
-                            sx={{ fontSize: 18, color: "#ffffff" }}
-                          />
+                          <VisibilityOffIcon sx={{ fontSize: 18 }} />
                         </Tooltip>
                       )}
                     </div>

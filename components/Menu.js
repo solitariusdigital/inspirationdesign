@@ -20,6 +20,8 @@ export default function Menu() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
   const { screenSize, setScreenSize } = useContext(StateContext);
+  const { editProject, setEditProject } = useContext(StateContext);
+  const { editNews, setEditNews } = useContext(StateContext);
   const [menuMobile, setMenuMobile] = useState(false);
 
   const router = useRouter();
@@ -85,7 +87,11 @@ export default function Menu() {
             <SpaceDashboardIcon
               className="icon"
               sx={{ fontSize: 18, color: colorCode }}
-              onClick={() => Router.push("/portal")}
+              onClick={() => {
+                Router.push("/portal");
+                setEditProject(null);
+                setEditNews(null);
+              }}
             />
           </Tooltip>
         </div>
