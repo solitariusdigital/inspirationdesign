@@ -111,9 +111,6 @@
   @include mixins.tabletPortrait {
     width: 15%;
   }
-  @include mixins.tabletLandscape {
-    width: 15%;
-  }
 }
 
 .cardBox {

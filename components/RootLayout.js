@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from "react";
 import { StateContext } from "@/context/stateContext";
 import Image from "next/legacy/image";
 import logoWhite from "@/assets/logo-white.png";
+import arrowUp from "@/assets/arrowUp.svg";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 import secureLocalStorage from "react-secure-storage";
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
   const { screenSize, setScreenSize } = useContext(StateContext);
   const { menuDisplay, setMenuDisplay } = useContext(StateContext);
   const [appLoader, setAppLoader] = useState(false);
+  const [scrollArrow, setScrollArrow] = useState(false);
 
   const handleResize = () => {
     let element = document.getElementById("detailsInformation");
@@ -76,6 +78,24 @@ export default function RootLayout({ children }) {
     };
   }, []);
 
+  // detect scroll postion on app to toggle scroll arrow visibility
+  useEffect(() => {
+    let prevScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY <= 200) {
+        setScrollArrow(false);
+      } else if (currentScrollY > prevScrollY) {
+        setScrollArrow(true);
+      }
+      prevScrollY = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [, scrollArrow]);
+
   return (
     <>
       {appLoader ? (
@@ -95,6 +115,27 @@ export default function RootLayout({ children }) {
           <section className="footer">
             <Footer />
           </section>
+          {scrollArrow && (
+            <div
+              className="scrollArrow"
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                })
+              }
+            >
+              <Image
+                layout="fill"
+                objectFit="contain"
+                src={arrowUp}
+                alt="arrow"
+                as="image"
+                priority
+              />
+            </div>
+          )}
         </div>
       ) : (
         <div className="appload animate__animated animate__pulse">

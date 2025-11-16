@@ -99,6 +99,26 @@ small {
   }
 }
 
+.scrollArrow {
+  position: fixed;
+  right: 35px;
+  bottom: 35px;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  @include mixins.mobile {
+    display: none;
+  }
+  @include mixins.tabletPortrait {
+    display: none;
+  }
+  @include mixins.tabletLandscape {
+    display: none;
+  }
+}
+
 // input file
 label.file input[type="file"] {
   display: none;

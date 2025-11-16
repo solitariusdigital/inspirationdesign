@@ -166,11 +166,5 @@
       grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
       width: calc(100% - 24px);
     }
-    @include mixins.tabletPortrait {
-      width: config.$content-widthTablet;
-    }
-    @include mixins.tabletLandscape {
-      width: config.$content-widthTablet;
-    }
   }
 }

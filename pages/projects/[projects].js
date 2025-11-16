@@ -156,14 +156,14 @@ export default function Project() {
                 <Tooltip title="Hide">
                   <VerifiedUserIcon
                     className="icon"
-                    sx={{ fontSize: 24 }}
+                    sx={{ fontSize: 20 }}
                     onClick={() => handlePublish(displayProject, "Hide")}
                   />
                 </Tooltip>
               ) : (
                 <Tooltip title="Publish">
                   <VisibilityOffIcon
-                    sx={{ fontSize: 24 }}
+                    sx={{ fontSize: 20 }}
                     className="icon"
                     onClick={() => handlePublish(displayProject, "Publish")}
                   />
@@ -172,7 +172,7 @@ export default function Project() {
               <Tooltip title="Edit Project">
                 <EditIcon
                   className="icon"
-                  sx={{ fontSize: 24 }}
+                  sx={{ fontSize: 20 }}
                   onClick={() => {
                     Router.push("/portal");
                     setEditProject(displayProject);
@@ -183,7 +183,7 @@ export default function Project() {
               <Tooltip title="Delete Project">
                 <DeleteOutlineIcon
                   className="icon"
-                  sx={{ fontSize: 24 }}
+                  sx={{ fontSize: 20 }}
                   onClick={() => handleDelete(displayProject)}
                 />
               </Tooltip>
