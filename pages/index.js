@@ -77,7 +77,6 @@ export default function Home() {
       description:
         "We offer unified Building and Interior Design services, developing the structure and inner space in seamless coordination. We design spaces that are structurally sound and code-compliant, prioritizing client vision and user well-being. The outcome is a high-quality, impactful built environment where interiors and architecture exist in perfect harmony.",
       path: "Resources/Building.jpg",
-      objectFit: "cover",
       aspectRatio: 16 / 11,
     },
     {
@@ -85,7 +84,6 @@ export default function Home() {
       description:
         "We create intentional lighting environments that enhance architecture and human experience. Our work balances artistic vision with technical precision, carefully specifying light quality, fixtures, and controls. We prioritize developing sustainable, energy-efficient schemes, translating light into a functional and emotive layer that reveals the full potential of the space.",
       path: "Resources/Lighting.jpg",
-      objectFit: "cover",
       aspectRatio: 3 / 4,
     },
     {
@@ -93,7 +91,6 @@ export default function Home() {
       description:
         "We specialize in LSF, offering a precise, efficient, and modern construction method. LSF uses pre-fabricated, cold-formed steel components for rapid on-site assembly. This framing is lightweight, non-combustible, and provides superior durability over wood, ensuring faster project completion and long-term quality.",
       path: "Resources/LFS.jpg",
-      objectFit: "cover",
       aspectRatio: 16 / 11,
     },
   ];
@@ -208,11 +205,7 @@ export default function Home() {
                   aspectRatio: service.aspectRatio,
                 }}
               >
-                <FirebaseImage
-                  path={service.path}
-                  alt={service.title}
-                  objectFit={service.objectFit}
-                />
+                <FirebaseImage path={service.path} alt={service.title} />
               </div>
             </div>
           ))}
