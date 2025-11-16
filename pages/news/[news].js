@@ -164,11 +164,11 @@ export default function NewsArticle() {
           <div className={classes.imageBox}>
             <FirebaseImage path={displayNews.hero} alt={displayNews.title} />
           </div>
-          {displayNews.description.split("\n\n").map((desc, index) => (
-            <p key={index} className={classes.description}>
-              {desc}
-            </p>
-          ))}
+          <div className={classes.description}>
+            {displayNews.description.split("\n\n").map((desc, index) => (
+              <p key={index}>{desc}</p>
+            ))}
+          </div>
         </article>
       )}
     </>

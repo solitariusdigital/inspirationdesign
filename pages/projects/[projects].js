@@ -36,6 +36,7 @@ export default function Project() {
   const { editNews, setEditNews } = useContext(StateContext);
   const { screenSize, setScreenSize } = useContext(StateContext);
   const [displayProject, setDisplayProject] = useState(null);
+  const [refresh, setRefresh] = useState(0);
   const router = useRouter();
   const slug = router.asPath.replace(/^\/projects\//, "");
   const title = replaceSpacesAndHyphens(slug);
@@ -53,7 +54,7 @@ export default function Project() {
     };
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [displayProject]);
+  }, [refresh]);
 
   const handlePublish = async (project, type) => {
     const confirmMessage = `${type} project, Are you sure?`;
@@ -113,7 +114,7 @@ export default function Project() {
       console.error("Error deleting image:", error);
       alert("Failed to delete image.");
     }
-    setDisplayProject(null);
+    setRefresh((prev) => prev + 1);
   };
 
   const makeHeroImage = async (image) => {
@@ -122,7 +123,7 @@ export default function Project() {
     if (!confirm) return;
     const docRef = doc(db, "Projects", displayProject.id);
     await updateDoc(docRef, { hero: image });
-    setDisplayProject(null);
+    setRefresh((prev) => prev + 1);
   };
 
   return (
@@ -242,11 +243,11 @@ export default function Project() {
               </SwiperSlide>
             ))}
           </Swiper>
-          {displayProject.description.split("\n\n").map((desc, index) => (
-            <p key={index} className={classes.description}>
-              {desc}
-            </p>
-          ))}
+          <div className={classes.description}>
+            {displayProject.description.split("\n\n").map((desc, index) => (
+              <p key={index}>{desc}</p>
+            ))}
+          </div>
         </div>
       )}
     </>

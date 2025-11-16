@@ -15,6 +15,7 @@ export default function Admin() {
   const [pageType, setPageType] = useState("projects" || "news" || "inquiries");
   const navigation = ["projects", "news", "inquiries"];
   const [inquiries, setInquiries] = useState(null);
+  const [refresh, setRefresh] = useState(0);
 
   useEffect(() => {
     if (editProject) {
@@ -38,7 +39,7 @@ export default function Admin() {
       );
     };
     fetchData();
-  }, []);
+  }, [refresh]);
 
   const handleDelete = async (id) => {
     let confirmationMessage = "Delete - Are you sure?";
@@ -46,7 +47,7 @@ export default function Admin() {
     if (confirm) {
       const docRef = doc(db, "Inquiries", id);
       await deleteDoc(docRef);
-      setInquiries(null);
+      setRefresh((prev) => prev + 1);
     }
   };
 
