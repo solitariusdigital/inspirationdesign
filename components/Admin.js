@@ -67,61 +67,72 @@ export default function Admin() {
       {pageType === "projects" && <ProjectForm />}
       {pageType === "news" && <NewsForm />}
       {pageType === "inquiries" && (
-        <div className={classes.gridLayout}>
-          {inquiries?.map((item, index) => (
-            <div key={index} className={classes.item}>
-              <div
-                className={classes.message}
-                style={{
-                  fontFamily: "TitilliumLight",
-                }}
-              >
-                <p>{item.subject}</p>
-                <p>{item.message}</p>
-              </div>
-              <div className={classes.row}>
-                <p className={classes.title}>Name</p>
-                <p
+        <>
+          {inquiries.length === 0 && (
+            <h5
+              style={{
+                marginTop: "50px",
+              }}
+            >
+              Empty inquiries list
+            </h5>
+          )}
+          <div className={classes.gridLayout}>
+            {inquiries?.map((item, index) => (
+              <div key={index} className={classes.item}>
+                <div
+                  className={classes.message}
                   style={{
                     fontFamily: "TitilliumLight",
                   }}
                 >
-                  {item.name}
-                </p>
+                  <p>{item.subject}</p>
+                  <p>{item.message}</p>
+                </div>
+                <div className={classes.row}>
+                  <p className={classes.title}>Name</p>
+                  <p
+                    style={{
+                      fontFamily: "TitilliumLight",
+                    }}
+                  >
+                    {item.name}
+                  </p>
+                </div>
+                <div className={classes.row}>
+                  <p className={classes.title}>Email</p>
+                  <p
+                    style={{
+                      fontFamily: "TitilliumLight",
+                    }}
+                  >
+                    {item.email}
+                  </p>
+                </div>
+                <div className={classes.row}>
+                  <p className={classes.title}>Phone</p>
+                  <p
+                    style={{
+                      fontFamily: "TitilliumLight",
+                    }}
+                  >
+                    {item.phone}
+                  </p>
+                </div>
+                <div className={classes.row}>
+                  <Tooltip title="Delete">
+                    <DeleteOutlineIcon
+                      className="icon"
+                      sx={{ fontSize: 18 }}
+                      onClick={() => handleDelete(item.id)}
+                    />
+                  </Tooltip>
+                  <p className={classes.title}>{convertDate(item.createdAt)}</p>
+                </div>
               </div>
-              <div className={classes.row}>
-                <p className={classes.title}>Email</p>
-                <p
-                  style={{
-                    fontFamily: "TitilliumLight",
-                  }}
-                >
-                  {item.email}
-                </p>
-              </div>
-              <div className={classes.row}>
-                <p className={classes.title}>Phone</p>
-                <p
-                  style={{
-                    fontFamily: "TitilliumLight",
-                  }}
-                >
-                  {item.phone}
-                </p>
-              </div>
-              <div className={classes.row}>
-                <Tooltip title="Delete">
-                  <DeleteOutlineIcon
-                    className="icon"
-                    sx={{ fontSize: 18 }}
-                    onClick={() => handleDelete(item.id)}
-                  />
-                </Tooltip>
-                <p className={classes.title}>{convertDate(item.createdAt)}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
