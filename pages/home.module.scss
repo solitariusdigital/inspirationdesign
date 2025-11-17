@@ -95,16 +95,6 @@
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-      border: 1px solid;
-      border-image: linear-gradient(
-          45deg,
-          config.$brand,
-          config.$dark,
-          config.$dark,
-          config.$dark,
-          config.$brand
-        )
-        1;
     }
   }
 }

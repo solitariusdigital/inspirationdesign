@@ -190,15 +190,17 @@ export default function Project() {
               </Tooltip>
             </div>
           )}
-          <h2
-            style={{
-              fontFamily: "TitilliumLight",
-            }}
-          >
-            {displayProject.title}
-          </h2>
-          <h3>{displayProject.location}</h3>
-          <p>{displayProject.year}</p>
+          <div className={classes.info}>
+            <h2
+              style={{
+                fontFamily: "TitilliumLight",
+              }}
+            >
+              {displayProject.title}
+            </h2>
+            <h3>{displayProject.location}</h3>
+            <p>{displayProject.year}</p>
+          </div>
           <div className={classes.imageBox}>
             <FirebaseImage
               path={displayProject.hero}

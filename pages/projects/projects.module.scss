@@ -117,23 +117,29 @@
   margin: auto;
   margin-top: 120px;
   margin-bottom: 100px;
-  width: config.$content-width;
-  max-width: config.$max-widthHeigh;
 
-  @include mixins.mobile {
-    width: calc(100% - 24px);
-  }
-  @include mixins.tabletPortrait {
-    width: config.$content-widthTablet;
-  }
-  @include mixins.tabletLandscape {
-    width: config.$content-widthTablet;
+  .info,
+  .imageBox,
+  .description {
+    width: config.$content-width;
+    max-width: config.$max-widthHeigh;
+    margin: auto;
+
+    @include mixins.mobile {
+      width: calc(100% - 24px);
+    }
+    @include mixins.tabletPortrait {
+      width: config.$content-widthTablet;
+    }
+    @include mixins.tabletLandscape {
+      width: config.$content-widthTablet;
+    }
   }
 
   .imageBox {
     position: relative;
     aspect-ratio: 16 / 9;
-    margin: 12px 0px;
+    margin: 12px auto;
     user-select: none;
   }
 
@@ -142,6 +148,11 @@
     aspect-ratio: 4 / 3.5;
     user-select: none;
     cursor: grab;
+
+    @include mixins.mobile {
+      width: calc(100% - 24px);
+      margin: auto;
+    }
   }
 
   .control {
@@ -157,14 +168,9 @@
   .description {
     margin: auto;
     margin-top: 50px;
-    width: 100%;
 
     p {
       margin-bottom: 12px;
-    }
-
-    @include mixins.allDesktop {
-      width: config.$content-widthTablet;
     }
   }
 }

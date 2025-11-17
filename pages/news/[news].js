@@ -153,14 +153,16 @@ export default function NewsArticle() {
               </Tooltip>
             </div>
           )}
-          <h2
-            style={{
-              fontFamily: "TitilliumLight",
-            }}
-          >
-            {displayNews.title}
-          </h2>
-          <p>{convertDateName(displayNews.date)}</p>
+          <div className={classes.info}>
+            <h2
+              style={{
+                fontFamily: "TitilliumLight",
+              }}
+            >
+              {displayNews.title}
+            </h2>
+            <p>{convertDateName(displayNews.date)}</p>
+          </div>
           <div className={classes.imageBox}>
             <FirebaseImage path={displayNews.hero} alt={displayNews.title} />
           </div>
