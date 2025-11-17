@@ -122,11 +122,12 @@
   }
 
   .notification {
-    width: 40%;
+    width: 50%;
     padding: 12px;
     margin-top: 16px;
     background: config.$dark;
     color: config.$white;
+    text-align: left;
 
     @include mixins.mobile {
       width: 100%;
