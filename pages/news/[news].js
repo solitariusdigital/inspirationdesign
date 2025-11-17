@@ -49,7 +49,7 @@ export default function NewsArticle() {
   }, []);
 
   const handlePublish = async (news, type) => {
-    const confirmMessage = `${type} news, Are you sure?`;
+    const confirmMessage = `${type} news - Are you sure?`;
     const confirm = window.confirm(confirmMessage);
     if (!confirm) return;
     let updatedActiveValue = news.active;
@@ -71,7 +71,7 @@ export default function NewsArticle() {
   };
 
   const handleDelete = async (news) => {
-    const confirmMessage = "Delete news, Are you sure?";
+    const confirmMessage = "Delete news - Are you sure?";
     const confirm = window.confirm(confirmMessage);
     if (!confirm) return;
     try {

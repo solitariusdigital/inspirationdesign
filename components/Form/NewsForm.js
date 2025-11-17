@@ -136,7 +136,7 @@ export default function NewsForm() {
           fontFamily: "TitilliumLight",
         }}
       >
-        Add News
+        {editNews ? "Edit" : "Add"} News
       </h4>
       <div className={classes.form}>
         <div className={classes.input}>

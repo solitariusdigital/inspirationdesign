@@ -57,7 +57,7 @@ export default function Project() {
   }, [refresh]);
 
   const handlePublish = async (project, type) => {
-    const confirmMessage = `${type} project, Are you sure?`;
+    const confirmMessage = `${type} project - Are you sure?`;
     const confirm = window.confirm(confirmMessage);
     if (!confirm) return;
     let updatedActiveValue = project.active;
@@ -79,7 +79,7 @@ export default function Project() {
   };
 
   const handleDelete = async (project) => {
-    const confirmMessage = "Delete project, Are you sure?";
+    const confirmMessage = "Delete project - Are you sure?";
     const confirm = window.confirm(confirmMessage);
     if (!confirm) return;
     try {
@@ -98,7 +98,7 @@ export default function Project() {
   };
 
   const handleDeleteImage = async (image, index) => {
-    const confirmMessage = "Delete image, Are you sure?";
+    const confirmMessage = "Delete image - Are you sure?";
     const confirm = window.confirm(confirmMessage);
     if (!confirm) return;
     try {
@@ -118,7 +118,7 @@ export default function Project() {
   };
 
   const makeHeroImage = async (image) => {
-    const confirmMessage = "Make hero, Are you sure?";
+    const confirmMessage = "Make hero - Are you sure?";
     const confirm = window.confirm(confirmMessage);
     if (!confirm) return;
     const docRef = doc(db, "Projects", displayProject.id);
@@ -170,7 +170,7 @@ export default function Project() {
                   />
                 </Tooltip>
               )}
-              <Tooltip title="Edit Project">
+              <Tooltip title="Edit">
                 <EditIcon
                   className="icon"
                   sx={{ fontSize: 20 }}
@@ -181,7 +181,7 @@ export default function Project() {
                   }}
                 />
               </Tooltip>
-              <Tooltip title="Delete Project">
+              <Tooltip title="Delete">
                 <DeleteOutlineIcon
                   className="icon"
                   sx={{ fontSize: 20 }}
@@ -220,14 +220,14 @@ export default function Project() {
                 <div className={classes.swiperImage}>
                   {currentUser && (
                     <div className={classes.control}>
-                      <Tooltip title="Delete Image">
+                      <Tooltip title="Delete">
                         <DeleteOutlineIcon
                           className="icon"
                           sx={{ fontSize: 20 }}
                           onClick={() => handleDeleteImage(image, index)}
                         />
                       </Tooltip>
-                      <Tooltip title="Make Hero">
+                      <Tooltip title="Hero">
                         <StarIcon
                           className="icon"
                           sx={{ fontSize: 20 }}
