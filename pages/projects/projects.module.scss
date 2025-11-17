@@ -43,14 +43,21 @@
   }
 }
 
-.gridLayout {
+.gridLayout,
+.gridLayoutVertical {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-  gap: 24px;
+  gap: 12px;
   margin: auto;
   margin-top: 50px;
   width: config.$content-width;
   max-width: config.$max-widthHeigh;
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
   .card {
     position: relative;
@@ -65,13 +72,10 @@
       padding: 2px;
       background: config.$background;
     }
-
-    .row {
-      @include mixins.row-space-between-center();
-    }
   }
 
-  .imageBox {
+  .imageBoxLandscape,
+  .imageBoxPortrait {
     position: relative;
     aspect-ratio: 16 / 9;
     transition: transform 0.3s ease-in-out;
@@ -81,9 +85,8 @@
       cursor: pointer;
     }
   }
-
-  h4 {
-    margin: 8px 0px;
+  .imageBoxPortrait {
+    aspect-ratio: 4 / 4;
   }
 
   @include mixins.mobile {
@@ -96,6 +99,57 @@
   }
   @include mixins.tabletLandscape {
     width: config.$content-widthTablet;
+  }
+}
+
+.gridLayoutVertical {
+  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+
+  @include mixins.mobile {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    width: calc(100% - 24px);
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease;
+    @include mixins.transparentBackground(0.5, config.$dark);
+  }
+  .overlay h4 {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: config.$white;
+    user-select: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .imageBoxLandscape:hover .overlay {
+    opacity: 1;
+  }
+  .imageBoxLandscape:hover .overlay h4 {
+    opacity: 1;
+  }
+  .imageBoxLandscape:hover .image {
+    transform: scale(1.05);
+  }
+  .imageBoxPortrait:hover .overlay {
+    opacity: 1;
+  }
+  .imageBoxPortrait:hover .overlay h4 {
+    opacity: 1;
+  }
+  .imageBoxPortrait:hover .image {
+    transform: scale(1.05);
   }
 }
 

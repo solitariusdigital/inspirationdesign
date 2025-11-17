@@ -82,10 +82,17 @@ export default function News() {
                       )}
                     </div>
                   )}
-                  <div className={classes.imageBox}>
+                  <div className={classes.imageBoxLandscape}>
                     <FirebaseImage path={news.hero} alt={news.title} />
                   </div>
-                  <h4 style={{ fontFamily: "TitilliumLight" }}>{news.title}</h4>
+                  <h4
+                    style={{
+                      fontFamily: "TitilliumLight",
+                      marginTop: "12px",
+                    }}
+                  >
+                    {news.title}
+                  </h4>
                   <p className={classes.description}>
                     {sliceString(news.description, 80)}
                   </p>

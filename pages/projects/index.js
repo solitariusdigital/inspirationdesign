@@ -18,6 +18,9 @@ export default function Projects() {
     "all" || "residential" || "commercial" || "lighting" || "construction"
   );
   const [displayProjects, setDisplayProjects] = useState(null);
+  const [firstColumn, setFirstColumn] = useState([]);
+  const [secondColumn, setSecondColumn] = useState([]);
+
   const navigation = [
     "all",
     "residential",
@@ -43,6 +46,20 @@ export default function Projects() {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const filtered = displayProjects?.filter(
+      (project) => pageType === "all" || project.category === pageType
+    );
+    if (filtered?.length <= 1) {
+      setFirstColumn(filtered);
+      setSecondColumn([]);
+    } else {
+      const half = Math.ceil(filtered?.length / 2);
+      setFirstColumn(filtered?.slice(0, half));
+      setSecondColumn(filtered?.slice(half));
+    }
+  }, [pageType, displayProjects]);
 
   return (
     <>
@@ -79,12 +96,9 @@ export default function Projects() {
             </p>
           ))}
         </div>
-        <div className={classes.gridLayout}>
-          {displayProjects
-            ?.filter(
-              (project) => pageType === "all" || project.category === pageType
-            )
-            .map((project, index) => {
+        <div className={classes.gridLayoutVertical}>
+          <div className={classes.column}>
+            {firstColumn?.map((project, index) => {
               const projectLink = `/projects/${replaceSpacesAndHyphens(
                 project.title
               )}`;
@@ -109,23 +123,78 @@ export default function Projects() {
                         )}
                       </div>
                     )}
-                    <div className={classes.imageBox}>
+                    <div
+                      className={`${
+                        project.orientation === "portrait"
+                          ? classes.imageBoxPortrait
+                          : classes.imageBoxLandscape
+                      }`}
+                    >
                       <FirebaseImage path={project.hero} alt={project.title} />
-                    </div>
-                    <div className={classes.row}>
-                      <h4
-                        style={{
-                          fontFamily: "TitilliumLight",
-                        }}
-                      >
-                        {project.title}
-                      </h4>
-                      <h5>{project.year}</h5>
+                      <div className={classes.overlay}>
+                        <h4
+                          style={{
+                            fontFamily: "TitilliumLight",
+                          }}
+                        >
+                          {project.title}
+                        </h4>
+                      </div>
                     </div>
                   </div>
                 </Link>
               );
             })}
+          </div>
+          <div className={classes.column}>
+            {secondColumn?.map((project, index) => {
+              const projectLink = `/projects/${replaceSpacesAndHyphens(
+                project.title
+              )}`;
+              return (
+                <Link
+                  key={index}
+                  className={classes.item}
+                  href={projectLink}
+                  passHref
+                >
+                  <div key={index} className={classes.card}>
+                    {currentUser && (
+                      <div className={classes.visibility}>
+                        {project.active ? (
+                          <Tooltip title="Visible">
+                            <VerifiedUserIcon sx={{ fontSize: 18 }} />
+                          </Tooltip>
+                        ) : (
+                          <Tooltip title="Hidden">
+                            <VisibilityOffIcon sx={{ fontSize: 18 }} />
+                          </Tooltip>
+                        )}
+                      </div>
+                    )}
+                    <div
+                      className={`${
+                        project.orientation === "portrait"
+                          ? classes.imageBoxPortrait
+                          : classes.imageBoxLandscape
+                      }`}
+                    >
+                      <FirebaseImage path={project.hero} alt={project.title} />
+                      <div className={classes.overlay}>
+                        <h4
+                          style={{
+                            fontFamily: "TitilliumLight",
+                          }}
+                        >
+                          {project.title}
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

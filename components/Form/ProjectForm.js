@@ -18,6 +18,9 @@ export default function ProjectForm() {
   const [location, setLocation] = useState(editProject?.location || "");
   const [year, setYear] = useState(editProject?.year || "");
   const [category, setCategory] = useState(editProject?.category || "");
+  const [orientation, setOrientation] = useState(
+    editProject?.orientation || ""
+  );
   const [description, setDescription] = useState(
     editProject?.description || ""
   );
@@ -27,6 +30,7 @@ export default function ProjectForm() {
   const [uploadImages, setUploadImages] = useState([]);
   const [progress, setProgress] = useState(0);
   const categories = ["residential", "commercial", "lighting", "construction"];
+  const orientations = ["portrait", "landscape"];
 
   const compressImage = async (file) => {
     const options = {
@@ -38,7 +42,14 @@ export default function ProjectForm() {
   };
 
   const handleSubmit = async () => {
-    if (!title || !location || !year || !category || !description) {
+    if (
+      !title ||
+      !location ||
+      !year ||
+      !category ||
+      !orientation ||
+      !description
+    ) {
       showAlert("All fields required");
       setDisableButton(false);
       return;
@@ -70,9 +81,10 @@ export default function ProjectForm() {
         location: location.trim(),
         year: year.trim(),
         category: category,
+        orientation: orientation,
         description: description.trim(),
         path: path,
-        hero: path[0],
+        hero: editProject?.hero || path[0],
         folder: folder,
         active: false,
         createdAt: new Date().toISOString(),
@@ -89,6 +101,7 @@ export default function ProjectForm() {
         setLocation("");
         setYear("");
         setCategory("");
+        setOrientation("");
         setDescription("");
         removeImageInputFile();
         setProgress(100);
@@ -229,6 +242,29 @@ export default function ProjectForm() {
             dir="ltr"
             maxLength={4}
           />
+        </div>
+        <div className={classes.input}>
+          <div className={classes.bar}>
+            <p className={classes.label}>
+              Orientation
+              <span>*</span>
+            </p>
+          </div>
+          <select
+            value={orientation || "default"}
+            onChange={(e) => setOrientation(e.target.value)}
+          >
+            <option value="default" disabled>
+              Select
+            </option>
+            {orientations.map((orientation, index) => {
+              return (
+                <option key={index} value={orientation}>
+                  {orientation}
+                </option>
+              );
+            })}
+          </select>
         </div>
       </div>
       <div className={classes.input}>
