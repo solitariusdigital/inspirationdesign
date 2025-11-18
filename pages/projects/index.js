@@ -14,9 +14,7 @@ import { collection, getDocs } from "@firebase/firestore";
 
 export default function Projects() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
-  const [pageType, setPageType] = useState(
-    "all" || "residential" || "commercial" || "lighting" || "construction"
-  );
+  const { projectsCategory, setProjectsCategory } = useContext(StateContext);
   const [displayProjects, setDisplayProjects] = useState(null);
   const [firstColumn, setFirstColumn] = useState([]);
   const [secondColumn, setSecondColumn] = useState([]);
@@ -49,7 +47,8 @@ export default function Projects() {
 
   useEffect(() => {
     const filtered = displayProjects?.filter(
-      (project) => pageType === "all" || project.category === pageType
+      (project) =>
+        projectsCategory === "all" || project.category === projectsCategory
     );
     if (filtered?.length <= 1) {
       setFirstColumn(filtered);
@@ -59,7 +58,7 @@ export default function Projects() {
       setFirstColumn(filtered?.slice(0, half));
       setSecondColumn(filtered?.slice(half));
     }
-  }, [pageType, displayProjects]);
+  }, [projectsCategory, displayProjects]);
 
   return (
     <>
@@ -89,8 +88,10 @@ export default function Projects() {
           {navigation.map((nav, index) => (
             <p
               key={index}
-              className={pageType === nav ? classes.navActive : classes.nav}
-              onClick={() => setPageType(nav)}
+              className={
+                projectsCategory === nav ? classes.navActive : classes.nav
+              }
+              onClick={() => setProjectsCategory(nav)}
             >
               {nav}
             </p>

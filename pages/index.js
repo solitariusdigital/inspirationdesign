@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./home.module.scss";
 import { NextSeo } from "next-seo";
+import Link from "next/link";
 import CoverSlider from "@/components/CoverSlider";
 import logoBlack from "@/assets/logo-black.png";
 import Light from "@/components/Light";
@@ -12,6 +13,7 @@ import { collection, getDocs } from "@firebase/firestore";
 
 export default function Home() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
+  const { projectsCategory, setProjectsCategory } = useContext(StateContext);
   const [displayProjects, setDisplayProjects] = useState(null);
 
   const gridImages = [
@@ -78,6 +80,7 @@ export default function Home() {
         "We offer unified Building and Interior Design services, developing the structure and inner space in seamless coordination. We design spaces that are structurally sound and code-compliant, prioritizing client vision and user well-being. The outcome is a high-quality, impactful built environment where interiors and architecture exist in perfect harmony.",
       path: "Resources/Building.jpg",
       aspectRatio: 16 / 11,
+      type: "residential",
     },
     {
       title: "Lighting Design",
@@ -85,6 +88,7 @@ export default function Home() {
         "We create intentional lighting environments that enhance architecture and human experience. Our work balances artistic vision with technical precision, carefully specifying light quality, fixtures, and controls. We prioritize developing sustainable, energy-efficient schemes, translating light into a functional and emotive layer that reveals the full potential of the space.",
       path: "Resources/Lighting.jpg",
       aspectRatio: 3 / 4,
+      type: "lighting",
     },
     {
       title: "Light Steel Framing",
@@ -92,6 +96,7 @@ export default function Home() {
         "We specialize in LSF, offering a precise, efficient, and modern construction method. LSF uses pre-fabricated, cold-formed steel components for rapid on-site assembly. This framing is lightweight, non-combustible, and provides superior durability over wood, ensuring faster project completion and long-term quality.",
       path: "Resources/LFS.jpg",
       aspectRatio: 16 / 11,
+      type: "construction",
     },
   ];
 
@@ -180,36 +185,52 @@ export default function Home() {
                 direction: index % 2 ? "rtl" : "ltr",
               }}
             >
-              <div className={classes.info}>
-                <h3
-                  style={{
-                    fontFamily: "TitilliumLight",
-                  }}
-                >
-                  {service.title}
-                </h3>
-                <div className={classes.light}>
-                  <Light timer={500 * index} />
-                </div>
-                <p
-                  style={{
-                    direction: "ltr",
-                  }}
-                >
-                  {service.description}
-                </p>
-                <button>
-                  <span>Learn More</span>
-                </button>
-              </div>
-              <div
-                className={classes.imageBox}
-                style={{
-                  aspectRatio: service.aspectRatio,
+              <Link
+                onClick={() => {
+                  setProjectsCategory(service.type);
                 }}
+                href="/projects"
+                passHref
               >
-                <FirebaseImage path={service.path} alt={service.title} />
-              </div>
+                <div className={classes.info}>
+                  <h3
+                    style={{
+                      fontFamily: "TitilliumLight",
+                    }}
+                  >
+                    {service.title}
+                  </h3>
+                  <div className={classes.light}>
+                    <Light timer={500 * index} />
+                  </div>
+                  <p
+                    style={{
+                      direction: "ltr",
+                    }}
+                  >
+                    {service.description}
+                  </p>
+                  <button>
+                    <span>Learn More</span>
+                  </button>
+                </div>
+              </Link>
+              <Link
+                onClick={() => {
+                  setProjectsCategory(service.type);
+                }}
+                href="/projects"
+                passHref
+              >
+                <div
+                  className={classes.imageBox}
+                  style={{
+                    aspectRatio: service.aspectRatio,
+                  }}
+                >
+                  <FirebaseImage path={service.path} alt={service.title} />
+                </div>
+              </Link>
             </div>
           ))}
         </section>

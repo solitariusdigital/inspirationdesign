@@ -50,11 +50,12 @@ $screen-fourK: 6000px;
   font-family: "TitilliumLight";
   font-size: medium;
   overflow: hidden;
-  cursor: pointer;
   border: none;
   height: 45px;
   width: fit-content;
   min-width: 150px;
+  cursor: pointer;
+  user-select: none;
 
   &:after {
     content: "";

@@ -8,6 +8,7 @@ export const StateProvider = (props) => {
     "desktop" || "tablet-landscape" || "tablet-portrait" || "mobile"
   );
   const [editProject, setEditProject] = useState(null);
+  const [projectsCategory, setProjectsCategory] = useState("all");
   const [editNews, setEditNews] = useState(null);
   const [navigationTopBar, setNavigationTopBar] = useState([
     {
@@ -44,6 +45,8 @@ export const StateProvider = (props) => {
     setEditProject,
     editNews,
     setEditNews,
+    projectsCategory,
+    setProjectsCategory,
   };
   return (
     <StateContext.Provider value={stateContext}>
