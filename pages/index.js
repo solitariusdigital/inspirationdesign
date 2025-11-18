@@ -211,7 +211,7 @@ export default function Home() {
                     {service.description}
                   </p>
                   <button>
-                    <span>Learn More</span>
+                    <span>Discover More</span>
                   </button>
                 </div>
               </Link>
