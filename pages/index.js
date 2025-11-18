@@ -215,22 +215,22 @@ export default function Home() {
                   </button>
                 </div>
               </Link>
-              <Link
-                onClick={() => {
-                  setProjectsCategory(service.type);
+              <div
+                className={classes.imageBox}
+                style={{
+                  aspectRatio: service.aspectRatio,
                 }}
-                href="/projects"
-                passHref
               >
-                <div
-                  className={classes.imageBox}
-                  style={{
-                    aspectRatio: service.aspectRatio,
+                <Link
+                  onClick={() => {
+                    setProjectsCategory(service.type);
                   }}
+                  href="/projects"
+                  passHref
                 >
                   <FirebaseImage path={service.path} alt={service.title} />
-                </div>
-              </Link>
+                </Link>
+              </div>
             </div>
           ))}
         </section>
