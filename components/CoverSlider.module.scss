@@ -5,13 +5,19 @@
   position: relative;
   margin: auto;
   user-select: none;
+  height: 100dvh;
+  background: config.$black;
 
-  .image {
+  .video {
     position: relative;
     width: 100%;
     height: 100dvh;
     aspect-ratio: 16 / 9;
-    background: config.$black;
+    object-fit: cover;
+
+    @include mixins.allDesktop {
+      object-position: 50% 35%;
+    }
   }
 }
 

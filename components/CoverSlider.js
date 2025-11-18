@@ -1,69 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classes from "./CoverSlider.module.scss";
-import FirebaseImage from "@/components/FirebaseImage";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, EffectFade } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
+import { getDownloadURL, listAll, ref } from "firebase/storage";
+import { storage } from "@/services/firebase";
 
 export default function CoverSlider() {
-  const [current, setCurrent] = useState(0);
+  const [videoFiles, setVideoFiles] = useState([]);
 
-  const covers = [
-    {
-      path: "Resources/1.jpg",
-      title: "Chinatown Millennium Gate",
-      type: "image",
-    },
-    {
-      path: "Resources/2.jpg",
-      title: "Chinatown Millennium Gate",
-      type: "image",
-    },
-    {
-      path: "Resources/3.jpg",
-      title: "Chinatown Millennium Gate",
-      type: "image",
-    },
-    {
-      path: "Resources/4.jpg",
-      title: "Chinatown Millennium Gate",
-      type: "image",
-    },
-  ];
-
-  const updateIndex = (swiperInstance) => {
-    if (swiperInstance === null) return;
-    const currentSlide = swiperInstance?.realIndex;
-    setCurrent(currentSlide);
-  };
+  useEffect(() => {
+    const fetchFiles = async () => {
+      const listRef = ref(storage, "Resources/Videos");
+      const res = await listAll(listRef);
+      const fetchedFiles = await Promise.all(
+        res.items.map(async (itemRef) => {
+          const url = await getDownloadURL(itemRef);
+          return { name: itemRef.name, url };
+        })
+      );
+      setVideoFiles(fetchedFiles);
+    };
+    fetchFiles();
+  }, []);
 
   return (
     <div className={classes.slider}>
-      <Swiper
+      {/* <Swiper
         spaceBetween={0}
-        navigation={false}
+        navigation={true}
         loop={true}
-        autoplay={{
-          delay: 1000,
-          disableOnInteraction: false,
-        }}
-        effect="fade"
-        modules={[Navigation, Autoplay, EffectFade]}
-        onSlideChange={updateIndex}
+        modules={[Navigation]}
       >
-        {covers.map((project, index) => (
+        {videoFiles.map((video, index) => (
           <SwiperSlide key={index}>
-            <div className={classes.image}>
-              <FirebaseImage path={project.path} alt={project.title} />
-            </div>
+            <video
+              className={classes.video}
+              src={video.url}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+            />
           </SwiperSlide>
         ))}
       </Swiper>
       <div className={classes.information}>
-        <h4>{covers[current].title}</h4>
-      </div>
+        <h4>Chinatown Millennium Gate</h4>
+      </div> */}
     </div>
   );
 }
