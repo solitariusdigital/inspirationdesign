@@ -1,10 +1,26 @@
+import { useEffect, useContext } from "react";
+import { StateContext } from "@/context/stateContext";
+import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import classes from "./contact.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import ContactForm from "@/components/Form/ContactForm";
 
 export default function Contact() {
+  const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
   const headLocationLink = "https://maps.app.goo.gl/PL91GoWmYGTzhMqt6";
+  const router = useRouter();
+  let pathname = router.pathname;
+
+  useEffect(() => {
+    navigationTopBar.map((nav) => {
+      if (pathname === nav.link) {
+        nav.active = true;
+      }
+    });
+    setNavigationTopBar([...navigationTopBar]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

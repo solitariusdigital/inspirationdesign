@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { StateContext } from "@/context/stateContext";
+import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import classes from "./about.module.scss";
 import logoBlack from "@/assets/logo-black.png";
@@ -6,11 +8,25 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 
 export default function About() {
+  const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
+
   const [pageType, setPageType] = useState(
     "company" || "testimonials" || "awards" || "publications"
   );
-  const navigation = ["company", "testimonials", "awards", "publications"];
+  const router = useRouter();
+  let pathname = router.pathname;
 
+  useEffect(() => {
+    navigationTopBar.map((nav) => {
+      if (pathname === nav.link) {
+        nav.active = true;
+      }
+    });
+    setNavigationTopBar([...navigationTopBar]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const navigation = ["company", "testimonials", "awards", "publications"];
   const companySection = [
     {
       title: "Turnkey Creative Solutions",

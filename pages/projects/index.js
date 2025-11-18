@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
+import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import classes from "./projects.module.scss";
 import logoBlack from "@/assets/logo-black.png";
@@ -15,9 +16,12 @@ import { collection, getDocs } from "@firebase/firestore";
 export default function Projects() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
+  const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
   const [displayProjects, setDisplayProjects] = useState(null);
   const [firstColumn, setFirstColumn] = useState([]);
   const [secondColumn, setSecondColumn] = useState([]);
+  const router = useRouter();
+  let pathname = router.pathname;
 
   const navigation = [
     "all",
@@ -26,6 +30,16 @@ export default function Projects() {
     "lighting",
     "construction",
   ];
+
+  useEffect(() => {
+    navigationTopBar.map((nav) => {
+      if (pathname === nav.link) {
+        nav.active = true;
+      }
+    });
+    setNavigationTopBar([...navigationTopBar]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
