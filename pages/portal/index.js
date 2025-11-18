@@ -100,7 +100,7 @@ export default function Portal() {
                 <p className={classes.alert}>{alert}</p>
                 {!disableButton ? (
                   <button onClick={() => handleLogin()}>
-                    Login with Google
+                    <span>Login with Google</span>
                   </button>
                 ) : (
                   <Image width={50} height={50} src={loading} alt="isLoading" />

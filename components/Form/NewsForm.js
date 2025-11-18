@@ -243,7 +243,7 @@ export default function NewsForm() {
         <p className={classes.alert}>{alert}</p>
         {!disableButton ? (
           <button disabled={disableButton} onClick={() => handleSubmit()}>
-            Save
+            <span>Save</span>
           </button>
         ) : (
           <>

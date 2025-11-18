@@ -198,6 +198,9 @@ export default function Home() {
                 >
                   {service.description}
                 </p>
+                <button>
+                  <span>Learn More</span>
+                </button>
               </div>
               <div
                 className={classes.imageBox}

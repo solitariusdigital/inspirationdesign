@@ -106,7 +106,7 @@
     align-items: center;
 
     button {
-      @include mixins.button(config.$brand, config.$white);
+      @include mixins.button(config.$brand, config.$black, config.$white);
     }
 
     .alert {

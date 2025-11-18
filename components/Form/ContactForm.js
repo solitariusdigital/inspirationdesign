@@ -176,7 +176,7 @@ export default function ContactForm() {
             <p className={classes.alert}>{alert}</p>
             {!disableButton ? (
               <button disabled={disableButton} onClick={() => handleSubmit()}>
-                Send
+                <span>Send</span>
               </button>
             ) : (
               <Image width={50} height={50} src={loading} alt="isLoading" />
