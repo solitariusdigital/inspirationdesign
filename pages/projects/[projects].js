@@ -9,8 +9,10 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import CloseIcon from "@mui/icons-material/Close";
 import StarIcon from "@mui/icons-material/Star";
 import Tooltip from "@mui/material/Tooltip";
+import GallerySlider from "@/components/GallerySlider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -35,6 +37,9 @@ export default function Project() {
   const { editProject, setEditProject } = useContext(StateContext);
   const { editNews, setEditNews } = useContext(StateContext);
   const { screenSize, setScreenSize } = useContext(StateContext);
+  const { menuDisplay, setMenuDisplay } = useContext(StateContext);
+  const { footerDisplay, setFooterDisplay } = useContext(StateContext);
+  const [displayGallerySlider, setDisplayGallerySlider] = useState(false);
   const [displayProject, setDisplayProject] = useState(null);
   const [refresh, setRefresh] = useState(0);
   const router = useRouter();
@@ -149,7 +154,7 @@ export default function Project() {
         }}
         robots="index, follow"
       />
-      {displayProject && (
+      {!displayGallerySlider && displayProject && (
         <div className={classes.cardBox}>
           {currentUser && (
             <div className={classes.controlPanel}>
@@ -201,7 +206,13 @@ export default function Project() {
             <h3>{displayProject.location}</h3>
             <p>{displayProject.year}</p>
           </div>
-          <div className={classes.imageBox}>
+          <div
+            className={`${
+              displayProject.orientation === "portrait"
+                ? classes.imageBoxPortrait
+                : classes.imageBoxLandscape
+            }`}
+          >
             <FirebaseImage
               path={displayProject.hero}
               alt={displayProject.title}
@@ -245,11 +256,40 @@ export default function Project() {
               </SwiperSlide>
             ))}
           </Swiper>
+          <div className={classes.button}>
+            <button
+              onClick={() => {
+                setMenuDisplay(false);
+                setFooterDisplay(false);
+                setDisplayGallerySlider(true);
+              }}
+            >
+              <span>Gallery</span>
+            </button>
+          </div>
           <div className={classes.description}>
             {displayProject.description.split("\n\n").map((desc, index) => (
               <p key={index}>{desc}</p>
             ))}
           </div>
+        </div>
+      )}
+      {displayGallerySlider && (
+        <div className={classes.gallerySlider}>
+          <div className={classes.icon}>
+            <CloseIcon
+              className="icon"
+              sx={{ fontSize: 24 }}
+              onClick={() => {
+                setMenuDisplay(true);
+                setFooterDisplay(true);
+                setDisplayGallerySlider(false);
+                document.body.style.overflow = "auto";
+              }}
+            />
+            <h3>{displayProject.title}</h3>
+          </div>
+          <GallerySlider media={displayProject.path} />
         </div>
       )}
     </>

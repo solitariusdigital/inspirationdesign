@@ -21,7 +21,6 @@ export default function FirebaseImage({ path, alt, objectFit = "cover" }) {
 
   const imageStyle = {
     objectFit: objectFit,
-    objectPosition: "50% 0%",
     opacity: loaded ? 1 : 0,
     filter: loaded ? "none" : "blur(20px)",
     transition: "opacity 0.2s ease-in, filter 0.3s ease-in",

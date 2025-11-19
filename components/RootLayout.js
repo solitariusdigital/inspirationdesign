@@ -12,6 +12,7 @@ export default function RootLayout({ children }) {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { screenSize, setScreenSize } = useContext(StateContext);
   const { menuDisplay, setMenuDisplay } = useContext(StateContext);
+  const { footerDisplay, setFooterDisplay } = useContext(StateContext);
   const [appLoader, setAppLoader] = useState(false);
   const [scrollArrow, setScrollArrow] = useState(false);
 
@@ -112,9 +113,11 @@ export default function RootLayout({ children }) {
           <section className="main">
             <main>{children}</main>
           </section>
-          <section className="footer">
-            <Footer />
-          </section>
+          {footerDisplay && (
+            <section className="footer">
+              <Footer />
+            </section>
+          )}
           {scrollArrow && (
             <div
               className="scrollArrow"

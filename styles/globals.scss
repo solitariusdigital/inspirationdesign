@@ -169,6 +169,25 @@ label.file input[type="file"] {
   }
 }
 
+.GallerySlider_swiper__DIjwm {
+  .swiper-button-next::after {
+    color: config.$black;
+    scale: 0.6;
+
+    @include mixins.mobile {
+      scale: 0.4;
+    }
+  }
+  .swiper-button-prev::after {
+    color: config.$black;
+    scale: 0.6;
+
+    @include mixins.mobile {
+      scale: 0.4;
+    }
+  }
+}
+
 ::selection {
   background: config.$brand;
   color: config.$white;

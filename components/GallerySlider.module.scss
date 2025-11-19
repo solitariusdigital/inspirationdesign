@@ -1,0 +1,32 @@
+@use "styles/_config.scss" as config;
+@use "styles/_mixins.scss" as mixins;
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+
+  @include mixins.mobile {
+    justify-content: center;
+    text-align: center;
+  }
+  @include mixins.tabletPortrait {
+    justify-content: center;
+    text-align: center;
+  }
+  @include mixins.tabletLandscape {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .swiper {
+    text-align: center;
+  }
+
+  .image {
+    aspect-ratio: 16 / 9;
+    cursor: grab;
+  }
+}

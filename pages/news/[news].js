@@ -163,7 +163,7 @@ export default function NewsArticle() {
             </h2>
             <p>{convertDateName(displayNews.date)}</p>
           </div>
-          <div className={classes.imageBox}>
+          <div className={classes.imageBoxLandscape}>
             <FirebaseImage path={displayNews.hero} alt={displayNews.title} />
           </div>
           <div className={classes.description}>
