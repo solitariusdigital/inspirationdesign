@@ -277,16 +277,16 @@ export default function Project() {
       {displayGallerySlider && (
         <div className={classes.gallerySlider}>
           <div className={classes.icon}>
-            <CloseIcon
-              className="icon"
-              sx={{ fontSize: 24 }}
-              onClick={() => {
-                setMenuDisplay(true);
-                setFooterDisplay(true);
-                setDisplayGallerySlider(false);
-                document.body.style.overflow = "auto";
-              }}
-            />
+            <Tooltip title="Close">
+              <CloseIcon
+                className="icon"
+                onClick={() => {
+                  setMenuDisplay(true);
+                  setFooterDisplay(true);
+                  setDisplayGallerySlider(false);
+                }}
+              />
+            </Tooltip>
             <h3>{displayProject.title}</h3>
           </div>
           <GallerySlider media={displayProject.path} />

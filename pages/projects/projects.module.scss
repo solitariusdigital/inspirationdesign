@@ -195,7 +195,7 @@
     user-select: none;
   }
   .imageBoxPortrait {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 4;
   }
 
   .swiperImage {
@@ -249,7 +249,7 @@
   left: 0px;
   z-index: 5;
   width: 100%;
-  height: 100dvh;
+  height: calc(100dvh - 24px);
   background: config.$background;
   overflow: hidden;
 
@@ -259,7 +259,7 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    margin: 24px 0px;
     direction: rtl;
-    margin: 12px 0px;
   }
 }

@@ -28,5 +28,12 @@
   .image {
     aspect-ratio: 16 / 9;
     cursor: grab;
+
+    @include mixins.mobile {
+      aspect-ratio: 16 / 16;
+    }
+    @include mixins.tabletPortrait {
+      aspect-ratio: 16 / 16;
+    }
   }
 }
