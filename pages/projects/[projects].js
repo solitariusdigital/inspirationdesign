@@ -206,17 +206,22 @@ export default function Project() {
             <h3>{displayProject.location}</h3>
             <p>{displayProject.year}</p>
           </div>
-          <div
-            className={`${
-              displayProject.orientation === "portrait"
-                ? classes.imageBoxPortrait
-                : classes.imageBoxLandscape
-            }`}
-          >
-            <FirebaseImage
-              path={displayProject.hero}
-              alt={displayProject.title}
-            />
+          <div className={classes.hero}>
+            <div
+              className={`${
+                displayProject.orientation === "portrait"
+                  ? classes.imageBoxPortrait
+                  : classes.imageBoxLandscape
+              }`}
+            >
+              <FirebaseImage
+                path={displayProject.hero}
+                alt={displayProject.title}
+              />
+            </div>
+            <div className={classes.description}>
+              <h3>{displayProject.description.split("\n\n")[0]}</h3>
+            </div>
           </div>
           <Swiper
             spaceBetween={12}
@@ -268,9 +273,12 @@ export default function Project() {
             </button>
           </div>
           <div className={classes.description}>
-            {displayProject.description.split("\n\n").map((desc, index) => (
-              <p key={index}>{desc}</p>
-            ))}
+            {displayProject.description
+              .split("\n\n")
+              .slice(1)
+              .map((desc, index) => (
+                <p key={index}>{desc}</p>
+              ))}
           </div>
         </div>
       )}

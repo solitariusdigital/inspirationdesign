@@ -77,7 +77,7 @@
     transition: transform 0.3s ease-in-out;
 
     &:hover {
-      transform: scale(1.03);
+      transform: scale(1.02);
       cursor: pointer;
     }
   }
@@ -135,17 +135,11 @@
   .imageBoxLandscape:hover .overlay h4 {
     opacity: 1;
   }
-  .imageBoxLandscape:hover .image {
-    transform: scale(1.05);
-  }
   .imageBoxPortrait:hover .overlay {
     opacity: 1;
   }
   .imageBoxPortrait:hover .overlay h4 {
     opacity: 1;
-  }
-  .imageBoxPortrait:hover .image {
-    transform: scale(1.05);
   }
 }
 
@@ -187,21 +181,61 @@
     }
   }
 
+  .info {
+    margin-bottom: 12px;
+  }
+
   .imageBoxLandscape,
   .imageBoxPortrait {
     position: relative;
     aspect-ratio: 16 / 9;
-    margin: 12px auto;
+    margin: auto;
     user-select: none;
   }
   .imageBoxPortrait {
-    aspect-ratio: 4 / 4;
+    aspect-ratio: 4 / 4.5;
+  }
+
+  .hero {
+    margin: auto;
+    width: config.$content-width;
+    max-width: config.$max-widthHeigh;
+    @include mixins.row-space-between-center();
+
+    @include mixins.mobile {
+      display: flex;
+      flex-direction: column-reverse;
+      width: calc(100% - 24px);
+    }
+    @include mixins.tabletPortrait {
+      width: config.$content-widthTablet;
+    }
+    @include mixins.tabletLandscape {
+      width: config.$content-widthTablet;
+    }
+
+    .imageBoxLandscape,
+    .imageBoxPortrait,
+    .description {
+      width: 50%;
+
+      @include mixins.mobile {
+        width: 100% !important;
+        margin-bottom: 24px !important;
+        margin-left: 0px !important;
+      }
+    }
+    .description {
+      margin: auto;
+      margin-left: 24px;
+    }
   }
 
   .swiperImage {
     position: relative;
     aspect-ratio: 4 / 3;
     user-select: none;
+    margin-top: 24px;
     cursor: grab;
 
     @include mixins.mobile {
