@@ -89,6 +89,19 @@ export default function NewsArticle() {
     }
   };
 
+  const getTotalReadingTime = (data) => {
+    const readingTime = calculateReadingTime(data.description);
+    return `${readingTime} min read`;
+  };
+
+  const calculateReadingTime = (text) => {
+    const wordsPerMinute = 180;
+    const words = text.trim().split(/\s+/);
+    const wordCount = words.length;
+    const readingTime = Math.ceil(wordCount / wordsPerMinute);
+    return readingTime;
+  };
+
   return (
     <>
       <NextSeo
@@ -161,15 +174,29 @@ export default function NewsArticle() {
             >
               {displayNews.title}
             </h2>
-            <p>{convertDateName(displayNews.date)}</p>
+            <h3>{convertDateName(displayNews.date)}</h3>
+            <p>{getTotalReadingTime(displayNews)}</p>
           </div>
-          <div className={classes.imageBoxLandscape}>
-            <FirebaseImage path={displayNews.hero} alt={displayNews.title} />
+          <div className={classes.hero}>
+            <div className={classes.imageBoxLandscape}>
+              <FirebaseImage path={displayNews.hero} alt={displayNews.title} />
+            </div>
+            <div className={classes.description}>
+              <h3>{displayNews.description.split("\n\n")[0]}</h3>
+            </div>
           </div>
-          <div className={classes.description}>
-            {displayNews.description.split("\n\n").map((desc, index) => (
-              <p key={index}>{desc}</p>
-            ))}
+          <div
+            className={classes.description}
+            style={{
+              marginTop: "12px",
+            }}
+          >
+            {displayNews.description
+              .split("\n\n")
+              .slice(1)
+              .map((desc, index) => (
+                <p key={index}>{desc}</p>
+              ))}
           </div>
         </article>
       )}

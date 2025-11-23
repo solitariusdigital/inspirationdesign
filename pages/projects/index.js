@@ -48,11 +48,10 @@ export default function Projects() {
         ...doc.data(),
         id: doc.id,
       }));
-      const sorted = data.sort((a, b) => b.year - a.year);
       if (currentUser) {
-        setDisplayProjects(sorted);
+        setDisplayProjects(data);
       } else {
-        setDisplayProjects(sorted.filter((project) => project.active));
+        setDisplayProjects(data.filter((project) => project.active));
       }
     };
     fetchData();
@@ -60,18 +59,31 @@ export default function Projects() {
   }, []);
 
   useEffect(() => {
-    const filtered = displayProjects?.filter(
-      (project) =>
-        projectsCategory === "all" || project.category === projectsCategory
+    const filtered =
+      displayProjects?.filter(
+        (project) =>
+          projectsCategory === "all" || project.category === projectsCategory
+      ) || [];
+    const groups = filtered.reduce((acc, project) => {
+      const year = project.year;
+      if (!acc[year]) acc[year] = [];
+      acc[year].push(project);
+      return acc;
+    }, {});
+    const sortedYears = Object.keys(groups).sort(
+      (a, b) => Number(b) - Number(a)
     );
-    if (filtered?.length <= 1) {
-      setFirstColumn(filtered);
-      setSecondColumn([]);
-    } else {
-      const half = Math.ceil(filtered?.length / 2);
-      setFirstColumn(filtered?.slice(0, half));
-      setSecondColumn(filtered?.slice(half));
-    }
+    const col1 = [];
+    const col2 = [];
+    sortedYears.forEach((year, index) => {
+      if (index % 2 === 0) {
+        col1.push(...groups[year]);
+      } else {
+        col2.push(...groups[year]);
+      }
+    });
+    setFirstColumn(col1);
+    setSecondColumn(col2);
   }, [projectsCategory, displayProjects]);
 
   return (
