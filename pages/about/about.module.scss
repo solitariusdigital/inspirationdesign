@@ -27,14 +27,22 @@
     }
 
     .nav {
+      width: fit-content;
+      font-weight: bold;
+      border-bottom: 1px solid config.$background;
+
       &:hover {
         cursor: pointer;
         color: config.$brand;
+        border-bottom: 1px solid config.$brand;
       }
     }
 
     .navActive {
+      width: fit-content;
+      font-weight: bold;
       color: config.$brand;
+      border-bottom: 1px solid config.$brand;
     }
   }
 
