@@ -16,6 +16,7 @@ import { collection, getDocs } from "@firebase/firestore";
 export default function News() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
+  const { screenSize, setScreenSize } = useContext(StateContext);
   const [displayNews, setDisplayNews] = useState(null);
   const router = useRouter();
   let pathname = router.pathname;
@@ -82,7 +83,12 @@ export default function News() {
                 href={newsLink}
                 passHref
               >
-                <div className={classes.card}>
+                <div
+                  className={classes.card}
+                  style={{
+                    marginBottom: screenSize === "mobile" ? "16px" : "none",
+                  }}
+                >
                   {currentUser && (
                     <div className={classes.visibility}>
                       {news.active ? (
@@ -102,7 +108,7 @@ export default function News() {
                   <h4
                     style={{
                       fontFamily: "TitilliumLight",
-                      marginTop: "12px",
+                      marginTop: "16px",
                     }}
                   >
                     {news.title}
