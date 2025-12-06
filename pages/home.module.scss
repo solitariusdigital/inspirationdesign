@@ -60,13 +60,13 @@
     margin: 24px auto;
     width: config.$content-width;
     max-width: config.$max-widthHeigh;
-    text-align: left;
+    direction: rtl;
 
     @include mixins.mobile {
       display: flex;
       flex-direction: column;
       width: calc(100% - 24px);
-      margin-bottom: 70px;
+      margin-bottom: 50px;
     }
     @include mixins.tabletPortrait {
       width: config.$content-widthTablet;
@@ -81,8 +81,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      direction: ltr;
 
+      p {
+        text-align: left;
+      }
       button {
         @include mixins.button(config.$brand, config.$black, config.$white);
         margin-top: 12px;
@@ -101,66 +103,6 @@
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-    }
-  }
-}
-
-.projects {
-  margin: 100px auto;
-  text-align: center;
-
-  .gridLayout {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-    gap: 24px;
-    margin: auto;
-    margin-top: 24px;
-
-    .imageBox {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      cursor: pointer;
-
-      .image {
-        transition: transform 0.4s ease;
-        user-select: none;
-      }
-      .overlay {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.4s ease;
-        @include mixins.transparentBackground(0.5, config.$dark);
-      }
-      .overlay h4 {
-        position: absolute;
-        z-index: 2;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: config.$white;
-        user-select: none;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-    }
-
-    .imageBox:hover .overlay {
-      opacity: 1;
-    }
-    .imageBox:hover .overlay h4 {
-      opacity: 1;
-    }
-    .imageBox:hover .image {
-      transform: scale(1.05);
-    }
-
-    @include mixins.mobile {
-      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-      width: calc(100% - 24px);
     }
   }
 }

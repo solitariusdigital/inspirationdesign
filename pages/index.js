@@ -16,63 +16,6 @@ export default function Home() {
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
   const [displayProjects, setDisplayProjects] = useState(null);
 
-  const gridImages = [
-    {
-      hero: "Resources/10.jpg",
-      title: "Queens",
-      type: "image",
-      category: "residential",
-    },
-    {
-      hero: "Resources/9.jpg",
-      title: "Zayani Residence",
-      type: "image",
-      category: "commercial",
-    },
-    {
-      hero: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "residential",
-    },
-    {
-      hero: "Resources/10.jpg",
-      title: "Project",
-      type: "image",
-      category: "lighting",
-    },
-    {
-      hero: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "commercial",
-    },
-    {
-      hero: "Resources/10.jpg",
-      title: "Project",
-      type: "image",
-      category: "residential",
-    },
-    {
-      hero: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "residential",
-    },
-    {
-      hero: "Resources/10.jpg",
-      title: "Zayani Residence",
-      type: "image",
-      category: "interior",
-    },
-    {
-      hero: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "construction",
-    },
-  ];
-
   const expertise = [
     {
       title: "Building & Interior Design",
@@ -91,7 +34,7 @@ export default function Home() {
       type: "lighting",
     },
     {
-      title: "Light Steel Framing",
+      title: "Lightweight Steel Framing",
       description:
         "We specialize in LSF, offering a precise, efficient, and modern construction method. LSF uses pre-fabricated, cold-formed steel components for rapid on-site assembly. This framing is lightweight, non-combustible, and provides superior durability over wood, ensuring faster project completion and long-term quality.",
       path: "Resources/LFS.jpg",
@@ -170,21 +113,8 @@ export default function Home() {
           </h3>
         </section>
         <section className={classes.services}>
-          <h2
-            style={{
-              fontFamily: "TitilliumLight",
-            }}
-          >
-            Expertise
-          </h2>
           {expertise.map((service, index) => (
-            <div
-              key={index}
-              className={classes.infoBox}
-              style={{
-                direction: index % 2 ? "rtl" : "ltr",
-              }}
-            >
+            <div key={index} className={classes.infoBox}>
               <Link
                 onClick={() => {
                   setProjectsCategory(service.type);
@@ -210,9 +140,6 @@ export default function Home() {
                   >
                     {service.description}
                   </p>
-                  <button>
-                    <span>Discover More</span>
-                  </button>
                 </div>
               </Link>
               <div
@@ -233,33 +160,6 @@ export default function Home() {
               </div>
             </div>
           ))}
-        </section>
-        <section className={classes.projects}>
-          <h2
-            style={{
-              fontFamily: "TitilliumLight",
-            }}
-          >
-            Projects
-          </h2>
-          <div className={classes.gridLayout}>
-            {gridImages
-              ?.map((project, index) => (
-                <div key={index} className={classes.imageBox}>
-                  <FirebaseImage path={project.hero} alt={project.title} />
-                  <div className={classes.overlay}>
-                    <h4
-                      style={{
-                        fontFamily: "TitilliumLight",
-                      }}
-                    >
-                      {project.title}
-                    </h4>
-                  </div>
-                </div>
-              ))
-              .slice(0, 9)}
-          </div>
         </section>
       </div>
     </>

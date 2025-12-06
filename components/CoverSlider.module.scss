@@ -21,26 +21,50 @@
   }
 }
 
-.information {
-  @include mixins.row-space-between-center();
+.sliderInfo {
   position: absolute;
   z-index: 2;
   left: 50%;
-  bottom: 20px;
+  bottom: 0px;
   transform: translateX(-50%);
+  width: 100%;
+  overflow: hidden;
   color: config.$white;
-  width: config.$content-width;
-  max-width: config.$max-widthHeigh;
-  cursor: pointer;
+  border-top: 1px solid config.$white;
 
-  @include mixins.mobile {
-    width: calc(100% - 24px);
-    font-size: small;
+  .slideTrack {
+    display: flex;
+    width: calc(350px * 10);
+    animation: scroll 30s linear infinite;
+
+    @include mixins.mobile {
+      width: calc(250px * 10);
+    }
   }
-  @include mixins.tabletPortrait {
-    width: config.$content-widthTablet;
+
+  .slideItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+
+    &:hover {
+      cursor: pointer;
+      color: config.$brand;
+    }
   }
-  @include mixins.tabletLandscape {
-    width: config.$content-widthTablet;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.sliderInfo:hover .slideTrack {
+  animation-play-state: paused;
 }

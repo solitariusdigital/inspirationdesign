@@ -34,26 +34,32 @@ ul {
 }
 
 html {
-  font-size: clamp(16px, 1vw + 0.5rem, 20px);
+  font-size: clamp(14.4px, 0.9vw + 0.45rem, 18px);
 }
+
 h1 {
-  font-size: 2.5em;
+  font-size: 2.25em;
 }
+
 h2 {
-  font-size: 2em;
+  font-size: 1.8em;
 }
+
 h3 {
-  font-size: 1.5em;
+  font-size: 1.35em;
 }
+
 h4 {
-  font-size: 1.25em;
+  font-size: 1.125em;
 }
+
 p {
   font-size: 1em;
   line-height: 1.4;
 }
+
 small {
-  font-size: 0.875em;
+  font-size: 0.7875em;
 }
 
 .notFound {

@@ -20,6 +20,8 @@ export default function Projects() {
   const [displayProjects, setDisplayProjects] = useState(null);
   const [firstColumn, setFirstColumn] = useState([]);
   const [secondColumn, setSecondColumn] = useState([]);
+  const [hoveredId, setHoveredId] = useState(null);
+
   const router = useRouter();
   let pathname = router.pathname;
 
@@ -86,6 +88,8 @@ export default function Projects() {
     setSecondColumn(col2);
   }, [projectsCategory, displayProjects]);
 
+  const displayInfoBox = () => {};
+
   return (
     <>
       <NextSeo
@@ -131,12 +135,16 @@ export default function Projects() {
               )}`;
               return (
                 <Link
-                  key={index}
+                  key={project.id}
                   className={classes.item}
                   href={projectLink}
                   passHref
                 >
-                  <div key={index} className={classes.card}>
+                  <div
+                    className={classes.card}
+                    onMouseEnter={() => setHoveredId(project.id)}
+                    onMouseLeave={() => setHoveredId(null)}
+                  >
                     {currentUser && (
                       <div className={classes.visibility}>
                         {project.active ? (
@@ -151,22 +159,29 @@ export default function Projects() {
                       </div>
                     )}
                     <div
-                      className={`${
+                      className={
                         project.orientation === "portrait"
                           ? classes.imageBoxPortrait
                           : classes.imageBoxLandscape
-                      }`}
+                      }
                     >
                       <FirebaseImage path={project.hero} alt={project.title} />
-                      <div className={classes.overlay}>
-                        <h4
-                          style={{
-                            fontFamily: "TitilliumLight",
-                          }}
-                        >
-                          {project.title}
-                        </h4>
-                      </div>
+                      {hoveredId === project.id && (
+                        <div className={classes.overlay}>
+                          <h3
+                            className="animate__animated animate__slideInUp"
+                            style={{ fontFamily: "TitilliumLight" }}
+                          >
+                            {project.title}
+                          </h3>
+                          <p
+                            className="animate__animated animate__slideInUp"
+                            style={{ fontFamily: "TitilliumLight" }}
+                          >
+                            {project.location}
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Link>
@@ -180,12 +195,16 @@ export default function Projects() {
               )}`;
               return (
                 <Link
-                  key={index}
+                  key={project.id}
                   className={classes.item}
                   href={projectLink}
                   passHref
                 >
-                  <div key={index} className={classes.card}>
+                  <div
+                    className={classes.card}
+                    onMouseEnter={() => setHoveredId(project.id)}
+                    onMouseLeave={() => setHoveredId(null)}
+                  >
                     {currentUser && (
                       <div className={classes.visibility}>
                         {project.active ? (
@@ -200,22 +219,29 @@ export default function Projects() {
                       </div>
                     )}
                     <div
-                      className={`${
+                      className={
                         project.orientation === "portrait"
                           ? classes.imageBoxPortrait
                           : classes.imageBoxLandscape
-                      }`}
+                      }
                     >
                       <FirebaseImage path={project.hero} alt={project.title} />
-                      <div className={classes.overlay}>
-                        <h4
-                          style={{
-                            fontFamily: "TitilliumLight",
-                          }}
-                        >
-                          {project.title}
-                        </h4>
-                      </div>
+                      {hoveredId === project.id && (
+                        <div className={classes.overlay}>
+                          <h3
+                            className="animate__animated animate__slideInUp"
+                            style={{ fontFamily: "TitilliumLight" }}
+                          >
+                            {project.title}
+                          </h3>
+                          <p
+                            className="animate__animated animate__slideInUp"
+                            style={{ fontFamily: "TitilliumLight" }}
+                          >
+                            {project.location}
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Link>
