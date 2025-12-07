@@ -7,6 +7,17 @@
   h3 {
     text-transform: uppercase;
   }
+
+  .button {
+    position: relative;
+    bottom: 25px;
+    display: flex;
+    justify-content: center;
+
+    button {
+      @include mixins.button(config.$brand, config.$black, config.$white);
+    }
+  }
 }
 
 .information {

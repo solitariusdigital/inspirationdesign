@@ -3,7 +3,7 @@ import { StateContext } from "@/context/stateContext";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import Router from "next/router";
-import classes from "@/pages/projects/projects.module.scss";
+import classes from "@/pages/work/work.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -169,7 +169,7 @@ export default function NewsArticle() {
           <div className={classes.info}>
             <h2
               style={{
-                fontFamily: "TitilliumLight",
+                fontFamily: "TitilliumRegular",
               }}
             >
               {displayNews.title}

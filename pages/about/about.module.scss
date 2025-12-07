@@ -53,10 +53,10 @@
     }
 
     .text {
-      width: 70%;
-      max-width: config.$max-widthHeigh;
       margin: 12px auto;
       text-align: left;
+      width: config.$content-width;
+      max-width: config.$max-widthHeigh;
 
       @include mixins.mobile {
         width: 100%;

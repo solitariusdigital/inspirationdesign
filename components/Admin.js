@@ -80,44 +80,21 @@ export default function Admin() {
           <div className={classes.gridLayout}>
             {inquiries?.map((item, index) => (
               <div key={index} className={classes.item}>
-                <div
-                  className={classes.message}
-                  style={{
-                    fontFamily: "TitilliumLight",
-                  }}
-                >
+                <div className={classes.message}>
                   <p>{item.subject}</p>
                   <p>{item.message}</p>
                 </div>
                 <div className={classes.row}>
                   <p className={classes.title}>Name</p>
-                  <p
-                    style={{
-                      fontFamily: "TitilliumLight",
-                    }}
-                  >
-                    {item.name}
-                  </p>
+                  <p>{item.name}</p>
                 </div>
                 <div className={classes.row}>
                   <p className={classes.title}>Email</p>
-                  <p
-                    style={{
-                      fontFamily: "TitilliumLight",
-                    }}
-                  >
-                    {item.email}
-                  </p>
+                  <p>{item.email}</p>
                 </div>
                 <div className={classes.row}>
                   <p className={classes.title}>Phone</p>
-                  <p
-                    style={{
-                      fontFamily: "TitilliumLight",
-                    }}
-                  >
-                    {item.phone}
-                  </p>
+                  <p>{item.phone}</p>
                 </div>
                 <div className={classes.row}>
                   <Tooltip title="Delete">

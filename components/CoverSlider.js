@@ -83,7 +83,7 @@ export default function CoverSlider() {
               onClick={() => {
                 setProjectsCategory(service.type);
               }}
-              href="/projects"
+              href="/work"
               passHref
             >
               <h4>{service.title}</h4>

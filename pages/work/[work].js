@@ -3,7 +3,7 @@ import { StateContext } from "@/context/stateContext";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import Router from "next/router";
-import classes from "@/pages/projects/projects.module.scss";
+import classes from "@/pages/work/work.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -43,7 +43,7 @@ export default function Project() {
   const [displayProject, setDisplayProject] = useState(null);
   const [refresh, setRefresh] = useState(0);
   const router = useRouter();
-  const slug = router.asPath.replace(/^\/projects\//, "");
+  const slug = router.asPath.replace(/^\/work\//, "");
   const title = replaceSpacesAndHyphens(slug);
 
   useEffect(() => {
@@ -77,7 +77,7 @@ export default function Project() {
     try {
       const docRef = doc(db, "Projects", project.id);
       await updateDoc(docRef, { active: updatedActiveValue });
-      Router.push("/projects");
+      Router.push("/work");
     } catch (error) {
       console.error("Failed to update project:", error);
     }
@@ -96,7 +96,7 @@ export default function Project() {
       for (const itemRef of items.items) {
         await deleteObject(itemRef);
       }
-      Router.push("/projects");
+      Router.push("/work");
     } catch (error) {
       console.error("Error deleting project:", error);
     }
@@ -136,11 +136,11 @@ export default function Project() {
       <NextSeo
         title={title}
         description="Inspiration Design is a turnkey design firm, specializing in creative designs for residential and commercial projects."
-        canonical={`https://inspirationdesigns.ca/projects/${slug}`}
+        canonical={`https://inspirationdesigns.ca/work/${slug}`}
         openGraph={{
           type: "website",
           locale: "en_CA",
-          url: `https://inspirationdesigns.ca/projects/${slug}`,
+          url: `https://inspirationdesigns.ca/work/${slug}`,
           title: title,
           description:
             "Inspiration Design is a turnkey design firm, specializing in creative designs for residential and commercial projects.",
@@ -198,7 +198,7 @@ export default function Project() {
           <div className={classes.info}>
             <h2
               style={{
-                fontFamily: "TitilliumLight",
+                fontFamily: "TitilliumRegular",
               }}
             >
               {displayProject.title}

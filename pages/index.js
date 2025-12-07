@@ -2,6 +2,7 @@
 import { useState, useEffect, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./home.module.scss";
+import Router from "next/router";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 import CoverSlider from "@/components/CoverSlider";
@@ -93,7 +94,7 @@ export default function Home() {
           <h1
             className={classes.text}
             style={{
-              fontFamily: "TitilliumLight",
+              fontFamily: "TitilliumRegular",
             }}
           >
             Designing spaces, light & systems for healthier, smarter buildings.
@@ -119,13 +120,13 @@ export default function Home() {
                 onClick={() => {
                   setProjectsCategory(service.type);
                 }}
-                href="/projects"
+                href="/work"
                 passHref
               >
                 <div className={classes.info}>
                   <h3
                     style={{
-                      fontFamily: "TitilliumLight",
+                      fontFamily: "TitilliumRegular",
                     }}
                   >
                     {service.title}
@@ -152,7 +153,7 @@ export default function Home() {
                   onClick={() => {
                     setProjectsCategory(service.type);
                   }}
-                  href="/projects"
+                  href="/work"
                   passHref
                 >
                   <FirebaseImage path={service.path} alt={service.title} />
@@ -161,6 +162,11 @@ export default function Home() {
             </div>
           ))}
         </section>
+        <div className={classes.button}>
+          <button onClick={() => Router.push("/work")}>
+            <span>Explore Work</span>
+          </button>
+        </div>
       </div>
     </>
   );

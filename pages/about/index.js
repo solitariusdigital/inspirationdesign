@@ -229,7 +229,7 @@ export default function About() {
           <>
             {companySection.map((section, index) => (
               <div key={index} className={classes.info}>
-                <h3 style={{ fontFamily: "TitilliumLight" }}>
+                <h3 style={{ fontFamily: "TitilliumRegular" }}>
                   {section.title}
                 </h3>
                 {section.paragraphs.map((text, i) => (
@@ -245,7 +245,7 @@ export default function About() {
           <div className={classes.info}>
             <h3
               style={{
-                fontFamily: "TitilliumLight",
+                fontFamily: "TitilliumRegular",
               }}
             >
               Testimonials
@@ -264,7 +264,7 @@ export default function About() {
           <div className={classes.info}>
             <h3
               style={{
-                fontFamily: "TitilliumLight",
+                fontFamily: "TitilliumRegular",
               }}
             >
               Awards
@@ -274,7 +274,7 @@ export default function About() {
                 <div key={index} className={classes.award}>
                   <h5
                     style={{
-                      fontFamily: "TitilliumLight",
+                      fontFamily: "TitilliumRegular",
                     }}
                   >
                     {item.year}
@@ -289,7 +289,7 @@ export default function About() {
           <div className={classes.info}>
             <h3
               style={{
-                fontFamily: "TitilliumLight",
+                fontFamily: "TitilliumRegular",
               }}
             >
               Publications

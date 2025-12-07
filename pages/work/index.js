@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
-import classes from "./projects.module.scss";
+import classes from "./work.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -13,7 +13,7 @@ import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
 import { collection, getDocs } from "@firebase/firestore";
 
-export default function Projects() {
+export default function Work() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
@@ -93,14 +93,14 @@ export default function Projects() {
   return (
     <>
       <NextSeo
-        title="Projects"
+        title="Work"
         description="Inspiration Design is a turnkey design firm, specializing in creative designs for residential and commercial projects."
-        canonical="https://inspirationdesigns.ca/projects"
+        canonical="https://inspirationdesigns.ca/work"
         openGraph={{
           type: "website",
           locale: "en_CA",
-          url: "https://inspirationdesigns.ca/projects",
-          title: "Projects",
+          url: "https://inspirationdesigns.ca/work",
+          title: "Work",
           description:
             "Inspiration Design is a turnkey design firm, specializing in creative designs for residential and commercial projects.",
           siteName: "Inspiration Design",
@@ -130,7 +130,7 @@ export default function Projects() {
         <div className={classes.gridLayoutVertical}>
           <div className={classes.column}>
             {firstColumn?.map((project, index) => {
-              const projectLink = `/projects/${replaceSpacesAndHyphens(
+              const projectLink = `/work/${replaceSpacesAndHyphens(
                 project.title
               )}`;
               return (
@@ -170,14 +170,11 @@ export default function Projects() {
                         <div className={classes.overlay}>
                           <h3
                             className="animate__animated animate__slideInUp"
-                            style={{ fontFamily: "TitilliumLight" }}
+                            style={{ fontFamily: "TitilliumRegular" }}
                           >
                             {project.title}
                           </h3>
-                          <p
-                            className="animate__animated animate__slideInUp"
-                            style={{ fontFamily: "TitilliumLight" }}
-                          >
+                          <p className="animate__animated animate__slideInUp">
                             {project.location}
                           </p>
                         </div>
@@ -190,7 +187,7 @@ export default function Projects() {
           </div>
           <div className={classes.column}>
             {secondColumn?.map((project, index) => {
-              const projectLink = `/projects/${replaceSpacesAndHyphens(
+              const projectLink = `/work/${replaceSpacesAndHyphens(
                 project.title
               )}`;
               return (
@@ -230,14 +227,11 @@ export default function Projects() {
                         <div className={classes.overlay}>
                           <h3
                             className="animate__animated animate__slideInUp"
-                            style={{ fontFamily: "TitilliumLight" }}
+                            style={{ fontFamily: "TitilliumRegular" }}
                           >
                             {project.title}
                           </h3>
-                          <p
-                            className="animate__animated animate__slideInUp"
-                            style={{ fontFamily: "TitilliumLight" }}
-                          >
+                          <p className="animate__animated animate__slideInUp">
                             {project.location}
                           </p>
                         </div>

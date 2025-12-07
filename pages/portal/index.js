@@ -90,7 +90,7 @@ export default function Portal() {
           <>
             <h3
               style={{
-                fontFamily: "TitilliumLight",
+                fontFamily: "TitilliumRegular",
               }}
             >
               Portal

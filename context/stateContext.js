@@ -13,8 +13,8 @@ export const StateProvider = (props) => {
   const [editNews, setEditNews] = useState(null);
   const [navigationTopBar, setNavigationTopBar] = useState([
     {
-      title: "Projects",
-      link: "/projects",
+      title: "Work",
+      link: "/work",
       active: false,
     },
     {
