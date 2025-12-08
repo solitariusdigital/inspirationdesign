@@ -2,9 +2,7 @@
 @use "styles/_mixins.scss" as mixins;
 
 .container {
-  margin: auto;
-  margin-top: 120px;
-  margin-bottom: 100px;
+  margin: 120px auto;
 
   .text {
     text-align: center;

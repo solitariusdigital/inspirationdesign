@@ -2,9 +2,8 @@
 @use "styles/_mixins.scss" as mixins;
 
 .container {
-  margin: auto;
-  margin-top: 120px;
-  margin-bottom: 100px;
+  margin: 120px auto;
+  user-select: none;
 
   .navigation {
     width: 50%;
@@ -13,7 +12,6 @@
     margin: auto;
     @include mixins.row-space-between-center();
     max-width: config.$max-widthHeigh;
-    user-select: none;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
