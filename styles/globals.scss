@@ -50,7 +50,6 @@ h4 {
 }
 p {
   font-size: 1em;
-  line-height: 1.4;
 }
 small {
   font-size: 0.70875em;
@@ -88,6 +87,7 @@ small {
   position: relative;
   background: config.$black;
   height: 100vh;
+  user-select: none;
 
   .logo {
     position: absolute;
@@ -107,6 +107,7 @@ small {
   width: 30px;
   height: 30px;
   cursor: pointer;
+  user-select: none;
 
   @include mixins.mobile {
     display: none;

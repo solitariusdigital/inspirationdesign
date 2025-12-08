@@ -11,14 +11,17 @@
   @include mixins.mobile {
     justify-content: center;
     text-align: center;
+    margin-top: 25%;
   }
   @include mixins.tabletPortrait {
     justify-content: center;
     text-align: center;
+    margin-top: 10%;
   }
   @include mixins.tabletLandscape {
     justify-content: center;
     text-align: center;
+    margin-top: 10%;
   }
 
   .swiper {

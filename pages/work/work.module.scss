@@ -201,6 +201,17 @@
     .imageBoxPortrait,
     .description {
       width: 100%;
+
+      @include mixins.mobile {
+        width: 100% !important;
+        margin-bottom: 24px !important;
+        margin-left: 0px !important;
+      }
+    }
+
+    .description {
+      margin: auto;
+      margin-left: 50px;
     }
   }
 
@@ -211,6 +222,7 @@
     margin: 24px auto;
     width: config.$content-width;
     max-width: config.$max-widthHeigh;
+    cursor: pointer;
 
     @include mixins.mobile {
       width: calc(100% - 24px);

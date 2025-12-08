@@ -41,6 +41,7 @@ export default function Project() {
   const { footerDisplay, setFooterDisplay } = useContext(StateContext);
   const [displayGallerySlider, setDisplayGallerySlider] = useState(false);
   const [displayProject, setDisplayProject] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [refresh, setRefresh] = useState(0);
   const router = useRouter();
   const slug = router.asPath.replace(/^\/work\//, "");
@@ -131,6 +132,14 @@ export default function Project() {
     setRefresh((prev) => prev + 1);
   };
 
+  const findIndex = (path) => {
+    setMenuDisplay(false);
+    setFooterDisplay(false);
+    setDisplayGallerySlider(true);
+    let index = displayProject.path.indexOf(path);
+    setSelectedIndex(index);
+  };
+
   return (
     <>
       <NextSeo
@@ -213,10 +222,11 @@ export default function Project() {
                   ? classes.imageBoxPortrait
                   : classes.imageBoxLandscape
               }`}
+              style={{
+                cursor: "pointer",
+              }}
               onClick={() => {
-                setMenuDisplay(false);
-                setFooterDisplay(false);
-                setDisplayGallerySlider(true);
+                findIndex(displayProject.hero);
               }}
             >
               <FirebaseImage
@@ -230,39 +240,42 @@ export default function Project() {
               <p key={index}>{desc}</p>
             ))}
           </div>
-          {displayProject.path.map((image, index) => (
-            <div
-              className={classes.imageBox}
-              key={index}
-              onClick={() => {
-                setMenuDisplay(false);
-                setFooterDisplay(false);
-                setDisplayGallerySlider(true);
-              }}
-            >
-              {currentUser && (
-                <div className={classes.control}>
-                  <Tooltip title="Delete">
-                    <DeleteOutlineIcon
-                      className="icon"
-                      sx={{ fontSize: 20 }}
-                      onClick={() => handleDeleteImage(image, index)}
-                    />
-                  </Tooltip>
-                  <Tooltip title="Hero">
-                    <StarIcon
-                      className="icon"
-                      sx={{ fontSize: 20 }}
-                      onClick={() => {
-                        makeHeroImage(image);
-                      }}
-                    />
-                  </Tooltip>
-                </div>
-              )}
-              <FirebaseImage path={image} alt={displayProject.title} />
-            </div>
-          ))}
+          {displayProject.path
+            .filter((item) => item !== displayProject.hero)
+            .map((image, index) => (
+              <div
+                className={classes.imageBox}
+                key={index}
+                onClick={() => {
+                  setMenuDisplay(false);
+                  setFooterDisplay(false);
+                  setDisplayGallerySlider(true);
+                  setSelectedIndex(index);
+                }}
+              >
+                {currentUser && (
+                  <div className={classes.control}>
+                    <Tooltip title="Delete">
+                      <DeleteOutlineIcon
+                        className="icon"
+                        sx={{ fontSize: 20 }}
+                        onClick={() => handleDeleteImage(image, index)}
+                      />
+                    </Tooltip>
+                    <Tooltip title="Hero">
+                      <StarIcon
+                        className="icon"
+                        sx={{ fontSize: 20 }}
+                        onClick={() => {
+                          makeHeroImage(image);
+                        }}
+                      />
+                    </Tooltip>
+                  </div>
+                )}
+                <FirebaseImage path={image} alt={displayProject.title} />
+              </div>
+            ))}
         </div>
       )}
       {displayGallerySlider && (
@@ -275,6 +288,7 @@ export default function Project() {
                   setMenuDisplay(true);
                   setFooterDisplay(true);
                   setDisplayGallerySlider(false);
+                  setSelectedIndex(0);
                 }}
               />
             </Tooltip>
@@ -286,7 +300,10 @@ export default function Project() {
               {displayProject.title}
             </h2>
           </div>
-          <GallerySlider media={displayProject.path} />
+          <GallerySlider
+            media={displayProject.path}
+            startIndex={selectedIndex}
+          />
         </div>
       )}
     </>
