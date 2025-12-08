@@ -47,13 +47,13 @@ export default function Contact() {
       />
       <div className={classes.container}>
         <div className={classes.text}>
-          <h3
+          <h2
             style={{
               fontFamily: "OpenSansRegular",
             }}
           >
             Let's Design Together
-          </h3>
+          </h2>
           <p>
             We welcome inquiries from new and existing clients and anyone who
             wants to connect. If you have a unique project in mind, please don't
@@ -64,13 +64,13 @@ export default function Contact() {
         <div className={classes.contact}>
           <div className={classes.contactBox}>
             <div>
-              <h4
+              <h3
                 style={{
                   fontFamily: "OpenSansRegular",
                 }}
               >
                 Contact us
-              </h4>
+              </h3>
               <p
                 className={classes.phone}
                 onClick={() => window.open(`tel:+16049710270`, "_self")}
@@ -86,13 +86,13 @@ export default function Contact() {
               <p>info@inspirationdesigns.ca</p>
             </div>
             <div>
-              <h4
+              <h3
                 style={{
                   fontFamily: "OpenSansRegular",
                 }}
               >
                 Reach us
-              </h4>
+              </h3>
               <p>
                 Harbourfront Business Centre, 500 – 224 West Esplanade North
                 Vancouver V7M 1A4

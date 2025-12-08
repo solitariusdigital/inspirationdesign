@@ -229,9 +229,9 @@ export default function About() {
           <>
             {companySection.map((section, index) => (
               <div key={index} className={classes.info}>
-                <h3 style={{ fontFamily: "OpenSansRegular" }}>
+                <h2 style={{ fontFamily: "OpenSansRegular" }}>
                   {section.title}
-                </h3>
+                </h2>
                 {section.paragraphs.map((text, i) => (
                   <p key={i} className={classes.text}>
                     {text}
@@ -243,13 +243,13 @@ export default function About() {
         )}
         {pageType === "testimonials" && (
           <div className={classes.info}>
-            <h3
+            <h2
               style={{
                 fontFamily: "OpenSansRegular",
               }}
             >
               Testimonials
-            </h3>
+            </h2>
             <div className={classes.gridLayout}>
               {testimonials.map((item, index) => (
                 <div key={index} className={classes.item}>
@@ -262,13 +262,13 @@ export default function About() {
         )}
         {pageType === "awards" && (
           <div className={classes.info}>
-            <h3
+            <h2
               style={{
                 fontFamily: "OpenSansRegular",
               }}
             >
               Awards
-            </h3>
+            </h2>
             <div className={classes.gridLayout}>
               {awards.map((item, index) => (
                 <div key={index} className={classes.award}>
@@ -287,13 +287,13 @@ export default function About() {
         )}
         {pageType === "publications" && (
           <div className={classes.info}>
-            <h3
+            <h2
               style={{
                 fontFamily: "OpenSansRegular",
               }}
             >
               Publications
-            </h3>
+            </h2>
             <div className={classes.publicationLayout}>
               {publications.map((item, index) => (
                 <div key={index} className={classes.publication}>

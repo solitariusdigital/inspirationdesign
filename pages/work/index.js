@@ -123,7 +123,14 @@ export default function Work() {
             </p>
           ))}
         </div>
-        <h2 className={classes.serviceTitle}>{services[projectsCategory]}</h2>
+        <h2
+          className={classes.title}
+          style={{
+            fontFamily: "OpenSansRegular",
+          }}
+        >
+          {services[projectsCategory]}
+        </h2>
         <div className={classes.gridLayoutVertical}>
           <div className={classes.column}>
             {firstColumn?.map((project, index) => {

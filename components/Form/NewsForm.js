@@ -131,13 +131,13 @@ export default function NewsForm() {
 
   return (
     <div className={classes.formBox}>
-      <h4
+      <h3
         style={{
           fontFamily: "OpenSansRegular",
         }}
       >
         {editNews ? "Edit" : "Add"} News
-      </h4>
+      </h3>
       <div className={classes.form}>
         <div className={classes.input}>
           <div className={classes.bar}>

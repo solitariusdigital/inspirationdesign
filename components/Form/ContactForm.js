@@ -75,13 +75,13 @@ export default function ContactForm() {
 
   return (
     <div className={classes.formBox}>
-      <h3
+      <h2
         style={{
           fontFamily: "OpenSansRegular",
         }}
       >
         Send your inquiry
-      </h3>
+      </h2>
       <div className={classes.form}>
         <div className={classes.input}>
           <div className={classes.bar}>

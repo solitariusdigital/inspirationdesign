@@ -35,11 +35,10 @@
     }
   }
 
-  .serviceTitle {
+  .title {
     display: flex;
     justify-content: center;
-    margin-top: 24px;
-    color: config.$lightgrey;
+    margin-top: 50px;
     text-transform: uppercase;
   }
 }
@@ -142,9 +141,7 @@
 }
 
 .cardBox {
-  margin: auto;
-  margin-top: 120px;
-  margin-bottom: 100px;
+  margin: 120px auto;
 
   .info,
   .imageBoxLandscape,
@@ -177,7 +174,7 @@
     user-select: none;
   }
   .imageBoxPortrait {
-    aspect-ratio: 4 / 4.5;
+    aspect-ratio: 4 / 3;
   }
 
   .hero {
@@ -203,30 +200,20 @@
     .imageBoxLandscape,
     .imageBoxPortrait,
     .description {
-      width: 50%;
-
-      @include mixins.mobile {
-        width: 100% !important;
-        margin-bottom: 24px !important;
-        margin-left: 0px !important;
-      }
-    }
-    .description {
-      margin: auto;
-      margin-left: 50px;
-      line-height: 1.4;
+      width: 100%;
     }
   }
 
-  .swiperImage {
+  .imageBox {
     position: relative;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     user-select: none;
-    cursor: grab;
+    margin: 24px auto;
+    width: config.$content-width;
+    max-width: config.$max-widthHeigh;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
-      margin: auto;
     }
   }
 
@@ -240,19 +227,8 @@
     background: config.$background;
   }
 
-  .button {
-    display: flex;
-    justify-content: center;
-    margin-top: 24px;
-
-    button {
-      @include mixins.button(config.$brand, config.$black, config.$white);
-    }
-  }
-
   .description {
-    margin: auto;
-    margin-top: 50px;
+    margin: 50px auto;
 
     p {
       margin-bottom: 12px;
@@ -269,9 +245,8 @@
   left: 0px;
   z-index: 5;
   width: 100%;
-  height: calc(100dvh - 24px);
-  background: config.$background;
   overflow: hidden;
+  background: config.$background;
 
   .icon {
     display: flex;

@@ -213,73 +213,56 @@ export default function Project() {
                   ? classes.imageBoxPortrait
                   : classes.imageBoxLandscape
               }`}
-            >
-              <FirebaseImage
-                path={displayProject.hero}
-                alt={displayProject.title}
-              />
-            </div>
-            <div className={classes.description}>
-              <h3>{displayProject.description.split("\n\n")[0]}</h3>
-            </div>
-          </div>
-          <Swiper
-            spaceBetween={12}
-            slidesPerView={screenSize === "mobile" ? 1 : 3}
-            navigation={true}
-            loop={true}
-            modules={[Navigation, Pagination]}
-            pagination={{
-              clickable: true,
-            }}
-          >
-            {displayProject.path.map((image, index) => (
-              <SwiperSlide key={index}>
-                <div className={classes.swiperImage}>
-                  {currentUser && (
-                    <div className={classes.control}>
-                      <Tooltip title="Delete">
-                        <DeleteOutlineIcon
-                          className="icon"
-                          sx={{ fontSize: 20 }}
-                          onClick={() => handleDeleteImage(image, index)}
-                        />
-                      </Tooltip>
-                      <Tooltip title="Hero">
-                        <StarIcon
-                          className="icon"
-                          sx={{ fontSize: 20 }}
-                          onClick={() => {
-                            makeHeroImage(image);
-                          }}
-                        />
-                      </Tooltip>
-                    </div>
-                  )}
-                  <FirebaseImage path={image} alt={displayProject.title} />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div className={classes.button}>
-            <button
               onClick={() => {
                 setMenuDisplay(false);
                 setFooterDisplay(false);
                 setDisplayGallerySlider(true);
               }}
             >
-              <span>Gallery</span>
-            </button>
+              <FirebaseImage
+                path={displayProject.hero}
+                alt={displayProject.title}
+              />
+            </div>
           </div>
           <div className={classes.description}>
-            {displayProject.description
-              .split("\n\n")
-              .slice(1)
-              .map((desc, index) => (
-                <p key={index}>{desc}</p>
-              ))}
+            {displayProject.description.split("\n\n").map((desc, index) => (
+              <p key={index}>{desc}</p>
+            ))}
           </div>
+          {displayProject.path.map((image, index) => (
+            <div
+              className={classes.imageBox}
+              key={index}
+              onClick={() => {
+                setMenuDisplay(false);
+                setFooterDisplay(false);
+                setDisplayGallerySlider(true);
+              }}
+            >
+              {currentUser && (
+                <div className={classes.control}>
+                  <Tooltip title="Delete">
+                    <DeleteOutlineIcon
+                      className="icon"
+                      sx={{ fontSize: 20 }}
+                      onClick={() => handleDeleteImage(image, index)}
+                    />
+                  </Tooltip>
+                  <Tooltip title="Hero">
+                    <StarIcon
+                      className="icon"
+                      sx={{ fontSize: 20 }}
+                      onClick={() => {
+                        makeHeroImage(image);
+                      }}
+                    />
+                  </Tooltip>
+                </div>
+              )}
+              <FirebaseImage path={image} alt={displayProject.title} />
+            </div>
+          ))}
         </div>
       )}
       {displayGallerySlider && (
@@ -295,7 +278,13 @@ export default function Project() {
                 }}
               />
             </Tooltip>
-            <h3>{displayProject.title}</h3>
+            <h2
+              style={{
+                fontFamily: "OpenSansRegular",
+              }}
+            >
+              {displayProject.title}
+            </h2>
           </div>
           <GallerySlider media={displayProject.path} />
         </div>

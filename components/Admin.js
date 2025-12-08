@@ -69,13 +69,13 @@ export default function Admin() {
       {pageType === "inquiries" && (
         <>
           {inquiries.length === 0 && (
-            <h5
+            <h4
               style={{
                 marginTop: "50px",
               }}
             >
               Empty inquiries list
-            </h5>
+            </h4>
           )}
           <div className={classes.gridLayout}>
             {inquiries?.map((item, index) => (

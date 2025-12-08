@@ -1,5 +1,3 @@
-import { useState } from "react";
-import Image from "next/legacy/image";
 import classes from "./GallerySlider.module.scss";
 import FirebaseImage from "./FirebaseImage";
 import { Swiper, SwiperSlide } from "swiper/react";
