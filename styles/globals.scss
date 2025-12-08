@@ -86,16 +86,24 @@ small {
 .appload {
   position: relative;
   background: config.$black;
+  color: config.$white;
   height: 100vh;
   user-select: none;
 
-  .logo {
+  .border {
+    height: 1px;
+    width: 80px;
+    margin-bottom: 8px;
+    background: config.$brand;
+  }
+  .typewrite {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
