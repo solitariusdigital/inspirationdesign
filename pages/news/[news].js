@@ -169,7 +169,7 @@ export default function NewsArticle() {
           <div className={classes.info}>
             <h2
               style={{
-                fontFamily: "TitilliumRegular",
+                fontFamily: "OpenSansRegular",
               }}
             >
               {displayNews.title}

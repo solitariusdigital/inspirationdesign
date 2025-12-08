@@ -21,7 +21,8 @@
   }
 }
 
-.sliderInfo {
+.sliderInfoTop,
+.sliderInfoBottom {
   position: absolute;
   z-index: 2;
   left: 50%;
@@ -30,12 +31,12 @@
   width: 100%;
   overflow: hidden;
   color: config.$white;
-  border-top: 1px solid config.$white;
 
   .slideTrack {
     display: flex;
     width: calc(350px * 10);
-    animation: scroll 30s linear infinite;
+    animation: scroll 50s linear infinite;
+    text-transform: uppercase;
 
     @include mixins.mobile {
       width: calc(250px * 10);
@@ -44,9 +45,6 @@
 
   .slideItem {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 20px 0px;
 
     &:hover {
@@ -54,6 +52,11 @@
       color: config.$brand;
     }
   }
+}
+
+.sliderInfoTop {
+  bottom: 65px;
+  border-bottom: 1px solid config.$white;
 }
 
 @keyframes scroll {
@@ -65,6 +68,9 @@
   }
 }
 
-.sliderInfo:hover .slideTrack {
+.sliderInfoTop:hover .slideTrack {
+  animation-play-state: paused;
+}
+.sliderInfoBottom:hover .slideTrack {
   animation-play-state: paused;
 }

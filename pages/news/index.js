@@ -101,7 +101,7 @@ export default function News() {
                   </div>
                   <h4
                     style={{
-                      fontFamily: "TitilliumRegular",
+                      fontFamily: "OpenSansRegular",
                       marginTop: "12px",
                     }}
                   >

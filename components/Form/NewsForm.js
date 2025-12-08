@@ -133,7 +133,7 @@ export default function NewsForm() {
     <div className={classes.formBox}>
       <h4
         style={{
-          fontFamily: "TitilliumRegular",
+          fontFamily: "OpenSansRegular",
         }}
       >
         {editNews ? "Edit" : "Add"} News

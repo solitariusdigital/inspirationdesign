@@ -59,7 +59,7 @@ export default function Menu() {
     <div
       className={classes.container}
       style={{
-        fontFamily: "TitilliumRegular",
+        fontFamily: "OpenSansRegular",
       }}
     >
       <div className={classes.logo}>

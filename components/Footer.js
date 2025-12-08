@@ -28,7 +28,7 @@ export default function Footer() {
     <div
       className={classes.container}
       style={{
-        fontFamily: "TitilliumRegular",
+        fontFamily: "OpenSansRegular",
       }}
     >
       <nav className={classes.fullSizeNavigation}>

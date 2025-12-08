@@ -170,7 +170,7 @@ export default function Work() {
                         <div className={classes.overlay}>
                           <h3
                             className="animate__animated animate__slideInUp"
-                            style={{ fontFamily: "TitilliumRegular" }}
+                            style={{ fontFamily: "OpenSansRegular" }}
                           >
                             {project.title}
                           </h3>
@@ -227,7 +227,7 @@ export default function Work() {
                         <div className={classes.overlay}>
                           <h3
                             className="animate__animated animate__slideInUp"
-                            style={{ fontFamily: "TitilliumRegular" }}
+                            style={{ fontFamily: "OpenSansRegular" }}
                           >
                             {project.title}
                           </h3>

@@ -2,16 +2,16 @@
 @use "mixins" as mixins;
 
 @font-face {
-  font-family: "TitilliumThin";
-  src: url("../assets/fonts/Titillium-Thin.otf") format("truetype");
+  font-family: "OpenSansLight";
+  src: url("../assets/fonts/OpenSans-Light.ttf") format("truetype");
 }
 @font-face {
-  font-family: "TitilliumLight";
-  src: url("../assets/fonts/Titillium-Light.otf") format("truetype");
+  font-family: "OpenSansRegular";
+  src: url("../assets/fonts/OpenSans-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: "TitilliumRegular";
-  src: url("../assets/fonts/Titillium-Regular.otf") format("truetype");
+  font-family: "OpenSansSemiBold";
+  src: url("../assets/fonts/OpenSans-SemiBold.ttf") format("truetype");
 }
 
 * {

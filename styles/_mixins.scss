@@ -47,7 +47,7 @@ $screen-fourK: 6000px;
   justify-content: center;
   align-items: center;
   background: $main;
-  font-family: "TitilliumLight";
+  font-family: "OpenSansRegular";
   font-size: medium;
   overflow: hidden;
   border: none;
@@ -108,7 +108,7 @@ $screen-fourK: 6000px;
   border: 1px solid config.$grey;
   background: config.$background;
   font-size: medium;
-  font-family: "TitilliumLight";
+  font-family: "OpenSansRegular";
 
   &:focus {
     outline: none;

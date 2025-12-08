@@ -8,6 +8,7 @@ import Link from "next/link";
 import CoverSlider from "@/components/CoverSlider";
 import logoBlack from "@/assets/logo-black.png";
 import Light from "@/components/Light";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
 import { collection, getDocs } from "@firebase/firestore";
@@ -90,29 +91,6 @@ export default function Home() {
         <section>
           <CoverSlider />
         </section>
-        <section className={classes.information}>
-          <h1
-            className={classes.text}
-            style={{
-              fontFamily: "TitilliumRegular",
-            }}
-          >
-            Designing spaces, light & systems for healthier, smarter buildings.
-          </h1>
-          <div className={classes.light}>
-            <Light timer={500} />
-          </div>
-          <h3
-            className={classes.text}
-            style={{
-              textTransform: "none",
-            }}
-          >
-            Inspiration Design is a turnkey design firm, specializing in
-            creative designs for residential and commercial projects, with
-            exclusive construction management for new buildings and renovations.
-          </h3>
-        </section>
         <section className={classes.services}>
           {expertise.map((service, index) => (
             <div key={index} className={classes.infoBox}>
@@ -126,7 +104,7 @@ export default function Home() {
                 <div className={classes.info}>
                   <h3
                     style={{
-                      fontFamily: "TitilliumRegular",
+                      fontFamily: "OpenSansRegular",
                     }}
                   >
                     {service.title}
@@ -157,6 +135,13 @@ export default function Home() {
                   passHref
                 >
                   <FirebaseImage path={service.path} alt={service.title} />
+                  <ArrowBackIcon
+                    className={classes.icon}
+                    sx={{ fontSize: 18 }}
+                    onClick={() => {
+                      setProjectsCategory(service.type);
+                    }}
+                  />
                 </Link>
               </div>
             </div>

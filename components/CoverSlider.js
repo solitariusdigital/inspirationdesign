@@ -14,7 +14,7 @@ export default function CoverSlider() {
   const [videoFiles, setVideoFiles] = useState([]);
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
 
-  const services = [
+  const servicesTop = [
     {
       title: "Building Design",
       type: "residential",
@@ -26,6 +26,20 @@ export default function CoverSlider() {
     {
       title: "Lighting Design",
       type: "lighting",
+    },
+    {
+      title: "Single Family Construction",
+      type: "construction",
+    },
+  ];
+  const servicesBottom = [
+    {
+      title: "Residential",
+      type: "residential",
+    },
+    {
+      title: "Commercial",
+      type: "commercial",
     },
     {
       title: "Construction Consultation",
@@ -74,9 +88,26 @@ export default function CoverSlider() {
           </SwiperSlide>
         ))}
       </Swiper> */}
-      <div className={classes.sliderInfo}>
+      <div className={classes.sliderInfoTop}>
         <div className={classes.slideTrack}>
-          {services.concat(services).map((service, index) => (
+          {servicesTop.concat(servicesTop).map((service, index) => (
+            <Link
+              className={classes.slideItem}
+              key={index}
+              onClick={() => {
+                setProjectsCategory(service.type);
+              }}
+              href="/work"
+              passHref
+            >
+              <h4>{service.title}</h4>
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div className={classes.sliderInfoBottom}>
+        <div className={classes.slideTrack}>
+          {servicesBottom.concat(servicesBottom).map((service, index) => (
             <Link
               className={classes.slideItem}
               key={index}

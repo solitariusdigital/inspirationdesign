@@ -198,7 +198,7 @@ export default function Project() {
           <div className={classes.info}>
             <h2
               style={{
-                fontFamily: "TitilliumRegular",
+                fontFamily: "OpenSansRegular",
               }}
             >
               {displayProject.title}

@@ -49,7 +49,7 @@ export default function Contact() {
         <div className={classes.text}>
           <h3
             style={{
-              fontFamily: "TitilliumRegular",
+              fontFamily: "OpenSansRegular",
             }}
           >
             Let's Design Together
@@ -66,7 +66,7 @@ export default function Contact() {
             <div>
               <h4
                 style={{
-                  fontFamily: "TitilliumRegular",
+                  fontFamily: "OpenSansRegular",
                 }}
               >
                 Contact us
@@ -88,7 +88,7 @@ export default function Contact() {
             <div>
               <h4
                 style={{
-                  fontFamily: "TitilliumRegular",
+                  fontFamily: "OpenSansRegular",
                 }}
               >
                 Reach us
