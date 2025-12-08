@@ -21,17 +21,16 @@ export default function Work() {
   const [firstColumn, setFirstColumn] = useState([]);
   const [secondColumn, setSecondColumn] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
-
   const router = useRouter();
   let pathname = router.pathname;
 
-  const navigation = [
-    "all",
-    "residential",
-    "commercial",
-    "lighting",
-    "construction",
-  ];
+  const navigation = ["residential", "commercial", "lighting", "construction"];
+  const services = {
+    residential: "Building & Interior Design",
+    commercial: "Building & Interior Design",
+    lighting: "Lighting Design",
+    construction: "Lightweight Steel Framing",
+  };
 
   useEffect(() => {
     navigationTopBar.map((nav) => {
@@ -63,8 +62,7 @@ export default function Work() {
   useEffect(() => {
     const filtered =
       displayProjects?.filter(
-        (project) =>
-          projectsCategory === "all" || project.category === projectsCategory
+        (project) => project.category === projectsCategory
       ) || [];
     const groups = filtered.reduce((acc, project) => {
       const year = project.year;
@@ -87,8 +85,6 @@ export default function Work() {
     setFirstColumn(col1);
     setSecondColumn(col2);
   }, [projectsCategory, displayProjects]);
-
-  const displayInfoBox = () => {};
 
   return (
     <>
@@ -127,6 +123,7 @@ export default function Work() {
             </p>
           ))}
         </div>
+        <h2 className={classes.serviceTitle}>{services[projectsCategory]}</h2>
         <div className={classes.gridLayoutVertical}>
           <div className={classes.column}>
             {firstColumn?.map((project, index) => {

@@ -9,7 +9,7 @@ export const StateProvider = (props) => {
     "desktop" || "tablet-landscape" || "tablet-portrait" || "mobile"
   );
   const [editProject, setEditProject] = useState(null);
-  const [projectsCategory, setProjectsCategory] = useState("all");
+  const [projectsCategory, setProjectsCategory] = useState("residential");
   const [editNews, setEditNews] = useState(null);
   const [navigationTopBar, setNavigationTopBar] = useState([
     {

@@ -10,7 +10,6 @@
     width: 50%;
     height: fit-content;
     text-transform: capitalize;
-    font-size: medium;
     margin: auto;
     @include mixins.row-space-between-center();
     max-width: config.$max-widthHeigh;
@@ -37,6 +36,14 @@
       color: config.$brand;
     }
   }
+
+  .serviceTitle {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    color: config.$lightgrey;
+    text-transform: uppercase;
+  }
 }
 
 .gridLayout,
@@ -45,7 +52,7 @@
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   gap: 12px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 24px;
   width: config.$content-width;
   max-width: config.$max-widthHeigh;
 

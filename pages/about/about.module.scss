@@ -10,7 +10,6 @@
     width: 40%;
     height: fit-content;
     text-transform: capitalize;
-    font-size: medium;
     margin: auto;
     @include mixins.row-space-between-center();
     max-width: config.$max-widthHeigh;
