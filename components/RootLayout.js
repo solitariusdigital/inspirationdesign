@@ -7,6 +7,7 @@ import arrowUp from "@/assets/arrowUp.svg";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 import secureLocalStorage from "react-secure-storage";
+import Typewriter from "@/components/Typewriter";
 
 export default function RootLayout({ children }) {
   const { currentUser, setCurrentUser } = useContext(StateContext);
@@ -45,7 +46,7 @@ export default function RootLayout({ children }) {
     }
     setTimeout(() => {
       setAppLoader(true);
-    }, 1200);
+    }, 3000);
   }, []);
 
   useEffect(() => {
@@ -102,7 +103,7 @@ export default function RootLayout({ children }) {
       {appLoader ? (
         <div
           style={{
-            fontFamily: "TitilliumThin",
+            fontFamily: "OpenSansLight",
           }}
         >
           {menuDisplay && (
@@ -141,19 +142,16 @@ export default function RootLayout({ children }) {
           )}
         </div>
       ) : (
-        <div className="appload animate__animated animate__pulse">
-          {logoWhite && (
-            <div className="logo ">
-              <Image
-                src={logoWhite}
-                layout="fill"
-                objectFit="contain"
-                alt="logo"
-                as="image"
-                priority
-              />
-            </div>
-          )}
+        <div className="appload">
+          <div className="typewrite">
+            <div className="border"></div>
+            <Typewriter
+              text="INSPIRATION"
+              font="OpenSansSemiBold"
+              size={false}
+            />
+            <Typewriter text="DESIGN" font="OpenSansLight" size={true} />
+          </div>
         </div>
       )}
     </>

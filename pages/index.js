@@ -2,11 +2,13 @@
 import { useState, useEffect, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./home.module.scss";
+import Router from "next/router";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 import CoverSlider from "@/components/CoverSlider";
 import logoBlack from "@/assets/logo-black.png";
 import Light from "@/components/Light";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
 import { collection, getDocs } from "@firebase/firestore";
@@ -15,63 +17,6 @@ export default function Home() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
   const [displayProjects, setDisplayProjects] = useState(null);
-
-  const gridImages = [
-    {
-      hero: "Resources/10.jpg",
-      title: "Queens",
-      type: "image",
-      category: "residential",
-    },
-    {
-      hero: "Resources/9.jpg",
-      title: "Zayani Residence",
-      type: "image",
-      category: "commercial",
-    },
-    {
-      hero: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "residential",
-    },
-    {
-      hero: "Resources/10.jpg",
-      title: "Project",
-      type: "image",
-      category: "lighting",
-    },
-    {
-      hero: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "commercial",
-    },
-    {
-      hero: "Resources/10.jpg",
-      title: "Project",
-      type: "image",
-      category: "residential",
-    },
-    {
-      hero: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "residential",
-    },
-    {
-      hero: "Resources/10.jpg",
-      title: "Zayani Residence",
-      type: "image",
-      category: "interior",
-    },
-    {
-      hero: "Resources/9.jpg",
-      title: "Project",
-      type: "image",
-      category: "construction",
-    },
-  ];
 
   const expertise = [
     {
@@ -91,7 +36,7 @@ export default function Home() {
       type: "lighting",
     },
     {
-      title: "Light Steel Framing",
+      title: "Lightweight Steel Framing",
       description:
         "We specialize in LSF, offering a precise, efficient, and modern construction method. LSF uses pre-fabricated, cold-formed steel components for rapid on-site assembly. This framing is lightweight, non-combustible, and provides superior durability over wood, ensuring faster project completion and long-term quality.",
       path: "Resources/LFS.jpg",
@@ -146,56 +91,20 @@ export default function Home() {
         <section>
           <CoverSlider />
         </section>
-        <section className={classes.information}>
-          <h1
-            className={classes.text}
-            style={{
-              fontFamily: "TitilliumLight",
-            }}
-          >
-            Designing spaces, light & systems for healthier, smarter buildings.
-          </h1>
-          <div className={classes.light}>
-            <Light timer={500} />
-          </div>
-          <h3
-            className={classes.text}
-            style={{
-              textTransform: "none",
-            }}
-          >
-            Inspiration Design is a turnkey design firm, specializing in
-            creative designs for residential and commercial projects, with
-            exclusive construction management for new buildings and renovations.
-          </h3>
-        </section>
         <section className={classes.services}>
-          <h2
-            style={{
-              fontFamily: "TitilliumLight",
-            }}
-          >
-            Expertise
-          </h2>
           {expertise.map((service, index) => (
-            <div
-              key={index}
-              className={classes.infoBox}
-              style={{
-                direction: index % 2 ? "rtl" : "ltr",
-              }}
-            >
+            <div key={index} className={classes.infoBox}>
               <Link
                 onClick={() => {
                   setProjectsCategory(service.type);
                 }}
-                href="/projects"
+                href="/work"
                 passHref
               >
                 <div className={classes.info}>
                   <h3
                     style={{
-                      fontFamily: "TitilliumLight",
+                      fontFamily: "OpenSansRegular",
                     }}
                   >
                     {service.title}
@@ -210,9 +119,6 @@ export default function Home() {
                   >
                     {service.description}
                   </p>
-                  <button>
-                    <span>Discover More</span>
-                  </button>
                 </div>
               </Link>
               <div
@@ -225,42 +131,27 @@ export default function Home() {
                   onClick={() => {
                     setProjectsCategory(service.type);
                   }}
-                  href="/projects"
+                  href="/work"
                   passHref
                 >
                   <FirebaseImage path={service.path} alt={service.title} />
+                  <ArrowBackIcon
+                    className={classes.icon}
+                    sx={{ fontSize: 18 }}
+                    onClick={() => {
+                      setProjectsCategory(service.type);
+                    }}
+                  />
                 </Link>
               </div>
             </div>
           ))}
         </section>
-        <section className={classes.projects}>
-          <h2
-            style={{
-              fontFamily: "TitilliumLight",
-            }}
-          >
-            Projects
-          </h2>
-          <div className={classes.gridLayout}>
-            {gridImages
-              ?.map((project, index) => (
-                <div key={index} className={classes.imageBox}>
-                  <FirebaseImage path={project.hero} alt={project.title} />
-                  <div className={classes.overlay}>
-                    <h4
-                      style={{
-                        fontFamily: "TitilliumLight",
-                      }}
-                    >
-                      {project.title}
-                    </h4>
-                  </div>
-                </div>
-              ))
-              .slice(0, 9)}
-          </div>
-        </section>
+        <div className={classes.button}>
+          <button onClick={() => Router.push("/work")}>
+            <span>Explore Work</span>
+          </button>
+        </div>
       </div>
     </>
   );

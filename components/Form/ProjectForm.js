@@ -108,7 +108,7 @@ export default function ProjectForm() {
         setEditProject(null);
         showAlert("Project saved successfully!");
         setTimeout(() => {
-          Router.push("/projects");
+          Router.push("/work");
         }, 500);
       }
     } catch (error) {
@@ -145,13 +145,13 @@ export default function ProjectForm() {
 
   return (
     <div className={classes.formBox}>
-      <h4
+      <h3
         style={{
-          fontFamily: "TitilliumLight",
+          fontFamily: "OpenSansRegular",
         }}
       >
         {editProject ? "Edit" : "Add"} Project
-      </h4>
+      </h3>
       <div className={classes.form}>
         <div className={classes.input}>
           <div className={classes.bar}>

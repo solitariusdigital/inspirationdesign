@@ -9,16 +9,17 @@
 }
 
 .navigation {
-  width: 20%;
+  width: 30%;
   height: fit-content;
   text-transform: capitalize;
-  font-size: medium;
   margin: auto;
   @include mixins.row-space-between-center();
   user-select: none;
+  border-bottom: 1px solid config.$lightgrey;
+  padding-bottom: 12px;
 
   @include mixins.mobile {
-    width: 50%;
+    width: 60%;
   }
   @include mixins.tabletPortrait {
     width: 40%;

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import Image from "next/legacy/image";
+import { useEffect, useRef } from "react";
 import classes from "./GallerySlider.module.scss";
 import FirebaseImage from "./FirebaseImage";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,11 +6,15 @@ import { Navigation, Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function GallerySlider({ media }) {
+export default function GallerySlider({ media, startIndex }) {
+  const swiperRef = useRef(null);
+
   return (
     <div className={classes.slider}>
       <div className={classes.swiper}>
         <Swiper
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          initialSlide={startIndex}
           slidesPerView="auto"
           spaceBetween={0}
           navigation={true}

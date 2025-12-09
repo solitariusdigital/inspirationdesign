@@ -2,28 +2,27 @@
 @use "styles/_mixins.scss" as mixins;
 
 .container {
-  margin: auto;
-  margin-top: 120px;
-  margin-bottom: 100px;
+  margin: 120px auto;
+  user-select: none;
 
   .navigation {
-    width: 50%;
+    width: 40%;
     height: fit-content;
     text-transform: capitalize;
-    font-size: medium;
     margin: auto;
     @include mixins.row-space-between-center();
     max-width: config.$max-widthHeigh;
-    user-select: none;
+    border-bottom: 1px solid config.$lightgrey;
+    padding-bottom: 12px;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
-      gap: 12px;
     }
-    @include mixins.allDesktop {
-      width: 40%;
+    @include mixins.tabletPortrait {
+      width: 50%;
+    }
+    @include mixins.tabletLandscape {
+      width: 50%;
     }
 
     .nav {
@@ -45,22 +44,29 @@
       border-bottom: 1px solid config.$brand;
     }
   }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    text-transform: uppercase;
+  }
 }
 
 .gridLayout,
 .gridLayoutVertical {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-  gap: 12px;
+  gap: 24px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 24px;
   width: config.$content-width;
   max-width: config.$max-widthHeigh;
 
   .column {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 24px;
   }
 
   .card {
@@ -116,38 +122,17 @@
 
   .overlay {
     position: absolute;
-    inset: 0;
-    opacity: 0;
+    bottom: 0px !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.4s ease;
-    @include mixins.transparentBackground(0.5, config.$dark);
-  }
-  .overlay h4 {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 12px 0px;
     color: config.$white;
-    user-select: none;
-    opacity: 0;
     transition: opacity 0.4s ease;
-  }
-
-  .imageBoxLandscape:hover .overlay {
-    opacity: 1;
-  }
-  .imageBoxLandscape:hover .overlay h4 {
-    opacity: 1;
-  }
-  .imageBoxPortrait:hover .overlay {
-    opacity: 1;
-  }
-  .imageBoxPortrait:hover .overlay h4 {
-    opacity: 1;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px) saturate(120%);
   }
 }
 
@@ -166,9 +151,7 @@
 }
 
 .cardBox {
-  margin: auto;
-  margin-top: 120px;
-  margin-bottom: 100px;
+  margin: 120px auto;
 
   .info,
   .imageBoxLandscape,
@@ -190,7 +173,7 @@
   }
 
   .info {
-    margin-bottom: 12px;
+    margin-bottom: 24px;
   }
 
   .imageBoxLandscape,
@@ -201,25 +184,21 @@
     user-select: none;
   }
   .imageBoxPortrait {
-    aspect-ratio: 4 / 4.5;
+    aspect-ratio: 4 / 3;
   }
 
-  .hero {
+  .heroBase {
     margin: auto;
-    margin-bottom: 50px;
     width: config.$content-width;
     max-width: config.$max-widthHeigh;
-    @include mixins.row-space-between-center();
 
     @include mixins.mobile {
-      display: flex;
-      flex-direction: column-reverse;
       width: calc(100% - 24px);
-      margin-bottom: 0px !important;
     }
     @include mixins.tabletPortrait {
       width: config.$content-widthTablet;
     }
+
     @include mixins.tabletLandscape {
       width: config.$content-widthTablet;
     }
@@ -227,30 +206,49 @@
     .imageBoxLandscape,
     .imageBoxPortrait,
     .description {
-      width: 50%;
+      width: 100%;
+    }
 
+    .description {
+      margin: auto;
+      margin-left: 50px;
+    }
+  }
+
+  .hero {
+    @extend .heroBase;
+  }
+
+  .heroNews {
+    @extend .heroBase;
+    margin-bottom: 24px;
+    @include mixins.row-space-between-center();
+
+    @include mixins.mobile {
+      display: flex;
+      flex-direction: column-reverse;
+      width: calc(100% - 24px);
+    }
+
+    .description {
       @include mixins.mobile {
-        width: 100% !important;
         margin-bottom: 24px !important;
         margin-left: 0px !important;
       }
     }
-    .description {
-      margin: auto;
-      margin-left: 50px;
-      line-height: 1.4;
-    }
   }
 
-  .swiperImage {
+  .imageBox {
     position: relative;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     user-select: none;
-    cursor: grab;
+    margin: 24px auto;
+    width: config.$content-width;
+    max-width: config.$max-widthHeigh;
+    cursor: pointer;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
-      margin: auto;
     }
   }
 
@@ -264,19 +262,8 @@
     background: config.$background;
   }
 
-  .button {
-    display: flex;
-    justify-content: center;
-    margin-top: 24px;
-
-    button {
-      @include mixins.button(config.$brand, config.$black, config.$white);
-    }
-  }
-
   .description {
-    margin: auto;
-    margin-top: 50px;
+    margin: 50px auto;
 
     p {
       margin-bottom: 12px;
@@ -293,9 +280,8 @@
   left: 0px;
   z-index: 5;
   width: 100%;
-  height: calc(100dvh - 24px);
-  background: config.$background;
   overflow: hidden;
+  background: config.$background;
 
   .icon {
     display: flex;

@@ -2,19 +2,18 @@
 @use "styles/_mixins.scss" as mixins;
 
 .container {
-  margin: auto;
-  margin-top: 120px;
-  margin-bottom: 100px;
+  margin: 120px auto;
 
   .navigation {
     width: 40%;
     height: fit-content;
     text-transform: capitalize;
-    font-size: medium;
     margin: auto;
     @include mixins.row-space-between-center();
     max-width: config.$max-widthHeigh;
     user-select: none;
+    border-bottom: 1px solid config.$lightgrey;
+    padding-bottom: 12px;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
@@ -55,16 +54,16 @@
       text-align: left;
     }
 
-    h3 {
+    h2 {
       margin-bottom: 24px;
       text-transform: uppercase;
     }
 
     .text {
-      width: 70%;
-      max-width: config.$max-widthHeigh;
       margin: 12px auto;
       text-align: left;
+      width: config.$content-width;
+      max-width: config.$max-widthHeigh;
 
       @include mixins.mobile {
         width: 100%;

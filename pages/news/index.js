@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
-import classes from "@/pages/projects/projects.module.scss";
+import classes from "@/pages/work/work.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -107,8 +107,8 @@ export default function News() {
                   </div>
                   <h4
                     style={{
-                      fontFamily: "TitilliumLight",
-                      marginTop: "16px",
+                      fontFamily: "OpenSansRegular",
+                      marginTop: "12px",
                     }}
                   >
                     {news.title}

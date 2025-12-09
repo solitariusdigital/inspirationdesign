@@ -2,16 +2,16 @@
 @use "mixins" as mixins;
 
 @font-face {
-  font-family: "TitilliumThin";
-  src: url("../assets/fonts/Titillium-Thin.otf") format("truetype");
+  font-family: "OpenSansLight";
+  src: url("../assets/fonts/OpenSans-Light.ttf") format("truetype");
 }
 @font-face {
-  font-family: "TitilliumLight";
-  src: url("../assets/fonts/Titillium-Light.otf") format("truetype");
+  font-family: "OpenSansRegular";
+  src: url("../assets/fonts/OpenSans-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: "TitilliumRegular";
-  src: url("../assets/fonts/Titillium-Regular.otf") format("truetype");
+  font-family: "OpenSansSemiBold";
+  src: url("../assets/fonts/OpenSans-SemiBold.ttf") format("truetype");
 }
 
 * {
@@ -34,26 +34,25 @@ ul {
 }
 
 html {
-  font-size: clamp(16px, 1vw + 0.5rem, 20px);
+  font-size: clamp(12.96px, 0.81vw + 0.405rem, 16.2px);
 }
 h1 {
-  font-size: 2.5em;
+  font-size: 2.025em;
 }
 h2 {
-  font-size: 2em;
+  font-size: 1.62em;
 }
 h3 {
-  font-size: 1.5em;
+  font-size: 1.215em;
 }
 h4 {
-  font-size: 1.25em;
+  font-size: 1.0125em;
 }
 p {
   font-size: 1em;
-  line-height: 1.4;
 }
 small {
-  font-size: 0.875em;
+  font-size: 0.70875em;
 }
 
 .notFound {
@@ -87,15 +86,24 @@ small {
 .appload {
   position: relative;
   background: config.$black;
+  color: config.$white;
   height: 100vh;
+  user-select: none;
 
-  .logo {
+  .border {
+    height: 2px;
+    width: 70px;
+    margin-bottom: 8px;
+    background: config.$brand;
+  }
+  .typewrite {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
@@ -107,6 +115,7 @@ small {
   width: 30px;
   height: 30px;
   cursor: pointer;
+  user-select: none;
 
   @include mixins.mobile {
     display: none;

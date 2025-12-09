@@ -3,7 +3,7 @@ import { StateContext } from "@/context/stateContext";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import Router from "next/router";
-import classes from "@/pages/projects/projects.module.scss";
+import classes from "@/pages/work/work.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -41,9 +41,10 @@ export default function Project() {
   const { footerDisplay, setFooterDisplay } = useContext(StateContext);
   const [displayGallerySlider, setDisplayGallerySlider] = useState(false);
   const [displayProject, setDisplayProject] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [refresh, setRefresh] = useState(0);
   const router = useRouter();
-  const slug = router.asPath.replace(/^\/projects\//, "");
+  const slug = router.asPath.replace(/^\/work\//, "");
   const title = replaceSpacesAndHyphens(slug);
 
   useEffect(() => {
@@ -77,7 +78,7 @@ export default function Project() {
     try {
       const docRef = doc(db, "Projects", project.id);
       await updateDoc(docRef, { active: updatedActiveValue });
-      Router.push("/projects");
+      Router.push("/work");
     } catch (error) {
       console.error("Failed to update project:", error);
     }
@@ -96,7 +97,7 @@ export default function Project() {
       for (const itemRef of items.items) {
         await deleteObject(itemRef);
       }
-      Router.push("/projects");
+      Router.push("/work");
     } catch (error) {
       console.error("Error deleting project:", error);
     }
@@ -131,16 +132,24 @@ export default function Project() {
     setRefresh((prev) => prev + 1);
   };
 
+  const findIndex = (path) => {
+    setMenuDisplay(false);
+    setFooterDisplay(false);
+    setDisplayGallerySlider(true);
+    let index = displayProject.path.indexOf(path);
+    setSelectedIndex(index);
+  };
+
   return (
     <>
       <NextSeo
         title={title}
         description="Inspiration Design is a turnkey design firm, specializing in creative designs for residential and commercial projects."
-        canonical={`https://inspirationdesigns.ca/projects/${slug}`}
+        canonical={`https://inspirationdesigns.ca/work/${slug}`}
         openGraph={{
           type: "website",
           locale: "en_CA",
-          url: `https://inspirationdesigns.ca/projects/${slug}`,
+          url: `https://inspirationdesigns.ca/work/${slug}`,
           title: title,
           description:
             "Inspiration Design is a turnkey design firm, specializing in creative designs for residential and commercial projects.",
@@ -198,7 +207,7 @@ export default function Project() {
           <div className={classes.info}>
             <h2
               style={{
-                fontFamily: "TitilliumLight",
+                fontFamily: "OpenSansRegular",
               }}
             >
               {displayProject.title}
@@ -213,73 +222,60 @@ export default function Project() {
                   ? classes.imageBoxPortrait
                   : classes.imageBoxLandscape
               }`}
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                findIndex(displayProject.hero);
+              }}
             >
               <FirebaseImage
                 path={displayProject.hero}
                 alt={displayProject.title}
               />
             </div>
-            <div className={classes.description}>
-              <h3>{displayProject.description.split("\n\n")[0]}</h3>
-            </div>
-          </div>
-          <Swiper
-            spaceBetween={12}
-            slidesPerView={screenSize === "mobile" ? 1 : 3}
-            navigation={true}
-            loop={true}
-            modules={[Navigation, Pagination]}
-            pagination={{
-              clickable: true,
-            }}
-          >
-            {displayProject.path.map((image, index) => (
-              <SwiperSlide key={index}>
-                <div className={classes.swiperImage}>
-                  {currentUser && (
-                    <div className={classes.control}>
-                      <Tooltip title="Delete">
-                        <DeleteOutlineIcon
-                          className="icon"
-                          sx={{ fontSize: 20 }}
-                          onClick={() => handleDeleteImage(image, index)}
-                        />
-                      </Tooltip>
-                      <Tooltip title="Hero">
-                        <StarIcon
-                          className="icon"
-                          sx={{ fontSize: 20 }}
-                          onClick={() => {
-                            makeHeroImage(image);
-                          }}
-                        />
-                      </Tooltip>
-                    </div>
-                  )}
-                  <FirebaseImage path={image} alt={displayProject.title} />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div className={classes.button}>
-            <button
-              onClick={() => {
-                setMenuDisplay(false);
-                setFooterDisplay(false);
-                setDisplayGallerySlider(true);
-              }}
-            >
-              <span>Gallery</span>
-            </button>
           </div>
           <div className={classes.description}>
-            {displayProject.description
-              .split("\n\n")
-              .slice(1)
-              .map((desc, index) => (
-                <p key={index}>{desc}</p>
-              ))}
+            {displayProject.description.split("\n\n").map((desc, index) => (
+              <p key={index}>{desc}</p>
+            ))}
           </div>
+          {displayProject.path
+            .filter((item) => item !== displayProject.hero)
+            .map((image, index) => (
+              <div
+                className={classes.imageBox}
+                key={index}
+                onClick={() => {
+                  setMenuDisplay(false);
+                  setFooterDisplay(false);
+                  setDisplayGallerySlider(true);
+                  setSelectedIndex(index);
+                }}
+              >
+                {currentUser && (
+                  <div className={classes.control}>
+                    <Tooltip title="Delete">
+                      <DeleteOutlineIcon
+                        className="icon"
+                        sx={{ fontSize: 20 }}
+                        onClick={() => handleDeleteImage(image, index)}
+                      />
+                    </Tooltip>
+                    <Tooltip title="Hero">
+                      <StarIcon
+                        className="icon"
+                        sx={{ fontSize: 20 }}
+                        onClick={() => {
+                          makeHeroImage(image);
+                        }}
+                      />
+                    </Tooltip>
+                  </div>
+                )}
+                <FirebaseImage path={image} alt={displayProject.title} />
+              </div>
+            ))}
         </div>
       )}
       {displayGallerySlider && (
@@ -292,12 +288,22 @@ export default function Project() {
                   setMenuDisplay(true);
                   setFooterDisplay(true);
                   setDisplayGallerySlider(false);
+                  setSelectedIndex(0);
                 }}
               />
             </Tooltip>
-            <h3>{displayProject.title}</h3>
+            <h2
+              style={{
+                fontFamily: "OpenSansRegular",
+              }}
+            >
+              {displayProject.title}
+            </h2>
           </div>
-          <GallerySlider media={displayProject.path} />
+          <GallerySlider
+            media={displayProject.path}
+            startIndex={selectedIndex}
+          />
         </div>
       )}
     </>
