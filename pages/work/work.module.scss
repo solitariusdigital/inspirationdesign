@@ -49,7 +49,7 @@
 .gridLayoutVertical {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-  gap: 12px;
+  gap: 24px;
   margin: auto;
   margin-top: 24px;
   width: config.$content-width;
@@ -58,7 +58,7 @@
   .column {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 24px;
   }
 
   .card {
