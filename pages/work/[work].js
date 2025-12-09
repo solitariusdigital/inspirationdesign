@@ -240,42 +240,40 @@ export default function Project() {
               <p key={index}>{desc}</p>
             ))}
           </div>
-          {displayProject.path
-            .filter((item) => item !== displayProject.hero)
-            .map((image, index) => (
-              <div
-                className={classes.imageBox}
-                key={index}
-                onClick={() => {
-                  setMenuDisplay(false);
-                  setFooterDisplay(false);
-                  setDisplayGallerySlider(true);
-                  setSelectedIndex(index);
-                }}
-              >
-                {currentUser && (
-                  <div className={classes.control}>
-                    <Tooltip title="Delete">
-                      <DeleteOutlineIcon
-                        className="icon"
-                        sx={{ fontSize: 20 }}
-                        onClick={() => handleDeleteImage(image, index)}
-                      />
-                    </Tooltip>
-                    <Tooltip title="Hero">
-                      <StarIcon
-                        className="icon"
-                        sx={{ fontSize: 20 }}
-                        onClick={() => {
-                          makeHeroImage(image);
-                        }}
-                      />
-                    </Tooltip>
-                  </div>
-                )}
-                <FirebaseImage path={image} alt={displayProject.title} />
-              </div>
-            ))}
+          {displayProject.path.map((image, index) => (
+            <div
+              className={classes.imageBox}
+              key={index}
+              onClick={() => {
+                setMenuDisplay(false);
+                setFooterDisplay(false);
+                setDisplayGallerySlider(true);
+                setSelectedIndex(index);
+              }}
+            >
+              {currentUser && (
+                <div className={classes.control}>
+                  <Tooltip title="Delete">
+                    <DeleteOutlineIcon
+                      className="icon"
+                      sx={{ fontSize: 20 }}
+                      onClick={() => handleDeleteImage(image, index)}
+                    />
+                  </Tooltip>
+                  <Tooltip title="Hero">
+                    <StarIcon
+                      className="icon"
+                      sx={{ fontSize: 20 }}
+                      onClick={() => {
+                        makeHeroImage(image);
+                      }}
+                    />
+                  </Tooltip>
+                </div>
+              )}
+              <FirebaseImage path={image} alt={displayProject.title} />
+            </div>
+          ))}
         </div>
       )}
       {displayGallerySlider && (
