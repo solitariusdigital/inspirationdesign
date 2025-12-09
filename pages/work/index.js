@@ -65,16 +65,16 @@ export default function Work() {
         (project) => project.category === projectsCategory
       ) || [];
 
-    const numericOrder = [...filtered].sort((a, b) => {
-      const orderA = Number(a.order ?? Infinity);
-      const orderB = Number(b.order ?? Infinity);
-      return orderA - orderB;
+    const alphaOrder = [...filtered].sort((a, b) => {
+      const nameA = (a.order || "").toLowerCase();
+      const nameB = (b.order || "").toLowerCase();
+      return nameA.localeCompare(nameB);
     });
 
     const col1 = [];
     const col2 = [];
 
-    numericOrder.forEach((project, index) => {
+    alphaOrder.forEach((project, index) => {
       if (index % 2 === 0) {
         col1.push(project);
       } else {

@@ -236,44 +236,79 @@ export default function Project() {
             </div>
           </div>
           <div className={classes.description}>
-            {displayProject.description.split("\n\n").map((desc, index) => (
-              <p key={index}>{desc}</p>
-            ))}
+            <h3 className={classes.subTitle}>
+              {displayProject.description.split("\n\n")[0]}
+            </h3>
+            {displayProject.description
+              .split("\n\n")
+              .slice(1)
+              .map((desc, index) => {
+                const trimmedDesc = desc.trim();
+                const urlRegex = /(https?:\/\/[^\s]+)/g;
+                const parts = trimmedDesc.split(urlRegex);
+                const renderWithLinks = () =>
+                  parts.map((part, i) =>
+                    urlRegex.test(part) ? (
+                      <a
+                        className={classes.link}
+                        key={i}
+                        href={part}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {part}
+                      </a>
+                    ) : (
+                      <span key={i}>{part}</span>
+                    )
+                  );
+                if (trimmedDesc === "Credits") {
+                  return (
+                    <h3
+                      className={classes.subTitle}
+                      style={{ marginTop: "24px" }}
+                      key={index}
+                    >
+                      {trimmedDesc}
+                    </h3>
+                  );
+                }
+                return <p key={index}>{renderWithLinks()}</p>;
+              })}
           </div>
-          {displayProject.path.map((image, index) => (
-            <div
-              className={classes.imageBox}
-              key={index}
-              onClick={() => {
-                setMenuDisplay(false);
-                setFooterDisplay(false);
-                setDisplayGallerySlider(true);
-                setSelectedIndex(index);
-              }}
-            >
-              {currentUser && (
-                <div className={classes.control}>
-                  <Tooltip title="Delete">
-                    <DeleteOutlineIcon
-                      className="icon"
-                      sx={{ fontSize: 20 }}
-                      onClick={() => handleDeleteImage(image, index)}
-                    />
-                  </Tooltip>
-                  <Tooltip title="Hero">
-                    <StarIcon
-                      className="icon"
-                      sx={{ fontSize: 20 }}
-                      onClick={() => {
-                        makeHeroImage(image);
-                      }}
-                    />
-                  </Tooltip>
+          {displayProject.path
+            .filter((item) => item !== displayProject.hero)
+            .map((image, index) => (
+              <div className={classes.imageBox} key={index}>
+                {currentUser && (
+                  <div className={classes.control}>
+                    <Tooltip title="Delete">
+                      <DeleteOutlineIcon
+                        className="icon"
+                        sx={{ fontSize: 20 }}
+                        onClick={() => handleDeleteImage(image, index)}
+                      />
+                    </Tooltip>
+                    <Tooltip title="Hero">
+                      <StarIcon
+                        className="icon"
+                        sx={{ fontSize: 20 }}
+                        onClick={() => {
+                          makeHeroImage(image);
+                        }}
+                      />
+                    </Tooltip>
+                  </div>
+                )}
+                <div
+                  onClick={() => {
+                    findIndex(image);
+                  }}
+                >
+                  <FirebaseImage path={image} alt={displayProject.title} />
                 </div>
-              )}
-              <FirebaseImage path={image} alt={displayProject.title} />
-            </div>
-          ))}
+              </div>
+            ))}
         </div>
       )}
       {displayGallerySlider && (

@@ -32,7 +32,9 @@ export default function ProjectForm() {
   const [progress, setProgress] = useState(0);
   const categories = ["residential", "commercial", "lighting", "construction"];
   const orientations = ["portrait", "landscape"];
-  const orders = ["1", "2", "3", "4"];
+  const orders = Array.from({ length: 26 }, (_, i) =>
+    String.fromCharCode(97 + i)
+  );
 
   const compressImage = async (file) => {
     const options = {
@@ -237,7 +239,6 @@ export default function ProjectForm() {
             />
           </div>
           <input
-            placeholder="yyyy"
             type="tel"
             id="year"
             name="year"
@@ -245,7 +246,6 @@ export default function ProjectForm() {
             value={year}
             autoComplete="off"
             dir="ltr"
-            maxLength={4}
           />
         </div>
         <div className={classes.input}>

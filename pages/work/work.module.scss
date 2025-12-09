@@ -170,6 +170,16 @@
   .info {
     margin-bottom: 24px;
   }
+  .subTitle {
+    margin-bottom: 12px;
+  }
+
+  .link {
+    &:hover {
+      cursor: pointer;
+      color: config.$brand;
+    }
+  }
 
   .imageBoxLandscape,
   .imageBoxPortrait {
