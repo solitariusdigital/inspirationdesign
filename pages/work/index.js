@@ -64,24 +64,24 @@ export default function Work() {
       displayProjects?.filter(
         (project) => project.category === projectsCategory
       ) || [];
-    const groups = filtered.reduce((acc, project) => {
-      const year = project.year;
-      if (!acc[year]) acc[year] = [];
-      acc[year].push(project);
-      return acc;
-    }, {});
-    const sortedYears = Object.keys(groups).sort(
-      (a, b) => Number(b) - Number(a)
-    );
+
+    const numericOrder = [...filtered].sort((a, b) => {
+      const orderA = Number(a.order ?? Infinity);
+      const orderB = Number(b.order ?? Infinity);
+      return orderA - orderB;
+    });
+
     const col1 = [];
     const col2 = [];
-    sortedYears.forEach((year, index) => {
+
+    numericOrder.forEach((project, index) => {
       if (index % 2 === 0) {
-        col1.push(...groups[year]);
+        col1.push(project);
       } else {
-        col2.push(...groups[year]);
+        col2.push(project);
       }
     });
+
     setFirstColumn(col1);
     setSecondColumn(col2);
   }, [projectsCategory, displayProjects]);

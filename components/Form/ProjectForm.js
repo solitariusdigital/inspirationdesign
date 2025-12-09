@@ -21,6 +21,7 @@ export default function ProjectForm() {
   const [orientation, setOrientation] = useState(
     editProject?.orientation || ""
   );
+  const [order, setOrder] = useState(editProject?.order || "");
   const [description, setDescription] = useState(
     editProject?.description || ""
   );
@@ -31,6 +32,7 @@ export default function ProjectForm() {
   const [progress, setProgress] = useState(0);
   const categories = ["residential", "commercial", "lighting", "construction"];
   const orientations = ["portrait", "landscape"];
+  const orders = ["1", "2", "3", "4"];
 
   const compressImage = async (file) => {
     const options = {
@@ -48,6 +50,7 @@ export default function ProjectForm() {
       !year ||
       !category ||
       !orientation ||
+      !order ||
       !description
     ) {
       showAlert("All fields required");
@@ -82,6 +85,7 @@ export default function ProjectForm() {
         year: year.trim(),
         category: category,
         orientation: orientation,
+        order: order,
         description: description.trim(),
         path: path,
         hero: editProject?.hero || path[0],
@@ -102,6 +106,7 @@ export default function ProjectForm() {
         setYear("");
         setCategory("");
         setOrientation("");
+        setOrder("");
         setDescription("");
         removeImageInputFile();
         setProgress(100);
@@ -261,6 +266,29 @@ export default function ProjectForm() {
               return (
                 <option key={index} value={orientation}>
                   {orientation}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <div className={classes.input}>
+          <div className={classes.bar}>
+            <p className={classes.label}>
+              Oreder
+              <span>*</span>
+            </p>
+          </div>
+          <select
+            value={order || "default"}
+            onChange={(e) => setOrder(e.target.value)}
+          >
+            <option value="default" disabled>
+              Select
+            </option>
+            {orders.map((order, index) => {
+              return (
+                <option key={index} value={order}>
+                  {order}
                 </option>
               );
             })}
