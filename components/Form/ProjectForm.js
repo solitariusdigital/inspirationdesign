@@ -38,8 +38,8 @@ export default function ProjectForm() {
 
   const compressImage = async (file) => {
     const options = {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 1280,
+      maxWidthOrHeight: 1600,
+      initialQuality: 0.85,
       useWebWorker: true,
     };
     return await imageCompression(file, options);
@@ -75,9 +75,9 @@ export default function ProjectForm() {
       for (const media of uploadImages) {
         const name = `img${fourGenerator()}`;
         const imgPath = `Projects/${folder}/${name}`;
-        const compressedFile = await compressImage(media);
+        // const compressedFile = await compressImage(media);
         const storageRef = ref(storage, imgPath);
-        await uploadBytes(storageRef, compressedFile);
+        await uploadBytes(storageRef, media);
         path.push(imgPath);
         setProgress((prevProgress) => prevProgress + progressIncrement);
       }
