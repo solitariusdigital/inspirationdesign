@@ -6,21 +6,23 @@
   user-select: none;
 
   .navigation {
-    width: 50%;
+    width: 40%;
     height: fit-content;
     text-transform: capitalize;
     margin: auto;
     @include mixins.row-space-between-center();
     max-width: config.$max-widthHeigh;
+    border-bottom: 1px solid config.$lightgrey;
+    padding-bottom: 12px;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
-      gap: 12px;
     }
-    @include mixins.allDesktop {
-      width: 40%;
+    @include mixins.tabletPortrait {
+      width: 50%;
+    }
+    @include mixins.tabletLandscape {
+      width: 50%;
     }
 
     .nav {
@@ -163,7 +165,7 @@
   }
 
   .info {
-    margin-bottom: 12px;
+    margin-bottom: 24px;
   }
 
   .imageBoxLandscape,
@@ -177,22 +179,18 @@
     aspect-ratio: 4 / 3;
   }
 
-  .hero {
+  .heroBase {
     margin: auto;
-    margin-bottom: 50px;
     width: config.$content-width;
     max-width: config.$max-widthHeigh;
-    @include mixins.row-space-between-center();
 
     @include mixins.mobile {
-      display: flex;
-      flex-direction: column-reverse;
       width: calc(100% - 24px);
-      margin-bottom: 0px !important;
     }
     @include mixins.tabletPortrait {
       width: config.$content-widthTablet;
     }
+
     @include mixins.tabletLandscape {
       width: config.$content-widthTablet;
     }
@@ -201,17 +199,34 @@
     .imageBoxPortrait,
     .description {
       width: 100%;
-
-      @include mixins.mobile {
-        width: 100% !important;
-        margin-bottom: 24px !important;
-        margin-left: 0px !important;
-      }
     }
 
     .description {
       margin: auto;
       margin-left: 50px;
+    }
+  }
+
+  .hero {
+    @extend .heroBase;
+  }
+
+  .heroNews {
+    @extend .heroBase;
+    margin-bottom: 24px;
+    @include mixins.row-space-between-center();
+
+    @include mixins.mobile {
+      display: flex;
+      flex-direction: column-reverse;
+      width: calc(100% - 24px);
+    }
+
+    .description {
+      @include mixins.mobile {
+        margin-bottom: 24px !important;
+        margin-left: 0px !important;
+      }
     }
   }
 

@@ -88,13 +88,13 @@ export default function Portal() {
       <div className={classes.container}>
         {!displayAdmin ? (
           <>
-            <h3
+            <h2
               style={{
                 fontFamily: "OpenSansRegular",
               }}
             >
               Portal
-            </h3>
+            </h2>
             <div className={classes.form}>
               <div className={classes.formAction}>
                 <p className={classes.alert}>{alert}</p>

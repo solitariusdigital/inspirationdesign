@@ -177,7 +177,7 @@ export default function NewsArticle() {
             <h3>{convertDateName(displayNews.date)}</h3>
             <p>{getTotalReadingTime(displayNews)}</p>
           </div>
-          <div className={classes.hero}>
+          <div className={classes.heroNews}>
             <div className={classes.imageBoxLandscape}>
               <FirebaseImage path={displayNews.hero} alt={displayNews.title} />
             </div>
