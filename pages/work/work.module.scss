@@ -190,6 +190,10 @@
   }
   .imageBoxPortrait {
     aspect-ratio: 4 / 3;
+
+    @include mixins.mobile {
+      aspect-ratio: 4 / 4;
+    }
   }
 
   .heroBase {
