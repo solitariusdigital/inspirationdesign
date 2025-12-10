@@ -207,7 +207,6 @@
     @include mixins.tabletPortrait {
       width: config.$content-widthTablet;
     }
-
     @include mixins.tabletLandscape {
       width: config.$content-widthTablet;
     }
@@ -258,6 +257,12 @@
 
     @include mixins.mobile {
       width: calc(100% - 24px);
+    }
+    @include mixins.tabletPortrait {
+      width: config.$content-widthTablet;
+    }
+    @include mixins.tabletLandscape {
+      width: config.$content-widthTablet;
     }
   }
 
