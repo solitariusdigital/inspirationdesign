@@ -17,6 +17,7 @@ export default function Work() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
+  const { screenSize, setScreenSize } = useContext(StateContext);
   const [displayProjects, setDisplayProjects] = useState(null);
   const [firstColumn, setFirstColumn] = useState([]);
   const [secondColumn, setSecondColumn] = useState([]);
@@ -71,20 +72,26 @@ export default function Work() {
       return nameA.localeCompare(nameB);
     });
 
-    const col1 = [];
-    const col2 = [];
+    let col1 = [];
+    let col2 = [];
 
-    alphaOrder.forEach((project, index) => {
-      if (index % 2 === 0) {
-        col1.push(project);
-      } else {
-        col2.push(project);
-      }
-    });
+    if (screenSize === "mobile") {
+      const half = Math.ceil(alphaOrder.length / 2);
+      col1 = alphaOrder.slice(0, half);
+      col2 = alphaOrder.slice(half);
+    } else {
+      alphaOrder.forEach((project, index) => {
+        if (index % 2 === 0) {
+          col1.push(project);
+        } else {
+          col2.push(project);
+        }
+      });
+    }
 
     setFirstColumn(col1);
     setSecondColumn(col2);
-  }, [projectsCategory, displayProjects]);
+  }, [projectsCategory, displayProjects, screenSize]);
 
   return (
     <>
