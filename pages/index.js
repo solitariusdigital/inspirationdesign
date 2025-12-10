@@ -102,13 +102,13 @@ export default function Home() {
                 passHref
               >
                 <div className={classes.info}>
-                  <h3
+                  <h2
                     style={{
                       fontFamily: "OpenSansRegular",
                     }}
                   >
                     {service.title}
-                  </h3>
+                  </h2>
                   <div className={classes.light}>
                     <Light timer={500 * index} />
                   </div>
