@@ -29,70 +29,57 @@ export default function About() {
   const navigation = ["company", "testimonials", "awards", "publications"];
   const companySection = [
     {
-      title: "Turnkey Creative Solutions",
+      title: "The Company",
       paragraphs: [
-        `Inspiration Design is a turnkey design firm founded in 2006,
-      providing creative design and exclusive construction management
-      for residential and commercial renovations and new builds.`,
-        `The firm has grown into a full-service provider offering
-      building design, interior design and lighting design.
-      Inspiration Design has successfully completed over 40 diverse
-      projects; including high-end homes, hotels, and retail spaces by
-      working closely with top international architects, designers,
-      and builders.`,
-        `Founder Parastoo Jafari drives the firm with her comprehensive
-      experience as a building designer with advanced education in
-      architecture and engineering. She holds a Master's degree from
-      "Ecole D’Architecture de Bordeaux," France, and a Ph.D. in
-      architecture, and is a registered architect. Her extensive
-      international design background is further strengthened by 12
-      years of technical management experience at a leading German
-      building materials manufacturer.`,
+        `“In my work, design is the bridge between a client’s vision and a built reality.” — Parastoo Jafari`,
+        `Founded in 2006, Inspiration Design Ltd. is a full-service turnkey design firm specializing in building design, interior design, lighting design, and project management, with a growing focus on healthy, high-performance houses using lightweight steel framing.`,
+        `The firm originally began as a specialized design and project management company in Dubai and Bahrain, working with some of the most talented architects, designers, and builders internationally. Highlights include prestigious projects for the Royal family and the French Embassy in Bahrain, as well as private residences, multifamily buildings, retail and restaurant projects, offices, banks, and exhibitions, many of which included specialized exterior lighting design. This international experience was followed by over 15 years of specialization in residential and luxury single-family projects in Canada, including multifamily buildings in North Vancouver and high-end houses in West Vancouver.`,
       ],
     },
     {
-      title: "Experience & Design Philosophy",
+      title: "Professional Background",
       paragraphs: [
-        `Inspiration Design has a privileged history of working on
-      diverse international projects, including prestigious
-      commissions for Royal families and European Embassies in the
-      Middle East, along with high-end houses in West Vancouver.`,
-        `Our work balances a contemporary vision with the client's
-      requested aesthetic, covering a vast range of architectural
-      styles. We prioritize understanding and meeting client aesthetic
-      and operational objectives while strictly adhering to budget and
-      schedule, which has helped us maintain an extensive client base.`,
-        `We view our profession as both art and science. We are committed
-      to building healthier structures using advanced construction
-      knowledge and technology. We achieve this by consciously
-      focusing on environmental responsibility and sustainability. We
-      carefully analyze all project data; including site, orientation,
-      building codes, and materials to ensure optimal solutions for
-      energy performance, durability, ventilation, and maintenance.`,
+        `The founder of the company, Dr. Parastoo Jafari, has an extensive professional background in architecture, interior design, and construction internationally, bringing valuable hands-on experience and construction knowledge essential to this field.`,
+        `Parastoo completed a Master’s in Architecture (D.P.L.G.) at the École d’Architecture de Bordeaux in France, followed by a PhD in Architecture, specializing in fire protection of building structures. She is currently a PhD candidate in Civil Engineering at the University of British Columbia, focusing on the use of lightweight steel framing to develop mold-free, affordable single-family housing systems. Dr. Jafari became an architect in France and is also recognized as a Registered Architect in Iran through the Engineering Association of the Ministry of Housing and Urban Development.`,
+        `Her decades of international experience are supported by 12 years of technical and management experience with Knauf, a leading German building materials manufacturer. Over the years, Dr. Jafari has been an active member of professional associations, including RAIC (Royal Architectural Institute of Canada), IDIBC (Interior Designers Institute of British Columbia), and WIA (Women in Architecture), allowing the firm to stay current with technological advancements in the field. With a PhD in Architecture, she has also received CACB (Canadian Architectural Certification Board) certification in Canada.`,
       ],
     },
     {
-      title: "Full-Service Architectural Expertise",
+      title: "Innovation in Healthy House Design",
       paragraphs: [
-        `Inspiration Design is dedicated to utilizing the latest
-      technologies and materials in the field. The company is led by
-      founder Parastoo Jafari, who holds a PhD in Architecture and the
-      CACB certification.`,
-        `Dr. Jafari ensures the firm remains current with advancements
-      through active membership in professional organizations,
-      including RAIC (Royal Architectural Institute of Canada), IDIBC,
-      and WIA (Women in Architecture).`,
-        `We handle all design aspects from initial building concept
-      development and interior schemes to executing precise lighting
-      design and producing all necessary construction documentation.`,
-        `We manage all logistical and financial phases, including
-      preliminary site studies, cost estimation, regulatory compliance
-      and complete project execution, from contract negotiations to
-      consultation and final site supervision.`,
+        `An important focus of the practice is the design of healthy houses using lightweight steel framing. Through ongoing PhD research at the University of British Columbia, Dr. Jafari explores mold-free wall systems, building envelope performance, and structural testing.`,
+        `At the same time, the company team researches and designs houses based on the health and safety advantages of lightweight steel framing, including fire resistance, durability, and the environmental benefits of steel compared to traditional wood framing. This expertise allows the firm to integrate high-performance construction systems, healthy living environments, and advanced building technologies into its projects, helping homeowners build safer, healthier, and longer-lasting homes.`,
+      ],
+    },
+    {
+      title: "Full-Service Expertise",
+      paragraphs: [
+        `We believe that design should evoke emotion, and our goal is to create work that communicates with individuals’ instinctive feelings.`,
+        `We view our profession as both an art and a science, combining creative vision with technical precision. The foundation of our work is a deep understanding of each client’s vision and aspirations. Through thoughtful conceptual design, we translate ideas and dreams into clear design directions that are both inspiring and grounded in reality.`,
+        `As a turnkey design practice, Inspiration Design manages the entire process beyond the initial design consultation. This includes comprehensive analysis of site conditions, orientation, building codes, construction systems, materials, and technologies, ensuring that each project is feasible, compliant, and well-resolved. Our services extend through all design phases, from concept design and design development to construction documents, followed by project coordination and site supervision, allowing us to deliver cohesive, functional, and carefully executed projects tailored to each client’s needs.`,
+      ],
+    },
+    {
+      title: "Our Services Include",
+      paragraphs: [
+        "Client vision definition and conceptual design",
+        "Site analysis and project estimation",
+        "Building design from concept through design development and construction documents",
+        "Interior design from concept development to furniture and detailed specifications",
+        "Exterior and interior lighting design",
+        "Permit process coordination",
+        "Project management, including consultant coordination, tendering, and contractor negotiations",
+        "Construction consultation for healthy and safe building solutions (lightweight steel framing)",
+        "Project supervision",
+      ],
+    },
+    {
+      title: "Our Services Include",
+      paragraphs: [
+        "At Inspiration Design, every project begins with a deep understanding of the client’s vision and lifestyle needs. We translate these aspirations into thoughtful, functional spaces grounded in technical knowledge and contemporary architectural and interior design thinking, informed by European design culture and global trends. Above all, we prioritize health, safety, and wellbeing through advanced building technologies and carefully selected healthy materials to create spaces that are intelligent, enduring, and beautiful.",
       ],
     },
   ];
-
   const testimonials = [
     {
       title: "AFDON Construction Company",
@@ -147,7 +134,6 @@ export default function About() {
       link: "",
     },
   ];
-
   const awards = [
     {
       title: "Jewelery Arabia Recognition For Best Design And Fitout",
@@ -171,7 +157,6 @@ export default function About() {
       year: "2008",
     },
   ];
-
   const publications = [
     "Abadi Magazine, Autumn 1998, Article about City of Shiraz Entrance Monument competition, Fourth prize to Parastoo Jafari",
     "A Collection of Articles presented at the second Environmental Engineering and architecture Forum “optimal Housing”, June 22-24, 1999, Article by Parastoo Jafari, PhD in Architecture;” Building Safety, Fire- resistant building Design, and suitable Architectural Building Materials and Techniques",
@@ -233,9 +218,12 @@ export default function About() {
                   {section.title}
                 </h2>
                 {section.paragraphs.map((text, i) => (
-                  <p key={i} className={classes.text}>
-                    {text}
-                  </p>
+                  <div key={i} className={classes.row}>
+                    {index === 4 && (
+                      <CircleOutlinedIcon sx={{ fontSize: 12 }} />
+                    )}
+                    <p className={classes.text}>{text}</p>
+                  </div>
                 ))}
               </div>
             ))}

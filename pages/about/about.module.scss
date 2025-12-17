@@ -41,34 +41,35 @@
   }
 
   .info {
-    text-align: center;
+    width: config.$content-width;
+    max-width: config.$max-widthHeigh;
     margin: 50px auto;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
       text-align: left;
     }
+    @include mixins.tabletPortrait {
+      width: config.$content-widthTablet;
+    }
+    @include mixins.tabletLandscape {
+      width: config.$content-widthTablet;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 12px 0px;
+
+      p {
+        margin-left: 4px;
+      }
+    }
 
     h2 {
       margin-bottom: 24px;
       text-transform: uppercase;
-    }
-
-    .text {
-      margin: 12px auto;
-      text-align: left;
-      width: config.$content-width;
-      max-width: config.$max-widthHeigh;
-
-      @include mixins.mobile {
-        width: 100%;
-      }
-      @include mixins.tabletPortrait {
-        width: config.$content-widthTablet;
-      }
-      @include mixins.tabletLandscape {
-        width: config.$content-widthTablet;
-      }
     }
   }
 }
@@ -80,18 +81,10 @@
   gap: 8px;
   margin: auto;
   margin-top: 12px;
-  width: config.$content-width;
-  max-width: config.$max-widthHeigh;
 
   @include mixins.mobile {
     grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
     width: 100%;
-  }
-  @include mixins.tabletPortrait {
-    width: config.$content-widthTablet;
-  }
-  @include mixins.tabletLandscape {
-    width: config.$content-widthTablet;
   }
 
   .item {
@@ -125,12 +118,6 @@
     grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
     width: 100%;
   }
-  @include mixins.tabletPortrait {
-    width: config.$content-widthTablet;
-  }
-  @include mixins.tabletLandscape {
-    width: config.$content-widthTablet;
-  }
 
   .publication {
     @include mixins.row-space-between-center();
@@ -140,9 +127,13 @@
     margin-bottom: 8px;
 
     p {
-      width: 100%;
-      margin: 0px;
+      position: relative;
+      bottom: 4px;
       margin-left: 4px;
+
+      @include mixins.desktop {
+        bottom: 6px;
+      }
     }
   }
 }
