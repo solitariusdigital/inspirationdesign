@@ -22,16 +22,17 @@ export default function Work() {
   const [firstColumn, setFirstColumn] = useState([]);
   const [secondColumn, setSecondColumn] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
+  const [displayBuilding, setDisplayBuilding] = useState(false);
   const router = useRouter();
   let pathname = router.pathname;
 
-  const navigation = ["residential", "commercial", "lighting", "construction"];
   const services = {
-    residential: "Building & Interior Design",
-    commercial: "Building & Interior Design",
-    lighting: "Lighting Design",
-    construction: "Lightweight Steel Framing",
+    "Building & Interior Design": "residential",
+    // "Building & Interior Design": "commercial",
+    "Lighting Design": "lighting",
+    "Healthy House Design with Lightweight Steel Framing": "construction",
   };
+  const category = ["residential", "commercial"];
 
   useEffect(() => {
     navigationTopBar.map((nav) => {
@@ -40,6 +41,12 @@ export default function Work() {
       }
     });
     setNavigationTopBar([...navigationTopBar]);
+    if (
+      projectsCategory === "residential" ||
+      projectsCategory === "commercial"
+    ) {
+      setDisplayBuilding(true);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -118,26 +125,41 @@ export default function Work() {
       />
       <div className={classes.container}>
         <div className={classes.navigation}>
-          {navigation.map((nav, index) => (
-            <p
-              key={index}
-              className={
-                projectsCategory === nav ? classes.navActive : classes.nav
-              }
-              onClick={() => setProjectsCategory(nav)}
-            >
-              {nav}
-            </p>
-          ))}
+          {Object.entries(services).map(([label, value], index) => {
+            const isActive =
+              projectsCategory === value ||
+              (projectsCategory === "commercial" &&
+                label === "Building & Interior Design");
+            const handleClick = () => {
+              setDisplayBuilding(index === 0);
+              setProjectsCategory(value);
+            };
+            return (
+              <h3
+                key={value}
+                className={isActive ? classes.navActive : classes.nav}
+                onClick={handleClick}
+              >
+                {label}
+              </h3>
+            );
+          })}
         </div>
-        <h2
-          className={classes.title}
-          style={{
-            fontFamily: "OpenSansRegular",
-          }}
-        >
-          {services[projectsCategory]}
-        </h2>
+        {displayBuilding && (
+          <div className={classes.category}>
+            {category.map((nav, index) => (
+              <p
+                key={index}
+                className={
+                  projectsCategory === nav ? classes.navActive : classes.nav
+                }
+                onClick={() => setProjectsCategory(nav)}
+              >
+                {nav}
+              </p>
+            ))}
+          </div>
+        )}
         <div className={classes.gridLayoutVertical}>
           <div className={classes.column}>
             {firstColumn?.map((project, index) => {

@@ -201,13 +201,13 @@ export default function About() {
       <div className={classes.container}>
         <div className={classes.navigation}>
           {navigation.map((nav, index) => (
-            <p
+            <h3
               key={index}
               className={pageType === nav ? classes.navActive : classes.nav}
               onClick={() => setPageType(nav)}
             >
               {nav}
-            </p>
+            </h3>
           ))}
         </div>
         {pageType === "company" && (

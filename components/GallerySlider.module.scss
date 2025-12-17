@@ -5,22 +5,16 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   user-select: none;
 
   @include mixins.mobile {
-    justify-content: center;
-    text-align: center;
-    margin-top: 20%;
+    margin-top: 30%;
   }
   @include mixins.tabletPortrait {
-    justify-content: center;
-    text-align: center;
     margin-top: 10%;
   }
   @include mixins.tabletLandscape {
-    justify-content: center;
-    text-align: center;
     margin-top: 10%;
   }
 

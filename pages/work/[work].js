@@ -13,11 +13,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import StarIcon from "@mui/icons-material/Star";
 import Tooltip from "@mui/material/Tooltip";
 import GallerySlider from "@/components/GallerySlider";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import { replaceSpacesAndHyphens } from "@/services/utility";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
@@ -136,6 +131,8 @@ export default function Project() {
     setMenuDisplay(false);
     setFooterDisplay(false);
     setDisplayGallerySlider(true);
+    window.scrollTo(0, 0);
+    document.body.style.overflow = "hidden";
     let index = displayProject.path.indexOf(path);
     setSelectedIndex(index);
   };
@@ -163,7 +160,7 @@ export default function Project() {
         }}
         robots="index, follow"
       />
-      {!displayGallerySlider && displayProject && (
+      {displayProject && (
         <div className={classes.cardBox}>
           {currentUser && (
             <div className={classes.controlPanel}>
@@ -322,6 +319,7 @@ export default function Project() {
                   setFooterDisplay(true);
                   setDisplayGallerySlider(false);
                   setSelectedIndex(0);
+                  document.body.style.overflow = "";
                 }}
               />
             </Tooltip>
