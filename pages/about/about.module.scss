@@ -5,7 +5,7 @@
   margin: 120px auto;
 
   .navigation {
-    width: 40%;
+    width: 50%;
     height: fit-content;
     text-transform: capitalize;
     margin: auto;
@@ -47,7 +47,6 @@
 
     @include mixins.mobile {
       width: calc(100% - 24px);
-      text-align: left;
     }
     @include mixins.tabletPortrait {
       width: config.$content-widthTablet;
@@ -65,10 +64,6 @@
       p {
         margin-left: 4px;
       }
-    }
-
-    h2 {
-      margin-bottom: 24px;
     }
   }
 }

@@ -6,7 +6,7 @@
   user-select: none;
 
   .navigation {
-    width: 70%;
+    width: 50%;
     height: fit-content;
     text-transform: capitalize;
     margin: auto;
@@ -16,58 +16,39 @@
     padding-bottom: 12px;
 
     @include mixins.mobile {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
       width: calc(100% - 24px);
-
-      h3 {
-        margin: 4px 0px;
-      }
     }
     @include mixins.tabletPortrait {
-      width: config.$content-width;
+      width: 60%;
     }
     @include mixins.tabletLandscape {
-      width: config.$content-width;
+      width: 60%;
     }
-  }
-}
 
-.category {
-  width: 20%;
-  height: fit-content;
-  text-transform: capitalize;
-  margin: 12px auto;
-  @include mixins.row-space-between-center();
+    .nav {
+      width: fit-content;
 
-  max-width: config.$max-widthHeigh;
+      &:hover {
+        cursor: pointer;
+        color: config.$brand;
+      }
+    }
 
-  @include mixins.mobile {
-    width: 50%;
-  }
-  @include mixins.tabletPortrait {
-    width: 50%;
-  }
-  @include mixins.tabletLandscape {
-    width: 50%;
-  }
-}
-
-.navigation,
-.category {
-  .nav {
-    width: fit-content;
-
-    &:hover {
-      cursor: pointer;
+    .navActive {
+      width: fit-content;
       color: config.$brand;
     }
   }
 
-  .navActive {
-    width: fit-content;
-    color: config.$brand;
+  .title {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    margin: 24px auto;
+
+    @include mixins.mobile {
+      width: calc(100% - 24px);
+    }
   }
 }
 

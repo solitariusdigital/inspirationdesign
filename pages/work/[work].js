@@ -31,7 +31,6 @@ export default function Project() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { editProject, setEditProject } = useContext(StateContext);
   const { editNews, setEditNews } = useContext(StateContext);
-  const { screenSize, setScreenSize } = useContext(StateContext);
   const { menuDisplay, setMenuDisplay } = useContext(StateContext);
   const { footerDisplay, setFooterDisplay } = useContext(StateContext);
   const [displayGallerySlider, setDisplayGallerySlider] = useState(false);
