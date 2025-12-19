@@ -39,7 +39,7 @@
     text-transform: uppercase;
 
     @include mixins.mobile {
-      width: calc(250px * 10);
+      width: calc(220px * 10);
     }
   }
 
@@ -56,7 +56,7 @@
 
 .sliderInfoTop {
   bottom: 65px;
-  border-bottom: 1px solid config.$white;
+  border-bottom: 3px solid config.$white;
 }
 
 @keyframes scroll {

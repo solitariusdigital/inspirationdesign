@@ -119,7 +119,7 @@ export default function Work() {
       <div className={classes.container}>
         <div className={classes.navigation}>
           {navigation.map((nav, index) => (
-            <h3
+            <p
               key={index}
               className={
                 projectsCategory === nav ? classes.navActive : classes.nav
@@ -127,7 +127,7 @@ export default function Work() {
               onClick={() => setProjectsCategory(nav)}
             >
               {nav}
-            </h3>
+            </p>
           ))}
         </div>
         <h2

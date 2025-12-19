@@ -6,7 +6,7 @@
   user-select: none;
 
   .navigation {
-    width: 50%;
+    width: 40%;
     height: fit-content;
     text-transform: capitalize;
     margin: auto;
@@ -150,7 +150,12 @@
 }
 
 .cardBox {
-  margin: 120px auto;
+  margin: auto;
+  margin-bottom: 120px;
+
+  @include mixins.mobile {
+    margin-top: 120px;
+  }
 
   .info,
   .imageBoxLandscape,
@@ -172,7 +177,7 @@
   }
 
   .info {
-    margin-bottom: 24px;
+    margin: 24px auto;
   }
   .subTitle {
     margin-bottom: 12px;
@@ -202,7 +207,7 @@
 
   .heroBase {
     margin: auto;
-    width: config.$content-width;
+    // width: config.$content-width;
     max-width: config.$max-widthHeigh;
 
     @include mixins.mobile {
@@ -234,6 +239,7 @@
   .heroNews {
     @extend .heroBase;
     margin-bottom: 24px;
+    width: config.$content-width;
     @include mixins.row-space-between-center();
 
     @include mixins.mobile {
@@ -255,7 +261,7 @@
     aspect-ratio: 16 / 9;
     user-select: none;
     margin: 24px auto;
-    width: config.$content-width;
+    // width: config.$content-width;
     max-width: config.$max-widthHeigh;
     cursor: pointer;
 
@@ -281,7 +287,7 @@
   }
 
   .description {
-    margin: 50px auto;
+    margin: auto;
 
     p {
       margin-bottom: 12px;

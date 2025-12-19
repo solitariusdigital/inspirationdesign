@@ -200,17 +200,6 @@ export default function Project() {
               </Tooltip>
             </div>
           )}
-          <div className={classes.info}>
-            <h2
-              style={{
-                fontFamily: "OpenSansRegular",
-              }}
-            >
-              {displayProject.title}
-            </h2>
-            <h3>{displayProject.location}</h3>
-            <p>{displayProject.year}</p>
-          </div>
           <div className={classes.hero}>
             <div
               className={`${
@@ -231,8 +220,24 @@ export default function Project() {
               />
             </div>
           </div>
+          <div className={classes.info}>
+            <h2
+              style={{
+                fontFamily: "OpenSansRegular",
+              }}
+            >
+              {displayProject.title}
+            </h2>
+            <h3>{displayProject.location}</h3>
+            <p>{displayProject.year}</p>
+          </div>
           <div className={classes.description}>
-            <h3 className={classes.subTitle}>
+            <h3
+              className={classes.subTitle}
+              style={{
+                fontFamily: "OpenSansRegular",
+              }}
+            >
               {displayProject.description.split("\n\n")[0]}
             </h3>
             {displayProject.description
@@ -262,7 +267,10 @@ export default function Project() {
                   return (
                     <h3
                       className={classes.subTitle}
-                      style={{ marginTop: "24px" }}
+                      style={{
+                        fontFamily: "OpenSansRegular",
+                        marginTop: "24px",
+                      }}
                       key={index}
                     >
                       {trimmedDesc}

@@ -126,7 +126,12 @@ export default function NewsArticle() {
         robots="index, follow"
       />
       {displayNews && (
-        <article className={classes.cardBox}>
+        <article
+          className={classes.cardBox}
+          style={{
+            marginTop: "120px",
+          }}
+        >
           {currentUser && (
             <div className={classes.controlPanel}>
               {displayNews.active ? (
