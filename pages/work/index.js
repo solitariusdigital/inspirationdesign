@@ -176,13 +176,15 @@ export default function Work() {
                           : classes.imageBoxLandscape
                       }
                     >
-                      <FirebaseImage path={project.hero} alt={project.title} />
+                      <div className={classes.imageInner}>
+                        <FirebaseImage
+                          path={project.hero}
+                          alt={project.title}
+                        />
+                      </div>
                       {hoveredId === project.id && (
                         <div className={classes.overlay}>
-                          <h3
-                            className="animate__animated animate__slideInUp"
-                            style={{ fontFamily: "OpenSansRegular" }}
-                          >
+                          <h3 className="animate__animated animate__slideInUp">
                             {project.title}
                           </h3>
                           <p className="animate__animated animate__slideInUp">
@@ -233,7 +235,12 @@ export default function Work() {
                           : classes.imageBoxLandscape
                       }
                     >
-                      <FirebaseImage path={project.hero} alt={project.title} />
+                      <div className={classes.imageInner}>
+                        <FirebaseImage
+                          path={project.hero}
+                          alt={project.title}
+                        />
+                      </div>
                       {hoveredId === project.id && (
                         <div className={classes.overlay}>
                           <h3

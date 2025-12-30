@@ -103,7 +103,9 @@ export default function News() {
                     </div>
                   )}
                   <div className={classes.imageBoxLandscape}>
-                    <FirebaseImage path={news.hero} alt={news.title} />
+                    <div className={classes.imageInner}>
+                      <FirebaseImage path={news.hero} alt={news.title} />
+                    </div>
                   </div>
                   <h3
                     style={{
