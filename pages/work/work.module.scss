@@ -158,12 +158,11 @@
 
 .controlPanel {
   @include mixins.row-space-between-center();
-  margin: auto;
+  margin: 12px auto;
   width: 10%;
 
   @include mixins.mobile {
     width: 25%;
-    margin-bottom: 12px;
   }
   @include mixins.tabletPortrait {
     width: 15%;

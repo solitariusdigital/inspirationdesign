@@ -161,6 +161,26 @@ export default function Project() {
       />
       {displayProject && (
         <div className={classes.cardBox}>
+          <div className={classes.hero}>
+            <div
+              className={`${
+                displayProject.orientation === "portrait"
+                  ? classes.imageBoxPortrait
+                  : classes.imageBoxLandscape
+              }`}
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                findIndex(displayProject.hero);
+              }}
+            >
+              <FirebaseImage
+                path={displayProject.hero}
+                alt={displayProject.title}
+              />
+            </div>
+          </div>
           {currentUser && (
             <div className={classes.controlPanel}>
               {displayProject.active ? (
@@ -200,26 +220,6 @@ export default function Project() {
               </Tooltip>
             </div>
           )}
-          <div className={classes.hero}>
-            <div
-              className={`${
-                displayProject.orientation === "portrait"
-                  ? classes.imageBoxPortrait
-                  : classes.imageBoxLandscape
-              }`}
-              style={{
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                findIndex(displayProject.hero);
-              }}
-            >
-              <FirebaseImage
-                path={displayProject.hero}
-                alt={displayProject.title}
-              />
-            </div>
-          </div>
           <div className={classes.info}>
             <h2
               style={{
@@ -261,7 +261,7 @@ export default function Project() {
                       </a>
                     ) : (
                       <span key={i}>{part}</span>
-                    )
+                    ),
                   );
                 if (trimmedDesc === "Credits") {
                   return (
