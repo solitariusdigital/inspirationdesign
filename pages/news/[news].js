@@ -129,7 +129,7 @@ export default function NewsArticle() {
         <article
           className={classes.cardBox}
           style={{
-            marginTop: "120px",
+            marginTop: "100px",
           }}
         >
           {currentUser && (
