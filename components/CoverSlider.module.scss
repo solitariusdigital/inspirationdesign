@@ -1,7 +1,7 @@
 @use "styles/_config.scss" as config;
 @use "styles/_mixins.scss" as mixins;
 
-.slider {
+.container {
   position: relative;
   margin: auto;
   user-select: none;
@@ -16,8 +16,15 @@
     object-fit: cover;
 
     @include mixins.allDesktop {
-      object-position: 50% 35%;
+      object-position: 50% 55%;
     }
+  }
+
+  .control {
+    position: absolute;
+    z-index: 6;
+    top: 100px;
+    right: 12px;
   }
 }
 

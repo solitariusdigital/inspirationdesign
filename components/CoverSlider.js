@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./CoverSlider.module.scss";
 import Link from "next/link";
@@ -9,10 +9,36 @@ import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { storage } from "@/services/firebase";
+import MusicOffIcon from "@mui/icons-material/MusicOff";
+import AudiotrackIcon from "@mui/icons-material/Audiotrack";
 
 export default function CoverSlider() {
-  const [videoFiles, setVideoFiles] = useState([]);
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
+  const [videoFiles, setVideoFiles] = useState([]);
+  const [isMuted, setIsMuted] = useState(true);
+
+  useEffect(() => {
+    const fetchFiles = async () => {
+      const listRef = ref(storage, "Resources/Videos");
+      const res = await listAll(listRef);
+      const fetchedFiles = await Promise.all(
+        res.items.map(async (itemRef) => {
+          const url = await getDownloadURL(itemRef);
+          return { name: itemRef.name, url };
+        }),
+      );
+      setVideoFiles(fetchedFiles);
+    };
+    fetchFiles();
+  }, []);
+
+  const videoRef = useRef(null);
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
 
   const servicesTop = [
     {
@@ -51,43 +77,32 @@ export default function CoverSlider() {
     },
   ];
 
-  useEffect(() => {
-    const fetchFiles = async () => {
-      const listRef = ref(storage, "Resources/Videos");
-      const res = await listAll(listRef);
-      const fetchedFiles = await Promise.all(
-        res.items.map(async (itemRef) => {
-          const url = await getDownloadURL(itemRef);
-          return { name: itemRef.name, url };
-        })
-      );
-      setVideoFiles(fetchedFiles);
-    };
-    fetchFiles();
-  }, []);
-
   return (
-    <div className={classes.slider}>
-      {/* <Swiper
-        spaceBetween={0}
-        navigation={true}
-        loop={true}
-        modules={[Navigation]}
-      >
-        {videoFiles.map((video, index) => (
-          <SwiperSlide key={index}>
-            <video
-              className={classes.video}
-              src={video.url}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper> */}
+    <div className={classes.container}>
+      <video
+        className={classes.video}
+        src={videoFiles[0]?.url}
+        muted={isMuted}
+        onClick={handleVideoClick}
+        ref={videoRef}
+        autoPlay
+        loop
+        playsInline
+        preload="metadata"
+      />
+      <div className={classes.control} onClick={handleVideoClick}>
+        {isMuted ? (
+          <MusicOffIcon
+            className="icon"
+            sx={{ fontSize: 18, color: "#ffffff" }}
+          />
+        ) : (
+          <AudiotrackIcon
+            className="icon"
+            sx={{ fontSize: 18, color: "#ffffff" }}
+          />
+        )}
+      </div>
       <div className={classes.sliderInfoTop}>
         <div className={classes.slideTrack}>
           {servicesTop.concat(servicesTop).map((service, index) => (
