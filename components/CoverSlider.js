@@ -14,22 +14,34 @@ import AudiotrackIcon from "@mui/icons-material/Audiotrack";
 
 export default function CoverSlider() {
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
-  const [videoFiles, setVideoFiles] = useState([]);
+  const [videoFiles, setVideoFiles] = useState(null);
   const [isMuted, setIsMuted] = useState(true);
 
+  // useEffect(() => {
+  //   const fetchFiles = async () => {
+  //     const listRef = ref(storage, "Resources/Videos");
+  //     const res = await listAll(listRef);
+  //     const fetchedFiles = await Promise.all(
+  //       res.items.map(async (itemRef) => {
+  //         const url = await getDownloadURL(itemRef);
+  //         return { name: itemRef.name, url };
+  //       }),
+  //     );
+  //     setVideoFiles(fetchedFiles);
+  //   };
+  //   fetchFiles();
+  // }, []);
+
   useEffect(() => {
-    const fetchFiles = async () => {
-      const listRef = ref(storage, "Resources/Videos");
-      const res = await listAll(listRef);
-      const fetchedFiles = await Promise.all(
-        res.items.map(async (itemRef) => {
-          const url = await getDownloadURL(itemRef);
-          return { name: itemRef.name, url };
-        }),
-      );
-      setVideoFiles(fetchedFiles);
+    const fetchVideo = async () => {
+      const videoRef = ref(storage, "Resources/Videos/cover.mp4");
+      const url = await getDownloadURL(videoRef);
+      setVideoFiles({
+        name: "cover.mp4",
+        url,
+      });
     };
-    fetchFiles();
+    fetchVideo();
   }, []);
 
   const videoRef = useRef(null);
@@ -81,7 +93,7 @@ export default function CoverSlider() {
     <div className={classes.container}>
       <video
         className={classes.video}
-        src={videoFiles[0]?.url}
+        src={videoFiles?.url}
         muted={isMuted}
         onClick={handleVideoClick}
         ref={videoRef}
