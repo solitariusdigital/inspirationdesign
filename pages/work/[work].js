@@ -309,7 +309,11 @@ export default function Project() {
                     findIndex(image);
                   }}
                 >
-                  <FirebaseImage path={image} alt={displayProject.title} />
+                  <FirebaseImage
+                    path={image}
+                    alt={displayProject.title}
+                    mode="intrinsic"
+                  />
                 </div>
               </div>
             ))}

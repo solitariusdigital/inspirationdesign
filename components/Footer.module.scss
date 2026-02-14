@@ -25,16 +25,23 @@
   }
 
   .fullSizeNavigation {
-    width: 40%;
+    width: 30%;
     @include mixins.row-space-between-center();
 
     @include mixins.mobile {
       width: 100%;
-      margin-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    @include mixins.tabletPortrait {
+      width: 40%;
+    }
+    @include mixins.tabletLandscape {
+      width: 40%;
     }
   }
 
   .nav {
+    font-size: small !important;
     text-align: center;
     cursor: pointer;
 
@@ -44,6 +51,7 @@
   }
 
   .navActive {
+    font-size: small !important;
     text-align: center;
     color: config.$brand;
     cursor: pointer;

@@ -47,19 +47,19 @@ export default function Footer() {
       </nav>
       <div className={classes.icons}>
         <Link href="" target="_blank" rel="noopener noreferrer" passHref>
-          <LinkedInIcon sx={{ fontSize: 24 }} className={classes.icon} />
+          <LinkedInIcon sx={{ fontSize: 20 }} className={classes.icon} />
         </Link>
         <Link href="" target="_blank" rel="noopener noreferrer" passHref>
-          <InstagramIcon sx={{ fontSize: 24 }} className={classes.icon} />
+          <InstagramIcon sx={{ fontSize: 20 }} className={classes.icon} />
         </Link>
         <Link href="" target="_blank" rel="noopener noreferrer" passHref>
-          <XIcon sx={{ fontSize: 24 }} className={classes.icon} />
+          <XIcon sx={{ fontSize: 20 }} className={classes.icon} />
         </Link>
         <Link href="" target="_blank" rel="noopener noreferrer" passHref>
-          <FacebookIcon sx={{ fontSize: 24 }} className={classes.icon} />
+          <FacebookIcon sx={{ fontSize: 20 }} className={classes.icon} />
         </Link>
         <Link href="" target="_blank" rel="noopener noreferrer" passHref>
-          <PinterestIcon sx={{ fontSize: 24 }} className={classes.icon} />
+          <PinterestIcon sx={{ fontSize: 20 }} className={classes.icon} />
         </Link>
       </div>
     </div>

@@ -222,7 +222,6 @@
 
   .heroBase {
     margin: auto;
-    // width: config.$content-width;
     max-width: config.$max-widthHeigh;
 
     @include mixins.mobile {
@@ -273,10 +272,8 @@
 
   .imageBox {
     position: relative;
-    aspect-ratio: 16 / 9;
     user-select: none;
     margin: 24px auto;
-    // width: config.$content-width;
     max-width: config.$max-widthHeigh;
     cursor: pointer;
 
