@@ -63,7 +63,7 @@ export default function Work() {
   useEffect(() => {
     const filtered =
       displayProjects?.filter(
-        (project) => project.category === projectsCategory
+        (project) => project.category === projectsCategory,
       ) || [];
 
     const alphaOrder = [...filtered].sort((a, b) => {
@@ -142,7 +142,7 @@ export default function Work() {
           <div className={classes.column}>
             {firstColumn?.map((project, index) => {
               const projectLink = `/work/${replaceSpacesAndHyphens(
-                project.title
+                project.title,
               )}`;
               return (
                 <Link
@@ -184,9 +184,9 @@ export default function Work() {
                       </div>
                       {hoveredId === project.id && (
                         <div className={classes.overlay}>
-                          <h3 className="animate__animated animate__slideInUp">
+                          <h2 className="animate__animated animate__slideInUp">
                             {project.title}
-                          </h3>
+                          </h2>
                           <p className="animate__animated animate__slideInUp">
                             {project.location}
                           </p>
@@ -201,7 +201,7 @@ export default function Work() {
           <div className={classes.column}>
             {secondColumn?.map((project, index) => {
               const projectLink = `/work/${replaceSpacesAndHyphens(
-                project.title
+                project.title,
               )}`;
               return (
                 <Link
@@ -243,12 +243,12 @@ export default function Work() {
                       </div>
                       {hoveredId === project.id && (
                         <div className={classes.overlay}>
-                          <h3
+                          <h2
                             className="animate__animated animate__slideInUp"
                             style={{ fontFamily: "OpenSansRegular" }}
                           >
                             {project.title}
-                          </h3>
+                          </h2>
                           <p className="animate__animated animate__slideInUp">
                             {project.location}
                           </p>

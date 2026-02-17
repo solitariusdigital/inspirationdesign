@@ -53,7 +53,7 @@
   }
 
   .nav {
-    font-size: small !important;
+    font-size: small;
     cursor: pointer;
     &:hover {
       color: config.$brand;
@@ -61,7 +61,7 @@
   }
 
   .navActive {
-    font-size: small !important;
+    font-size: small;
     color: config.$brand;
     cursor: pointer;
   }

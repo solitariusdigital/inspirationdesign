@@ -6,7 +6,7 @@
   user-select: none;
 
   .navigation {
-    width: 40%;
+    width: 30%;
     height: fit-content;
     text-transform: capitalize;
     margin: auto;
@@ -19,14 +19,16 @@
       width: calc(100% - 24px);
     }
     @include mixins.tabletPortrait {
-      width: 60%;
+      width: 50%;
     }
     @include mixins.tabletLandscape {
-      width: 60%;
+      width: 50%;
     }
 
     .nav {
       width: fit-content;
+      font-size: small;
+      text-transform: uppercase;
 
       &:hover {
         cursor: pointer;
@@ -36,6 +38,8 @@
 
     .navActive {
       width: fit-content;
+      font-size: small;
+      text-transform: uppercase;
       color: config.$brand;
     }
   }
@@ -45,9 +49,11 @@
     justify-content: center;
     text-transform: uppercase;
     margin: 24px auto;
+    color: config.$lightgrey;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
+      text-align: center;
     }
   }
 }
@@ -86,7 +92,7 @@
   .imageBoxLandscape,
   .imageBoxPortrait {
     position: relative;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
     cursor: pointer;
   }
@@ -140,19 +146,20 @@
     width: calc(100% - 24px);
   }
 
-  .overlay {
-    position: absolute;
-    bottom: 0px !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 12px 0px;
-    color: config.$white;
-    transition: opacity 0.4s ease;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px) saturate(120%);
+  @include mixins.allDesktop {
+    .overlay {
+      position: absolute;
+      bottom: 0px !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 12px 0px;
+      color: config.$white;
+      transition: opacity 0.4s ease;
+      backdrop-filter: blur(5px) saturate(120%);
+    }
   }
 }
 

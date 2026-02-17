@@ -41,7 +41,7 @@
   }
 
   .nav {
-    font-size: small !important;
+    font-size: small;
     text-align: center;
     cursor: pointer;
 
@@ -51,7 +51,7 @@
   }
 
   .navActive {
-    font-size: small !important;
+    font-size: small;
     text-align: center;
     color: config.$brand;
     cursor: pointer;
