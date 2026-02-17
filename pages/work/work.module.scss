@@ -182,7 +182,7 @@
   .imageBoxLandscape,
   .imageBoxPortrait,
   .description {
-    width: 50%;
+    width: config.$content-width;
     max-width: config.$max-widthHeigh;
     margin: auto;
 
