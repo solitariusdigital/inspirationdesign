@@ -5,9 +5,9 @@
   margin: 100px auto;
 
   .navigation {
-    width: 40%;
+    width: 30%;
     height: fit-content;
-    text-transform: capitalize;
+    text-transform: uppercase;
     margin: auto;
     @include mixins.row-space-between-center();
     max-width: config.$max-widthHeigh;
@@ -19,14 +19,15 @@
       width: calc(100% - 24px);
     }
     @include mixins.tabletPortrait {
-      width: 60%;
+      width: 50%;
     }
     @include mixins.tabletLandscape {
-      width: 60%;
+      width: 50%;
     }
 
     .nav {
       width: fit-content;
+      font-size: small;
 
       &:hover {
         cursor: pointer;
@@ -36,6 +37,7 @@
 
     .navActive {
       width: fit-content;
+      font-size: small;
       color: config.$brand;
     }
   }

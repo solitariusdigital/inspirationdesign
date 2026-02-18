@@ -8,7 +8,7 @@
   .navigation {
     width: 30%;
     height: fit-content;
-    text-transform: capitalize;
+    text-transform: uppercase;
     margin: auto;
     @include mixins.row-space-between-center();
     max-width: config.$max-widthHeigh;
@@ -28,7 +28,6 @@
     .nav {
       width: fit-content;
       font-size: small;
-      text-transform: uppercase;
 
       &:hover {
         cursor: pointer;
@@ -39,7 +38,6 @@
     .navActive {
       width: fit-content;
       font-size: small;
-      text-transform: uppercase;
       color: config.$brand;
     }
   }
