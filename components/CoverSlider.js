@@ -2,6 +2,8 @@ import { useState, useEffect, useContext, useRef } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./CoverSlider.module.scss";
 import Link from "next/link";
+import MusicOffIcon from "@mui/icons-material/MusicOff";
+import AudiotrackIcon from "@mui/icons-material/Audiotrack";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -9,11 +11,10 @@ import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { storage } from "@/services/firebase";
-import MusicOffIcon from "@mui/icons-material/MusicOff";
-import AudiotrackIcon from "@mui/icons-material/Audiotrack";
 
 export default function CoverSlider() {
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
+  const { screenSize, setScreenSize } = useContext(StateContext);
   const [videoFiles, setVideoFiles] = useState(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -34,15 +35,18 @@ export default function CoverSlider() {
 
   useEffect(() => {
     const fetchVideo = async () => {
-      const videoRef = ref(storage, "Resources/Videos/cover.mp4");
+      let sourceRef =
+        screenSize === "mobile"
+          ? "Resources/Videos/cover.mp4"
+          : "Resources/Videos/desktop.mov";
+      const videoRef = ref(storage, sourceRef);
       const url = await getDownloadURL(videoRef);
       setVideoFiles({
-        name: "cover.mp4",
         url,
       });
     };
     fetchVideo();
-  }, []);
+  }, [screenSize]);
 
   const videoRef = useRef(null);
   const handleVideoClick = () => {
