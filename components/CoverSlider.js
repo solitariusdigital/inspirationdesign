@@ -37,7 +37,7 @@ export default function CoverSlider() {
     const fetchVideo = async () => {
       let sourceRef =
         screenSize === "mobile"
-          ? "Resources/Videos/cover.mp4"
+          ? "Resources/Videos/mobile.mov"
           : "Resources/Videos/desktop.mov";
       const videoRef = ref(storage, sourceRef);
       const url = await getDownloadURL(videoRef);
