@@ -92,19 +92,19 @@ export default function CoverSlider() {
       type: "lighting",
     },
     {
-      title: "Mold-Free House Design",
-      type: "construction",
-    },
-    {
-      title: "Fire Resistant",
-      type: "construction",
-    },
-    {
       title: "Construction Consultation",
       type: "construction",
     },
     {
       title: "Lightweight Steel Framing",
+      type: "construction",
+    },
+    {
+      title: "Mold-Free House Design",
+      type: "construction",
+    },
+    {
+      title: "Fire Resistant",
       type: "construction",
     },
   ];

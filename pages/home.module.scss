@@ -63,6 +63,7 @@
       flex-direction: column;
       justify-content: center;
       text-align: left;
+      direction: ltr;
 
       button {
         @include mixins.button(config.$brand, config.$black, config.$white);
@@ -75,6 +76,15 @@
 
       .light {
         margin: 8px 0px !important;
+      }
+
+      .row {
+        @include mixins.row-space-between-center();
+        justify-content: flex-start;
+
+        p {
+          margin-left: 4px;
+        }
       }
     }
 

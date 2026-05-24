@@ -5,6 +5,7 @@ import { NextSeo } from "next-seo";
 import classes from "./contact.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import ContactForm from "@/components/Form/ContactForm";
+import FirebaseImage from "@/components/FirebaseImage";
 
 export default function Contact() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
@@ -60,6 +61,9 @@ export default function Contact() {
             hesitate to contact us. We're eager to design your next home or
             space.
           </p>
+        </div>
+        <div className={classes.imageBox}>
+          <FirebaseImage path="Resources/Building.jpg" alt="contact" />
         </div>
         <div className={classes.contact}>
           <div className={classes.contactBox}>

@@ -11,7 +11,7 @@ export default function About() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
 
   const [pageType, setPageType] = useState(
-    "company" || "testimonials" || "awards" || "publications"
+    "company" || "testimonials" || "awards" || "publications",
   );
   const router = useRouter();
   let pathname = router.pathname;
@@ -31,7 +31,7 @@ export default function About() {
     {
       title: "The Company",
       paragraphs: [
-        `“In my work, design is the bridge between a client’s vision and a built reality.” — Parastoo Jafari`,
+        `“ In my work, design is the bridge between a client’s vision and a built reality. ” — Parastoo Jafari`,
         `Founded in 2006, Inspiration Design Ltd. is a full-service turnkey design firm specializing in building design, interior design, lighting design, and project management, with a growing focus on healthy, high-performance houses using lightweight steel framing.`,
         `The firm originally began as a specialized design and project management company in Dubai and Bahrain, working with some of the most talented architects, designers, and builders internationally. Highlights include prestigious projects for the Royal family and the French Embassy in Bahrain, as well as private residences, multifamily buildings, retail and restaurant projects, offices, banks, and exhibitions, many of which included specialized exterior lighting design. This international experience was followed by over 15 years of specialization in residential and luxury single-family projects in Canada, including multifamily buildings in North Vancouver and high-end houses in West Vancouver.`,
       ],
@@ -220,9 +220,19 @@ export default function About() {
                 {section.paragraphs.map((text, i) => (
                   <div key={i} className={classes.row}>
                     {index === 4 && (
-                      <CircleOutlinedIcon sx={{ fontSize: 12 }} />
+                      <CircleOutlinedIcon sx={{ fontSize: 10 }} />
                     )}
-                    <p className={classes.text}>{text}</p>
+                    {index === 0 && i === 0 ? (
+                      <h3
+                        style={{
+                          fontFamily: "OpenSansItalic",
+                        }}
+                      >
+                        {text}
+                      </h3>
+                    ) : (
+                      <p>{text}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -286,7 +296,7 @@ export default function About() {
               {publications.map((item, index) => (
                 <div key={index} className={classes.publication}>
                   <p>{item}</p>
-                  <CircleOutlinedIcon sx={{ fontSize: 12 }} />
+                  <CircleOutlinedIcon sx={{ fontSize: 10 }} />
                 </div>
               ))}
             </div>

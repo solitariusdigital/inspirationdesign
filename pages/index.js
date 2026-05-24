@@ -9,6 +9,7 @@ import CoverSlider from "@/components/CoverSlider";
 import logoBlack from "@/assets/logo-black.png";
 import Light from "@/components/Light";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
 import { collection, getDocs } from "@firebase/firestore";
@@ -21,28 +22,45 @@ export default function Home() {
   const expertise = [
     {
       title: "Building & Interior Design",
-      description:
-        "We offer unified Building and Interior Design services, developing the structure and inner space in seamless coordination. We design spaces that are structurally sound and code-compliant, prioritizing client vision and user well-being. The outcome is a high-quality, impactful built environment where interiors and architecture exist in perfect harmony.",
+      subTitle: `“ There are 360 degrees, so why stick to one? ” — Zaha Hadid`,
+      descriptionOne:
+        "Building and interior design for residential, commercial, cultural, and institutional projects internationally has been at the core of Inspiration Design’s work for over 25 years internationally and for the last 15 years in Canada. Our experience includes international projects in Europe and the Middle East, including work for the French Embassy, Ministries of Culture, Royal families, retail and exhibition spaces in Dubai and Bahrain, extending to multi-family residential developments on the North Shore of Vancouver and luxury custom homes in West Vancouver.",
+      descriptionTwo:
+        "Combining advanced education in architecture and interior design in France with international experience, our work integrates contemporary design, new technologies, and current design trends tailored to each client’s vision, lifestyle, and functional needs.",
       path: "Resources/Building.jpg",
       aspectRatio: 16 / 11,
       type: "residential",
     },
     {
       title: "Lighting Design",
-      description:
-        "We create intentional lighting environments that enhance architecture and human experience. Our work balances artistic vision with technical precision, carefully specifying light quality, fixtures, and controls. We prioritize developing sustainable, energy-efficient schemes, translating light into a functional and emotive layer that reveals the full potential of the space.",
+      subTitle: `“ Light is an essential element of life. Good light is like a good meal — required for well-being. ” — Yann Kersalé`,
+      descriptionOne:
+        "Lighting design for residential, commercial, heritage, and public spaces internationally, ranging from luxury custom homes and residential interiors to cultural and public landmarks, has been part of Inspiration Design’s work for over 20 years in Canada and abroad. Our recent work includes lighting design contributions for Vancouver Chinatown, including the Millennium Gate, Dr. Sun Yat-Sen Classical Chinese Garden, and the Chinese Cultural Centre.",
+      descriptionTwo:
+        "In our work, light is not decoration; it is a material that reveals architecture’s narrative and essence. Inspired by the idea of using the night as a canvas, our designs give buildings a second life after dark, where light becomes part of the space itself and part of the story architecture tells.",
       path: "Resources/Lighting.jpg",
-      aspectRatio: 3 / 4,
+      aspectRatio: 16 / 11,
       type: "lighting",
     },
     {
-      title: "Lightweight Steel Framing",
-      description:
-        "We specialize in LSF, offering a precise, efficient, and modern construction method. LSF uses pre-fabricated, cold-formed steel components for rapid on-site assembly. This framing is lightweight, non-combustible, and provides superior durability over wood, ensuring faster project completion and long-term quality.",
-      path: "Resources/LFS.jpg",
+      title: "Healthy House Design | Lightweight Steel Framing",
+      subTitle: `” You deserve a safe and healthy home. ”`,
+      descriptionOne:
+        "Our work combines modern design with healthier and more durable building systems, with over 25 years of experience in Canada and internationally. Our work includes waterfront custom homes and luxury single-family residential projects on the North Shore using Lightweight Steel Framing (LSF), a precise, non-combustible, and mold-resistant alternative to conventional wood construction.",
+      descriptionTwo:
+        "Supported by advanced university-level research and extensive experience in healthy building systems, LSF advantages include:",
       aspectRatio: 16 / 11,
       type: "construction",
     },
+  ];
+
+  const constructionItems = [
+    "Mold and moisture resistance",
+    "Non-combustible and fire-resistant construction",
+    "Greater strength and resistance to rot compared to wood",
+    "Precision prefabrication and design flexibility",
+    "Faster construction and reduced maintenance and cost",
+    "Sustainable and recyclable building systems",
   ];
 
   useEffect(() => {
@@ -112,13 +130,35 @@ export default function Home() {
                   <div className={classes.light}>
                     <Light timer={500 * index} />
                   </div>
-                  <p
+                  <h3
                     style={{
-                      direction: "ltr",
+                      fontFamily: "OpenSansItalic",
                     }}
                   >
-                    {service.description}
+                    {service.subTitle}
+                  </h3>
+                  <p
+                    style={{
+                      margin: "8px 0px",
+                    }}
+                  >
+                    {service.descriptionOne}
                   </p>
+                  <p>{service.descriptionTwo}</p>
+                  {service.type === "construction" && (
+                    <div
+                      style={{
+                        marginTop: "8px",
+                      }}
+                    >
+                      {constructionItems.map((item, index) => (
+                        <div key={index} className={classes.row}>
+                          <CircleOutlinedIcon sx={{ fontSize: 10 }} />
+                          <p>{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </Link>
               <div

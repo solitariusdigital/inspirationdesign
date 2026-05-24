@@ -35,6 +35,13 @@
     }
   }
 
+  .imageBox {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid red;
+  }
+
   .contact {
     color: config.$white;
     background: config.$dark;
