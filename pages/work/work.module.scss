@@ -10,10 +10,11 @@
     height: fit-content;
     text-transform: capitalize;
     margin: auto;
-    @include mixins.row-space-between-center();
     max-width: config.$max-widthHeigh;
+    user-select: none;
     border-bottom: 1px solid config.$lightgrey;
-    padding-bottom: 12px;
+    padding: 10px;
+    @include mixins.row-space-between-center();
 
     @include mixins.mobile {
       width: calc(100% - 24px);
