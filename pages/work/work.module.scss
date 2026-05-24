@@ -8,7 +8,7 @@
   .navigation {
     width: 30%;
     height: fit-content;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin: auto;
     @include mixins.row-space-between-center();
     max-width: config.$max-widthHeigh;
@@ -45,9 +45,8 @@
   .title {
     display: flex;
     justify-content: center;
-    text-transform: uppercase;
     margin: 24px auto;
-    color: config.$lightgrey;
+    color: config.$text;
 
     @include mixins.mobile {
       width: calc(100% - 24px);

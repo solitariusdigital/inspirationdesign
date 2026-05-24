@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 export default function Light({
-  color = "#a81d36",
+  color = "#ffffff",
   height = 1,
   border = true,
   duration = 10000,

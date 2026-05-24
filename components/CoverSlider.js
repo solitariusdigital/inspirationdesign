@@ -70,7 +70,7 @@ export default function CoverSlider() {
       type: "lighting",
     },
     {
-      title: "Single Family Construction",
+      title: "Healthy House Design & Construction",
       type: "construction",
     },
   ];
@@ -82,6 +82,22 @@ export default function CoverSlider() {
     {
       title: "Commercial",
       type: "commercial",
+    },
+    {
+      title: "Interior Lighting Design ",
+      type: "lighting",
+    },
+    {
+      title: "Exterior Lighting Design ",
+      type: "lighting",
+    },
+    {
+      title: "Mold-Free House Design",
+      type: "construction",
+    },
+    {
+      title: "Fire Resistant",
+      type: "construction",
     },
     {
       title: "Construction Consultation",
@@ -120,7 +136,7 @@ export default function CoverSlider() {
         )}
       </div>
       <div className={classes.sliderInfoTop}>
-        <div className={classes.slideTrack}>
+        <div className={classes.slideTrackTop}>
           {servicesTop.concat(servicesTop).map((service, index) => (
             <Link
               className={classes.slideItem}
@@ -137,7 +153,7 @@ export default function CoverSlider() {
         </div>
       </div>
       <div className={classes.sliderInfoBottom}>
-        <div className={classes.slideTrack}>
+        <div className={classes.slideTrackBottom}>
           {servicesBottom.concat(servicesBottom).map((service, index) => (
             <Link
               className={classes.slideItem}

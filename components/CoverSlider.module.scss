@@ -6,7 +6,7 @@
   margin: auto;
   user-select: none;
   height: 100dvh;
-  background: config.$black;
+  background: config.$dark;
 
   .video {
     position: relative;
@@ -38,11 +38,20 @@
   overflow: hidden;
   color: config.$white;
 
-  .slideTrack {
+  .slideTrackTop,
+  .slideTrackBottom {
     display: flex;
-    width: calc(350px * 10);
+    width: calc(500px * 10);
+    animation: scroll 80s linear infinite;
+
+    @include mixins.mobile {
+      width: calc(350px * 10);
+    }
+  }
+
+  .slideTrackTop {
+    width: calc(300px * 10);
     animation: scroll 50s linear infinite;
-    text-transform: uppercase;
 
     @include mixins.mobile {
       width: calc(250px * 10);
@@ -50,6 +59,8 @@
   }
 
   .slideItem {
+    display: flex;
+    justify-content: center;
     width: 100%;
     padding: 20px 0px;
 
@@ -64,7 +75,7 @@
 
 .sliderInfoTop {
   bottom: 65px;
-  border-bottom: 3px solid config.$white;
+  border-bottom: 0.5px solid config.$white;
 }
 
 @keyframes scroll {
@@ -76,9 +87,9 @@
   }
 }
 
-.sliderInfoTop:hover .slideTrack {
+.sliderInfoTop:hover .slideTrackTop {
   animation-play-state: paused;
 }
-.sliderInfoBottom:hover .slideTrack {
+.sliderInfoBottom:hover .slideTrackBottom {
   animation-play-state: paused;
 }

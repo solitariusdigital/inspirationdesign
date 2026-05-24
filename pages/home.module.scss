@@ -2,10 +2,8 @@
 @use "styles/_mixins.scss" as mixins;
 
 .container {
-  h1,
-  h2,
-  h3 {
-    text-transform: uppercase;
+  p {
+    color: config.$white;
   }
 
   .button {

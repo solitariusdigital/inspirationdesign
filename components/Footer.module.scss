@@ -6,6 +6,7 @@
   margin: auto;
   width: config.$content-width;
   max-width: config.$max-widthHeigh;
+  color: config.$black;
   @include mixins.row-space-between-center();
   user-select: none;
   text-transform: uppercase;

@@ -102,7 +102,7 @@ $screen-fourK: 6000px;
 @mixin input() {
   padding: 12px;
   height: 50px;
-  color: config.$black;
+  color: config.$text;
   outline: none;
   border: 1px solid config.$grey;
   background: config.$background;

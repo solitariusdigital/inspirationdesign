@@ -30,7 +30,7 @@ export default function Work() {
     residential: "Building & Interior Design",
     commercial: "Building & Interior Design",
     lighting: "Lighting Design",
-    construction: "Healthy House Design with Lightweight Steel Framing",
+    construction: "Healthy House Design & Construction",
   };
 
   useEffect(() => {

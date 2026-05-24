@@ -80,7 +80,7 @@ export default function ContactForm() {
           fontFamily: "OpenSansRegular",
         }}
       >
-        SEND INQUIRY
+        Send Inquiry
       </h2>
       <div className={classes.form}>
         <div className={classes.input}>
