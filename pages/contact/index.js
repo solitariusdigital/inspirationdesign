@@ -48,13 +48,13 @@ export default function Contact() {
       />
       <div className={classes.container}>
         <div className={classes.text}>
-          <h2
+          <h1
             style={{
               fontFamily: "OpenSansRegular",
             }}
           >
             Let's Design Together
-          </h2>
+          </h1>
           <p>
             We welcome inquiries from new and existing clients and anyone who
             wants to connect. If you have a unique project in mind, please don't

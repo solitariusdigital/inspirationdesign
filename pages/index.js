@@ -144,7 +144,7 @@ export default function Home() {
                   >
                     {service.descriptionOne}
                   </h3>
-                  <p>{service.descriptionTwo}</p>
+                  <h3>{service.descriptionTwo}</h3>
                   {service.type === "construction" && (
                     <div
                       style={{

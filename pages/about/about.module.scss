@@ -67,10 +67,6 @@
         margin-left: 4px;
       }
     }
-
-    h2 {
-      margin-bottom: 24px;
-    }
   }
 }
 
@@ -87,9 +83,8 @@
     width: 100%;
   }
 
-  .item {
+  .testimonial {
     padding: 12px;
-    height: 50px;
     text-align: left;
     border: 1px solid config.$lightgrey;
     @include mixins.row-space-between-center();
@@ -107,7 +102,7 @@
     text-align: left;
 
     h3 {
-      margin-top: 8px;
+      margin-top: 4px;
     }
   }
 }

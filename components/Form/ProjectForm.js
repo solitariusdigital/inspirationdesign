@@ -19,11 +19,11 @@ export default function ProjectForm() {
   const [year, setYear] = useState(editProject?.year || "");
   const [category, setCategory] = useState(editProject?.category || "");
   const [orientation, setOrientation] = useState(
-    editProject?.orientation || ""
+    editProject?.orientation || "",
   );
   const [order, setOrder] = useState(editProject?.order || "");
   const [description, setDescription] = useState(
-    editProject?.description || ""
+    editProject?.description || "",
   );
   const [alert, setAlert] = useState("");
   const [disableButton, setDisableButton] = useState(false);
@@ -33,7 +33,7 @@ export default function ProjectForm() {
   const categories = ["residential", "commercial", "lighting", "construction"];
   const orientations = ["portrait", "landscape"];
   const orders = Array.from({ length: 26 }, (_, i) =>
-    String.fromCharCode(97 + i)
+    String.fromCharCode(97 + i),
   );
 
   const compressImage = async (file) => {
@@ -132,7 +132,7 @@ export default function ProjectForm() {
       array.map((item) => ({
         file: item,
         link: URL.createObjectURL(item),
-      }))
+      })),
     );
   };
 

@@ -42,23 +42,24 @@ html {
   font-size: clamp(12.96px, 0.81vw + 0.405rem, 16.2px);
 }
 h1 {
-  font-size: 2.025em;
+  font-size: 2em;
 }
 h2 {
-  font-size: 1.62em;
+  font-size: 1.6em;
 }
 h3 {
-  font-size: 1.215em;
+  font-size: 1.2em;
+  line-height: 1.5em;
 }
 h4 {
-  font-size: 1.0125em;
+  font-size: 1.05em;
 }
 p {
   font-size: 1em;
   line-height: 1.5em;
 }
 small {
-  font-size: 0.70875em;
+  font-size: 0.75em;
 }
 
 .notFound {

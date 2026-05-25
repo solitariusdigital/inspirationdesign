@@ -147,7 +147,7 @@ export default function CoverSlider() {
               href="/work"
               passHref
             >
-              <h3>{service.title}</h3>
+              <h2>{service.title}</h2>
             </Link>
           ))}
         </div>

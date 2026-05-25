@@ -214,22 +214,22 @@ export default function About() {
           <>
             {companySection.map((section, index) => (
               <div key={index} className={classes.info}>
-                <h2 style={{ fontFamily: "OpenSansRegular" }}>
+                <h1 style={{ fontFamily: "OpenSansRegular" }}>
                   {section.title}
-                </h2>
+                </h1>
                 {section.paragraphs.map((text, i) => (
                   <div key={i} className={classes.row}>
                     {index === 4 && (
                       <CircleOutlinedIcon sx={{ fontSize: 10 }} />
                     )}
                     {index === 0 && i === 0 ? (
-                      <h3
+                      <h2
                         style={{
                           fontFamily: "OpenSansItalic",
                         }}
                       >
                         {text}
-                      </h3>
+                      </h2>
                     ) : (
                       <p>{text}</p>
                     )}
@@ -241,16 +241,16 @@ export default function About() {
         )}
         {pageType === "testimonials" && (
           <div className={classes.info}>
-            <h2
+            <h1
               style={{
                 fontFamily: "OpenSansRegular",
               }}
             >
               Testimonials
-            </h2>
+            </h1>
             <div className={classes.gridLayout}>
               {testimonials.map((item, index) => (
-                <div key={index} className={classes.item}>
+                <div key={index} className={classes.testimonial}>
                   <h3>{item.title}</h3>
                   <ArrowForwardIosIcon sx={{ fontSize: 12 }} />
                 </div>
@@ -260,13 +260,13 @@ export default function About() {
         )}
         {pageType === "awards" && (
           <div className={classes.info}>
-            <h2
+            <h1
               style={{
                 fontFamily: "OpenSansRegular",
               }}
             >
               Awards
-            </h2>
+            </h1>
             <div className={classes.gridLayout}>
               {awards.map((item, index) => (
                 <div key={index} className={classes.award}>
@@ -285,13 +285,13 @@ export default function About() {
         )}
         {pageType === "publications" && (
           <div className={classes.info}>
-            <h2
+            <h1
               style={{
                 fontFamily: "OpenSansRegular",
               }}
             >
               Publications
-            </h2>
+            </h1>
             <div className={classes.publicationLayout}>
               {publications.map((item, index) => (
                 <div key={index} className={classes.publication}>
