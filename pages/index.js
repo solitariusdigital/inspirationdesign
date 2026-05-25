@@ -120,13 +120,13 @@ export default function Home() {
                 passHref
               >
                 <div className={classes.info}>
-                  <h2
+                  <h1
                     style={{
                       fontFamily: "OpenSansRegular",
                     }}
                   >
                     {service.title}
-                  </h2>
+                  </h1>
                   <div className={classes.light}>
                     <Light timer={500 * index} />
                   </div>
@@ -137,13 +137,13 @@ export default function Home() {
                   >
                     {service.subTitle}
                   </h3>
-                  <p
+                  <h3
                     style={{
                       margin: "8px 0px",
                     }}
                   >
                     {service.descriptionOne}
-                  </p>
+                  </h3>
                   <p>{service.descriptionTwo}</p>
                   {service.type === "construction" && (
                     <div

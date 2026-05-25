@@ -13,7 +13,7 @@
     justify-content: center;
 
     button {
-      @include mixins.button(config.$brand, config.$black, config.$white);
+      @include mixins.button(config.$brand, config.$dark, config.$white);
     }
   }
 }
@@ -66,7 +66,7 @@
       direction: ltr;
 
       button {
-        @include mixins.button(config.$brand, config.$black, config.$white);
+        @include mixins.button(config.$brand, config.$dark, config.$white);
         margin-top: 12px;
       }
 

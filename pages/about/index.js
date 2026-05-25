@@ -74,7 +74,7 @@ export default function About() {
       ],
     },
     {
-      title: "Our Services Include",
+      // title: "Our Services Include",
       paragraphs: [
         "At Inspiration Design, every project begins with a deep understanding of the client’s vision and lifestyle needs. We translate these aspirations into thoughtful, functional spaces grounded in technical knowledge and contemporary architectural and interior design thinking, informed by European design culture and global trends. Above all, we prioritize health, safety, and wellbeing through advanced building technologies and carefully selected healthy materials to create spaces that are intelligent, enduring, and beautiful.",
       ],
@@ -251,7 +251,7 @@ export default function About() {
             <div className={classes.gridLayout}>
               {testimonials.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <p>{item.title}</p>
+                  <h3>{item.title}</h3>
                   <ArrowForwardIosIcon sx={{ fontSize: 12 }} />
                 </div>
               ))}
@@ -270,14 +270,14 @@ export default function About() {
             <div className={classes.gridLayout}>
               {awards.map((item, index) => (
                 <div key={index} className={classes.award}>
-                  <h5
+                  <h4
                     style={{
                       fontFamily: "OpenSansRegular",
                     }}
                   >
                     {item.year}
-                  </h5>
-                  <p>{item.title}</p>
+                  </h4>
+                  <h3>{item.title}</h3>
                 </div>
               ))}
             </div>

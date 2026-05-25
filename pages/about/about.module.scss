@@ -11,9 +11,9 @@
     margin: auto;
     max-width: config.$max-widthHeigh;
     user-select: none;
-    border-bottom: 1px solid config.$lightgrey;
     padding: 10px;
     @include mixins.row-space-between-center();
+    text-transform: uppercase;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
@@ -31,19 +31,19 @@
 
       &:hover {
         cursor: pointer;
-        color: config.$brand;
+        color: config.$dark;
       }
     }
 
     .navActive {
       width: fit-content;
-      font-size: small;
-      color: config.$brand;
+      font-size: medium;
+      font-family: "OpenSansRegular";
     }
   }
 
   .info {
-    width: config.$content-width;
+    width: 80%;
     max-width: config.$max-widthHeigh;
     margin: 50px auto;
 
@@ -67,6 +67,10 @@
         margin-left: 4px;
       }
     }
+
+    h2 {
+      margin-bottom: 24px;
+    }
   }
 }
 
@@ -84,7 +88,7 @@
   }
 
   .item {
-    padding: 8px;
+    padding: 12px;
     height: 50px;
     text-align: left;
     border: 1px solid config.$lightgrey;
@@ -98,10 +102,13 @@
   }
 
   .award {
-    padding: 8px;
-    height: fit-content;
+    padding: 12px;
     border: 1px solid config.$lightgrey;
     text-align: left;
+
+    h3 {
+      margin-top: 8px;
+    }
   }
 }
 
@@ -126,10 +133,10 @@
       position: relative;
       bottom: 4px;
       margin-left: 4px;
+    }
 
-      @include mixins.desktop {
-        bottom: 6px;
-      }
+    p::first-letter {
+      font-size: 1.5rem;
     }
   }
 }

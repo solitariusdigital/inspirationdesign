@@ -42,7 +42,7 @@
     align-items: center;
 
     button {
-      @include mixins.button(config.$brand, config.$black, config.$white);
+      @include mixins.button(config.$brand, config.$dark, config.$white);
     }
   }
 

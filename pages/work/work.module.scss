@@ -12,9 +12,9 @@
     margin: auto;
     max-width: config.$max-widthHeigh;
     user-select: none;
-    border-bottom: 1px solid config.$lightgrey;
     padding: 10px;
     @include mixins.row-space-between-center();
+    text-transform: uppercase;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
@@ -32,22 +32,21 @@
 
       &:hover {
         cursor: pointer;
-        color: config.$brand;
+        color: config.$dark;
       }
     }
 
     .navActive {
       width: fit-content;
-      font-size: small;
-      color: config.$brand;
+      font-size: medium;
+      font-family: "OpenSansRegular";
     }
   }
 
   .title {
     display: flex;
     justify-content: center;
-    margin: 24px auto;
-    color: config.$text;
+    margin: auto;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
