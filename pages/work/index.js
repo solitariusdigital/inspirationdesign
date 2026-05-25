@@ -444,7 +444,7 @@ export default function Work() {
                 vulnerable to warping, shrinking, rot, and hidden mold growth,
                 risks that directly affect indoor air quality, fire safety,
                 long-term durability, and, most importantly,{" "}
-                <span>inhabitants’ health and safety</span>.
+                <span>inhabitant’s health and safety</span>.
               </p>
               <p>
                 Lightweight steel framing offers a{" "}
