@@ -22,7 +22,7 @@ export default function Home() {
   const expertise = [
     {
       title: "Building & Interior Design",
-      subTitle: `“ There are 360 degrees, so why stick to one? ” — Zaha Hadid`,
+      subTitle: `“ There are 360 degrees, so why stick to one? ” - Zaha Hadid`,
       descriptionOne:
         "Building and interior design for residential, commercial, cultural, and institutional projects internationally has been at the core of Inspiration Design’s work for over 25 years internationally and for the last 15 years in Canada. Our experience includes international projects in Europe and the Middle East, including work for the French Embassy, Ministries of Culture, Royal families, retail and exhibition spaces in Dubai and Bahrain, extending to multi-family residential developments on the North Shore of Vancouver and luxury custom homes in West Vancouver.",
       descriptionTwo:
@@ -33,7 +33,7 @@ export default function Home() {
     },
     {
       title: "Lighting Design",
-      subTitle: `“ Light is an essential element of life. Good light is like a good meal — required for well-being. ” — Yann Kersalé`,
+      subTitle: `“ Light is an essential element of life. Good light is like a good meal - required for well-being. ” - Yann Kersalé`,
       descriptionOne:
         "Lighting design for residential, commercial, heritage, and public spaces internationally, ranging from luxury custom homes and residential interiors to cultural and public landmarks, has been part of Inspiration Design’s work for over 20 years in Canada and abroad. Our recent work includes lighting design contributions for Vancouver Chinatown, including the Millennium Gate, Dr. Sun Yat-Sen Classical Chinese Garden, and the Chinese Cultural Centre.",
       descriptionTwo:
