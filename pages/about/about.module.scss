@@ -88,6 +88,7 @@
     text-align: left;
     border: 1px solid config.$lightgrey;
     @include mixins.row-space-between-center();
+    font-family: "OpenSansRegular";
 
     &:hover {
       color: config.$brand;
@@ -103,6 +104,7 @@
 
     h3 {
       margin-top: 4px;
+      font-family: "OpenSansRegular";
     }
   }
 }

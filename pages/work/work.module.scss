@@ -3,7 +3,6 @@
 
 .container {
   margin: 100px auto;
-  user-select: none;
 
   .navigation {
     width: 30%;
@@ -62,6 +61,7 @@
   margin: 50px auto;
   width: config.$content-width;
   max-width: config.$max-widthHeigh;
+  user-select: none;
 
   .column {
     display: flex;
@@ -330,5 +330,37 @@
     margin: 24px 0px;
     direction: rtl;
     color: config.$white;
+  }
+}
+
+.constructionLayout {
+  width: 80%;
+  margin: 50px auto;
+  max-width: config.$max-widthHeigh;
+
+  @include mixins.mobile {
+    width: calc(100% - 24px);
+  }
+  @include mixins.tabletPortrait {
+    width: config.$content-widthTablet;
+  }
+  @include mixins.tabletLandscape {
+    width: config.$content-widthTablet;
+  }
+
+  .section {
+    margin-bottom: 50px;
+
+    h2,
+    h3 {
+      font-family: "OpenSansRegular";
+      margin: 4px 0px;
+    }
+    p {
+      margin: 2px 0px;
+    }
+    span {
+      font-family: "OpenSansSemiBold";
+    }
   }
 }
