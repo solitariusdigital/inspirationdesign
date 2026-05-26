@@ -60,12 +60,12 @@
     .box {
       @include mixins.row-space-between-center();
 
-      @include mixins.allDesktop {
-        min-height: 850px;
-      }
       @include mixins.mobile {
         display: flex;
         flex-direction: column;
+      }
+      @include mixins.allDesktop {
+        min-height: 850px;
       }
 
       .imageBox {
