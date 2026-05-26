@@ -60,9 +60,28 @@
     .box {
       @include mixins.row-space-between-center();
 
+      @include mixins.allDesktop {
+        min-height: 850px;
+      }
       @include mixins.mobile {
         display: flex;
         flex-direction: column;
+      }
+
+      .imageBox {
+        width: 48%;
+
+        @include mixins.mobile {
+          width: 100%;
+        }
+      }
+
+      .infoBox {
+        width: 48%;
+
+        @include mixins.mobile {
+          width: 100%;
+        }
       }
     }
 

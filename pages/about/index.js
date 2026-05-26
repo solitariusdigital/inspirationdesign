@@ -29,15 +29,15 @@ export default function About() {
   }, []);
 
   const navigation = ["company", "testimonials", "awards", "publications"];
-  const companySection = [
-    {
-      title: "The Company",
-      paragraphs: [
-        `“ In my work, design is the bridge between a client’s vision and a built reality. ” - Parastoo Jafari`,
-        `Founded in 2006, Inspiration Design Ltd. is a full-service turnkey design firm specializing in building design, interior design, lighting design, and project management, with a growing focus on healthy, high-performance houses using lightweight steel framing.`,
-        `The firm originally began as a specialized design and project management company in Dubai and Bahrain, working with some of the most talented architects, designers, and builders internationally. Highlights include prestigious projects for the Royal family and the French Embassy in Bahrain, as well as private residences, multifamily buildings, retail and restaurant projects, offices, banks, and exhibitions, many of which included specialized exterior lighting design. This international experience was followed by over 15 years of specialization in residential and luxury single-family projects in Canada, including multifamily buildings in North Vancouver and high-end houses in West Vancouver.`,
-      ],
-    },
+  const company = {
+    title: "The Company",
+    paragraphs: [
+      `“ In my work, design is the bridge between a client’s vision and a built reality. ” - Parastoo Jafari`,
+      `Founded in 2006, Inspiration Design Ltd. is a full-service turnkey design firm specializing in building design, interior design, lighting design, and project management, with a growing focus on healthy, high-performance houses using lightweight steel framing.`,
+      `The firm originally began as a specialized design and project management company in Dubai and Bahrain, working with some of the most talented architects, designers, and builders internationally. Highlights include prestigious projects for the Royal family and the French Embassy in Bahrain, as well as private residences, multifamily buildings, retail and restaurant projects, offices, banks, and exhibitions, many of which included specialized exterior lighting design. This international experience was followed by over 15 years of specialization in residential and luxury single-family projects in Canada, including multifamily buildings in North Vancouver and high-end houses in West Vancouver.`,
+    ],
+  };
+  const information = [
     {
       title: "Professional Background",
       paragraphs: [
@@ -214,62 +214,74 @@ export default function About() {
         </div>
         {pageType === "company" && (
           <>
-            {companySection.map((section, index) => (
-              <div key={index} className={classes.info}>
-                <div className={classes.box}>
-                  {index === 0 && (
-                    <div
-                      style={{
-                        marginBottom: screenSize === "mobile" ? "50px" : "0px",
-                      }}
-                    >
-                      <FirebaseImage
-                        path="Resources/About.jpg"
-                        alt="about"
-                        mode="intrinsic"
-                      />
-                    </div>
-                  )}
-                  <div
-                    style={{
-                      marginLeft:
-                        index === 0 && screenSize !== "mobile" ? "50px" : "0px",
-                    }}
-                  >
-                    <h1 style={{ fontFamily: "OpenSansRegular" }}>
-                      {section.title}
-                    </h1>
-                    {section.paragraphs.map((text, i) => (
-                      <div
-                        key={i}
-                        style={{
-                          margin: index !== 4 ? "12px 0px" : null,
-                        }}
-                        className={classes.row}
-                      >
-                        {index === 4 && (
-                          <CircleOutlinedIcon
-                            sx={{ fontSize: 10 }}
-                            style={{
-                              marginRight: "4px",
-                            }}
-                          />
-                        )}
-                        {index === 0 && i === 0 ? (
-                          <h2
-                            style={{
-                              fontFamily: "OpenSansItalic",
-                            }}
-                          >
-                            {text}
-                          </h2>
-                        ) : (
-                          <p>{text}</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+            <div className={classes.info}>
+              <div className={classes.box}>
+                <div
+                  className={classes.imageBox}
+                  style={{
+                    marginBottom: screenSize === "mobile" ? "50px" : "0px",
+                    // marginRight: screenSize !== "mobile" ? "50px" : "0px",
+                  }}
+                >
+                  <FirebaseImage
+                    path="Resources/About.jpg"
+                    alt="about"
+                    mode="intrinsic"
+                  />
                 </div>
+                <div className={classes.infoBox}>
+                  <h1 style={{ fontFamily: "OpenSansRegular" }}>
+                    {company.title}
+                  </h1>
+                  {company.paragraphs.map((text, i) => (
+                    <div key={i}>
+                      {i === 0 ? (
+                        <h2
+                          style={{
+                            fontFamily: "OpenSansItalic",
+                            margin: "12px 0px",
+                          }}
+                        >
+                          {text}
+                        </h2>
+                      ) : (
+                        <p
+                          style={{
+                            margin: "12px 0px",
+                          }}
+                        >
+                          {text}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {information.map((section, index) => (
+              <div key={index} className={classes.info}>
+                <h1 style={{ fontFamily: "OpenSansRegular" }}>
+                  {section.title}
+                </h1>
+                {section.paragraphs.map((text, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      margin: index !== 3 ? "12px 0px" : null,
+                    }}
+                    className={classes.row}
+                  >
+                    {index === 3 && (
+                      <CircleOutlinedIcon
+                        sx={{ fontSize: 10 }}
+                        style={{
+                          marginRight: "4px",
+                        }}
+                      />
+                    )}
+                    <p>{text}</p>
+                  </div>
+                ))}
               </div>
             ))}
           </>
