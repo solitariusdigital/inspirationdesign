@@ -55,12 +55,12 @@ export default function Contact() {
           >
             Let's Design Together
           </h1>
-          <p>
+          <h3>
             We welcome inquiries from new and existing clients and anyone who
             wants to connect. If you have a unique project in mind, please don't
             hesitate to contact us. We're eager to design your next home or
             space.
-          </p>
+          </h3>
         </div>
         <div className={classes.imageBox}>
           <FirebaseImage path="Resources/Building.jpg" alt="contact" />
