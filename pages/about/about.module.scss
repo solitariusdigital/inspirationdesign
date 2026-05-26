@@ -88,7 +88,7 @@
     .row {
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: first baseline;
     }
   }
 }
@@ -146,12 +146,10 @@
     @include mixins.row-space-between-center();
     flex-direction: row-reverse;
     text-align: left;
-    align-items: flex-start;
+    align-items: first baseline;
     margin-bottom: 8px;
 
     p {
-      position: relative;
-      bottom: 4px;
       margin-left: 4px;
     }
 
