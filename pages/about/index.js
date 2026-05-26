@@ -6,9 +6,11 @@ import classes from "./about.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
+import FirebaseImage from "@/components/FirebaseImage";
 
 export default function About() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
+  const { screenSize, setScreenSize } = useContext(StateContext);
 
   const [pageType, setPageType] = useState(
     "company" || "testimonials" || "awards" || "publications",
@@ -214,27 +216,60 @@ export default function About() {
           <>
             {companySection.map((section, index) => (
               <div key={index} className={classes.info}>
-                <h1 style={{ fontFamily: "OpenSansRegular" }}>
-                  {section.title}
-                </h1>
-                {section.paragraphs.map((text, i) => (
-                  <div key={i} className={classes.row}>
-                    {index === 4 && (
-                      <CircleOutlinedIcon sx={{ fontSize: 10 }} />
-                    )}
-                    {index === 0 && i === 0 ? (
-                      <h2
+                <div className={classes.box}>
+                  {index === 0 && (
+                    <div
+                      style={{
+                        marginBottom: screenSize === "mobile" ? "50px" : "0px",
+                      }}
+                    >
+                      <FirebaseImage
+                        path="Resources/About.jpg"
+                        alt="about"
+                        mode="intrinsic"
+                      />
+                    </div>
+                  )}
+                  <div
+                    style={{
+                      marginLeft:
+                        index === 0 && screenSize !== "mobile" ? "50px" : "0px",
+                    }}
+                  >
+                    <h1 style={{ fontFamily: "OpenSansRegular" }}>
+                      {section.title}
+                    </h1>
+                    {section.paragraphs.map((text, i) => (
+                      <div
+                        key={i}
                         style={{
-                          fontFamily: "OpenSansItalic",
+                          margin: index !== 4 ? "12px 0px" : null,
                         }}
+                        className={classes.row}
                       >
-                        {text}
-                      </h2>
-                    ) : (
-                      <p>{text}</p>
-                    )}
+                        {index === 4 && (
+                          <CircleOutlinedIcon
+                            sx={{ fontSize: 10 }}
+                            style={{
+                              marginRight: "4px",
+                            }}
+                          />
+                        )}
+                        {index === 0 && i === 0 ? (
+                          <h2
+                            style={{
+                              fontFamily: "OpenSansItalic",
+                            }}
+                          >
+                            {text}
+                          </h2>
+                        ) : (
+                          <p>{text}</p>
+                        )}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
             ))}
           </>

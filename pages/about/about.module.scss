@@ -57,15 +57,19 @@
       width: config.$content-widthTablet;
     }
 
+    .box {
+      @include mixins.row-space-between-center();
+
+      @include mixins.mobile {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
     .row {
       display: flex;
       flex-direction: row;
       align-items: center;
-      margin: 12px 0px;
-
-      p {
-        margin-left: 4px;
-      }
     }
   }
 }

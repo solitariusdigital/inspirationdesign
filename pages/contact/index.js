@@ -63,7 +63,7 @@ export default function Contact() {
           </h3>
         </div>
         <div className={classes.imageBox}>
-          <FirebaseImage path="Resources/Building.jpg" alt="contact" />
+          <FirebaseImage path="Resources/Contact.jpg" alt="contact" />
         </div>
         <div className={classes.contact}>
           <div className={classes.contactBox}>
