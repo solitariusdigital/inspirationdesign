@@ -267,12 +267,17 @@
     margin-bottom: 50px;
 
     @include mixins.mobile {
-      width: 100%;
+      width: calc(100% - 24px);
     }
 
     .imageBoxLandscape {
       height: calc(100dvh - 100px);
+
+      @include mixins.mobile {
+        height: 300px;
+      }
     }
+
     .overlay {
       position: absolute;
       width: 100%;
@@ -281,13 +286,31 @@
       max-width: config.$max-widthHeigh;
       @include mixins.transparentBackground(0.1, config.$dark);
 
+      @include mixins.mobile {
+        position: relative;
+        padding-bottom: 24px;
+      }
+
       .row {
         margin: auto;
         width: config.$content-textWidth;
         @include mixins.row-space-between-center();
 
         @include mixins.mobile {
-          width: calc(100% - 24px);
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+          h3 {
+            width: calc(100% - 24px);
+          }
+        }
+
+        @include mixins.tabletPortrait {
+          width: config.$content-widthTablet;
+        }
+        @include mixins.tabletLandscape {
+          width: config.$content-widthTablet;
         }
       }
     }

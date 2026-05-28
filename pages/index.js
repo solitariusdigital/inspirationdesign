@@ -8,7 +8,6 @@ import Link from "next/link";
 import CoverSlider from "@/components/CoverSlider";
 import logoBlack from "@/assets/logo-black.png";
 import Light from "@/components/Light";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
@@ -175,14 +174,9 @@ export default function Home() {
                   href="/work"
                   passHref
                 >
-                  <FirebaseImage path={service.path} alt={service.title} />
-                  <ArrowBackIcon
-                    className={classes.icon}
-                    sx={{ fontSize: 18 }}
-                    onClick={() => {
-                      setProjectsCategory(service.type);
-                    }}
-                  />
+                  <div className={classes.imageInner}>
+                    <FirebaseImage path={service.path} alt={service.title} />
+                  </div>
                 </Link>
               </div>
             </div>
