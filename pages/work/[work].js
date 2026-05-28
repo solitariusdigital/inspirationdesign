@@ -221,17 +221,23 @@ export default function Project() {
             </div>
           )}
           <div className={classes.info}>
-            <h2
+            <h1
               style={{
                 fontFamily: "OpenSansRegular",
+                marginTop: "50px",
               }}
             >
               {displayProject.title}
-            </h2>
-            <h3>{displayProject.location}</h3>
-            <p>{displayProject.year}</p>
+            </h1>
+            <h2>{displayProject.location}</h2>
+            <h3>{displayProject.year}</h3>
           </div>
-          <div className={classes.description}>
+          <div
+            className={classes.description}
+            style={{
+              marginBottom: "50px",
+            }}
+          >
             <h3
               className={classes.subTitle}
               style={{
@@ -265,7 +271,7 @@ export default function Project() {
                   );
                 if (trimmedDesc === "Credits") {
                   return (
-                    <h3
+                    <h4
                       className={classes.subTitle}
                       style={{
                         fontFamily: "OpenSansRegular",
@@ -274,7 +280,7 @@ export default function Project() {
                       key={index}
                     >
                       {trimmedDesc}
-                    </h3>
+                    </h4>
                   );
                 }
                 return <p key={index}>{renderWithLinks()}</p>;

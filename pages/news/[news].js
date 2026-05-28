@@ -171,31 +171,35 @@ export default function NewsArticle() {
               </Tooltip>
             </div>
           )}
-          <div className={classes.info}>
-            <h2
-              style={{
-                fontFamily: "OpenSansRegular",
-              }}
-            >
-              {displayNews.title}
-            </h2>
-            <h3>{convertDateName(displayNews.date)}</h3>
-            <p>{getTotalReadingTime(displayNews)}</p>
-          </div>
+
           <div className={classes.heroNews}>
             <div className={classes.imageBoxLandscape}>
               <FirebaseImage path={displayNews.hero} alt={displayNews.title} />
             </div>
-            <div className={classes.description}>
-              <h3>{displayNews.description.split("\n\n")[0]}</h3>
+            <div className={classes.overlay}>
+              <div className={classes.row}>
+                <div className={classes.info}>
+                  <h1
+                    style={{
+                      fontFamily: "OpenSansRegular",
+                    }}
+                  >
+                    {displayNews.title}
+                  </h1>
+                  <h2>{convertDateName(displayNews.date)}</h2>
+                  <p>{getTotalReadingTime(displayNews)}</p>
+                </div>
+                <h3
+                  style={{
+                    fontFamily: "OpenSansRegular",
+                  }}
+                >
+                  {displayNews.description.split("\n\n")[0]}
+                </h3>
+              </div>
             </div>
           </div>
-          <div
-            className={classes.description}
-            style={{
-              marginTop: "12px",
-            }}
-          >
+          <div className={classes.description}>
             {displayNews.description
               .split("\n\n")
               .slice(1)

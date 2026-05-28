@@ -193,11 +193,20 @@
     }
   }
 
+  .description {
+    @include mixins.allDesktop {
+      width: config.$content-textWidth;
+    }
+  }
   .info {
     margin: 24px auto;
+
+    @include mixins.allDesktop {
+      width: config.$content-textWidth;
+    }
   }
   .subTitle {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .link {
@@ -253,21 +262,33 @@
   }
 
   .heroNews {
+    position: relative;
     @extend .heroBase;
-    margin-bottom: 24px;
-    width: config.$content-width;
-    @include mixins.row-space-between-center();
+    margin-bottom: 50px;
 
     @include mixins.mobile {
-      display: flex;
-      flex-direction: column-reverse;
-      width: calc(100% - 24px);
+      width: 100%;
     }
 
-    .description {
-      @include mixins.mobile {
-        margin-bottom: 24px !important;
-        margin-left: 0px !important;
+    .imageBoxLandscape {
+      height: calc(100dvh - 100px);
+    }
+    .overlay {
+      position: absolute;
+      width: 100%;
+      bottom: 0px !important;
+      color: config.$white;
+      max-width: config.$max-widthHeigh;
+      @include mixins.transparentBackground(0.1, config.$dark);
+
+      .row {
+        margin: auto;
+        width: config.$content-textWidth;
+        @include mixins.row-space-between-center();
+
+        @include mixins.mobile {
+          width: calc(100% - 24px);
+        }
       }
     }
   }
@@ -319,7 +340,7 @@
   z-index: 5;
   width: 100%;
   overflow: hidden;
-  @include mixins.transparentBackground(0.1, config.$dark);
+  @include mixins.transparentBackground(0.05, config.$dark);
 
   .icon {
     display: flex;
@@ -334,7 +355,7 @@
 }
 
 .constructionLayout {
-  width: 80%;
+  width: config.$content-textWidth;
   margin: 50px auto;
   max-width: config.$max-widthHeigh;
 

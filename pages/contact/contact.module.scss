@@ -14,19 +14,13 @@
     }
 
     h3 {
-      width: 60%;
+      width: config.$content-textWidth;
       max-width: config.$max-widthHeigh;
       margin: 12px auto;
       text-align: left;
 
       @include mixins.mobile {
         width: 100%;
-      }
-      @include mixins.tabletPortrait {
-        width: 80%;
-      }
-      @include mixins.tabletLandscape {
-        width: 80%;
       }
     }
   }
@@ -44,7 +38,7 @@
 
     .contactBox {
       margin: auto;
-      width: config.$content-width;
+      width: config.$content-textWidth;
       max-width: config.$max-widthHeigh;
       @include mixins.row-space-between-center();
 

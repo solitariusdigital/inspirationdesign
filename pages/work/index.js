@@ -189,9 +189,9 @@ export default function Work() {
                             <h2 className="animate__animated animate__slideInUp">
                               {project.title}
                             </h2>
-                            <p className="animate__animated animate__slideInUp">
+                            <h3 className="animate__animated animate__slideInUp">
                               {project.location}
-                            </p>
+                            </h3>
                           </div>
                         )}
                       </div>
@@ -251,9 +251,9 @@ export default function Work() {
                             >
                               {project.title}
                             </h2>
-                            <p className="animate__animated animate__slideInUp">
+                            <h3 className="animate__animated animate__slideInUp">
                               {project.location}
-                            </p>
+                            </h3>
                           </div>
                         )}
                       </div>

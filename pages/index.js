@@ -49,6 +49,7 @@ export default function Home() {
         "Our work combines modern design with healthier and more durable building systems, with over 25 years of experience in Canada and internationally. Our work includes waterfront custom homes and luxury single-family residential projects on the North Shore using Lightweight Steel Framing (LSF), a precise, non-combustible, and mold-resistant alternative to conventional wood construction.",
       descriptionTwo:
         "Supported by advanced university-level research and extensive experience in healthy building systems, LSF advantages include:",
+      path: "Resources/LFS.jpg",
       aspectRatio: 16 / 11,
       type: "construction",
     },
