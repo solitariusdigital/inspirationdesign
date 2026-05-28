@@ -107,17 +107,17 @@ export default function News() {
                       <FirebaseImage path={news.hero} alt={news.title} />
                     </div>
                   </div>
-                  <h2
-                    style={{
-                      fontFamily: "OpenSansRegular",
-                      marginTop: "12px",
-                    }}
-                  >
-                    {news.title}
-                  </h2>
-                  <h3 className={classes.description}>
-                    {sliceString(news.description, 80)}
-                  </h3>
+                  <div className={classes.description}>
+                    <h2
+                      style={{
+                        fontFamily: "OpenSansRegular",
+                        marginTop: "12px",
+                      }}
+                    >
+                      {news.title}
+                    </h2>
+                    <h3>{sliceString(news.description, 80)}</h3>
+                  </div>
                 </div>
               </Link>
             );

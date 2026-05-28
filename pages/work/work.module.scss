@@ -82,6 +82,14 @@
       padding: 2px;
       background: config.$background;
     }
+
+    .description {
+      margin: auto;
+
+      @include mixins.mobile {
+        width: calc(100% - 24px);
+      }
+    }
   }
 
   .imageBoxLandscape,
@@ -122,14 +130,10 @@
 
   @include mixins.mobile {
     grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-    width: calc(100% - 24px);
+    width: 100%;
   }
   @include mixins.tabletPortrait {
     grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
-    width: config.$content-widthTablet;
-  }
-  @include mixins.tabletLandscape {
-    width: config.$content-widthTablet;
   }
 }
 
@@ -138,7 +142,7 @@
 
   @include mixins.mobile {
     grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-    width: calc(100% - 24px);
+    width: 100%;
   }
 
   @include mixins.allDesktop {
@@ -185,12 +189,6 @@
     @include mixins.mobile {
       width: calc(100% - 24px);
     }
-    @include mixins.tabletPortrait {
-      width: config.$content-widthTablet;
-    }
-    @include mixins.tabletLandscape {
-      width: config.$content-widthTablet;
-    }
   }
 
   .description {
@@ -236,13 +234,7 @@
     max-width: config.$max-widthHeigh;
 
     @include mixins.mobile {
-      width: calc(100% - 24px);
-    }
-    @include mixins.tabletPortrait {
-      width: config.$content-widthTablet;
-    }
-    @include mixins.tabletLandscape {
-      width: config.$content-widthTablet;
+      width: 100%;
     }
 
     .imageBoxLandscape,
@@ -267,7 +259,7 @@
     margin-bottom: 50px;
 
     @include mixins.mobile {
-      width: calc(100% - 24px);
+      width: 100%;
     }
 
     .imageBoxLandscape {
@@ -324,13 +316,7 @@
     cursor: pointer;
 
     @include mixins.mobile {
-      width: calc(100% - 24px);
-    }
-    @include mixins.tabletPortrait {
-      width: config.$content-widthTablet;
-    }
-    @include mixins.tabletLandscape {
-      width: config.$content-widthTablet;
+      width: 100%;
     }
   }
 

@@ -47,12 +47,12 @@
     @include mixins.mobile {
       display: flex;
       flex-direction: column;
-      width: calc(100% - 24px);
+      width: 100%;
     }
     @include mixins.tabletPortrait {
       display: flex;
       flex-direction: column;
-      width: config.$content-widthTablet;
+      width: 100%;
     }
     @include mixins.tabletLandscape {
       width: config.$content-widthTablet;
@@ -73,10 +73,12 @@
       }
 
       @include mixins.mobile {
-        width: 100%;
+        margin: auto;
+        width: calc(100% - 24px);
       }
       @include mixins.tabletPortrait {
-        width: 100%;
+        margin: auto;
+        width: config.$content-widthTablet;
       }
 
       .light {
