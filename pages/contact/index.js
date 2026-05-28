@@ -68,39 +68,39 @@ export default function Contact() {
         <div className={classes.contact}>
           <div className={classes.contactBox}>
             <div>
-              <h3
+              <h2
                 style={{
                   fontFamily: "OpenSansRegular",
                 }}
               >
                 Contact us
-              </h3>
-              <p
+              </h2>
+              <h3
                 className={classes.phone}
                 onClick={() => window.open(`tel:+16049710270`, "_self")}
               >
                 T 604 971 0270
-              </p>
-              <p
+              </h3>
+              <h3
                 className={classes.phone}
                 onClick={() => window.open(`tel:+16043659191`, "_self")}
               >
                 C 604 365 9191
-              </p>
-              <p>info@inspirationdesigns.ca</p>
+              </h3>
+              <h3>info@inspirationdesigns.ca</h3>
             </div>
             <div>
-              <h3
+              <h2
                 style={{
                   fontFamily: "OpenSansRegular",
                 }}
               >
                 Reach us
-              </h3>
-              <p>
+              </h2>
+              <h3>
                 Harbourfront Business Centre, 500 – 224 West Esplanade North
                 Vancouver V7M 1A4
-              </p>
+              </h3>
               <p
                 className={classes.direction}
                 onClick={() => window.open(headLocationLink)}

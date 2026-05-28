@@ -220,7 +220,6 @@ export default function About() {
                   className={classes.imageBox}
                   style={{
                     marginBottom: screenSize === "mobile" ? "50px" : "0px",
-                    // marginRight: screenSize !== "mobile" ? "50px" : "0px",
                   }}
                 >
                   <FirebaseImage

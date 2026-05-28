@@ -34,7 +34,7 @@
   .contact {
     color: config.$white;
     background: config.$dark;
-    padding: 50px 0px;
+    padding: 24px 0px;
 
     .contactBox {
       margin: auto;
@@ -52,10 +52,6 @@
       }
       @include mixins.tabletLandscape {
         width: config.$content-widthTablet;
-      }
-
-      p {
-        color: config.$white;
       }
     }
 
