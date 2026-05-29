@@ -13,33 +13,36 @@
   height: fit-content;
   text-transform: capitalize;
   margin: auto;
-  @include mixins.row-space-between-center();
+  max-width: config.$max-widthHeigh;
   user-select: none;
-  border-bottom: 1px solid config.$lightgrey;
-  padding-bottom: 12px;
+  padding: 10px;
+  @include mixins.row-space-between-center();
+  text-transform: uppercase;
 
   @include mixins.mobile {
-    width: 60%;
+    width: calc(100% - 24px);
   }
   @include mixins.tabletPortrait {
-    width: 40%;
+    width: 50%;
   }
   @include mixins.tabletLandscape {
-    width: 40%;
+    width: 50%;
   }
 
   .nav {
     width: fit-content;
+    font-size: small;
 
     &:hover {
       cursor: pointer;
-      color: config.$brand;
+      color: config.$dark;
     }
   }
 
   .navActive {
     width: fit-content;
-    color: config.$brand;
+    font-size: medium;
+    font-family: "OpenSansRegular";
   }
 }
 

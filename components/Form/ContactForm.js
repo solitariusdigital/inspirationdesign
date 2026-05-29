@@ -78,6 +78,7 @@ export default function ContactForm() {
       <h2
         style={{
           fontFamily: "OpenSansRegular",
+          marginBottom: "24px",
         }}
       >
         Send Inquiry
