@@ -126,12 +126,12 @@ export default function CoverSlider() {
         {isMuted ? (
           <MusicOffIcon
             className="icon"
-            sx={{ fontSize: 18, color: "#ffffff" }}
+            sx={{ fontSize: 16, color: "#ffffff" }}
           />
         ) : (
           <AudiotrackIcon
             className="icon"
-            sx={{ fontSize: 18, color: "#ffffff" }}
+            sx={{ fontSize: 16, color: "#ffffff" }}
           />
         )}
       </div>

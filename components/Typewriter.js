@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function Typewriter({ text, font, size, speed = 200 }) {
+export default function Typewriter({ text, font, size, speed }) {
   const [display, setDisplay] = useState("");
 
   useEffect(() => {
@@ -19,6 +19,7 @@ export default function Typewriter({ text, font, size, speed = 200 }) {
         fontFamily: font,
         fontSize: size ? "x-large" : "none",
         letterSpacing: size ? "0.3em" : "none",
+        lineHeight: "35px",
       }}
     >
       {display}

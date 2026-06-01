@@ -114,8 +114,14 @@ export default function RootLayout({ children }) {
               text="INSPIRATION"
               font="OpenSansSemiBold"
               size={false}
+              speed={150}
             />
-            <Typewriter text="DESIGN" font="OpenSansLight" size={true} />
+            <Typewriter
+              text="DESIGN"
+              font="OpenSansLight"
+              size={true}
+              speed={250}
+            />
           </div>
         </div>
       )}
