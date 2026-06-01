@@ -12,6 +12,7 @@ export default function RootLayout({ children }) {
   const { menuDisplay, setMenuDisplay } = useContext(StateContext);
   const { footerDisplay, setFooterDisplay } = useContext(StateContext);
   const [appLoader, setAppLoader] = useState(false);
+  const [moveLogo, setMoveLogo] = useState(false);
 
   const handleResize = () => {
     let element = document.getElementById("detailsInformation");
@@ -35,7 +36,7 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     const localCurrentUser = JSON.parse(
-      secureLocalStorage.getItem("currentUser")
+      secureLocalStorage.getItem("currentUser"),
     );
     if (localCurrentUser) {
       setCurrentUser(localCurrentUser);
@@ -43,6 +44,13 @@ export default function RootLayout({ children }) {
     setTimeout(() => {
       setAppLoader(true);
     }, 3000);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMoveLogo(true);
+    }, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -100,7 +108,7 @@ export default function RootLayout({ children }) {
         </div>
       ) : (
         <div className="appload">
-          <div className="typewrite">
+          <div className={`typewrite ${moveLogo ? "moveLogo" : ""}`}>
             <div className="border"></div>
             <Typewriter
               text="INSPIRATION"

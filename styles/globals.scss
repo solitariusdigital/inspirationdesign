@@ -107,10 +107,24 @@ small {
     position: absolute;
     left: 50%;
     top: 50%;
+    opacity: 1;
     transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+    transition:
+      left 1s ease-in-out,
+      top 1s ease-in-out,
+      transform 1s ease-in-out,
+      opacity 1s ease-in-out;
+
+    transition-delay: 2s;
+  }
+
+  .typewrite.moveLogo {
+    left: 20px;
+    top: 20px;
+    transform: translate(0, 0);
+    opacity: 0.1;
+    scale: 0.8;
   }
 }
 

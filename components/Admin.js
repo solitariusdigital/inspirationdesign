@@ -35,7 +35,7 @@ export default function Admin() {
         id: doc.id,
       }));
       setInquiries(
-        data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+        data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)),
       );
     };
     fetchData();
@@ -71,7 +71,7 @@ export default function Admin() {
           {inquiries.length === 0 && (
             <h4
               style={{
-                marginTop: "50px",
+                marginTop: "24px",
               }}
             >
               Empty inquiries list
