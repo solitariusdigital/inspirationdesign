@@ -18,7 +18,7 @@ export default function Typewriter({ text, font, size, speed }) {
       style={{
         fontFamily: font,
         fontSize: size ? "x-large" : "none",
-        letterSpacing: size ? "0.3em" : "none",
+        letterSpacing: size ? "0.1em" : "none",
         lineHeight: "35px",
       }}
     >
