@@ -132,46 +132,6 @@ export default function NewsArticle() {
             marginTop: "100px",
           }}
         >
-          {currentUser && (
-            <div className={classes.controlPanel}>
-              {displayNews.active ? (
-                <Tooltip title="Hide">
-                  <VerifiedUserIcon
-                    className="icon"
-                    sx={{ fontSize: 24 }}
-                    onClick={() => handlePublish(displayNews, "Hide")}
-                  />
-                </Tooltip>
-              ) : (
-                <Tooltip title="Publish">
-                  <VisibilityOffIcon
-                    sx={{ fontSize: 24 }}
-                    className="icon"
-                    onClick={() => handlePublish(displayNews, "Publish")}
-                  />
-                </Tooltip>
-              )}
-              <Tooltip title="Edit">
-                <EditIcon
-                  className="icon"
-                  sx={{ fontSize: 24 }}
-                  onClick={() => {
-                    Router.push("/portal");
-                    setEditNews(displayNews);
-                    setEditProject(null);
-                  }}
-                />
-              </Tooltip>
-              <Tooltip title="Delete">
-                <DeleteOutlineIcon
-                  className="icon"
-                  sx={{ fontSize: 24 }}
-                  onClick={() => handleDelete(displayNews)}
-                />
-              </Tooltip>
-            </div>
-          )}
-
           <div className={classes.heroNews}>
             <div className={classes.imageBoxLandscape}>
               <FirebaseImage path={displayNews.hero} alt={displayNews.title} />
@@ -199,7 +159,51 @@ export default function NewsArticle() {
               </div>
             </div>
           </div>
-          <div className={classes.description}>
+          {currentUser && (
+            <div className={classes.controlPanel}>
+              {displayNews.active ? (
+                <Tooltip title="Hide">
+                  <VerifiedUserIcon
+                    className="icon"
+                    sx={{ fontSize: 20 }}
+                    onClick={() => handlePublish(displayNews, "Hide")}
+                  />
+                </Tooltip>
+              ) : (
+                <Tooltip title="Publish">
+                  <VisibilityOffIcon
+                    sx={{ fontSize: 20 }}
+                    className="icon"
+                    onClick={() => handlePublish(displayNews, "Publish")}
+                  />
+                </Tooltip>
+              )}
+              <Tooltip title="Edit">
+                <EditIcon
+                  className="icon"
+                  sx={{ fontSize: 20 }}
+                  onClick={() => {
+                    Router.push("/portal");
+                    setEditNews(displayNews);
+                    setEditProject(null);
+                  }}
+                />
+              </Tooltip>
+              <Tooltip title="Delete">
+                <DeleteOutlineIcon
+                  className="icon"
+                  sx={{ fontSize: 20 }}
+                  onClick={() => handleDelete(displayNews)}
+                />
+              </Tooltip>
+            </div>
+          )}
+          <div
+            className={classes.description}
+            style={{
+              marginTop: "50px",
+            }}
+          >
             {displayNews.description
               .split("\n\n")
               .slice(1)
