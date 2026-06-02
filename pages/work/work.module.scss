@@ -57,7 +57,7 @@
 .gridLayoutVertical {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-  gap: 16px;
+  gap: 12px;
   margin: 50px auto;
   width: config.$content-width;
   max-width: config.$max-widthHeigh;
@@ -66,7 +66,7 @@
   .column {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
 
   .card {
@@ -281,6 +281,7 @@
       @include mixins.mobile {
         position: relative;
         padding-bottom: 24px;
+        background: config.$dark;
       }
 
       .row {
