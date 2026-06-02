@@ -380,7 +380,84 @@
   }
 
   .section {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+
+    @include mixins.mobile {
+      margin-bottom: 50px;
+    }
+
+    .row {
+      @include mixins.row-space-between-center();
+
+      @include mixins.mobile {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+
+    .imageBoxGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+      gap: 8px;
+      width: 40%;
+      font-size: small;
+      position: relative;
+
+      .imageFrame {
+        position: relative;
+        aspect-ratio: 4 / 3;
+      }
+
+      .floatText {
+        position: absolute;
+        bottom: -40px;
+        left: 0px;
+
+        @include mixins.mobile {
+          left: 12px;
+        }
+      }
+
+      @include mixins.mobile {
+        width: calc(100% + 24px);
+        margin-top: 24px;
+
+        p {
+          @include mixins.mobile {
+            margin: auto;
+            margin-top: 4px;
+            width: calc(100% - 24px);
+          }
+        }
+      }
+    }
+
+    .infoBox {
+      width: 55%;
+
+      @include mixins.mobile {
+        width: 100%;
+      }
+    }
+
+    .imageBox {
+      width: 40%;
+
+      @include mixins.mobile {
+        width: calc(100% + 24px);
+        margin-top: 24px;
+      }
+
+      p {
+        font-size: small;
+
+        @include mixins.mobile {
+          margin: auto;
+          margin-top: 4px;
+          width: calc(100% - 24px);
+        }
+      }
+    }
 
     h2,
     h3 {
