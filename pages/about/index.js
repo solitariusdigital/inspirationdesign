@@ -259,7 +259,12 @@ export default function About() {
             </div>
             {information.map((section, index) => (
               <div key={index} className={classes.info}>
-                <h1 style={{ fontFamily: "OpenSansRegular" }}>
+                <h1
+                  style={{
+                    marginBottom: "12px",
+                    fontFamily: "OpenSansRegular",
+                  }}
+                >
                   {section.title}
                 </h1>
                 {section.paragraphs.map((text, i) => (
