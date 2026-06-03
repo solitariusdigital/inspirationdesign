@@ -95,6 +95,12 @@
           margin-left: 8px;
         }
       }
+
+      .arrow {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: 16px;
+      }
     }
 
     .imageBox {

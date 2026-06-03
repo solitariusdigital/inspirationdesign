@@ -160,17 +160,16 @@ export default function Home() {
                       ))}
                     </div>
                   )}
-                  <ArrowForwardIosIcon
-                    className="icon"
-                    style={{
-                      marginTop: "16px",
-                    }}
-                    sx={{ fontSize: 20 }}
-                    onClick={() => {
-                      setProjectsCategory(service.type);
-                      Router.push("/work");
-                    }}
-                  />
+                  <div className={classes.arrow}>
+                    <ArrowForwardIosIcon
+                      className="icon"
+                      sx={{ fontSize: 20 }}
+                      onClick={() => {
+                        setProjectsCategory(service.type);
+                        Router.push("/work");
+                      }}
+                    />
+                  </div>
                 </div>
               </Link>
               <div
