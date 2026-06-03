@@ -90,6 +90,8 @@ export default function RootLayout({ children }) {
         <div
           style={{
             fontFamily: "OpenSansLight",
+            backgroundColor: "#f2f0f0",
+            minHeight: "100vh",
           }}
         >
           {menuDisplay && (
