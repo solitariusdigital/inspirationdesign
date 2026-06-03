@@ -124,15 +124,9 @@ export default function CoverSlider() {
       />
       <div className={classes.control} onClick={handleVideoClick}>
         {isMuted ? (
-          <MusicOffIcon
-            className="icon"
-            sx={{ fontSize: 16, color: "#ffffff" }}
-          />
+          <MusicOffIcon className="icon" sx={{ fontSize: 16 }} />
         ) : (
-          <AudiotrackIcon
-            className="icon"
-            sx={{ fontSize: 16, color: "#ffffff" }}
-          />
+          <AudiotrackIcon className="icon" sx={{ fontSize: 16 }} />
         )}
       </div>
       <div className={classes.sliderInfoTop}>

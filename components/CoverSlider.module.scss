@@ -23,6 +23,7 @@
     position: absolute;
     top: 15%;
     right: 2.5%;
+    color: config.$lightgrey;
   }
 }
 
@@ -63,6 +64,9 @@
     width: 100%;
     padding: 15px 0px;
 
+    @include mixins.mobile {
+      padding: 20px 0px;
+    }
     @include mixins.allDesktop {
       &:hover {
         cursor: pointer;

@@ -1,28 +1,45 @@
 import { useState, useEffect } from "react";
+import classes from "./Typewriter.module.scss";
 
 export default function Typewriter({ text, font, size, speed }) {
-  const [display, setDisplay] = useState("");
+  const [visibleCount, setVisibleCount] = useState(0);
 
   useEffect(() => {
+    setVisibleCount(0);
     let i = 0;
+
     const interval = setInterval(() => {
-      setDisplay(text.slice(0, i + 1));
       i++;
-      if (i === text.length) clearInterval(interval);
+      setVisibleCount(i);
+
+      if (i >= text.length) {
+        clearInterval(interval);
+      }
     }, speed);
+
     return () => clearInterval(interval);
   }, [text, speed]);
 
   return (
     <h1
       style={{
-        fontFamily: font,
-        fontSize: size ? "x-large" : "none",
-        letterSpacing: size ? "0.1em" : "none",
-        lineHeight: "35px",
+        lineHeight: "30px",
       }}
     >
-      {display}
+      {text.split("").map((char, index) => (
+        <span
+          style={{
+            fontFamily: font,
+            fontSize: size ? "x-large" : "inherit",
+            letterSpacing: size ? "0.1em" : "normal",
+            animationDelay: `${index * 0.02}s`,
+          }}
+          key={index}
+          className={`${classes.letter} ${index < visibleCount ? classes.show : ""}`}
+        >
+          {char}
+        </span>
+      ))}
     </h1>
   );
 }

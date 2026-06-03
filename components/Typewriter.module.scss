@@ -1,0 +1,19 @@
+@use "styles/_config.scss" as config;
+@use "styles/_mixins.scss" as mixins;
+
+.letter {
+  opacity: 0.3;
+  display: inline-block;
+  transform: translateY(2px);
+  transition:
+    opacity 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+  color: config.$grey;
+}
+
+.letter.show {
+  opacity: 1;
+  transform: translateY(0px);
+  color: config.$white;
+}

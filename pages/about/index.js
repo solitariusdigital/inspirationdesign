@@ -279,7 +279,7 @@ export default function About() {
                       <CircleOutlinedIcon
                         sx={{ fontSize: 10 }}
                         style={{
-                          marginRight: "4px",
+                          marginRight: "8px",
                         }}
                       />
                     )}

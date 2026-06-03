@@ -9,6 +9,7 @@ import CoverSlider from "@/components/CoverSlider";
 import logoBlack from "@/assets/logo-black.png";
 import Light from "@/components/Light";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
 import { collection, getDocs } from "@firebase/firestore";
@@ -139,7 +140,7 @@ export default function Home() {
                   </h3>
                   <h3
                     style={{
-                      margin: "8px 0px",
+                      margin: "12px 0px",
                     }}
                   >
                     {service.descriptionOne}
@@ -159,6 +160,17 @@ export default function Home() {
                       ))}
                     </div>
                   )}
+                  <ArrowForwardIosIcon
+                    className="icon"
+                    style={{
+                      marginTop: "16px",
+                    }}
+                    sx={{ fontSize: 20 }}
+                    onClick={() => {
+                      setProjectsCategory(service.type);
+                      Router.push("/work");
+                    }}
+                  />
                 </div>
               </Link>
               <div

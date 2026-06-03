@@ -532,7 +532,7 @@ export default function Work() {
             </div>
             <div className={classes.action}>
               <button onClick={() => setDisplayInfo(!displayInfo)}>
-                <span>{displayInfo ? "Expand Less" : "Expand More"}</span>
+                <span>{displayInfo ? "Show Less" : "Show More"}</span>
               </button>
             </div>
             {displayInfo && (
