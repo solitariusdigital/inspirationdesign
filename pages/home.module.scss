@@ -87,8 +87,9 @@
       }
 
       .row {
-        @include mixins.row-space-between-center();
-        justify-content: flex-start;
+        display: flex;
+        flex-direction: row;
+        align-items: first baseline;
 
         p {
           margin-left: 4px;
