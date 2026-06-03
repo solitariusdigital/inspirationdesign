@@ -2,7 +2,7 @@
 @use "styles/_mixins.scss" as mixins;
 
 .container {
-  margin: 100px auto;
+  margin: 120px auto;
 
   .navigation {
     width: 30%;
@@ -11,12 +11,13 @@
     margin: auto;
     max-width: config.$max-widthHeigh;
     user-select: none;
-    padding: 10px;
+    padding: 10px 0px;
     @include mixins.row-space-between-center();
     text-transform: uppercase;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
+      justify-content: space-between;
     }
     @include mixins.tabletPortrait {
       width: 50%;
@@ -46,6 +47,7 @@
     width: config.$content-textWidth;
     max-width: config.$max-widthHeigh;
     margin: 50px auto;
+    margin-top: 24px;
 
     @include mixins.mobile {
       width: calc(100% - 24px);

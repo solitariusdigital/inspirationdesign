@@ -132,14 +132,14 @@ export default function Work() {
             </p>
           ))}
         </div>
-        <h1
+        <h2
           className={classes.title}
           style={{
             fontFamily: "OpenSansRegular",
           }}
         >
           {services[projectsCategory]}
-        </h1>
+        </h2>
         {projectsCategory !== "construction" && (
           <div className={classes.gridLayoutVertical}>
             <div className={classes.column}>
