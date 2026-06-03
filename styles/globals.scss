@@ -131,42 +131,19 @@ label.file input[type="file"] {
   border: 1px solid config.$brand;
 }
 
-.swiper-button-next::after {
-  color: config.$white;
-  scale: 0.6;
+.swiper-button-next {
+  color: config.$white !important;
+  scale: 0.6 !important;
 
   @include mixins.mobile {
-    scale: 0.4;
+    scale: 0.4 !important;
   }
 }
-.swiper-button-prev::after {
-  color: config.$white;
-  scale: 0.6;
+.swiper-button-prev {
+  color: config.$white !important;
+  scale: 0.6 !important;
 
   @include mixins.mobile {
-    scale: 0.4;
+    scale: 0.4 !important;
   }
-}
-.swiper-pagination {
-  position: relative;
-  bottom: 10px !important;
-
-  .swiper-pagination-bullet {
-    background: config.$white !important;
-    opacity: 0.5 !important;
-  }
-  .swiper-pagination-bullet-active {
-    background: config.$brand !important;
-    opacity: 1 !important;
-  }
-}
-
-::selection {
-  background: config.$brand;
-  color: config.$white;
-}
-
-::-moz-selection {
-  background: config.$brand;
-  color: config.$white;
 }
