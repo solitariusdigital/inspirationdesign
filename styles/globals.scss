@@ -41,7 +41,6 @@ ul {
 
 html {
   font-size: clamp(15px, 0.5vw + 0.75rem, 18px);
-  -webkit-overflow-scrolling: auto;
 }
 h1 {
   font-size: 2em;
@@ -79,7 +78,6 @@ small {
   justify-content: center;
   width: 100%;
   height: 100px;
-  background: config.$background;
 }
 
 .main {
