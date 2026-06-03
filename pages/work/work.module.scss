@@ -401,6 +401,7 @@
       width: 45%;
       font-size: small;
       position: relative;
+      user-select: none;
 
       .imageFrame {
         position: relative;
@@ -441,6 +442,7 @@
 
     .imageBox {
       width: 45%;
+      user-select: none;
 
       @include mixins.mobile {
         width: calc(100% + 24px);
@@ -470,14 +472,13 @@
       font-family: "OpenSansSemiBold";
     }
   }
+}
 
-  .button {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 24px;
+.action {
+  display: flex;
+  justify-content: center;
 
-    button {
-      @include mixins.button(config.$brand, config.$dark, config.$white);
-    }
+  button {
+    @include mixins.button(config.$brand, config.$dark, config.$white);
   }
 }

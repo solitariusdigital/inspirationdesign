@@ -6,6 +6,7 @@ import classes from "./work.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Tooltip from "@mui/material/Tooltip";
 import Link from "next/link";
 import { replaceSpacesAndHyphens } from "@/services/utility";
@@ -529,7 +530,7 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.button}>
+            <div className={classes.action}>
               <button onClick={() => setDisplayInfo(!displayInfo)}>
                 <span>{displayInfo ? "Expand Less" : "Expand More"}</span>
               </button>
@@ -547,18 +548,6 @@ export default function Work() {
                       <div className={classes.imageFrame}>
                         <FirebaseImage
                           path="Resources/Construction/8.jpg"
-                          alt="about"
-                        />
-                      </div>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/9.jpg"
-                          alt="about"
-                        />
-                      </div>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/11.jpg"
                           alt="about"
                         />
                       </div>
@@ -862,6 +851,23 @@ export default function Work() {
           </div>
         )}
       </div>
+      {displayProjects && (
+        <div className={classes.action}>
+          <Tooltip title="Top">
+            <KeyboardArrowUpIcon
+              className="icon"
+              sx={{ fontSize: 30 }}
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                })
+              }
+            />
+          </Tooltip>
+        </div>
+      )}
     </>
   );
 }

@@ -9,6 +9,7 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import CloseIcon from "@mui/icons-material/Close";
 import StarIcon from "@mui/icons-material/Star";
 import Tooltip from "@mui/material/Tooltip";
@@ -323,6 +324,23 @@ export default function Project() {
                 </div>
               </div>
             ))}
+        </div>
+      )}
+      {displayProject && (
+        <div className={classes.action}>
+          <Tooltip title="Top">
+            <KeyboardArrowUpIcon
+              className="icon"
+              sx={{ fontSize: 30 }}
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                })
+              }
+            />
+          </Tooltip>
         </div>
       )}
       {displayGallerySlider && (

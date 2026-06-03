@@ -91,6 +91,15 @@
       align-items: first baseline;
     }
   }
+
+  .action {
+    display: flex;
+    justify-content: center;
+
+    button {
+      @include mixins.button(config.$brand, config.$dark, config.$white);
+    }
+  }
 }
 
 .gridLayout,

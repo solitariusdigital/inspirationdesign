@@ -8,6 +8,7 @@ import logoBlack from "@/assets/logo-black.png";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import EditIcon from "@mui/icons-material/Edit";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Tooltip from "@mui/material/Tooltip";
 import { replaceSpacesAndHyphens, convertDateName } from "@/services/utility";
@@ -126,92 +127,112 @@ export default function NewsArticle() {
         robots="index, follow"
       />
       {displayNews && (
-        <article
-          className={classes.cardBox}
-          style={{
-            marginTop: "100px",
-          }}
-        >
-          <div className={classes.heroNews}>
-            <div className={classes.imageBoxLandscape}>
-              <FirebaseImage path={displayNews.hero} alt={displayNews.title} />
-            </div>
-            <div className={classes.overlay}>
-              <div className={classes.row}>
-                <div className={classes.info}>
-                  <h1
+        <>
+          <article
+            className={classes.cardBox}
+            style={{
+              marginTop: "100px",
+            }}
+          >
+            <div className={classes.heroNews}>
+              <div className={classes.imageBoxLandscape}>
+                <FirebaseImage
+                  path={displayNews.hero}
+                  alt={displayNews.title}
+                />
+              </div>
+              <div className={classes.overlay}>
+                <div className={classes.row}>
+                  <div className={classes.info}>
+                    <h1
+                      style={{
+                        fontFamily: "OpenSansRegular",
+                      }}
+                    >
+                      {displayNews.title}
+                    </h1>
+                    <h2>{convertDateName(displayNews.date)}</h2>
+                    <p>{getTotalReadingTime(displayNews)}</p>
+                  </div>
+                  <h3
                     style={{
                       fontFamily: "OpenSansRegular",
                     }}
                   >
-                    {displayNews.title}
-                  </h1>
-                  <h2>{convertDateName(displayNews.date)}</h2>
-                  <p>{getTotalReadingTime(displayNews)}</p>
+                    {displayNews.description.split("\n\n")[0]}
+                  </h3>
                 </div>
-                <h3
-                  style={{
-                    fontFamily: "OpenSansRegular",
-                  }}
-                >
-                  {displayNews.description.split("\n\n")[0]}
-                </h3>
               </div>
             </div>
-          </div>
-          {currentUser && (
-            <div className={classes.controlPanel}>
-              {displayNews.active ? (
-                <Tooltip title="Hide">
-                  <VerifiedUserIcon
+            {currentUser && (
+              <div className={classes.controlPanel}>
+                {displayNews.active ? (
+                  <Tooltip title="Hide">
+                    <VerifiedUserIcon
+                      className="icon"
+                      sx={{ fontSize: 20 }}
+                      onClick={() => handlePublish(displayNews, "Hide")}
+                    />
+                  </Tooltip>
+                ) : (
+                  <Tooltip title="Publish">
+                    <VisibilityOffIcon
+                      sx={{ fontSize: 20 }}
+                      className="icon"
+                      onClick={() => handlePublish(displayNews, "Publish")}
+                    />
+                  </Tooltip>
+                )}
+                <Tooltip title="Edit">
+                  <EditIcon
                     className="icon"
                     sx={{ fontSize: 20 }}
-                    onClick={() => handlePublish(displayNews, "Hide")}
+                    onClick={() => {
+                      Router.push("/portal");
+                      setEditNews(displayNews);
+                      setEditProject(null);
+                    }}
                   />
                 </Tooltip>
-              ) : (
-                <Tooltip title="Publish">
-                  <VisibilityOffIcon
-                    sx={{ fontSize: 20 }}
+                <Tooltip title="Delete">
+                  <DeleteOutlineIcon
                     className="icon"
-                    onClick={() => handlePublish(displayNews, "Publish")}
+                    sx={{ fontSize: 20 }}
+                    onClick={() => handleDelete(displayNews)}
                   />
                 </Tooltip>
-              )}
-              <Tooltip title="Edit">
-                <EditIcon
-                  className="icon"
-                  sx={{ fontSize: 20 }}
-                  onClick={() => {
-                    Router.push("/portal");
-                    setEditNews(displayNews);
-                    setEditProject(null);
-                  }}
-                />
-              </Tooltip>
-              <Tooltip title="Delete">
-                <DeleteOutlineIcon
-                  className="icon"
-                  sx={{ fontSize: 20 }}
-                  onClick={() => handleDelete(displayNews)}
-                />
-              </Tooltip>
+              </div>
+            )}
+            <div
+              className={classes.description}
+              style={{
+                marginTop: "50px",
+              }}
+            >
+              {displayNews.description
+                .split("\n\n")
+                .slice(1)
+                .map((desc, index) => (
+                  <p key={index}>{desc}</p>
+                ))}
             </div>
-          )}
-          <div
-            className={classes.description}
-            style={{
-              marginTop: "50px",
-            }}
-          >
-            {displayNews.description
-              .split("\n\n")
-              .slice(1)
-              .map((desc, index) => (
-                <p key={index}>{desc}</p>
-              ))}
+          </article>
+          <div className={classes.action}>
+            <Tooltip title="Top">
+              <KeyboardArrowUpIcon
+                className="icon"
+                sx={{ fontSize: 30 }}
+                onClick={() =>
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  })
+                }
+              />
+            </Tooltip>
           </div>
-        </article>
+        </>
       )}
     </>
   );

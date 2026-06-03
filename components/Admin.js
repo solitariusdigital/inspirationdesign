@@ -68,14 +68,14 @@ export default function Admin() {
       {pageType === "news" && <NewsForm />}
       {pageType === "inquiries" && (
         <>
-          {inquiries.length === 0 && (
-            <h4
+          {inquiries?.length === 0 && (
+            <p
               style={{
                 marginTop: "24px",
               }}
             >
-              Empty inquiries list
-            </h4>
+              Empty
+            </p>
           )}
           <div className={classes.gridLayout}>
             {inquiries?.map((item, index) => (
