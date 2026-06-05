@@ -195,6 +195,12 @@ export default function Work() {
                             </h3>
                           </div>
                         )}
+                        {screenSize === "mobile" && (
+                          <div className={classes.overlay}>
+                            <h3>{project.title}</h3>
+                            <p>{project.location}</p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </Link>
@@ -255,6 +261,12 @@ export default function Work() {
                             <h3 className="animate__animated animate__slideInUp">
                               {project.location}
                             </h3>
+                          </div>
+                        )}
+                        {screenSize === "mobile" && (
+                          <div className={classes.overlay}>
+                            <h3>{project.title}</h3>
+                            <p>{project.location}</p>
                           </div>
                         )}
                       </div>
