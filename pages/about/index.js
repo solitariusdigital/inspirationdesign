@@ -302,7 +302,7 @@ export default function About() {
             <div className={classes.gridLayout}>
               {testimonials.map((item, index) => (
                 <div key={index} className={classes.testimonial}>
-                  <h3>{item.title}</h3>
+                  <h4>{item.title}</h4>
                   <ArrowForwardIosIcon sx={{ fontSize: 12 }} />
                 </div>
               ))}
@@ -321,14 +321,8 @@ export default function About() {
             <div className={classes.gridLayout}>
               {awards.map((item, index) => (
                 <div key={index} className={classes.award}>
-                  <h4
-                    style={{
-                      fontFamily: "OpenSansRegular",
-                    }}
-                  >
-                    {item.year}
-                  </h4>
-                  <h3>{item.title}</h3>
+                  <p>{item.year}</p>
+                  <h4>{item.title}</h4>
                 </div>
               ))}
             </div>
