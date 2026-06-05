@@ -2,6 +2,8 @@
 @use "styles/_mixins.scss" as mixins;
 
 .container {
+  margin-bottom: 50px;
+
   p {
     color: config.$white;
   }

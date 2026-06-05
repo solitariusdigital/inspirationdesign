@@ -230,8 +230,8 @@ export default function Project() {
             >
               {displayProject.title}
             </h1>
-            <h2>{displayProject.location}</h2>
-            <h3>{displayProject.year}</h3>
+            <h3>{displayProject.location}</h3>
+            <h4>{displayProject.year}</h4>
           </div>
           <div
             className={classes.description}

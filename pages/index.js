@@ -134,13 +134,14 @@ export default function Home() {
                   <h3
                     style={{
                       fontFamily: "OpenSansItalic",
+                      marginTop: "24px",
                     }}
                   >
                     {service.subTitle}
                   </h3>
                   <h3
                     style={{
-                      margin: "12px 0px",
+                      margin: "8px 0px",
                     }}
                   >
                     {service.descriptionOne}

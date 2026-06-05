@@ -151,7 +151,7 @@ export default function NewsArticle() {
                     >
                       {displayNews.title}
                     </h1>
-                    <h2>{convertDateName(displayNews.date)}</h2>
+                    <h3>{convertDateName(displayNews.date)}</h3>
                     <p>{getTotalReadingTime(displayNews)}</p>
                   </div>
                   <h3
