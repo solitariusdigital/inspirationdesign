@@ -435,6 +435,13 @@
     .infoBox {
       width: 50%;
 
+      h2 {
+        margin-bottom: 12px;
+      }
+      h3 {
+        margin: 8px 0px;
+      }
+
       @include mixins.mobile {
         width: 100%;
       }
