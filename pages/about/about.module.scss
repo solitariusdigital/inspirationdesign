@@ -107,7 +107,7 @@
 .gridLayout,
 .publicationLayout {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
   gap: 8px;
   margin: auto;
   margin-top: 12px;

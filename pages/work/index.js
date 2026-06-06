@@ -529,7 +529,7 @@ export default function Work() {
                   </p>
                   <h2
                     style={{
-                      marginTop: "12px",
+                      marginTop: "24px",
                     }}
                   >
                     Our Goal

@@ -408,11 +408,12 @@
 
       .floatText {
         position: absolute;
-        bottom: -40px;
+        bottom: -55px;
         left: 0px;
 
         @include mixins.mobile {
           left: 12px;
+          bottom: -45px;
         }
       }
 
@@ -470,7 +471,7 @@
       font-family: "OpenSansRegular";
     }
     p {
-      margin: 2px 0px;
+      margin: 8px 0px;
     }
     span {
       font-family: "OpenSansSemiBold";

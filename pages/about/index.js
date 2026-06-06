@@ -246,7 +246,7 @@ export default function About() {
                       ) : (
                         <p
                           style={{
-                            margin: "12px 0px",
+                            margin: "8px 0px",
                           }}
                         >
                           {text}
@@ -271,7 +271,7 @@ export default function About() {
                   <div
                     key={i}
                     style={{
-                      margin: index !== 3 ? "12px 0px" : null,
+                      margin: index !== 3 ? "8px 0px" : null,
                     }}
                     className={classes.row}
                   >
