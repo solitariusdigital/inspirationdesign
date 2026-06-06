@@ -4,16 +4,15 @@
 .letter {
   opacity: 0.3;
   display: inline-block;
+  color: config.$lightgrey;
+
   transform: translateY(2px);
   transition:
     opacity 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
-  color: config.$grey;
+    color 0.25s ease;
 }
 
 .letter.show {
   opacity: 1;
-  transform: translateY(0px);
   color: config.$white;
 }

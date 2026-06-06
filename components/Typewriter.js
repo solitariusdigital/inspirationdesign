@@ -32,7 +32,6 @@ export default function Typewriter({ text, font, size, speed }) {
             fontFamily: font,
             fontSize: size ? "x-large" : "inherit",
             letterSpacing: size ? "0.1em" : "normal",
-            animationDelay: `${index * 0.02}s`,
           }}
           key={index}
           className={`${classes.letter} ${index < visibleCount ? classes.show : ""}`}
