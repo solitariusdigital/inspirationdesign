@@ -50,7 +50,7 @@
   }
 
   .slideTrackTop {
-    width: calc(400px * 10);
+    width: calc(420px * 10);
     animation: scroll 60s linear infinite;
 
     @include mixins.mobile {

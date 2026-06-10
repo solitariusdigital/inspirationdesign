@@ -141,7 +141,13 @@ export default function CoverSlider() {
               href="/work"
               passHref
             >
-              <h2>{service.title}</h2>
+              <h2
+                style={{
+                  fontFamily: "OpenSansSemiBold",
+                }}
+              >
+                {service.title}
+              </h2>
             </Link>
           ))}
         </div>
@@ -158,7 +164,13 @@ export default function CoverSlider() {
               href="/work"
               passHref
             >
-              <h3>{service.title}</h3>
+              <h3
+                style={{
+                  fontFamily: "OpenSansSemiBold",
+                }}
+              >
+                {service.title}
+              </h3>
             </Link>
           ))}
         </div>
