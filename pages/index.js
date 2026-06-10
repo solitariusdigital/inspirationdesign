@@ -131,14 +131,15 @@ export default function Home() {
                   <div className={classes.light}>
                     <Light timer={500 * index} />
                   </div>
-                  <h3
+                  <h4
                     style={{
                       fontFamily: "OpenSansItalic",
                       marginTop: "24px",
+                      marginBottom: "12px",
                     }}
                   >
                     {service.subTitle}
-                  </h3>
+                  </h4>
                   <h3
                     style={{
                       margin: "8px 0px",
