@@ -445,22 +445,24 @@ export default function Work() {
             </div>
             <div className={classes.section}>
               <div className={classes.row}>
-                <div className={classes.imageBoxGrid}>
-                  <div className={classes.imageFrame}>
-                    <FirebaseImage
-                      path="Resources/Construction/6.jpg"
-                      alt="about"
-                      mode="intrinsic"
-                    />
+                <div className={classes.boxRow}>
+                  <div className={classes.imageBoxGridRow}>
+                    <div className={classes.imageFrame}>
+                      <FirebaseImage
+                        path="Resources/Construction/6.jpg"
+                        alt="about"
+                        mode="intrinsic"
+                      />
+                    </div>
+                    <div className={classes.imageFrame}>
+                      <FirebaseImage
+                        path="Resources/Construction/7.jpg"
+                        alt="about"
+                        mode="intrinsic"
+                      />
+                    </div>
                   </div>
-                  <div className={classes.imageFrame}>
-                    <FirebaseImage
-                      path="Resources/Construction/7.jpg"
-                      alt="about"
-                      mode="intrinsic"
-                    />
-                  </div>
-                  <p className={classes.floatText}>
+                  <p>
                     Images are provided by Fifthshire Homes and showing houses
                     built of lightweight steel structure
                   </p>
