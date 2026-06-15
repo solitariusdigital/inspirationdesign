@@ -188,7 +188,11 @@ export default function Home() {
                   passHref
                 >
                   <div className={classes.imageInner}>
-                    <FirebaseImage path={service.path} alt={service.title} />
+                    <FirebaseImage
+                      path={service.path}
+                      alt={service.title}
+                      mode="intrinsic"
+                    />
                   </div>
                 </Link>
               </div>
