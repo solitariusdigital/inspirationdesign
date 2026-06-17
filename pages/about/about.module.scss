@@ -108,7 +108,7 @@
 .publicationLayout {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-  gap: 8px;
+  gap: 12px;
   margin: auto;
   margin-top: 12px;
 
@@ -117,55 +117,25 @@
     width: 100%;
   }
 
-  .testimonial {
-    padding: 12px;
+  .item {
     text-align: left;
-    border: 1px solid config.$lightgrey;
-    @include mixins.row-space-between-center();
     font-family: "OpenSansRegular";
-
-    &:hover {
-      color: config.$brand;
-      border: 1px solid config.$brand;
-      cursor: pointer;
-    }
-  }
-
-  .award {
-    padding: 12px;
-    border: 1px solid config.$lightgrey;
-    text-align: left;
-
-    h4 {
-      margin-top: 4px;
-      font-family: "OpenSansRegular";
-    }
+    @include mixins.card();
   }
 }
 
-.publicationLayout {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-  gap: 8px;
+.publication {
+  @include mixins.row-space-between-center();
+  @include mixins.card();
+  flex-direction: row-reverse;
+  text-align: left;
+  align-items: first baseline;
 
-  @include mixins.mobile {
-    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-    width: 100%;
+  p {
+    margin-left: 8px;
   }
 
-  .publication {
-    @include mixins.row-space-between-center();
-    flex-direction: row-reverse;
-    text-align: left;
-    align-items: first baseline;
-    margin-bottom: 8px;
-
-    p {
-      margin-left: 8px;
-    }
-
-    p::first-letter {
-      font-size: 1.5rem;
-    }
+  p::first-letter {
+    font-size: 1.5rem;
   }
 }

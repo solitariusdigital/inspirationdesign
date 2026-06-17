@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import classes from "./about.module.scss";
 import logoBlack from "@/assets/logo-black.png";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import FirebaseImage from "@/components/FirebaseImage";
 
@@ -301,9 +300,8 @@ export default function About() {
             </h1>
             <div className={classes.gridLayout}>
               {testimonials.map((item, index) => (
-                <div key={index} className={classes.testimonial}>
+                <div key={index} className={classes.item}>
                   <h4>{item.title}</h4>
-                  <ArrowForwardIosIcon sx={{ fontSize: 12 }} />
                 </div>
               ))}
             </div>
@@ -320,7 +318,7 @@ export default function About() {
             </h1>
             <div className={classes.gridLayout}>
               {awards.map((item, index) => (
-                <div key={index} className={classes.award}>
+                <div key={index} className={classes.item}>
                   <p>{item.year}</p>
                   <h4>{item.title}</h4>
                 </div>
@@ -337,7 +335,7 @@ export default function About() {
             >
               Publications
             </h1>
-            <div className={classes.publicationLayout}>
+            <div className={classes.gridLayout}>
               {publications.map((item, index) => (
                 <div key={index} className={classes.publication}>
                   <p>{item}</p>

@@ -41,6 +41,12 @@ $screen-fourK: 6000px;
   border-radius: $radius;
 }
 
+@mixin card() {
+  padding: 24px;
+  border-radius: 5px;
+  border: 1px solid config.$lightgrey;
+}
+
 @mixin button($main, $sub, $text) {
   position: relative;
   display: flex;
