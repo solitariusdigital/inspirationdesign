@@ -9,9 +9,6 @@
   user-select: none;
   text-transform: uppercase;
 
-  @include mixins.mobile {
-    width: calc(100% - 24px);
-  }
   @include mixins.tabletPortrait {
     width: config.$content-widthTablet;
   }
@@ -33,13 +30,14 @@
 
   .mobileNavigation {
     position: absolute;
-    right: 0px;
+    left: -12px;
     top: 100px;
     width: 100%;
-    padding: 8px 0px;
+    padding: 12px 0px;
     display: flex;
     flex-direction: column;
     @include mixins.transparentBackground(0.1, config.$dark);
+    width: calc(100% + 24px);
 
     .nav {
       color: config.$white;
@@ -47,8 +45,7 @@
 
     .nav,
     .navActive {
-      margin: 8px;
-      margin-left: 16px;
+      margin: 12px;
     }
   }
 
