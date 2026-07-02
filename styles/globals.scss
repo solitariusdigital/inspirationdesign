@@ -128,8 +128,8 @@ label.file input[type="file"] {
   cursor: pointer;
 }
 .file:hover {
-  color: config.$brand;
-  border: 1px solid config.$brand;
+  color: config.$dark;
+  border: 1px solid config.$dark;
 }
 
 .swiper-button-next {
@@ -150,11 +150,11 @@ label.file input[type="file"] {
 }
 
 ::selection {
-  background: config.$brand;
+  background: config.$dark;
   color: config.$white;
 }
 
 ::-moz-selection {
-  background: config.$brand;
+  background: config.$dark;
   color: config.$white;
 }
