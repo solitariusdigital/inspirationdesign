@@ -116,7 +116,13 @@ export default function News() {
                     >
                       {news.title}
                     </h2>
-                    <h3>{sliceString(news.description, 80)}</h3>
+                    <p
+                      style={{
+                        marginTop: "8px",
+                      }}
+                    >
+                      {sliceString(news.description, 80)}
+                    </p>
                   </div>
                 </div>
               </Link>

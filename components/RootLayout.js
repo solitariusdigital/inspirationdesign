@@ -111,13 +111,13 @@ export default function RootLayout({ children }) {
         <div className="appload">
           <div className={`typewrite ${moveLogo ? "moveLogo" : ""}`}>
             <Typewriter
-              text="Inspiration"
+              text="INSPIRATION"
               font="RobotoRegular"
               speed={150}
               margin={false}
             />
             <Typewriter
-              text="Design"
+              text="DESIGN"
               font="RobotoThin"
               speed={300}
               margin={true}

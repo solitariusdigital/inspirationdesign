@@ -164,24 +164,24 @@ export default function About() {
       detail: "2025",
     },
     {
-      title: "Jewelery Arabia Recognition For Best Design And Fitout",
+      title: "Jewelery Arabia – Recognition For Best Design And Fitout",
       detail: "2010",
     },
     {
-      title: "Bahrain City Center Recognition For Best Fitout",
+      title: "Bahrain City Center – Recognition For Best Fitout",
       detail: "2009",
     },
     {
       title:
-        "NYIT New York Institute Of Technology - Recognition For Cooperation",
+        "NYIT (New York Institute Of Technology) – Recognition For Cooperation",
       detail: "2009",
     },
     {
-      title: "University Of Bahrain - Recognition For Cooperation",
+      title: "University Of Bahrain – Recognition For Cooperation",
       detail: "2009",
     },
     {
-      title: "French Embassy - Recognition For Arkheo Exhibition",
+      title: "French Embassy –Recognition For Arkheo Exhibition",
       detail: "2008",
     },
   ];
@@ -413,10 +413,10 @@ export default function About() {
             >
               Testimonials
             </h2>
-            <div className={classes.gridLayout}>
+            <div className={classes.layout}>
               {testimonials.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <h4>{item.title}</h4>
+                  <p>{item.title}</p>
                 </div>
               ))}
             </div>
@@ -431,25 +431,19 @@ export default function About() {
             >
               Awards
             </h2>
-            <div className={classes.gridLayout}>
+            <div className={classes.layout}>
               {awards.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <h4
+                  <h3
                     style={{
                       fontFamily: "RobotoRegular",
                     }}
                   >
-                    {item.title}
-                  </h4>
-                  <p
-                    style={{
-                      fontFamily: "RobotoItalic",
-                      fontSize: "medium",
-                      marginTop: "8px",
-                    }}
-                  >
                     {item.detail}
-                  </p>
+                  </h3>
+                  <div className={classes.detail}>
+                    <p>{item.title}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -464,32 +458,27 @@ export default function About() {
             >
               Publications & Press
             </h2>
-            <div className={classes.gridLayout}>
+            <div className={classes.layout}>
               {publications.map((item, index) => (
-                <div key={index} className={classes.publication}>
-                  <h4
+                <div key={index} className={classes.item}>
+                  <h3
                     style={{
                       fontFamily: "RobotoRegular",
                     }}
                   >
                     {item.title}
-                  </h4>
-                  <p
-                    style={{
-                      marginTop: "8px",
-                    }}
-                  >
-                    {item.description}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "RobotoItalic",
-                      fontSize: "14px",
-                      marginTop: "8px",
-                    }}
-                  >
-                    {item.detail}
-                  </p>
+                  </h3>
+                  <div className={classes.detail}>
+                    <p>{item.description}</p>
+                    <p
+                      style={{
+                        fontFamily: "RobotoItalic",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {item.detail}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>

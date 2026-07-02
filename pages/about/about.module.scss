@@ -100,25 +100,35 @@
   }
 }
 
-.gridLayout,
-.publicationLayout {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-  gap: 12px;
-  margin: auto;
+.layout {
   margin-top: 24px;
 
-  @include mixins.mobile {
-    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-    width: 100%;
-  }
-
   .item {
-    text-align: left;
-    @include mixins.card();
-  }
-}
+    border-bottom: 1px solid config.$lightgrey;
+    padding: 16px 0px;
+    @include mixins.row-space-between-center();
 
-.publication {
-  @include mixins.card();
+    @include mixins.mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    h3 {
+      width: 45%;
+
+      @include mixins.mobile {
+        width: 100%;
+      }
+    }
+
+    .detail {
+      width: 50%;
+
+      @include mixins.mobile {
+        width: 100%;
+        margin-top: 8px;
+      }
+    }
+  }
 }

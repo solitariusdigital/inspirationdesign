@@ -104,7 +104,7 @@ export default function CoverSlider() {
       type: "construction",
     },
     {
-      title: "Fire Resistant House Deign",
+      title: "Fire-Resistant House Deign",
       type: "construction",
     },
   ];
@@ -143,7 +143,7 @@ export default function CoverSlider() {
             >
               <h3
                 style={{
-                  fontFamily: "RobotoMedium",
+                  fontFamily: "RobotoRegular",
                 }}
               >
                 {service.title}
@@ -166,7 +166,7 @@ export default function CoverSlider() {
             >
               <h3
                 style={{
-                  fontFamily: "RobotoMedium",
+                  fontFamily: "RobotoRegular",
                 }}
               >
                 {service.title}
