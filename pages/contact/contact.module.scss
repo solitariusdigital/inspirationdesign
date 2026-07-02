@@ -14,7 +14,7 @@
     }
 
     p {
-      width: config.$content-textWidth;
+      width: config.$content-widthText;
       max-width: config.$max-widthHeigh;
       margin: 12px auto;
       text-align: left;
@@ -52,7 +52,7 @@
 
     .row {
       margin: auto;
-      width: config.$content-textWidth;
+      width: config.$content-widthText;
       display: flex;
       flex-direction: row;
 
@@ -63,10 +63,10 @@
       }
 
       @include mixins.tabletPortrait {
-        width: config.$content-widthTablet;
+        width: config.$content-width;
       }
       @include mixins.tabletLandscape {
-        width: config.$content-widthTablet;
+        width: config.$content-width;
       }
     }
 

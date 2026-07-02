@@ -1,4 +1,4 @@
-import { useState, useContext, Fragment } from "react";
+import { useEffect, useContext, Fragment } from "react";
 import { StateContext } from "@/context/stateContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -30,6 +30,17 @@ export default function Menu() {
   const isHome = pathname === "/";
   const fullSizeScreen = screenSize !== "mobile";
   const colorCode = isHome ? "white" : "black";
+
+  useEffect(() => {
+    if (menuMobile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuMobile]);
 
   const activateNav = (link, index) => {
     setMenuMobile(false);
@@ -96,7 +107,7 @@ export default function Menu() {
           </Tooltip>
         </div>
       )}
-      {fullSizeScreen ? (
+      {fullSizeScreen && (
         <nav
           className={classes.fullSizeNavigation}
           style={{
@@ -116,7 +127,8 @@ export default function Menu() {
             </Fragment>
           ))}
         </nav>
-      ) : (
+      )}
+      {!fullSizeScreen && (
         <nav>
           <div className={classes.control}>
             {menuMobile ? (

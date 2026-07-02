@@ -82,9 +82,7 @@ export default function RootLayout({ children }) {
       prevScrollY = currentScrollY;
     };
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [menuMobile]);
 
   return (

@@ -13,7 +13,7 @@
     text-align: left;
   }
   @include mixins.tabletPortrait {
-    width: config.$content-widthTablet;
+    width: config.$content-width;
   }
   @include mixins.tabletLandscape {
     width: 60%;

@@ -60,11 +60,11 @@
   }
   @include mixins.tabletPortrait {
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-    width: config.$content-widthTablet;
+    width: config.$content-width;
   }
   @include mixins.tabletLandscape {
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-    width: config.$content-widthTablet;
+    width: config.$content-width;
   }
 
   .item {

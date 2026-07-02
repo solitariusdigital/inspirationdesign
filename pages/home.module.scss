@@ -53,7 +53,7 @@
       width: 100%;
     }
     @include mixins.tabletLandscape {
-      width: config.$content-widthTablet;
+      width: config.$content-width;
     }
 
     .info {
@@ -71,7 +71,7 @@
       }
       @include mixins.tabletPortrait {
         margin: auto;
-        width: config.$content-widthTablet;
+        width: config.$content-width;
       }
 
       .light {

@@ -502,7 +502,7 @@ export default function Work() {
                   </p>
                   <h2
                     style={{
-                      marginTop: "24px",
+                      marginTop: "12px",
                     }}
                   >
                     Our Goal
@@ -558,7 +558,7 @@ export default function Work() {
                       <h2>Mold & Rot</h2>
                       <h4
                         style={{
-                          marginTop: "24px",
+                          marginTop: "12px",
                         }}
                       >
                         LSF resists mold and moisture, unlike wood.
@@ -625,7 +625,7 @@ export default function Work() {
                       <h2>Fire</h2>
                       <h4
                         style={{
-                          marginTop: "24px",
+                          marginTop: "12px",
                         }}
                       >
                         LSF is non-combustible, unlike wood.
@@ -707,7 +707,7 @@ export default function Work() {
                       <h2>Design Freedom & Precision</h2>
                       <h4
                         style={{
-                          marginTop: "24px",
+                          marginTop: "12px",
                         }}
                       >
                         Lightweight steel framing allows larger spans, open
@@ -755,7 +755,7 @@ export default function Work() {
                       <h2>Sustainability</h2>
                       <h4
                         style={{
-                          marginTop: "24px",
+                          marginTop: "12px",
                         }}
                       >
                         Steel is the most recycled material in the world.
@@ -771,7 +771,7 @@ export default function Work() {
                       </p>
                       <h4
                         style={{
-                          marginTop: "24px",
+                          marginTop: "12px",
                         }}
                       >
                         Steel framing has a long service life.
@@ -782,7 +782,7 @@ export default function Work() {
                       </p>
                       <h4
                         style={{
-                          marginTop: "24px",
+                          marginTop: "12px",
                         }}
                       >
                         Prefabrication and precision fabrication reduce waste.
@@ -831,14 +831,14 @@ export default function Work() {
                       <h2>Speed & Cost</h2>
                       <h4
                         style={{
-                          marginTop: "24px",
+                          marginTop: "12px",
                         }}
                       >
                         LSF reduces overall construction time and cost.
                       </h4>
                       <h4
                         style={{
-                          marginTop: "24px",
+                          marginTop: "12px",
                         }}
                       >
                         Speed
@@ -860,7 +860,7 @@ export default function Work() {
                       </p>
                       <h4
                         style={{
-                          marginTop: "24px",
+                          marginTop: "12px",
                         }}
                       >
                         Cost

@@ -44,7 +44,7 @@
   }
 
   .info {
-    width: config.$content-textWidth;
+    width: config.$content-widthText;
     max-width: config.$max-widthHeigh;
     margin: 50px auto;
 
@@ -52,10 +52,10 @@
       width: calc(100% - 24px);
     }
     @include mixins.tabletPortrait {
-      width: config.$content-widthTablet;
+      width: config.$content-width;
     }
     @include mixins.tabletLandscape {
-      width: config.$content-widthTablet;
+      width: config.$content-width;
     }
 
     .box {

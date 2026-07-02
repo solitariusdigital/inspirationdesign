@@ -369,11 +369,11 @@ export default function About() {
                       <div
                         key={i}
                         style={{
-                          margin: index !== 3 ? "4px 0px" : null,
+                          margin: index !== 4 ? "8px 0px" : "4px 0px",
                         }}
                         className={classes.row}
                       >
-                        {index === 3 && (
+                        {index === 4 && (
                           <CircleOutlinedIcon
                             sx={{ fontSize: 10 }}
                             style={{

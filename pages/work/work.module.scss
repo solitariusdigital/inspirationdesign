@@ -198,14 +198,14 @@
 
   .description {
     @include mixins.allDesktop {
-      width: config.$content-textWidth;
+      width: config.$content-widthText;
     }
   }
   .info {
     margin: 24px auto;
 
     @include mixins.allDesktop {
-      width: config.$content-textWidth;
+      width: config.$content-widthText;
     }
   }
   .subTitle {
@@ -290,7 +290,7 @@
 
       .row {
         margin: auto;
-        width: config.$content-textWidth;
+        width: config.$content-widthText;
         @include mixins.row-space-between-center();
 
         @include mixins.mobile {
@@ -304,10 +304,10 @@
         }
 
         @include mixins.tabletPortrait {
-          width: config.$content-widthTablet;
+          width: config.$content-width;
         }
         @include mixins.tabletLandscape {
-          width: config.$content-widthTablet;
+          width: config.$content-width;
         }
       }
     }
@@ -369,7 +369,7 @@
 }
 
 .constructionLayout {
-  width: config.$content-textWidth;
+  width: config.$content-widthText;
   margin: 50px auto;
   max-width: config.$max-widthHeigh;
 
@@ -377,10 +377,10 @@
     width: calc(100% - 24px);
   }
   @include mixins.tabletPortrait {
-    width: config.$content-widthTablet;
+    width: config.$content-width;
   }
   @include mixins.tabletLandscape {
-    width: config.$content-widthTablet;
+    width: config.$content-width;
   }
 
   .section {
