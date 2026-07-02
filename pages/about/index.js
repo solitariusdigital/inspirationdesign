@@ -370,6 +370,10 @@ export default function About() {
                         key={i}
                         style={{
                           margin: index !== 4 ? "8px 0px" : "4px 0px",
+                          fontFamily:
+                            index === 0 && i === 0
+                              ? "RobotoItalic"
+                              : "RobotoThin",
                         }}
                         className={classes.row}
                       >
@@ -381,7 +385,17 @@ export default function About() {
                             }}
                           />
                         )}
-                        <p>{text}</p>
+                        {index === 0 && i === 0 ? (
+                          <h3
+                            style={{
+                              margin: "8px 0px",
+                            }}
+                          >
+                            {text}
+                          </h3>
+                        ) : (
+                          <p>{text}</p>
+                        )}
                       </div>
                     ))}
                   </div>
