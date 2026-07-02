@@ -159,9 +159,9 @@ export default function ContactForm() {
             )}
           </>
         ) : (
-          <h5 className={classes.notification}>
+          <p className={classes.notification}>
             Thanks for contacting us! We will be in touch with you shortly.
-          </h5>
+          </p>
         )}
       </div>
     </div>

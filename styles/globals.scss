@@ -106,7 +106,7 @@ small {
 
   .typewrite {
     position: absolute;
-    left: 3%;
+    left: 2.5%;
     top: 20%;
     @include mixins.row-space-between-center();
   }
