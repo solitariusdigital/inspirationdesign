@@ -1,16 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import classes from "./Typewriter.module.scss";
 
-export default function Typewriter({ text, font, size, speed }) {
-  const [visibleCount, setVisibleCount] = useState(0);
+function shuffledIndices(length) {
+  const arr = Array.from({ length }, (_, i) => i);
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+export default function Typewriter({ text, font, speed, margin }) {
+  const [visibleIndices, setVisibleIndices] = useState(new Set());
+  const orderRef = useRef([]);
 
   useEffect(() => {
-    setVisibleCount(0);
+    orderRef.current = shuffledIndices(text.length);
+    setVisibleIndices(new Set());
     let i = 0;
 
     const interval = setInterval(() => {
       i++;
-      setVisibleCount(i);
+      setVisibleIndices(new Set(orderRef.current.slice(0, i)));
 
       if (i >= text.length) {
         clearInterval(interval);
@@ -23,7 +34,7 @@ export default function Typewriter({ text, font, size, speed }) {
   return (
     <h1
       style={{
-        lineHeight: "30px",
+        marginLeft: margin ? "8px" : "0px",
       }}
     >
       {text.split("").map((char, index) => (
@@ -34,9 +45,9 @@ export default function Typewriter({ text, font, size, speed }) {
             letterSpacing: "0.1em",
           }}
           key={index}
-          className={`${classes.letter} ${index < visibleCount ? classes.show : ""}`}
+          className={`${classes.letter} ${visibleIndices.has(index) ? classes.show : ""}`}
         >
-          {char}
+          {char === " " ? "\u00A0" : char}
         </span>
       ))}
     </h1>

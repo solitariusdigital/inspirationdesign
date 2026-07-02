@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
     }
     setTimeout(() => {
       setAppLoader(true);
-    }, 3000);
+    }, 3500);
   }, []);
 
   useEffect(() => {
@@ -111,9 +111,16 @@ export default function RootLayout({ children }) {
         <div className="appload">
           <div className={`typewrite ${moveLogo ? "moveLogo" : ""}`}>
             <Typewriter
-              text="InspirationDesign"
-              font="RobotoThin"
+              text="Inspiration"
+              font="RobotoRegular"
               speed={150}
+              margin={false}
+            />
+            <Typewriter
+              text="Design"
+              font="RobotoThin"
+              speed={300}
+              margin={true}
             />
           </div>
         </div>

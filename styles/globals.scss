@@ -103,10 +103,12 @@ small {
     margin-bottom: 8px;
     background: config.$brand;
   }
+
   .typewrite {
     position: absolute;
-    left: 2.5%;
+    left: 3%;
     top: 20%;
+    @include mixins.row-space-between-center();
   }
 }
 
