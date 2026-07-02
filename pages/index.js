@@ -7,8 +7,7 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 import CoverSlider from "@/components/CoverSlider";
 import logoBlack from "@/assets/logo-black.png";
-import Light from "@/components/Light";
-import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
+import { RevealText } from "@/components/RevealText";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
@@ -116,8 +115,8 @@ export default function Home() {
               key={index}
               className={classes.infoBox}
               style={{
-                paddingBottom: index === 2 ? "100px" : "0px",
-                marginBottom: index === 2 ? "0px" : "100px",
+                paddingBottom: index === 2 ? "150px" : "0px",
+                marginBottom: index === 2 ? "0px" : "150px",
               }}
             >
               <Link
@@ -128,32 +127,38 @@ export default function Home() {
                 passHref
               >
                 <div className={classes.info}>
-                  <h1
-                    style={{
-                      fontFamily: "RobotoRegular",
-                    }}
-                  >
-                    {service.title}
-                  </h1>
-                  <div className={classes.light}>
-                    <Light timer={500 * index} />
-                  </div>
-                  <h3
-                    style={{
-                      fontFamily: "RobotoItalic",
-                      margin: "8px 0px",
-                    }}
-                  >
-                    {service.subTitle}
-                  </h3>
-                  <p
-                    style={{
-                      margin: "8px 0px",
-                    }}
-                  >
-                    {service.descriptionOne}
-                  </p>
-                  <p>{service.descriptionTwo}</p>
+                  <RevealText direction="up" delay={100}>
+                    <h1
+                      style={{
+                        fontFamily: "RobotoRegular",
+                        marginBottom: "12px",
+                      }}
+                    >
+                      {service.title}
+                    </h1>
+                  </RevealText>
+                  <RevealText direction="up" delay={200}>
+                    <h3
+                      style={{
+                        fontFamily: "RobotoItalic",
+                        margin: "8px 0px",
+                      }}
+                    >
+                      {service.subTitle}
+                    </h3>
+                  </RevealText>
+                  <RevealText direction="up" delay={250}>
+                    <p
+                      style={{
+                        margin: "8px 0px",
+                      }}
+                    >
+                      {service.descriptionOne}
+                    </p>
+                  </RevealText>
+                  <RevealText direction="up" delay={250}>
+                    <p>{service.descriptionTwo}</p>
+                  </RevealText>
                   {service.type === "construction" && (
                     <div
                       style={{
@@ -161,7 +166,11 @@ export default function Home() {
                       }}
                     >
                       {constructionItems.map((item, index) => (
-                        <p key={index}>{item}</p>
+                        <>
+                          <RevealText direction="up" delay={250}>
+                            <p key={index}>{item}</p>
+                          </RevealText>
+                        </>
                       ))}
                     </div>
                   )}

@@ -39,7 +39,6 @@
     gap: 16px;
     align-items: center;
     margin: auto;
-    margin-bottom: 100px;
     width: config.$content-width;
     max-width: config.$max-widthHeigh;
     direction: rtl;
@@ -48,7 +47,6 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      padding-bottom: 80px;
     }
     @include mixins.tabletPortrait {
       display: flex;
@@ -67,11 +65,6 @@
       justify-content: center;
       text-align: left;
       direction: ltr;
-
-      button {
-        @include mixins.button(config.$text, config.$dark, config.$white);
-        margin-top: 12px;
-      }
 
       @include mixins.mobile {
         margin: auto;
