@@ -280,7 +280,7 @@
       bottom: 0px !important;
       color: config.$white;
       max-width: config.$max-widthHeigh;
-      @include mixins.transparentBackground(0.1, config.$dark);
+      @include mixins.transparentBackground(0.4, config.$dark);
 
       @include mixins.mobile {
         position: relative;
@@ -298,7 +298,7 @@
           flex-direction: column;
           width: 100%;
 
-          h3 {
+          p {
             width: calc(100% - 24px);
           }
         }
@@ -396,7 +396,7 @@
     }
 
     .boxRow {
-      width: 45%;
+      width: 35%;
 
       @include mixins.mobile {
         width: calc(100% + 24px);
@@ -416,9 +416,9 @@
     .imageBoxGrid,
     .imageBoxGridRow {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(35%, 1fr));
       gap: 8px;
-      width: 45%;
+      width: 35%;
       font-size: small;
       user-select: none;
 
@@ -444,7 +444,7 @@
     }
 
     .infoBox {
-      width: 50%;
+      width: 60%;
 
       h2 {
         margin-bottom: 12px;
@@ -459,7 +459,7 @@
     }
 
     .imageBox {
-      width: 45%;
+      width: 35%;
       user-select: none;
 
       @include mixins.mobile {

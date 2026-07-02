@@ -13,7 +13,7 @@
       text-align: left;
     }
 
-    h3 {
+    p {
       width: config.$content-textWidth;
       max-width: config.$max-widthHeigh;
       margin: 12px auto;
@@ -25,29 +25,43 @@
     }
   }
 
-  .imageBox {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-  }
-
   .contact {
-    color: config.$white;
-    background: config.$dark;
-    padding: 24px 0px;
+    position: relative;
     margin-bottom: 50px;
 
-    .contactBox {
+    .imageBox {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      bottom: 0px !important;
+      color: config.$white;
+      max-width: config.$max-widthHeigh;
+      @include mixins.transparentBackground(0.4, config.$dark);
+      padding: 24px 0px;
+
+      @include mixins.mobile {
+        position: relative;
+        background: config.$dark;
+      }
+    }
+
+    .row {
       margin: auto;
       width: config.$content-textWidth;
-      max-width: config.$max-widthHeigh;
-      @include mixins.row-space-between-center();
+      display: flex;
+      flex-direction: row;
 
       @include mixins.mobile {
         display: flex;
         flex-direction: column;
         width: calc(100% - 24px);
       }
+
       @include mixins.tabletPortrait {
         width: config.$content-widthTablet;
       }
@@ -56,11 +70,15 @@
       }
     }
 
-    div {
+    .item {
       width: 100%;
 
       @include mixins.mobile {
         margin: 8px 0px;
+      }
+
+      h4 {
+        margin: 4px 0px;
       }
 
       .phone {

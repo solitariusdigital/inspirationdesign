@@ -85,13 +85,8 @@ export default function ContactForm() {
       </h2>
       <div className={classes.form}>
         <div className={classes.input}>
-          <div className={classes.bar}>
-            <p className={classes.label}>
-              Name
-              <span>*</span>
-            </p>
-          </div>
           <input
+            placeholder="Name"
             type="text"
             id="name"
             name="name"
@@ -101,13 +96,8 @@ export default function ContactForm() {
           ></input>
         </div>
         <div className={classes.input}>
-          <div className={classes.bar}>
-            <p className={classes.label}>
-              Email
-              <span>*</span>
-            </p>
-          </div>
           <input
+            placeholder="Email"
             type="email"
             id="email"
             name="email"
@@ -118,13 +108,8 @@ export default function ContactForm() {
           />
         </div>
         <div className={classes.input}>
-          <div className={classes.bar}>
-            <p className={classes.label}>
-              Phone
-              <span>*</span>
-            </p>
-          </div>
           <input
+            placeholder="Phone"
             type="tel"
             id="phone"
             name="phone"
@@ -135,13 +120,8 @@ export default function ContactForm() {
           />
         </div>
         <div className={classes.input}>
-          <div className={classes.bar}>
-            <p className={classes.label}>
-              Subject
-              <span>*</span>
-            </p>
-          </div>
           <input
+            placeholder="Subject"
             type="text"
             id="subject"
             name="subject"
@@ -152,13 +132,8 @@ export default function ContactForm() {
         </div>
       </div>
       <div className={classes.input}>
-        <div className={classes.bar}>
-          <p className={classes.label}>
-            Message
-            <span>*</span>
-          </p>
-        </div>
         <textarea
+          placeholder="Message"
           type="text"
           id="message"
           name="message"

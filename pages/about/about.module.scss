@@ -47,7 +47,6 @@
     width: config.$content-textWidth;
     max-width: config.$max-widthHeigh;
     margin: 50px auto;
-    margin-top: 24px;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
@@ -66,12 +65,9 @@
         display: flex;
         flex-direction: column;
       }
-      @include mixins.allDesktop {
-        min-height: 700px;
-      }
 
       .imageBox {
-        width: 40%;
+        width: 35%;
 
         @include mixins.mobile {
           width: calc(100% + 24px);
@@ -79,7 +75,7 @@
       }
 
       .infoBox {
-        width: 55%;
+        width: 60%;
 
         @include mixins.mobile {
           width: 100%;

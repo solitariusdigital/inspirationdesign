@@ -48,67 +48,65 @@ export default function Contact() {
       />
       <div className={classes.container}>
         <div className={classes.text}>
-          <h1
+          <h2
             style={{
               fontFamily: "RobotoRegular",
             }}
           >
             Let's Design Together
-          </h1>
-          <h3>
+          </h2>
+          <p>
             We welcome inquiries from new and existing clients and anyone who
             wants to connect. If you have a unique project in mind, please don't
             hesitate to contact us. We're eager to design your next home or
             space.
-          </h3>
-        </div>
-        <div className={classes.imageBox}>
-          <FirebaseImage path="Resources/Contact.jpg" alt="contact" />
+          </p>
         </div>
         <div className={classes.contact}>
-          <div className={classes.contactBox}>
-            <div>
-              <h2
-                style={{
-                  fontFamily: "RobotoRegular",
-                  marginBottom: "8px",
-                }}
-              >
-                Contact us
-              </h2>
-              <h4
-                className={classes.phone}
-                onClick={() => window.open(`tel:+16049710270`, "_self")}
-              >
-                T 604 971 0270
-              </h4>
-              <h4
-                className={classes.phone}
-                onClick={() => window.open(`tel:+16043659191`, "_self")}
-              >
-                C 604 365 9191
-              </h4>
-              <h4>info@inspirationdesigns.ca</h4>
-            </div>
-            <div>
-              <h2
-                style={{
-                  fontFamily: "RobotoRegular",
-                  marginBottom: "8px",
-                }}
-              >
-                Reach us
-              </h2>
-              <h4>
-                Harbourfront Business Centre, 500 – 224 West Esplanade North
-                Vancouver V7M 1A4
-              </h4>
-              <p
-                className={classes.direction}
-                onClick={() => window.open(headLocationLink)}
-              >
-                Get directions
-              </p>
+          <div className={classes.imageBox}>
+            <FirebaseImage path="Resources/Contact.jpg" alt="contact" />
+          </div>
+          <div className={classes.overlay}>
+            <div className={classes.row}>
+              <div className={classes.item}>
+                <h2
+                  style={{
+                    fontFamily: "RobotoRegular",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Contact us
+                </h2>
+                <h4
+                  className={classes.phone}
+                  onClick={() => window.open(`tel:+16049710270`, "_self")}
+                >
+                  T 604 971 0270
+                </h4>
+                <h4
+                  className={classes.phone}
+                  onClick={() => window.open(`tel:+16043659191`, "_self")}
+                >
+                  C 604 365 9191
+                </h4>
+                <h4>info@inspirationdesigns.ca</h4>
+              </div>
+              <div className={classes.item}>
+                <h2
+                  style={{
+                    fontFamily: "RobotoRegular",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Reach us
+                </h2>
+                <p
+                  className={classes.direction}
+                  onClick={() => window.open(headLocationLink)}
+                >
+                  Get directions
+                </p>
+              </div>
             </div>
           </div>
         </div>

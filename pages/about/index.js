@@ -38,12 +38,22 @@ export default function About() {
   };
   const information = [
     {
+      title: "The Company",
+      paragraphs: [
+        `“ In my work, design is the bridge between a client’s vision and a built reality. ” - Parastoo Jafari`,
+        `Founded in 2006, Inspiration Design Ltd. is a full-service turnkey design firm specializing in building design, interior design, lighting design, and project management, with a growing focus on healthy, high-performance houses using lightweight steel framing.`,
+        `The firm originally began as a specialized design and project management company in Dubai and Bahrain, working with some of the most talented architects, designers, and builders internationally. Highlights include prestigious projects for the Royal family and the French Embassy in Bahrain, as well as private residences, multifamily buildings, retail and restaurant projects, offices, banks, and exhibitions, many of which included specialized exterior lighting design. This international experience was followed by over 15 years of specialization in residential and luxury single-family projects in Canada, including multifamily buildings in North Vancouver and high-end houses in West Vancouver.`,
+      ],
+      path: "Resources/AboutCompany.jpg",
+    },
+    {
       title: "Professional Background",
       paragraphs: [
         `The founder of the company, Dr. Parastoo Jafari, has an extensive professional background in architecture, interior design, and construction internationally, bringing valuable hands-on experience and construction knowledge essential to this field.`,
         `Parastoo completed a Master’s in Architecture (D.P.L.G.) at the École d’Architecture de Bordeaux in France, followed by a PhD in Architecture, specializing in fire protection of building structures. She is currently a PhD candidate in Civil Engineering at the University of British Columbia, focusing on the use of lightweight steel framing to develop mold-free, affordable single-family housing systems. Dr. Jafari became an architect in France and is also recognized as a Registered Architect in Iran through the Engineering Association of the Ministry of Housing and Urban Development.`,
         `Her decades of international experience are supported by 12 years of technical and management experience with Knauf, a leading German building materials manufacturer. Over the years, Dr. Jafari has been an active member of professional associations, including RAIC (Royal Architectural Institute of Canada), IDIBC (Interior Designers Institute of British Columbia), and WIA (Women in Architecture), allowing the firm to stay current with technological advancements in the field. With a PhD in Architecture, she has also received CACB (Canadian Architectural Certification Board) certification in Canada.`,
       ],
+      path: "Resources/About.jpg",
     },
     {
       title: "Innovation in Healthy House Design",
@@ -51,6 +61,7 @@ export default function About() {
         `An important focus of the practice is the design of healthy houses using lightweight steel framing. Through ongoing PhD research at the University of British Columbia, Dr. Jafari explores mold-free wall systems, building envelope performance, and structural testing.`,
         `At the same time, the company team researches and designs houses based on the health and safety advantages of lightweight steel framing, including fire resistance, durability, and the environmental benefits of steel compared to traditional wood framing. This expertise allows the firm to integrate high-performance construction systems, healthy living environments, and advanced building technologies into its projects, helping homeowners build safer, healthier, and longer-lasting homes.`,
       ],
+      path: "Resources/Construction/20.jpg",
     },
     {
       title: "Full-Service Expertise",
@@ -59,6 +70,7 @@ export default function About() {
         `We view our profession as both an art and a science, combining creative vision with technical precision. The foundation of our work is a deep understanding of each client’s vision and aspirations. Through thoughtful conceptual design, we translate ideas and dreams into clear design directions that are both inspiring and grounded in reality.`,
         `As a turnkey design practice, Inspiration Design manages the entire process beyond the initial design consultation. This includes comprehensive analysis of site conditions, orientation, building codes, construction systems, materials, and technologies, ensuring that each project is feasible, compliant, and well-resolved. Our services extend through all design phases, from concept design and design development to construction documents, followed by project coordination and site supervision, allowing us to deliver cohesive, functional, and carefully executed projects tailored to each client’s needs.`,
       ],
+      path: null,
     },
     {
       title: "Our Services Include",
@@ -73,12 +85,14 @@ export default function About() {
         "Construction consultation for healthy and safe building solutions (lightweight steel framing)",
         "Project supervision",
       ],
+      path: null,
     },
     {
-      // title: "Our Services Include",
+      title: "Our Commitment",
       paragraphs: [
         "At Inspiration Design, every project begins with a deep understanding of the client’s vision and lifestyle needs. We translate these aspirations into thoughtful, functional spaces grounded in technical knowledge and contemporary architectural and interior design thinking, informed by European design culture and global trends. Above all, we prioritize health, safety, and wellbeing through advanced building technologies and carefully selected healthy materials to create spaces that are intelligent, enduring, and beautiful.",
       ],
+      path: null,
     },
   ];
   const testimonials = [
@@ -213,78 +227,58 @@ export default function About() {
         </div>
         {pageType === "company" && (
           <>
-            <div className={classes.info}>
-              <div className={classes.box}>
-                <div
-                  className={classes.imageBox}
-                  style={{
-                    marginBottom: screenSize === "mobile" ? "50px" : "0px",
-                  }}
-                >
-                  <FirebaseImage
-                    path="Resources/About.jpg"
-                    alt="about"
-                    mode="intrinsic"
-                  />
-                </div>
-                <div className={classes.infoBox}>
-                  <h2 style={{ fontFamily: "RobotoRegular" }}>
-                    {company.title}
-                  </h2>
-                  {company.paragraphs.map((text, i) => (
-                    <div key={i}>
-                      {i === 0 ? (
-                        <h2
-                          style={{
-                            fontFamily: "RobotoItalic",
-                            margin: "12px 0px",
-                          }}
-                        >
-                          {text}
-                        </h2>
-                      ) : (
-                        <p
-                          style={{
-                            margin: "8px 0px",
-                          }}
-                        >
-                          {text}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
             {information.map((section, index) => (
               <div key={index} className={classes.info}>
-                <h2
-                  style={{
-                    marginBottom: "12px",
-                    fontFamily: "RobotoRegular",
-                  }}
-                >
-                  {section.title}
-                </h2>
-                {section.paragraphs.map((text, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      margin: index !== 3 ? "8px 0px" : null,
-                    }}
-                    className={classes.row}
-                  >
-                    {index === 3 && (
-                      <CircleOutlinedIcon
-                        sx={{ fontSize: 10 }}
-                        style={{
-                          marginRight: "8px",
-                        }}
+                <div className={classes.box}>
+                  {section.path && (
+                    <div
+                      className={classes.imageBox}
+                      style={{
+                        marginBottom: screenSize === "mobile" ? "24px" : "0px",
+                      }}
+                    >
+                      <FirebaseImage
+                        path={section.path}
+                        alt="about"
+                        mode="intrinsic"
                       />
-                    )}
-                    <p>{text}</p>
+                    </div>
+                  )}
+                  <div
+                    className={classes.infoBox}
+                    style={{
+                      width: !section.path ? "100%" : "",
+                    }}
+                  >
+                    <h2
+                      style={{
+                        marginBottom: "12px",
+                        fontFamily: "RobotoRegular",
+                      }}
+                    >
+                      {section.title}
+                    </h2>
+                    {section.paragraphs.map((text, i) => (
+                      <div
+                        key={i}
+                        style={{
+                          margin: index !== 3 ? "8px 0px" : null,
+                        }}
+                        className={classes.row}
+                      >
+                        {index === 3 && (
+                          <CircleOutlinedIcon
+                            sx={{ fontSize: 10 }}
+                            style={{
+                              marginRight: "8px",
+                            }}
+                          />
+                        )}
+                        <p>{text}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
             ))}
           </>

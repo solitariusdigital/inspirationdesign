@@ -154,13 +154,7 @@ export default function NewsArticle() {
                     <h3>{convertDateName(displayNews.date)}</h3>
                     <p>{getTotalReadingTime(displayNews)}</p>
                   </div>
-                  <h3
-                    style={{
-                      fontFamily: "RobotoRegular",
-                    }}
-                  >
-                    {displayNews.description.split("\n\n")[0]}
-                  </h3>
+                  <p>{displayNews.description.split("\n\n")[0]}</p>
                 </div>
               </div>
             </div>
