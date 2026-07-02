@@ -28,14 +28,7 @@ export default function About() {
   }, []);
 
   const navigation = ["company", "testimonials", "awards", "publications"];
-  const company = {
-    title: "The Company",
-    paragraphs: [
-      `“ In my work, design is the bridge between a client’s vision and a built reality. ” - Parastoo Jafari`,
-      `Founded in 2006, Inspiration Design Ltd. is a full-service turnkey design firm specializing in building design, interior design, lighting design, and project management, with a growing focus on healthy, high-performance houses using lightweight steel framing.`,
-      `The firm originally began as a specialized design and project management company in Dubai and Bahrain, working with some of the most talented architects, designers, and builders internationally. Highlights include prestigious projects for the Royal family and the French Embassy in Bahrain, as well as private residences, multifamily buildings, retail and restaurant projects, offices, banks, and exhibitions, many of which included specialized exterior lighting design. This international experience was followed by over 15 years of specialization in residential and luxury single-family projects in Canada, including multifamily buildings in North Vancouver and high-end houses in West Vancouver.`,
-    ],
-  };
+
   const information = [
     {
       title: "The Company",
@@ -151,43 +144,157 @@ export default function About() {
   ];
   const awards = [
     {
+      title:
+        "Orchard Residence – George Awards Finalist (Best Custom Home: $3 Million–Under $6 Million)",
+      detail: "2025",
+    },
+    {
+      title:
+        "Orchard Residence – Havan Awards Finalist (Best Custom Home: $3 Million–Under $6 Million)",
+      detail: "2025",
+    },
+    {
+      title:
+        "Canyon Haven (Clements I & II) – George Awards Finalist (Custom Home Valued Under $1 Million)",
+      detail: "2025",
+    },
+    {
+      title:
+        "Canyon Haven (Clements I & II) – Havan Awards Finalist (Custom Home Valued Under $1 Million)",
+      detail: "2025",
+    },
+    {
       title: "Jewelery Arabia Recognition For Best Design And Fitout",
-      year: "2010",
+      detail: "2010",
     },
     {
       title: "Bahrain City Center Recognition For Best Fitout",
-      year: "2009",
+      detail: "2009",
     },
     {
       title:
         "NYIT New York Institute Of Technology - Recognition For Cooperation",
-      year: "2009",
+      detail: "2009",
     },
     {
       title: "University Of Bahrain - Recognition For Cooperation",
-      year: "2009",
+      detail: "2009",
     },
     {
       title: "French Embassy - Recognition For Arkheo Exhibition",
-      year: "2008",
+      detail: "2008",
     },
   ];
   const publications = [
-    "Abadi Magazine, Autumn 1998, Article about City of Shiraz Entrance Monument competition, Fourth prize to Parastoo Jafari",
-    "A Collection of Articles presented at the second Environmental Engineering and architecture Forum “optimal Housing”, June 22-24, 1999, Article by Parastoo Jafari, PhD in Architecture;” Building Safety, Fire- resistant building Design, and suitable Architectural Building Materials and Techniques",
-    "Kanoon News, Tehran Faculty of architecture news paper, winter 2000, Article about Parastoo Jafari’s speech on contemporary architecture",
-    "Architecture & Urbanism 54-55/ February 2000, Special issue; Contemporary Architectural Design, Article ”Evolution of Iranian Architecture in view of the influences of western technology” by Parastoo Jafari",
-    "Gulf Weekly, Vol. 6, October 31- November 6, 2007, Page 11, ”Jacque’s Memento”; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
-    "Alayam News, 2nd November 2007, No. 6781, Last page; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
-    "Gulf Daily News, Vol XXX, No. 224, 30th October 2007, Page 20, Heritage on Show; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
-    "Gulf Daily News, Vol XXX, No. 225, 31th October 2007, Page 19, Exhibition digs in to the past; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
-    "Gulf Daily News, Vol XXX, No. 216, 22nd October 2007, Page 18, Heritage Expo Focus; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
-    "Alayam News, 31st, October 2007, No. 6779, Page16, Arkheo; Article about “Arkheo” exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain",
-    "Middle East Interiors, November 2007 pp.20-21, “Growth-driven Inspiration”; Article about Inspiration Interior Design company and its projects",
-    "Middle East Interiors, April 2009, pp.36-39, “Drawing on Inspiration”; Article about Inspiration Interior Design company and its projects",
-    "Middle East Interiors, May 2009, pp.30-32, “Design calls for dexterity”; Article about Inspiration Interior Design company and its projects",
-    "Middle East Interiors, November 2009, pp.30-32, “Inspired to succeed”; Article about Inspiration Interior Design company and its projects",
-    "Gulf News, 18 November 2009, Page 3, Article about International Jewllery Arabia and Al Zain stand designed by Inspiration Interior Design",
+    {
+      title: "Georgie Awards Finalists",
+      description:
+        "Official Canadian Home Builders' Association of British Columbia (CHBA BC) PublicationOrchard Residence and Canyon Haven recognized as finalists in the 2025 Georgie Awards.",
+      detail: "",
+    },
+    {
+      title: "HAVAN Awards Finalists",
+      description:
+        "Official Homebuilders Association Vancouver (HAVAN) PublicationOrchard Residence and Canyon Haven recognized as finalists in the 2025 HAVAN Awards.",
+      detail: "",
+    },
+    {
+      title: `Middle East Interiors “ Inspired to Succeed ”`,
+      description:
+        "Feature article highlighting Inspiration Interior Design and its projects.",
+      detail: "November 2009 | pp. 30–32",
+    },
+    {
+      title: "Gulf News",
+      description:
+        "Feature article covering Jewellery Arabia and the award-winning Al Zain Jewellery stand designed by Inspiration Interior Design.",
+      detail: "18 November 2009 | Page 3",
+    },
+    {
+      title: `Middle East Interiors “ Design Calls for Dexterity ”`,
+      description:
+        "Feature article discussing Inspiration Interior Design's turnkey design philosophy and selected projects.",
+      detail: "May 2009 | pp. 30–32",
+    },
+    {
+      title: `Middle East Interiors “ Design on Inspiration ”`,
+      description:
+        "Feature article presenting Inspiration Interior Design and a selection of completed projects.",
+      detail: "April 2009 | pp. 36–39",
+    },
+    {
+      title: `Middle East Interiors “ Growth-driven Inspiration ”`,
+      description:
+        "Feature article introducing Inspiration Interior Design and its expanding portfolio.",
+      detail: "November 2007 | pp. 20–21",
+    },
+    {
+      title: `Gulf Weekly “ Jacque's Memento ”`,
+      description:
+        "Feature article on the ARKHEO exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain.",
+      detail: "31 October – 6 November 2007 | Vol. 6 | Page 11",
+    },
+    {
+      title: "Al Ayam",
+      description:
+        "Coverage of the ARKHEO exhibition and the French–Bahraini archaeological collaboration.",
+      detail: "2 November 2007 | No. 6781",
+    },
+    {
+      title: `Gulf Daily News “ Exhibition Digs into the Past ”`,
+      description: "",
+      detail: "31 October 2007 | Vol. XXX | No. 225 | Page 19",
+    },
+    {
+      title: "Al Watan",
+      description:
+        "Coverage of the inauguration of the ARKHEO exhibition at La Maison Jamsheer, Muharraq, Bahrain.",
+      detail: "31 October 200",
+    },
+    {
+      title: "Al Ayam",
+      description: "Coverage of the ARKHEO exhibition.",
+      detail: "31 October 2007 | No. 6779 | Page 16",
+    },
+    {
+      title: `Gulf Daily News “ Heritage on Show ”`,
+      description: "",
+      detail: "30 October 2007 | Vol. XXX | No. 224 | Page 20",
+    },
+    {
+      title: `Gulf Daily News “ Heritage Expo Focus ”`,
+      description: "",
+      detail: "22 October 2007 | Vol. XXX | No. 216 | Page 18",
+    },
+    {
+      title: `Architecture & Urbanism “ Evolution of Iranian Architecture in View of the Influences of Western Technology ”`,
+      description: "Research article by Dr. Parastoo Jafari.",
+      detail: "February 2000 | Nos. 54–55",
+    },
+    {
+      title: "Kanoon News",
+      description:
+        "Tehran Faculty of Architecture. Coverage of Dr. Parastoo Jafari's lecture on contemporary architecture.",
+      detail: "Winter 2000",
+    },
+    {
+      title:
+        "Proceedings of the Second Environmental Engineering & Architecture Forum – Optimal Housing",
+      description: "",
+      detail: "22–24 June 1999",
+    },
+    {
+      title:
+        "Building Safety, Fire-Resistant Building Design, and Suitable Architectural Building Materials and Techniques",
+      description: "Research paper by Dr. Parastoo Jafari.",
+      detail: "",
+    },
+    {
+      title: "Abadi Magazine",
+      description:
+        "Coverage of the City of Shiraz Entrance Monument Competition, in which Dr. Parastoo Jafari received Fourth Prize.",
+      detail: "Autumn 1998",
+    },
   ];
 
   return (
@@ -262,7 +369,7 @@ export default function About() {
                       <div
                         key={i}
                         style={{
-                          margin: index !== 3 ? "8px 0px" : null,
+                          margin: index !== 3 ? "4px 0px" : null,
                         }}
                         className={classes.row}
                       >
@@ -313,14 +420,22 @@ export default function About() {
             <div className={classes.gridLayout}>
               {awards.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <p
+                  <h4
                     style={{
                       fontFamily: "RobotoRegular",
                     }}
                   >
-                    {item.year}
+                    {item.title}
+                  </h4>
+                  <p
+                    style={{
+                      fontFamily: "RobotoItalic",
+                      fontSize: "medium",
+                      marginTop: "8px",
+                    }}
+                  >
+                    {item.detail}
                   </p>
-                  <h4>{item.title}</h4>
                 </div>
               ))}
             </div>
@@ -333,13 +448,34 @@ export default function About() {
                 fontFamily: "RobotoRegular",
               }}
             >
-              Publications
+              Publications & Press
             </h2>
             <div className={classes.gridLayout}>
               {publications.map((item, index) => (
                 <div key={index} className={classes.publication}>
-                  <p>{item}</p>
-                  <CircleOutlinedIcon sx={{ fontSize: 10 }} />
+                  <h4
+                    style={{
+                      fontFamily: "RobotoRegular",
+                    }}
+                  >
+                    {item.title}
+                  </h4>
+                  <p
+                    style={{
+                      marginTop: "8px",
+                    }}
+                  >
+                    {item.description}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "RobotoItalic",
+                      fontSize: "medium",
+                      marginTop: "8px",
+                    }}
+                  >
+                    {item.detail}
+                  </p>
                 </div>
               ))}
             </div>

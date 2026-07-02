@@ -37,7 +37,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
     gap: 16px;
-    align-items: center;
     margin: auto;
     width: config.$content-width;
     max-width: config.$max-widthHeigh;

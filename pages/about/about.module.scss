@@ -106,7 +106,7 @@
   grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
   gap: 12px;
   margin: auto;
-  margin-top: 12px;
+  margin-top: 24px;
 
   @include mixins.mobile {
     grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
@@ -120,17 +120,5 @@
 }
 
 .publication {
-  @include mixins.row-space-between-center();
   @include mixins.card();
-  flex-direction: row-reverse;
-  text-align: left;
-  align-items: first baseline;
-
-  p {
-    margin-left: 8px;
-  }
-
-  p::first-letter {
-    font-size: 1.5rem;
-  }
 }
