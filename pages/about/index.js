@@ -470,7 +470,7 @@ export default function About() {
                   <p
                     style={{
                       fontFamily: "RobotoItalic",
-                      fontSize: "medium",
+                      fontSize: "14px",
                       marginTop: "8px",
                     }}
                   >

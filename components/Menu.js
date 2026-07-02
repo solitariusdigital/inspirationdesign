@@ -22,7 +22,7 @@ export default function Menu() {
   const { screenSize, setScreenSize } = useContext(StateContext);
   const { editProject, setEditProject } = useContext(StateContext);
   const { editNews, setEditNews } = useContext(StateContext);
-  const [menuMobile, setMenuMobile] = useState(false);
+  const { menuMobile, setMenuMobile } = useContext(StateContext);
 
   const router = useRouter();
   let pathname = router.pathname;
@@ -118,38 +118,44 @@ export default function Menu() {
         </nav>
       ) : (
         <nav>
-          {menuMobile ? (
-            <Tooltip title="Close">
-              <CloseIcon
-                className="icon"
-                onClick={() => setMenuMobile(!menuMobile)}
-                sx={{ fontSize: 30, color: colorCode }}
-              />
-            </Tooltip>
-          ) : (
-            <Tooltip title="Menu">
-              <MenuIcon
-                className="icon"
-                onClick={() => setMenuMobile(!menuMobile)}
-                sx={{ fontSize: 30, color: colorCode }}
-              />
-            </Tooltip>
-          )}
+          <div className={classes.control}>
+            {menuMobile ? (
+              <Tooltip title="Close">
+                <CloseIcon
+                  className="icon"
+                  onClick={() => setMenuMobile(!menuMobile)}
+                  sx={{ fontSize: 30, color: "white" }}
+                />
+              </Tooltip>
+            ) : (
+              <Tooltip title="Menu">
+                <MenuIcon
+                  className="icon"
+                  onClick={() => setMenuMobile(!menuMobile)}
+                  sx={{ fontSize: 30, color: colorCode }}
+                />
+              </Tooltip>
+            )}
+          </div>
           {menuMobile && (
             <nav
-              className={`${classes.mobileNavigation} animate__animated animate__slideInLeft`}
+              className={classes.mobileNavigation}
+              style={{
+                fontFamily: "RobotoThin",
+              }}
             >
               {navigationTopBar.map((nav, index) => (
-                <Fragment key={index}>
-                  <Link
-                    className={!nav.active ? classes.nav : classes.navActive}
-                    onClick={() => activateNav(nav.link, index)}
-                    href={nav.link}
-                    passHref
-                  >
-                    {nav.title}
-                  </Link>
-                </Fragment>
+                <Link
+                  key={nav.link}
+                  href={nav.link}
+                  className={nav.active ? classes.navActive : classes.nav}
+                  style={{
+                    animationDelay: `${index * 180}ms`,
+                  }}
+                  onClick={() => activateNav(nav.link, index)}
+                >
+                  {nav.title}
+                </Link>
               ))}
             </nav>
           )}

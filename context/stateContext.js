@@ -6,11 +6,12 @@ export const StateProvider = (props) => {
   const [menuDisplay, setMenuDisplay] = useState(true);
   const [footerDisplay, setFooterDisplay] = useState(true);
   const [screenSize, setScreenSize] = useState(
-    "desktop" || "tablet-landscape" || "tablet-portrait" || "mobile"
+    "desktop" || "tablet-landscape" || "tablet-portrait" || "mobile",
   );
   const [editProject, setEditProject] = useState(null);
   const [projectsCategory, setProjectsCategory] = useState("residential");
   const [editNews, setEditNews] = useState(null);
+  const [menuMobile, setMenuMobile] = useState(false);
   const [navigationTopBar, setNavigationTopBar] = useState([
     {
       title: "Work",
@@ -37,6 +38,8 @@ export const StateProvider = (props) => {
     currentUser,
     setCurrentUser,
     screenSize,
+    menuMobile,
+    setMenuMobile,
     setScreenSize,
     navigationTopBar,
     setNavigationTopBar,

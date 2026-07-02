@@ -155,6 +155,7 @@ export default function ProjectForm() {
       <h3
         style={{
           fontFamily: "RobotoRegular",
+          margin: "24px 0px",
         }}
       >
         {editProject ? "Edit" : "Add"} Project

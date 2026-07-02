@@ -134,6 +134,7 @@ export default function NewsForm() {
       <h3
         style={{
           fontFamily: "RobotoRegular",
+          margin: "24px 0px",
         }}
       >
         {editNews ? "Edit" : "Add"} News

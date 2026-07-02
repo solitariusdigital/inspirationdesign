@@ -26,7 +26,7 @@
   .form {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-    gap: 16px;
+    gap: 24px;
 
     @include mixins.mobile {
       display: flex;
@@ -41,6 +41,20 @@
 
   .count {
     font-size: small;
+  }
+
+  .bar {
+    @include mixins.row-space-between-center();
+    margin-bottom: 8px;
+    font-size: medium;
+  }
+
+  .label {
+    color: config.$dark;
+
+    span {
+      color: config.$brand;
+    }
   }
 
   input,

@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
   const { screenSize, setScreenSize } = useContext(StateContext);
   const { menuDisplay, setMenuDisplay } = useContext(StateContext);
   const { footerDisplay, setFooterDisplay } = useContext(StateContext);
+  const { menuMobile, setMenuMobile } = useContext(StateContext);
   const [appLoader, setAppLoader] = useState(false);
   const [moveLogo, setMoveLogo] = useState(false);
 
@@ -70,6 +71,8 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     let prevScrollY = window.scrollY;
     const handleScroll = () => {
+      if (menuMobile) return;
+
       const currentScrollY = window.scrollY;
       if (currentScrollY <= 0) {
         setMenuDisplay(true);
@@ -82,7 +85,7 @@ export default function RootLayout({ children }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [menuMobile]);
 
   return (
     <>
@@ -93,7 +96,7 @@ export default function RootLayout({ children }) {
           }}
         >
           {menuDisplay && (
-            <section className="menu animate__animated animate__slideInDown">
+            <section className="menu">
               <Menu />
             </section>
           )}
