@@ -77,7 +77,7 @@ export default function ContactForm() {
     <div className={classes.formBox}>
       <h2
         style={{
-          fontFamily: "OpenSansRegular",
+          fontFamily: "RobotoRegular",
           marginBottom: "24px",
         }}
       >

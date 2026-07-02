@@ -111,7 +111,7 @@ export default function NewsForm() {
       array.map((item) => ({
         file: item,
         link: URL.createObjectURL(item),
-      }))
+      })),
     );
   };
 
@@ -133,7 +133,7 @@ export default function NewsForm() {
     <div className={classes.formBox}>
       <h3
         style={{
-          fontFamily: "OpenSansRegular",
+          fontFamily: "RobotoRegular",
         }}
       >
         {editNews ? "Edit" : "Add"} News

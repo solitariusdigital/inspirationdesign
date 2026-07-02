@@ -42,7 +42,7 @@
   .slideTrackBottom {
     display: flex;
     width: calc(500px * 10);
-    animation: scroll 80s linear infinite;
+    animation: scroll 90s linear infinite;
 
     @include mixins.mobile {
       width: calc(400px * 10);
@@ -50,11 +50,11 @@
   }
 
   .slideTrackTop {
-    width: calc(420px * 10);
+    width: calc(300px * 10);
     animation: scroll 70s linear infinite;
 
     @include mixins.mobile {
-      width: calc(370px * 10);
+      width: calc(250px * 10);
     }
   }
 

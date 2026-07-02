@@ -112,7 +112,14 @@ export default function Home() {
         </section>
         <section className={classes.services}>
           {expertise.map((service, index) => (
-            <div key={index} className={classes.infoBox}>
+            <div
+              key={index}
+              className={classes.infoBox}
+              style={{
+                paddingBottom: index === 2 ? "100px" : "0px",
+                marginBottom: index === 2 ? "0px" : "100px",
+              }}
+            >
               <Link
                 onClick={() => {
                   setProjectsCategory(service.type);
@@ -123,7 +130,7 @@ export default function Home() {
                 <div className={classes.info}>
                   <h1
                     style={{
-                      fontFamily: "OpenSansRegular",
+                      fontFamily: "RobotoRegular",
                     }}
                   >
                     {service.title}
@@ -131,23 +138,22 @@ export default function Home() {
                   <div className={classes.light}>
                     <Light timer={500 * index} />
                   </div>
-                  <h4
+                  <h3
                     style={{
-                      fontFamily: "OpenSansItalic",
-                      marginTop: "24px",
-                      marginBottom: "12px",
+                      fontFamily: "RobotoItalic",
+                      margin: "8px 0px",
                     }}
                   >
                     {service.subTitle}
-                  </h4>
-                  <h3
+                  </h3>
+                  <p
                     style={{
                       margin: "8px 0px",
                     }}
                   >
                     {service.descriptionOne}
-                  </h3>
-                  <h3>{service.descriptionTwo}</h3>
+                  </p>
+                  <p>{service.descriptionTwo}</p>
                   {service.type === "construction" && (
                     <div
                       style={{
@@ -155,10 +161,7 @@ export default function Home() {
                       }}
                     >
                       {constructionItems.map((item, index) => (
-                        <div key={index} className={classes.row}>
-                          <CircleOutlinedIcon sx={{ fontSize: 10 }} />
-                          <p>{item}</p>
-                        </div>
+                        <p key={index}>{item}</p>
                       ))}
                     </div>
                   )}
@@ -191,7 +194,7 @@ export default function Home() {
                     <FirebaseImage
                       path={service.path}
                       alt={service.title}
-                      mode="intrinsic"
+                      mode="fill"
                     />
                   </div>
                 </Link>

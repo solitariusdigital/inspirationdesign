@@ -2,7 +2,9 @@
 @use "styles/_mixins.scss" as mixins;
 
 .container {
-  margin-bottom: 100px;
+  @include mixins.mobile {
+    padding-bottom: 80px;
+  }
 
   p {
     color: config.$white;
@@ -15,7 +17,7 @@
     justify-content: center;
 
     button {
-      @include mixins.button(config.$brand, config.$dark, config.$white);
+      @include mixins.button(config.$text, config.$dark, config.$white);
     }
   }
 }
@@ -37,7 +39,7 @@
     gap: 16px;
     align-items: center;
     margin: auto;
-    padding-bottom: 100px;
+    margin-bottom: 100px;
     width: config.$content-width;
     max-width: config.$max-widthHeigh;
     direction: rtl;
@@ -67,7 +69,7 @@
       direction: ltr;
 
       button {
-        @include mixins.button(config.$brand, config.$dark, config.$white);
+        @include mixins.button(config.$text, config.$dark, config.$white);
         margin-top: 12px;
       }
 
@@ -82,16 +84,6 @@
 
       .light {
         margin: 8px 0px !important;
-      }
-
-      .row {
-        display: flex;
-        flex-direction: row;
-        align-items: first baseline;
-
-        p {
-          margin-left: 8px;
-        }
       }
 
       .arrow {

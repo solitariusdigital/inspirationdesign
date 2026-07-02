@@ -146,7 +146,7 @@ export default function NewsArticle() {
                   <div className={classes.info}>
                     <h1
                       style={{
-                        fontFamily: "OpenSansRegular",
+                        fontFamily: "RobotoRegular",
                       }}
                     >
                       {displayNews.title}
@@ -156,7 +156,7 @@ export default function NewsArticle() {
                   </div>
                   <h3
                     style={{
-                      fontFamily: "OpenSansRegular",
+                      fontFamily: "RobotoRegular",
                     }}
                   >
                     {displayNews.description.split("\n\n")[0]}

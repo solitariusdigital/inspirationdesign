@@ -36,6 +36,7 @@ export default function Work() {
   };
 
   useEffect(() => {
+    setProjectsCategory("residential");
     navigationTopBar.map((nav) => {
       if (pathname === nav.link) {
         nav.active = true;
@@ -135,7 +136,7 @@ export default function Work() {
         <h2
           className={classes.title}
           style={{
-            fontFamily: "OpenSansRegular",
+            fontFamily: "RobotoRegular",
           }}
         >
           {services[projectsCategory]}
@@ -187,7 +188,10 @@ export default function Work() {
                         </div>
                         {hoveredId === project.id && (
                           <div className={classes.overlay}>
-                            <h2 className="animate__animated animate__slideInUp">
+                            <h2
+                              className="animate__animated animate__slideInUp"
+                              style={{ fontFamily: "RobotoRegular" }}
+                            >
                               {project.title}
                             </h2>
                             <h3 className="animate__animated animate__slideInUp">
@@ -254,7 +258,7 @@ export default function Work() {
                           <div className={classes.overlay}>
                             <h2
                               className="animate__animated animate__slideInUp"
-                              style={{ fontFamily: "OpenSansRegular" }}
+                              style={{ fontFamily: "RobotoRegular" }}
                             >
                               {project.title}
                             </h2>
@@ -313,15 +317,12 @@ export default function Work() {
                   </p>
                   <p>
                     Health has become one of the most critical concerns in
-                    residential construction today.{" "}
-                    <span>
-                      The choice of structural systems and building materials
-                      directly influences moisture behavior, mold creation,
-                      indoor air quality, fire safety, seismic performance and
-                      long-term durability
-                    </span>
-                    . Our work focuses on preventing problems before they
-                    appear, rather than after construction.
+                    residential construction today. The choice of structural
+                    systems and building materials directly influences moisture
+                    behavior, mold creation, indoor air quality, fire safety,
+                    seismic performance and long-term durability . Our work
+                    focuses on preventing problems before they appear, rather
+                    than after construction.
                   </p>
                   <p>
                     We combine advanced construction technologies,
@@ -357,30 +358,20 @@ export default function Work() {
                   </p>
                   <p>
                     Traditional wood framing is an organic material that is
-                    inherently{" "}
-                    <span>
-                      moisture-sensitive, combustible, and dimensionally
-                      unstable
-                    </span>
-                    . During construction and over a building’s lifetime, wood
-                    is vulnerable to warping, shrinking, rot and hidden mold
-                    growth, risks that directly affect indoor air quality, fire
-                    safety, long-term durabilit and most importantly,{" "}
-                    <span>inhabitant’s health and safety</span>.
+                    inherently moisture-sensitive, combustible, and
+                    dimensionally unstable . During construction and over a
+                    building’s lifetime, wood is vulnerable to warping,
+                    shrinking, rot and hidden mold growth, risks that directly
+                    affect indoor air quality, fire safety, long-term durabilit
+                    and most importantly, inhabitant’s health and safety.
                   </p>
                   <p>
-                    Lightweight steel framing offers a{" "}
-                    <span>
-                      controlled, non-combustible, inorganic structural system
-                    </span>
-                    . When properly designed and detailed, it enables healthier
-                    wall and roof assemblies, greater precision and a
-                    significantly{" "}
-                    <span>
-                      reduced risk of mold and fire compared to conventional
-                      wood construction
-                    </span>
-                    .
+                    Lightweight steel framing offers a controlled,
+                    non-combustible, inorganic structural system . When properly
+                    designed and detailed, it enables healthier wall and roof
+                    assemblies, greater precision and a significantly reduced
+                    risk of mold and fire compared to conventional wood
+                    construction.
                   </p>
                   <p>
                     At Inspiration Design Ltd., lightweight steel framing is
@@ -408,36 +399,26 @@ export default function Work() {
                 <div className={classes.infoBox}>
                   <h2>Our Expertise is What We Offer</h2>
                   <p>
-                    We provide{" "}
-                    <span>
-                      building design, interior design, lighting design,
-                      construction consultation and project management services
-                    </span>{" "}
-                    for single-family homes, with a particular specialization in{" "}
-                    <span>lightweight steel framing (LSF)</span>.
+                    We provide building design, interior design, lighting
+                    design, construction consultation and project management
+                    services for single-family homes, with a particular
+                    specialization in lightweight steel framing (LSF).
                   </p>
                   <p>
-                    Our work is driven by a strong focus on{" "}
-                    <span>
-                      client health, safety and long-term building performance
-                    </span>
-                    . Lightweight steel framing offers important advantages in
-                    addressing key risks in residential construction,
-                    particularly those related to{" "}
-                    <span>
-                      mold, fire, durability and dimensional stability
-                    </span>
+                    Our work is driven by a strong focus on client health,
+                    safety and long-term building performance . Lightweight
+                    steel framing offers important advantages in addressing key
+                    risks in residential construction, particularly those
+                    related to mold, fire, durability and dimensional stability
                     .
                   </p>
                   <p>
                     Lightweight steel framing is widely used internationally and
                     in Canada, supported by a large number of established
                     manufacturers, suppliers and specialized installers. Our
-                    role is not to replace these professionals, but to{" "}
-                    <span>
-                      guide design decisions, system selection and coordination
-                    </span>
-                    , ensuring that LSF is thoughtfully and appropriately
+                    role is not to replace these professionals, but to guide
+                    design decisions, system selection and coordination ,
+                    ensuring that LSF is thoughtfully and appropriately
                     integrated into residential projects.
                   </p>
                 </div>
@@ -473,14 +454,14 @@ export default function Work() {
                     Design comes first; every project starts with the client’s
                     lifestyle, aesthetic vision and budget. During the design
                     consultation stage, Inspiration Design Ltd. works in close
-                    cooperation with <span>licensed structural engineers</span>.
+                    cooperation with licensed structural engineers.
                   </p>
                   <p>
-                    Our <span>turnkey approach</span>, from conceptual design
-                    and construction consultation, often includes assistance
+                    Our turnkey approach, from conceptual design and
+                    construction consultation, often includes assistance
                     throughout all major phases of the project, from project
                     management to interior design and lighting design,
-                    delivering a coordinated <span>end-to-end process</span>.
+                    delivering a coordinated end-to-end process.
                   </p>
                 </div>
               </div>
@@ -502,32 +483,22 @@ export default function Work() {
                 <div className={classes.infoBox}>
                   <h2>Research-Based Practice</h2>
                   <p>
-                    Inspiration Design Ltd. is led by{" "}
-                    <span>Dr. Parastoo Jafari,</span> who studied architecture
-                    in France and holds a <span>PhD in Architecture</span>, with
-                    a background in{" "}
-                    <span>building materials and building fire protection</span>{" "}
-                    and{" "}
-                    <span>
-                      extensive architectural experience in Europe and the
-                      Middle East.
-                    </span>{" "}
-                    She also has extensive{" "}
-                    <span>Canadian and international experience</span> designing
+                    Inspiration Design Ltd. is led by Dr. Parastoo Jafari, who
+                    studied architecture in France and holds a PhD in
+                    Architecture, with a background in building materials and
+                    building fire protection and extensive architectural
+                    experience in Europe and the Middle East. She also has
+                    extensive Canadian and international experience designing
                     single-family homes and working with lightweight steel
                     framing.
                   </p>
                   <p>
-                    In addition, her ongoing doctoral research at{" "}
-                    <span>the University of British Columbia (UBC)</span>{" "}
-                    focuses on the development of{" "}
-                    <span>
-                      affordable, mold-resistant wall systems for single-family
-                      housing
-                    </span>
-                    . This research background supports design and construction
-                    strategies that prioritize{" "}
-                    <span>health, safety and long-term performance</span>.
+                    In addition, her ongoing doctoral research at the University
+                    of British Columbia (UBC) focuses on the development of
+                    affordable, mold-resistant wall systems for single-family
+                    housing . This research background supports design and
+                    construction strategies that prioritize health, safety and
+                    long-term performance.
                   </p>
                   <h2
                     style={{
@@ -537,9 +508,8 @@ export default function Work() {
                     Our Goal
                   </h2>
                   <p>
-                    Designing homes that are{" "}
-                    <span>healthier, safer and built to last</span> from the
-                    structure outward.
+                    Designing homes that are healthier, safer and built to last
+                    from the structure outward.
                   </p>
                 </div>
               </div>
@@ -586,7 +556,13 @@ export default function Work() {
                     </div>
                     <div className={classes.infoBox}>
                       <h2>Mold & Rot</h2>
-                      <h3>LSF resists mold and moisture, unlike wood.</h3>
+                      <h4
+                        style={{
+                          marginTop: "24px",
+                        }}
+                      >
+                        LSF resists mold and moisture, unlike wood.
+                      </h4>
                       <p>
                         Wood absorbs moisture and can develop mold before
                         construction is complete.
@@ -647,7 +623,13 @@ export default function Work() {
                     </div>
                     <div className={classes.infoBox}>
                       <h2>Fire</h2>
-                      <h3>LSF is non-combustible, unlike wood.</h3>
+                      <h4
+                        style={{
+                          marginTop: "24px",
+                        }}
+                      >
+                        LSF is non-combustible, unlike wood.
+                      </h4>
                       <p>
                         Wood can ignite from heat, even without direct flame and
                         spread fire rapidly unlike non-combustible materials.
@@ -691,8 +673,8 @@ export default function Work() {
                         allowing for lighter foundations, reduced structural and
                         seismic loads and a longer service life. Its ductile
                         behavior supports predictable seismic performance, with
-                        steel members weighing <span>up to 60%</span> less than
-                        comparable wood members.
+                        steel members weighing up to 60% less than comparable
+                        wood members.
                       </p>
                     </div>
                   </div>
@@ -723,10 +705,14 @@ export default function Work() {
                     </div>
                     <div className={classes.infoBox}>
                       <h2>Design Freedom & Precision</h2>
-                      <h3>
+                      <h4
+                        style={{
+                          marginTop: "24px",
+                        }}
+                      >
                         Lightweight steel framing allows larger spans, open
                         layouts and greater architectural freedom.
-                      </h3>
+                      </h4>
                       <p>
                         Computer-controlled fabrication produces precise,
                         straight floor and roof components, enabling larger
@@ -767,7 +753,13 @@ export default function Work() {
                     </div>
                     <div className={classes.infoBox}>
                       <h2>Sustainability</h2>
-                      <h3>Steel is the most recycled material in the world.</h3>
+                      <h4
+                        style={{
+                          marginTop: "24px",
+                        }}
+                      >
+                        Steel is the most recycled material in the world.
+                      </h4>
                       <p>
                         Lightweight steel framing is made primarily from
                         recyclable steel. At the end of a home’s life, steel can
@@ -777,14 +769,24 @@ export default function Work() {
                         Unlike wood, it does not end up in landfills due to
                         decay, contamination, or chemical treatments.
                       </p>
-                      <h3>Steel framing has a long service life.</h3>
+                      <h4
+                        style={{
+                          marginTop: "24px",
+                        }}
+                      >
+                        Steel framing has a long service life.
+                      </h4>
                       <p>
                         Building to last, reduces the need for replacement or
                         repair over time.
                       </p>
-                      <h3>
+                      <h4
+                        style={{
+                          marginTop: "24px",
+                        }}
+                      >
                         Prefabrication and precision fabrication reduce waste.
-                      </h3>
+                      </h4>
                       <p>
                         Computer-controlled and AI-based design optimizes each
                         steel component for maximum structural performance with
@@ -827,8 +829,20 @@ export default function Work() {
                     </div>
                     <div className={classes.infoBox}>
                       <h2>Speed & Cost</h2>
-                      <h3>LSF reduces overall construction time and cost.</h3>
-                      <h3>Speed</h3>
+                      <h4
+                        style={{
+                          marginTop: "24px",
+                        }}
+                      >
+                        LSF reduces overall construction time and cost.
+                      </h4>
+                      <h4
+                        style={{
+                          marginTop: "24px",
+                        }}
+                      >
+                        Speed
+                      </h4>
                       <p>
                         Computer-calculated components are delivered pre-cut or
                         panelized as wall panels, joists and trusses, allowing
@@ -844,7 +858,13 @@ export default function Work() {
                         can take 1.5 to 2 months, while LSF takes about two
                         weeks.
                       </p>
-                      <h3>Cost</h3>
+                      <h4
+                        style={{
+                          marginTop: "24px",
+                        }}
+                      >
+                        Cost
+                      </h4>
                       <p>
                         The non-combustible nature and durability of steel
                         framing can reduce insurance risk and long-term

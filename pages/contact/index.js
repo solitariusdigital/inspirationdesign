@@ -50,7 +50,7 @@ export default function Contact() {
         <div className={classes.text}>
           <h1
             style={{
-              fontFamily: "OpenSansRegular",
+              fontFamily: "RobotoRegular",
             }}
           >
             Let's Design Together
@@ -70,7 +70,7 @@ export default function Contact() {
             <div>
               <h2
                 style={{
-                  fontFamily: "OpenSansRegular",
+                  fontFamily: "RobotoRegular",
                   marginBottom: "8px",
                 }}
               >
@@ -93,7 +93,7 @@ export default function Contact() {
             <div>
               <h2
                 style={{
-                  fontFamily: "OpenSansRegular",
+                  fontFamily: "RobotoRegular",
                   marginBottom: "8px",
                 }}
               >

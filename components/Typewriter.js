@@ -30,8 +30,8 @@ export default function Typewriter({ text, font, size, speed }) {
         <span
           style={{
             fontFamily: font,
-            fontSize: size ? "x-large" : "inherit",
-            letterSpacing: size ? "0.1em" : "normal",
+            fontSize: "inherit",
+            letterSpacing: "0.1em",
           }}
           key={index}
           className={`${classes.letter} ${index < visibleCount ? classes.show : ""}`}

@@ -2,20 +2,20 @@
 @use "mixins" as mixins;
 
 @font-face {
-  font-family: "OpenSansLight";
-  src: url("../assets/fonts/OpenSans-Light.ttf") format("truetype");
+  font-family: "RobotoThin";
+  src: url("../assets/fonts/Roboto-Thin.ttf") format("truetype");
 }
 @font-face {
-  font-family: "OpenSansRegular";
-  src: url("../assets/fonts/OpenSans-Regular.ttf") format("truetype");
+  font-family: "RobotoRegular";
+  src: url("../assets/fonts/Roboto-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: "OpenSansSemiBold";
-  src: url("../assets/fonts/OpenSans-SemiBold.ttf") format("truetype");
+  font-family: "RobotoMedium";
+  src: url("../assets/fonts/Roboto-Medium.ttf") format("truetype");
 }
 @font-face {
-  font-family: "OpenSansItalic";
-  src: url("../assets/fonts/OpenSans-LightItalic.ttf") format("truetype");
+  font-family: "RobotoItalic";
+  src: url("../assets/fonts/Roboto-Italic.ttf") format("truetype");
 }
 
 * {
@@ -43,17 +43,17 @@ html {
   font-size: clamp(15px, 0.5vw + 0.75rem, 18px);
 }
 h1 {
-  font-size: 2em;
+  font-size: 1.7em;
 }
 h2 {
-  font-size: 1.6em;
+  font-size: 1.4em;
 }
 h3 {
   font-size: 1.2em;
   line-height: 1.5em;
 }
 h4 {
-  font-size: 1.05em;
+  font-size: 1.1em;
 }
 p {
   font-size: 1em;

@@ -39,7 +39,7 @@
     .navActive {
       width: fit-content;
       font-size: medium;
-      font-family: "OpenSansRegular";
+      font-family: "RobotoRegular";
     }
   }
 
@@ -99,7 +99,7 @@
     justify-content: center;
 
     button {
-      @include mixins.button(config.$brand, config.$dark, config.$white);
+      @include mixins.button(config.$text, config.$dark, config.$white);
     }
   }
 }
@@ -119,7 +119,6 @@
 
   .item {
     text-align: left;
-    font-family: "OpenSansRegular";
     @include mixins.card();
   }
 }

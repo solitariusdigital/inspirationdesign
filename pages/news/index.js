@@ -110,7 +110,7 @@ export default function News() {
                   <div className={classes.description}>
                     <h2
                       style={{
-                        fontFamily: "OpenSansRegular",
+                        fontFamily: "RobotoRegular",
                         marginTop: "12px",
                       }}
                     >

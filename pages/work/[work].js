@@ -224,7 +224,7 @@ export default function Project() {
           <div className={classes.info}>
             <h1
               style={{
-                fontFamily: "OpenSansRegular",
+                fontFamily: "RobotoRegular",
                 marginTop: "50px",
               }}
             >
@@ -242,7 +242,7 @@ export default function Project() {
             <h3
               className={classes.subTitle}
               style={{
-                fontFamily: "OpenSansRegular",
+                fontFamily: "RobotoRegular",
               }}
             >
               {displayProject.description.split("\n\n")[0]}
@@ -275,7 +275,7 @@ export default function Project() {
                     <h4
                       className={classes.subTitle}
                       style={{
-                        fontFamily: "OpenSansRegular",
+                        fontFamily: "RobotoRegular",
                         marginTop: "24px",
                       }}
                       key={index}
@@ -360,7 +360,7 @@ export default function Project() {
             </Tooltip>
             <h2
               style={{
-                fontFamily: "OpenSansRegular",
+                fontFamily: "RobotoRegular",
               }}
             >
               {displayProject.title}

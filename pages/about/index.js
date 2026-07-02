@@ -228,15 +228,15 @@ export default function About() {
                   />
                 </div>
                 <div className={classes.infoBox}>
-                  <h1 style={{ fontFamily: "OpenSansRegular" }}>
+                  <h2 style={{ fontFamily: "RobotoRegular" }}>
                     {company.title}
-                  </h1>
+                  </h2>
                   {company.paragraphs.map((text, i) => (
                     <div key={i}>
                       {i === 0 ? (
                         <h2
                           style={{
-                            fontFamily: "OpenSansItalic",
+                            fontFamily: "RobotoItalic",
                             margin: "12px 0px",
                           }}
                         >
@@ -258,14 +258,14 @@ export default function About() {
             </div>
             {information.map((section, index) => (
               <div key={index} className={classes.info}>
-                <h1
+                <h2
                   style={{
                     marginBottom: "12px",
-                    fontFamily: "OpenSansRegular",
+                    fontFamily: "RobotoRegular",
                   }}
                 >
                   {section.title}
-                </h1>
+                </h2>
                 {section.paragraphs.map((text, i) => (
                   <div
                     key={i}
@@ -291,13 +291,13 @@ export default function About() {
         )}
         {pageType === "testimonials" && (
           <div className={classes.info}>
-            <h1
+            <h2
               style={{
-                fontFamily: "OpenSansRegular",
+                fontFamily: "RobotoRegular",
               }}
             >
               Testimonials
-            </h1>
+            </h2>
             <div className={classes.gridLayout}>
               {testimonials.map((item, index) => (
                 <div key={index} className={classes.item}>
@@ -309,17 +309,23 @@ export default function About() {
         )}
         {pageType === "awards" && (
           <div className={classes.info}>
-            <h1
+            <h2
               style={{
-                fontFamily: "OpenSansRegular",
+                fontFamily: "RobotoRegular",
               }}
             >
               Awards
-            </h1>
+            </h2>
             <div className={classes.gridLayout}>
               {awards.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <p>{item.year}</p>
+                  <p
+                    style={{
+                      fontFamily: "RobotoRegular",
+                    }}
+                  >
+                    {item.year}
+                  </p>
                   <h4>{item.title}</h4>
                 </div>
               ))}
@@ -328,13 +334,13 @@ export default function About() {
         )}
         {pageType === "publications" && (
           <div className={classes.info}>
-            <h1
+            <h2
               style={{
-                fontFamily: "OpenSansRegular",
+                fontFamily: "RobotoRegular",
               }}
             >
               Publications
-            </h1>
+            </h2>
             <div className={classes.gridLayout}>
               {publications.map((item, index) => (
                 <div key={index} className={classes.publication}>

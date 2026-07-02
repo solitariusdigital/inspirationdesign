@@ -38,7 +38,7 @@
     .navActive {
       width: fit-content;
       font-size: medium;
-      font-family: "OpenSansRegular";
+      font-family: "RobotoRegular";
     }
   }
 
@@ -479,14 +479,11 @@
     }
 
     h2,
-    h3 {
-      font-family: "OpenSansRegular";
+    h4 {
+      font-family: "RobotoRegular";
     }
     p {
       margin: 8px 0px;
-    }
-    span {
-      font-family: "OpenSansSemiBold";
     }
   }
 }
@@ -496,6 +493,6 @@
   justify-content: center;
 
   button {
-    @include mixins.button(config.$brand, config.$dark, config.$white);
+    @include mixins.button(config.$text, config.$dark, config.$white);
   }
 }

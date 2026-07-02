@@ -154,7 +154,7 @@ export default function ProjectForm() {
     <div className={classes.formBox}>
       <h3
         style={{
-          fontFamily: "OpenSansRegular",
+          fontFamily: "RobotoRegular",
         }}
       >
         {editProject ? "Edit" : "Add"} Project

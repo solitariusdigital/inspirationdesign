@@ -89,7 +89,7 @@ export default function RootLayout({ children }) {
       {appLoader ? (
         <div
           style={{
-            fontFamily: "OpenSansLight",
+            fontFamily: "RobotoThin",
           }}
         >
           {menuDisplay && (
@@ -109,18 +109,10 @@ export default function RootLayout({ children }) {
       ) : (
         <div className="appload">
           <div className={`typewrite ${moveLogo ? "moveLogo" : ""}`}>
-            <div className="border"></div>
             <Typewriter
-              text="INSPIRATION"
-              font="OpenSansSemiBold"
-              size={false}
+              text="InspirationDesign"
+              font="RobotoThin"
               speed={150}
-            />
-            <Typewriter
-              text="DESIGN"
-              font="OpenSansLight"
-              size={true}
-              speed={250}
             />
           </div>
         </div>

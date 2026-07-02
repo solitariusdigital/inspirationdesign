@@ -90,7 +90,7 @@ export default function Portal() {
           <>
             <h2
               style={{
-                fontFamily: "OpenSansRegular",
+                fontFamily: "RobotoRegular",
               }}
             >
               Portal
