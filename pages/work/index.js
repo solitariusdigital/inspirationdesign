@@ -37,6 +37,11 @@ export default function Work() {
     construction: "Lightweight Steel Framing",
   };
 
+  const marginStyle = {
+    marginTop: "24px",
+    marginBottom: "12px",
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setDisplayArrow(true);
@@ -44,7 +49,6 @@ export default function Work() {
   }, []);
 
   useEffect(() => {
-    setProjectsCategory("residential");
     navigationTopBar.map((nav) => {
       if (pathname === nav.link) {
         nav.active = true;
@@ -476,12 +480,7 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div
-              className={classes.section}
-              style={{
-                marginTop: "90px",
-              }}
-            >
+            <div className={classes.section}>
               <div className={classes.row}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
@@ -566,12 +565,7 @@ export default function Work() {
                     </div>
                     <div className={classes.infoBox}>
                       <h2>Mold & Rot</h2>
-                      <h4
-                        style={{
-                          marginTop: "24px",
-                          marginBottom: "12px",
-                        }}
-                      >
+                      <h4 style={marginStyle}>
                         LSF resists mold and moisture, unlike wood.
                       </h4>
                       <p>
@@ -634,12 +628,7 @@ export default function Work() {
                     </div>
                     <div className={classes.infoBox}>
                       <h2>Fire</h2>
-                      <h4
-                        style={{
-                          marginTop: "24px",
-                          marginBottom: "12px",
-                        }}
-                      >
+                      <h4 style={marginStyle}>
                         LSF is non-combustible, unlike wood.
                       </h4>
                       <p>
@@ -717,12 +706,7 @@ export default function Work() {
                     </div>
                     <div className={classes.infoBox}>
                       <h2>Design Freedom & Precision</h2>
-                      <h4
-                        style={{
-                          marginTop: "24px",
-                          marginBottom: "12px",
-                        }}
-                      >
+                      <h4 style={marginStyle}>
                         Lightweight steel framing allows larger spans, open
                         layouts and greater architectural freedom.
                       </h4>
@@ -766,12 +750,7 @@ export default function Work() {
                     </div>
                     <div className={classes.infoBox}>
                       <h2>Sustainability</h2>
-                      <h4
-                        style={{
-                          marginTop: "24px",
-                          marginBottom: "12px",
-                        }}
-                      >
+                      <h4 style={marginStyle}>
                         Steel is the most recycled material in the world.
                       </h4>
                       <p>
@@ -783,24 +762,14 @@ export default function Work() {
                         Unlike wood, it does not end up in landfills due to
                         decay, contamination, or chemical treatments.
                       </p>
-                      <h4
-                        style={{
-                          marginTop: "24px",
-                          marginBottom: "12px",
-                        }}
-                      >
+                      <h4 style={marginStyle}>
                         Steel framing has a long service life.
                       </h4>
                       <p>
                         Building to last, reduces the need for replacement or
                         repair over time.
                       </p>
-                      <h4
-                        style={{
-                          marginTop: "24px",
-                          marginBottom: "12px",
-                        }}
-                      >
+                      <h4 style={marginStyle}>
                         Prefabrication and precision fabrication reduce waste.
                       </h4>
                       <p>
@@ -846,14 +815,7 @@ export default function Work() {
                     <div className={classes.infoBox}>
                       <h2>Speed & Cost</h2>
                       <p>LSF reduces overall construction time and cost.</p>
-                      <h4
-                        style={{
-                          marginTop: "24px",
-                          marginBottom: "12px",
-                        }}
-                      >
-                        Speed
-                      </h4>
+                      <h4 style={marginStyle}>Speed</h4>
                       <p>
                         Computer-calculated components are delivered pre-cut or
                         panelized as wall panels, joists and trusses, allowing
@@ -869,14 +831,7 @@ export default function Work() {
                         can take 1.5 to 2 months, while LSF takes about two
                         weeks.
                       </p>
-                      <h4
-                        style={{
-                          marginTop: "24px",
-                          marginBottom: "12px",
-                        }}
-                      >
-                        Cost
-                      </h4>
+                      <h4 style={marginStyle}>Cost</h4>
                       <p>
                         The non-combustible nature and durability of steel
                         framing can reduce insurance risk and long-term
@@ -899,19 +854,17 @@ export default function Work() {
       </div>
       {displayArrow && (
         <div className={classes.action}>
-          <Tooltip title="Top">
-            <KeyboardArrowUpIcon
-              className="icon"
-              sx={{ fontSize: 30 }}
-              onClick={() =>
-                window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: "smooth",
-                })
-              }
-            />
-          </Tooltip>
+          <KeyboardArrowUpIcon
+            className="icon"
+            sx={{ fontSize: 30 }}
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth",
+              })
+            }
+          />
         </div>
       )}
     </>

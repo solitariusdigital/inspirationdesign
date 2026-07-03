@@ -23,6 +23,7 @@ export default function Menu() {
   const { editProject, setEditProject } = useContext(StateContext);
   const { editNews, setEditNews } = useContext(StateContext);
   const { menuMobile, setMenuMobile } = useContext(StateContext);
+  const { projectsCategory, setProjectsCategory } = useContext(StateContext);
 
   const router = useRouter();
   let pathname = router.pathname;
@@ -43,6 +44,7 @@ export default function Menu() {
   }, [menuMobile]);
 
   const activateNav = (link, index) => {
+    setProjectsCategory("residential");
     setMenuMobile(false);
     navigationTopBar.map((nav, i) => {
       if (i === index) {

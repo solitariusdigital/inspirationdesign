@@ -145,12 +145,12 @@ export default function About() {
   const awards = [
     {
       title:
-        "Orchard Residence – George Awards Finalist (Best Custom Home: $3 Million–Under $6 Million)",
+        "Orchard Residence – George Awards Finalist (Best Custom Home: $3 Million – Under $6 Million)",
       detail: "2025",
     },
     {
       title:
-        "Orchard Residence – Havan Awards Finalist (Best Custom Home: $3 Million–Under $6 Million)",
+        "Orchard Residence – HAVAN Awards Finalist (Best Custom Home: $3 Million – Under $6 Million)",
       detail: "2025",
     },
     {
@@ -160,7 +160,7 @@ export default function About() {
     },
     {
       title:
-        "Canyon Haven (Clements I & II) – Havan Awards Finalist (Custom Home Valued Under $1 Million)",
+        "Canyon Haven (Clements I & II) – HAVAN Awards Finalist (Custom Home Valued Under $1 Million)",
       detail: "2025",
     },
     {
@@ -434,13 +434,13 @@ export default function About() {
             <div className={classes.layout}>
               {awards.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <h3
+                  <h4
                     style={{
                       fontFamily: "RobotoRegular",
                     }}
                   >
                     {item.detail}
-                  </h3>
+                  </h4>
                   <div className={classes.detail}>
                     <p>{item.title}</p>
                   </div>
@@ -461,13 +461,13 @@ export default function About() {
             <div className={classes.layout}>
               {publications.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <h3
+                  <h4
                     style={{
                       fontFamily: "RobotoRegular",
                     }}
                   >
                     {item.title}
-                  </h3>
+                  </h4>
                   <div className={classes.detail}>
                     <p>{item.description}</p>
                     <p

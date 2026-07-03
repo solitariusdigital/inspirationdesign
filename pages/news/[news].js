@@ -218,19 +218,17 @@ export default function NewsArticle() {
             </div>
           </article>
           <div className={classes.action}>
-            <Tooltip title="Top">
-              <KeyboardArrowUpIcon
-                className="icon"
-                sx={{ fontSize: 30 }}
-                onClick={() =>
-                  window.scrollTo({
-                    top: 0,
-                    left: 0,
-                    behavior: "smooth",
-                  })
-                }
-              />
-            </Tooltip>
+            <KeyboardArrowUpIcon
+              className="icon"
+              sx={{ fontSize: 30 }}
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                })
+              }
+            />
           </div>
         </>
       )}

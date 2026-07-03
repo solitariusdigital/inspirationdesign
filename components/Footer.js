@@ -11,8 +11,10 @@ import PinterestIcon from "@mui/icons-material/Pinterest";
 
 export default function Footer() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
+  const { projectsCategory, setProjectsCategory } = useContext(StateContext);
 
   const activateNav = (link, index) => {
+    setProjectsCategory("residential");
     navigationTopBar.map((nav, i) => {
       if (i === index) {
         Router.push(link);

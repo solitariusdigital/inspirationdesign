@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./home.module.scss";
 import Router from "next/router";
@@ -12,13 +12,16 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
 import { collection, getDocs } from "@firebase/firestore";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 export default function Home() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
   const [displayProjects, setDisplayProjects] = useState(null);
 
-  const expertise = [
+  const targetBox = useRef(null);
+
+  const expertiseItems = [
     {
       title: "Building & Interior Design",
       subTitle: `“ There are 360 degrees, so why stick to one? ” - Zaha Hadid`,
@@ -82,6 +85,12 @@ export default function Home() {
     setNavigationTopBar([...navigationTopBar]);
   }, []);
 
+  const scrollToDivBox = () => {
+    if (targetBox.current) {
+      targetBox.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <NextSeo
@@ -106,11 +115,18 @@ export default function Home() {
         robots="index, follow"
       />
       <div className={classes.container}>
-        <section>
+        <section className={classes.cover}>
           <CoverSlider />
+          <div className={classes.action}>
+            <KeyboardArrowDownIcon
+              className="icon"
+              sx={{ fontSize: 30, color: "white" }}
+              onClick={() => scrollToDivBox()}
+            />
+          </div>
         </section>
-        <section className={classes.services}>
-          {expertise.map((service, index) => (
+        <section className={classes.services} ref={targetBox}>
+          {expertiseItems.map((service, index) => (
             <div
               key={index}
               className={classes.infoBox}

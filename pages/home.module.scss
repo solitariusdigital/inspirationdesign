@@ -22,6 +22,18 @@
   }
 }
 
+.cover {
+  position: relative;
+
+  .action {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 20%;
+    transform: translateX(-50%);
+  }
+}
+
 .services {
   position: relative;
   text-align: center;
