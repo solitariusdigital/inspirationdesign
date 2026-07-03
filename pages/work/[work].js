@@ -230,13 +230,20 @@ export default function Project() {
             >
               {displayProject.title}
             </h1>
-            <h3>{displayProject.location}</h3>
-            <h4>{displayProject.year}</h4>
+            <h3
+              style={{
+                margin: "8px 0px",
+              }}
+            >
+              {displayProject.location}
+            </h3>
+            <p>{displayProject.year}</p>
           </div>
           <div
             className={classes.description}
             style={{
               marginBottom: "50px",
+              marginTop: "50px",
             }}
           >
             <h3

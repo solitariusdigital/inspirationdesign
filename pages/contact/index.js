@@ -100,12 +100,12 @@ export default function Contact() {
                 >
                   Reach us
                 </h2>
-                <p
+                <h4
                   className={classes.direction}
                   onClick={() => window.open(headLocationLink)}
                 >
                   Get directions
-                </p>
+                </h4>
               </div>
             </div>
           </div>

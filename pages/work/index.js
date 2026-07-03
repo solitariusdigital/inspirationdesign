@@ -13,6 +13,7 @@ import { replaceSpacesAndHyphens } from "@/services/utility";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
 import { collection, getDocs } from "@firebase/firestore";
+import { RevealText } from "@/components/RevealText";
 
 export default function Work() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
@@ -24,6 +25,7 @@ export default function Work() {
   const [secondColumn, setSecondColumn] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
   const [displayInfo, setDisplayInfo] = useState(false);
+  const [displayArrow, setDisplayArrow] = useState(false);
   const router = useRouter();
   let pathname = router.pathname;
 
@@ -34,6 +36,12 @@ export default function Work() {
     lighting: "Lighting Design",
     construction: "Lightweight Steel Framing",
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDisplayArrow(true);
+    }, 3500);
+  }, []);
 
   useEffect(() => {
     setProjectsCategory("residential");
@@ -133,14 +141,16 @@ export default function Work() {
             </p>
           ))}
         </div>
-        <h2
-          className={classes.title}
-          style={{
-            fontFamily: "RobotoRegular",
-          }}
-        >
-          {services[projectsCategory]}
-        </h2>
+        <RevealText direction="down" delay={200} key={projectsCategory}>
+          <h2
+            className={classes.title}
+            style={{
+              fontFamily: "RobotoRegular",
+            }}
+          >
+            {services[projectsCategory]}
+          </h2>
+        </RevealText>
         {projectsCategory !== "construction" && (
           <div className={classes.gridLayoutVertical}>
             <div className={classes.column}>
@@ -887,7 +897,7 @@ export default function Work() {
           </div>
         )}
       </div>
-      {displayProjects && (
+      {displayArrow && (
         <div className={classes.action}>
           <Tooltip title="Top">
             <KeyboardArrowUpIcon
