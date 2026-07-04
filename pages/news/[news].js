@@ -143,24 +143,18 @@ export default function NewsArticle() {
               </div>
               <div className={classes.overlay}>
                 <div className={classes.row}>
+                  <h1
+                    style={{
+                      fontFamily: "RobotoRegular",
+                    }}
+                  >
+                    {displayNews.title}
+                  </h1>
                   <div className={classes.info}>
-                    <h1
-                      style={{
-                        fontFamily: "RobotoRegular",
-                      }}
-                    >
-                      {displayNews.title}
-                    </h1>
-                    <h3
-                      style={{
-                        margin: "8px 0px",
-                      }}
-                    >
-                      {convertDateName(displayNews.date)}
-                    </h3>
+                    <h4>{displayNews.description.split("\n\n")[0]}</h4>
+                    <p>{convertDateName(displayNews.date)}</p>
                     <p>{getTotalReadingTime(displayNews)}</p>
                   </div>
-                  <p>{displayNews.description.split("\n\n")[0]}</p>
                 </div>
               </div>
             </div>

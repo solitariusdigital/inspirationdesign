@@ -208,6 +208,7 @@
       width: config.$content-widthText;
     }
   }
+
   .subTitle {
     margin-bottom: 8px;
   }
@@ -281,10 +282,9 @@
       color: config.$white;
       max-width: config.$max-widthHeigh;
       @include mixins.transparentBackground(0.4, config.$dark);
-
+      height: fit-content;
       @include mixins.mobile {
         position: relative;
-        padding-bottom: 24px;
         background: config.$dark;
       }
 
@@ -292,15 +292,12 @@
         margin: auto;
         width: config.$content-widthText;
         @include mixins.row-space-between-center();
+        padding: 24px 0px;
 
         @include mixins.mobile {
           display: flex;
           flex-direction: column;
           width: 100%;
-
-          p {
-            width: calc(100% - 24px);
-          }
         }
 
         @include mixins.tabletPortrait {
@@ -308,6 +305,28 @@
         }
         @include mixins.tabletLandscape {
           width: config.$content-width;
+        }
+
+        h1 {
+          width: 45%;
+
+          @include mixins.mobile {
+            width: calc(100% - 24px);
+          }
+        }
+
+        .info {
+          width: 55%;
+          margin: auto;
+
+          h4 {
+            margin-bottom: 12px;
+          }
+
+          @include mixins.mobile {
+            width: calc(100% - 24px);
+            margin-top: 24px;
+          }
         }
       }
     }

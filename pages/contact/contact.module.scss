@@ -46,7 +46,6 @@
       color: config.$white;
       max-width: config.$max-widthHeigh;
       @include mixins.transparentBackground(0.4, config.$dark);
-      padding: 24px 0px;
 
       @include mixins.mobile {
         position: relative;
@@ -59,6 +58,7 @@
       width: config.$content-widthText;
       display: flex;
       flex-direction: row;
+      padding: 24px 0px;
 
       @include mixins.mobile {
         display: flex;

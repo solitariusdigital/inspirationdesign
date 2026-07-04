@@ -525,7 +525,7 @@ export default function Work() {
             </div>
             <div className="scrollUp">
               <button onClick={() => setDisplayInfo(!displayInfo)}>
-                <span>{displayInfo ? "Show Less" : "Show More"}</span>
+                <span>{displayInfo ? "Read Less" : "Read More"}</span>
               </button>
             </div>
             {displayInfo && (
