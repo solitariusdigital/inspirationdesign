@@ -487,12 +487,3 @@
     }
   }
 }
-
-.action {
-  display: flex;
-  justify-content: center;
-
-  button {
-    @include mixins.button(config.$text, config.$dark, config.$white);
-  }
-}

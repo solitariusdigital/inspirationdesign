@@ -217,7 +217,7 @@ export default function NewsArticle() {
                 ))}
             </div>
           </article>
-          <div className={classes.action}>
+          <div className="scrollUp">
             <KeyboardArrowUpIcon
               className="icon"
               sx={{ fontSize: 30 }}

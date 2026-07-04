@@ -6,6 +6,7 @@ import classes from "./about.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import FirebaseImage from "@/components/FirebaseImage";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 export default function About() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
@@ -484,6 +485,19 @@ export default function About() {
             </div>
           </div>
         )}
+      </div>
+      <div className="scrollUp">
+        <KeyboardArrowUpIcon
+          className="icon"
+          sx={{ fontSize: 30 }}
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            })
+          }
+        />
       </div>
     </>
   );

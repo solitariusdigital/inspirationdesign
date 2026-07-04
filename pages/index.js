@@ -117,7 +117,7 @@ export default function Home() {
       <div className={classes.container}>
         <section className={classes.cover}>
           <CoverSlider />
-          <div className={classes.action}>
+          <div className={classes.scrollDown}>
             <KeyboardArrowDownIcon
               className="icon"
               sx={{ fontSize: 30, color: "white" }}

@@ -334,7 +334,7 @@ export default function Project() {
         </div>
       )}
       {displayProject && (
-        <div className={classes.action}>
+        <div className="scrollUp">
           <KeyboardArrowUpIcon
             className="icon"
             sx={{ fontSize: 30 }}

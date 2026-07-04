@@ -33,6 +33,10 @@
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
+
+      @include mixins.allDesktop {
+        height: 100dvh;
+      }
     }
 
     .overlay {

@@ -45,7 +45,7 @@ export default function Work() {
   useEffect(() => {
     setTimeout(() => {
       setDisplayArrow(true);
-    }, 3500);
+    }, 2000);
   }, []);
 
   useEffect(() => {
@@ -523,7 +523,7 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.action}>
+            <div className="scrollUp">
               <button onClick={() => setDisplayInfo(!displayInfo)}>
                 <span>{displayInfo ? "Show Less" : "Show More"}</span>
               </button>
@@ -853,7 +853,7 @@ export default function Work() {
         )}
       </div>
       {displayArrow && (
-        <div className={classes.action}>
+        <div className="scrollUp">
           <KeyboardArrowUpIcon
             className="icon"
             sx={{ fontSize: 30 }}
