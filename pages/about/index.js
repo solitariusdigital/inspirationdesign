@@ -13,7 +13,7 @@ export default function About() {
   const { screenSize, setScreenSize } = useContext(StateContext);
 
   const [pageType, setPageType] = useState(
-    "company" || "testimonials" || "awards" || "publications",
+    "company" || "testimonials" || "awards" || "publications" || "team",
   );
   const router = useRouter();
   let pathname = router.pathname;
@@ -28,7 +28,13 @@ export default function About() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const navigation = ["company", "testimonials", "awards", "publications"];
+  const navigation = [
+    "company",
+    "testimonials",
+    "awards",
+    "publications",
+    "team",
+  ];
 
   const information = [
     {
@@ -297,6 +303,20 @@ export default function About() {
       detail: "Autumn 1998",
     },
   ];
+  const team = [
+    {
+      name: "Parastoo Jafari",
+      description: "Owner - PhD in architecture",
+    },
+    {
+      name: "Bahar Jafarinejad",
+      description: "Lighting Designer - M.Arch.",
+    },
+    {
+      name: "Ario Pourturk",
+      description: "Design Technologist - Applied Science",
+    },
+  ];
 
   return (
     <>
@@ -485,20 +505,49 @@ export default function About() {
             </div>
           </div>
         )}
+        {pageType === "team" && (
+          <div className={classes.info}>
+            <h2
+              style={{
+                fontFamily: "RobotoRegular",
+              }}
+            >
+              Team
+            </h2>
+            <div className={classes.layout}>
+              {team.map((item, index) => (
+                <div key={index} className={classes.item}>
+                  <h4
+                    style={{
+                      fontFamily: "RobotoRegular",
+                    }}
+                  >
+                    {item.name}
+                  </h4>
+                  <div className={classes.detail}>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
-      <div className="scrollUp">
-        <KeyboardArrowUpIcon
-          className="icon"
-          sx={{ fontSize: 30 }}
-          onClick={() =>
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: "smooth",
-            })
-          }
-        />
-      </div>
+      {pageType !== "team" && (
+        <div className="scrollUp">
+          <KeyboardArrowUpIcon
+            className="icon"
+            sx={{ fontSize: 30 }}
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth",
+              })
+            }
+          />
+        </div>
+      )}
     </>
   );
 }
