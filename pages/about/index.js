@@ -306,7 +306,7 @@ export default function About() {
   const team = [
     {
       name: "Parastoo Jafari",
-      description: "Owner - PhD in architecture",
+      description: "Owner - PhD in Architecture",
     },
     {
       name: "Bahar Jafarinejad",
