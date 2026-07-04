@@ -11,7 +11,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Tooltip from "@mui/material/Tooltip";
-import { replaceSpacesAndHyphens, convertDateName } from "@/services/utility";
+import { replaceSpacesAndHyphens } from "@/services/utility";
 import FirebaseImage from "@/components/FirebaseImage";
 import db from "@/services/firestore";
 import {
@@ -152,7 +152,7 @@ export default function NewsArticle() {
                   </h1>
                   <div className={classes.info}>
                     <h4>{displayNews.description.split("\n\n")[0]}</h4>
-                    <p>{convertDateName(displayNews.date)}</p>
+                    <p>{displayNews.date}</p>
                     <p>{getTotalReadingTime(displayNews)}</p>
                   </div>
                 </div>

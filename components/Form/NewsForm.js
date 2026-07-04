@@ -10,11 +10,7 @@ import db from "@/services/firestore";
 import { storage } from "@/services/firebase";
 import { ref, uploadBytes } from "firebase/storage";
 import { collection, addDoc, doc, updateDoc } from "@firebase/firestore";
-import {
-  fourGenerator,
-  sixGenerator,
-  isValidDateFormat,
-} from "@/services/utility";
+import { fourGenerator, sixGenerator } from "@/services/utility";
 
 export default function NewsForm() {
   const { editNews, setEditNews } = useContext(StateContext);
@@ -42,12 +38,8 @@ export default function NewsForm() {
       setDisableButton(false);
       return;
     }
-    if (!isValidDateFormat(date)) {
-      showAlert("Invalid date");
-      return;
-    }
     if (!editNews && imagesPreview.length === 0) {
-      showAlert("Select image");
+      showAlert("Select images");
       setDisableButton(false);
       return;
     }
@@ -174,7 +166,6 @@ export default function NewsForm() {
             />
           </div>
           <input
-            placeholder="yyyy-mm-dd"
             type="text"
             id="date"
             name="date"
@@ -215,7 +206,7 @@ export default function NewsForm() {
               type="file"
               accept="image/*"
             />
-            <p>Select Single Image</p>
+            <p>Select Multiple Images</p>
           </label>
           <CloseIcon
             className={classes.icon}
