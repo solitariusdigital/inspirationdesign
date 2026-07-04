@@ -30,10 +30,10 @@ export default function About() {
 
   const navigation = [
     "company",
+    "team",
     "testimonials",
     "awards",
     "publications",
-    "team",
   ];
 
   const information = [
