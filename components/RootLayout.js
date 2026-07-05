@@ -94,7 +94,7 @@ export default function RootLayout({ children }) {
           }}
         >
           {menuDisplay && (
-            <section className="menu">
+            <section className="menu animate__animated animate__slideInDown">
               <Menu />
             </section>
           )}
@@ -112,7 +112,7 @@ export default function RootLayout({ children }) {
           <div className={`typewrite ${moveLogo ? "moveLogo" : ""}`}>
             <Typewriter
               text="INSPIRATION"
-              font="RobotoRegular"
+              font="RobotoMedium"
               speed={150}
               margin={false}
             />

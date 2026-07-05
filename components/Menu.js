@@ -57,6 +57,14 @@ export default function Menu() {
     setNavigationTopBar([...navigationTopBar]);
   };
 
+  useEffect(() => {
+    navigationTopBar.map((nav) => {
+      nav.active = nav.link === pathname;
+    });
+    setNavigationTopBar([...navigationTopBar]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
+
   const logout = async () => {
     try {
       await signOut(auth);
