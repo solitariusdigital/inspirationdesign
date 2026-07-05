@@ -206,9 +206,28 @@ export default function NewsArticle() {
               {displayNews.description
                 .split("\n\n")
                 .slice(1)
-                .map((desc, index) => (
-                  <p key={index}>{desc}</p>
-                ))}
+                .map((desc, index) => {
+                  const trimmedDesc = desc.trim();
+                  const urlRegex = /(https?:\/\/[^\s]+)/g;
+                  const parts = trimmedDesc.split(urlRegex);
+                  const renderWithLinks = () =>
+                    parts.map((part, i) =>
+                      urlRegex.test(part) ? (
+                        <a
+                          className={classes.link}
+                          key={i}
+                          href={part}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {part}
+                        </a>
+                      ) : (
+                        <span key={i}>{part}</span>
+                      ),
+                    );
+                  return <p key={index}>{renderWithLinks()}</p>;
+                })}
             </div>
           </article>
           <div className="scrollUp">

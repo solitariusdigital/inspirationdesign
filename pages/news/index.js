@@ -86,7 +86,7 @@ export default function News() {
                 <div
                   className={classes.card}
                   style={{
-                    marginBottom: screenSize === "mobile" ? "16px" : "none",
+                    marginBottom: "12px",
                   }}
                 >
                   {currentUser && (

@@ -156,7 +156,7 @@ export default function NewsForm() {
         <div className={classes.input}>
           <div className={classes.bar}>
             <p className={classes.label}>
-              Date
+              Year
               <span>*</span>
             </p>
             <CloseIcon
