@@ -167,6 +167,32 @@
   }
 }
 
+.newsImageBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  gap: 12px;
+  margin: 50px auto;
+  width: config.$content-width;
+  max-width: config.$max-widthHeigh;
+  user-select: none;
+
+  .imageBox {
+    margin: 0px !important;
+
+    &:hover {
+      cursor: auto;
+    }
+  }
+
+  @include mixins.mobile {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    width: 100%;
+  }
+  @include mixins.tabletPortrait {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
+}
+
 .controlPanel {
   @include mixins.row-space-between-center();
   margin: 12px auto;
@@ -210,13 +236,18 @@
   }
 
   .subTitle {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .link {
+    width: fit-content;
+    color: config.$grey;
+    border-bottom: 1px solid config.$grey;
+
     &:hover {
       cursor: pointer;
       color: config.$brand;
+      border-bottom: 1px solid config.$brand;
     }
   }
 
@@ -329,7 +360,7 @@
   .imageBox {
     position: relative;
     user-select: none;
-    margin: 24px auto;
+    margin: 12px auto;
     max-width: config.$max-widthHeigh;
     cursor: pointer;
 
@@ -346,14 +377,6 @@
     top: 8px;
     padding: 4px;
     background: config.$background;
-  }
-
-  .description {
-    margin: auto;
-
-    p {
-      margin-bottom: 8px;
-    }
   }
 }
 

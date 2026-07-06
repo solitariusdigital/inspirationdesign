@@ -246,14 +246,14 @@ export default function Project() {
               marginTop: "50px",
             }}
           >
-            <h3
+            <h2
               className={classes.subTitle}
               style={{
                 fontFamily: "RobotoRegular",
               }}
             >
               {displayProject.description.split("\n\n")[0]}
-            </h3>
+            </h2>
             {displayProject.description
               .split("\n\n")
               .slice(1)
@@ -271,7 +271,7 @@ export default function Project() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {part}
+                        Open Link
                       </a>
                     ) : (
                       <span key={i}>{part}</span>
@@ -279,7 +279,7 @@ export default function Project() {
                   );
                 if (trimmedDesc === "Credits") {
                   return (
-                    <h4
+                    <h2
                       className={classes.subTitle}
                       style={{
                         fontFamily: "RobotoRegular",
@@ -288,10 +288,19 @@ export default function Project() {
                       key={index}
                     >
                       {trimmedDesc}
-                    </h4>
+                    </h2>
                   );
                 }
-                return <p key={index}>{renderWithLinks()}</p>;
+                return (
+                  <p
+                    key={index}
+                    style={{
+                      marginBottom: "8px",
+                    }}
+                  >
+                    {renderWithLinks()}
+                  </p>
+                );
               })}
           </div>
           {displayProject.path

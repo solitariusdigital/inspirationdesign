@@ -9,6 +9,7 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import EditIcon from "@mui/icons-material/Edit";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import StarIcon from "@mui/icons-material/Star";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Tooltip from "@mui/material/Tooltip";
 import { replaceSpacesAndHyphens } from "@/services/utility";
@@ -30,6 +31,7 @@ export default function NewsArticle() {
   const { editNews, setEditNews } = useContext(StateContext);
   const { editProject, setEditProject } = useContext(StateContext);
   const [displayNews, setDisplayNews] = useState(null);
+  const [refresh, setRefresh] = useState(0);
   const router = useRouter();
   const slug = router.asPath.replace(/^\/news\//, "");
   const title = replaceSpacesAndHyphens(slug);
@@ -47,7 +49,7 @@ export default function NewsArticle() {
     };
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [refresh]);
 
   const handlePublish = async (news, type) => {
     const confirmMessage = `${type} news - Are you sure?`;
@@ -88,6 +90,35 @@ export default function NewsArticle() {
     } catch (error) {
       console.error("Error deleting news:", error);
     }
+  };
+
+  const handleDeleteImage = async (image, index) => {
+    const confirmMessage = "Delete image - Are you sure?";
+    const confirm = window.confirm(confirmMessage);
+    if (!confirm) return;
+    try {
+      const storage = getStorage();
+      const storageRef = ref(storage, image);
+      await deleteObject(storageRef);
+
+      const newPath = [...displayNews.path];
+      newPath.splice(index, 1);
+      const docRef = doc(db, "News", displayNews.id);
+      await updateDoc(docRef, { path: newPath });
+    } catch (error) {
+      console.error("Error deleting image:", error);
+      alert("Failed to delete image.");
+    }
+    setRefresh((prev) => prev + 1);
+  };
+
+  const makeHeroImage = async (image) => {
+    const confirmMessage = "Make hero - Are you sure?";
+    const confirm = window.confirm(confirmMessage);
+    if (!confirm) return;
+    const docRef = doc(db, "News", displayNews.id);
+    await updateDoc(docRef, { hero: image });
+    setRefresh((prev) => prev + 1);
   };
 
   const getTotalReadingTime = (data) => {
@@ -209,25 +240,86 @@ export default function NewsArticle() {
                 .map((desc, index) => {
                   const trimmedDesc = desc.trim();
                   const urlRegex = /(https?:\/\/[^\s]+)/g;
+                  const testUrlRegex = /^https?:\/\/[^\s]+$/;
                   const parts = trimmedDesc.split(urlRegex);
-                  const renderWithLinks = () =>
-                    parts.map((part, i) =>
-                      urlRegex.test(part) ? (
-                        <a
-                          className={classes.link}
-                          key={i}
-                          href={part}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {part}
-                        </a>
-                      ) : (
-                        <span key={i}>{part}</span>
-                      ),
-                    );
-                  return <p key={index}>{renderWithLinks()}</p>;
+                  return (
+                    <div
+                      key={index}
+                      style={{
+                        marginBottom:
+                          trimmedDesc.charAt(0) === "-" ? "0px" : "8px",
+                      }}
+                    >
+                      {parts.map((part, i) =>
+                        testUrlRegex.test(part) ? (
+                          <a
+                            className={classes.link}
+                            key={i}
+                            href={part}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Open Link
+                          </a>
+                        ) : (
+                          <span key={i}>{part}</span>
+                        ),
+                      )}
+                    </div>
+                  );
                 })}
+              {displayNews.projectLink && (
+                <div
+                  style={{
+                    marginTop: "24px",
+                  }}
+                >
+                  <a
+                    className={classes.link}
+                    href={displayNews.projectLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click to View the Project
+                  </a>
+                </div>
+              )}
+            </div>
+
+            <div className={classes.newsImageBox}>
+              {displayNews.path
+                .filter((item) => item !== displayNews.hero)
+                .map((image, index) => (
+                  <div className={classes.imageBox} key={index}>
+                    {currentUser && (
+                      <div className={classes.control}>
+                        <Tooltip title="Delete">
+                          <DeleteOutlineIcon
+                            className="icon"
+                            sx={{ fontSize: 20 }}
+                            onClick={() => handleDeleteImage(image, index)}
+                          />
+                        </Tooltip>
+                        <Tooltip title="Hero">
+                          <StarIcon
+                            className="icon"
+                            sx={{ fontSize: 20 }}
+                            onClick={() => {
+                              makeHeroImage(image);
+                            }}
+                          />
+                        </Tooltip>
+                      </div>
+                    )}
+                    <div>
+                      <FirebaseImage
+                        path={image}
+                        alt={displayNews.title}
+                        mode="intrinsic"
+                      />
+                    </div>
+                  </div>
+                ))}
             </div>
           </article>
           <div className="scrollUp">

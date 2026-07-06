@@ -9,19 +9,31 @@ import Router from "next/router";
 import db from "@/services/firestore";
 import { storage } from "@/services/firebase";
 import { ref, uploadBytes } from "firebase/storage";
-import { collection, addDoc, doc, updateDoc } from "@firebase/firestore";
-import { fourGenerator, sixGenerator } from "@/services/utility";
+import {
+  collection,
+  addDoc,
+  doc,
+  updateDoc,
+  getDocs,
+} from "@firebase/firestore";
+import {
+  fourGenerator,
+  sixGenerator,
+  replaceSpacesAndHyphens,
+} from "@/services/utility";
 
 export default function NewsForm() {
   const { editNews, setEditNews } = useContext(StateContext);
   const [title, setTitle] = useState(editNews?.title || "");
   const [date, setDate] = useState(editNews?.date || "");
+  const [projectLink, setProjectLink] = useState(editNews?.projectLink || "");
   const [description, setDescription] = useState(editNews?.description || "");
   const [alert, setAlert] = useState("");
   const [disableButton, setDisableButton] = useState(false);
   const [imagesPreview, setImagesPreview] = useState([]);
   const [uploadImages, setUploadImages] = useState([]);
   const [progress, setProgress] = useState(0);
+  const [displayProjects, setDisplayProjects] = useState(null);
 
   const compressImage = async (file) => {
     const options = {
@@ -31,6 +43,20 @@ export default function NewsForm() {
     };
     return await imageCompression(file, options);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(collection(db, "Projects"));
+      const data = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+
+      setDisplayProjects(data);
+    };
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSubmit = async () => {
     if (!title || !date || !description) {
@@ -54,18 +80,19 @@ export default function NewsForm() {
       for (const media of uploadImages) {
         const name = `img${fourGenerator()}`;
         const imgPath = `News/${folder}/${name}`;
-        const compressedFile = await compressImage(media);
+        // const compressedFile = await compressImage(media);
         const storageRef = ref(storage, imgPath);
-        await uploadBytes(storageRef, compressedFile);
+        await uploadBytes(storageRef, media);
         path.push(imgPath);
         setProgress((prevProgress) => prevProgress + progressIncrement);
       }
       const newsObject = {
         title: title.trim(),
         date: date.trim(),
+        projectLink: projectLink,
         description: description.trim(),
         path: path,
-        hero: path.at(-1),
+        hero: editNews?.hero || path[0],
         folder: folder,
         active: false,
         createdAt: new Date().toISOString(),
@@ -178,6 +205,29 @@ export default function NewsForm() {
       </div>
       <div className={classes.input}>
         <div className={classes.bar}>
+          <p className={classes.label}>Project Link</p>
+        </div>
+        <select
+          value={projectLink || "default"}
+          onChange={(e) => setProjectLink(e.target.value)}
+        >
+          <option value="default" disabled>
+            Select
+          </option>
+          {displayProjects?.map((project, index) => {
+            return (
+              <option
+                key={index}
+                value={`/work/${replaceSpacesAndHyphens(project.title)}`}
+              >
+                {project.title}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+      <div className={classes.input}>
+        <div className={classes.bar}>
           <p className={classes.label}>
             Description
             <span>*</span>
@@ -205,6 +255,7 @@ export default function NewsForm() {
               id="inputImage"
               type="file"
               accept="image/*"
+              multiple
             />
             <p>Select Multiple Images</p>
           </label>
