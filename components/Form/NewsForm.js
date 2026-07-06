@@ -202,31 +202,36 @@ export default function NewsForm() {
             dir="ltr"
           />
         </div>
-      </div>
-      <div className={classes.input}>
-        <div className={classes.bar}>
-          <p className={classes.label}>Project Link</p>
+        <div className={classes.input}>
+          <div className={classes.bar}>
+            <p className={classes.label}>Project Link</p>
+          </div>
+          <select
+            value={projectLink || "default"}
+            onChange={(e) => setProjectLink(e.target.value)}
+          >
+            <option value="default" disabled>
+              Select
+            </option>
+            {displayProjects?.map((project, index) => {
+              return (
+                <option
+                  key={index}
+                  value={`/work/${replaceSpacesAndHyphens(project.title)}`}
+                >
+                  {project.title}
+                </option>
+              );
+            })}
+          </select>
         </div>
-        <select
-          value={projectLink || "default"}
-          onChange={(e) => setProjectLink(e.target.value)}
-        >
-          <option value="default" disabled>
-            Select
-          </option>
-          {displayProjects?.map((project, index) => {
-            return (
-              <option
-                key={index}
-                value={`/work/${replaceSpacesAndHyphens(project.title)}`}
-              >
-                {project.title}
-              </option>
-            );
-          })}
-        </select>
       </div>
-      <div className={classes.input}>
+      <div
+        className={classes.input}
+        style={{
+          marginTop: "24px",
+        }}
+      >
         <div className={classes.bar}>
           <p className={classes.label}>
             Description

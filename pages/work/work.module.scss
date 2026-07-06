@@ -241,8 +241,8 @@
 
   .link {
     width: fit-content;
-    color: config.$grey;
-    border-bottom: 1px solid config.$grey;
+    color: config.$text;
+    border-bottom: 1px solid config.$text;
 
     &:hover {
       cursor: pointer;

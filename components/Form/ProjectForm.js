@@ -296,7 +296,12 @@ export default function ProjectForm() {
           </select>
         </div>
       </div>
-      <div className={classes.input}>
+      <div
+        className={classes.input}
+        style={{
+          marginTop: "24px",
+        }}
+      >
         <div className={classes.bar}>
           <p className={classes.label}>
             Description

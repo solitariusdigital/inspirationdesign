@@ -247,7 +247,7 @@ export default function NewsArticle() {
                       key={index}
                       style={{
                         marginBottom:
-                          trimmedDesc.charAt(0) === "-" ? "0px" : "8px",
+                          trimmedDesc.charAt(0) === "-" ? "4px" : "8px",
                       }}
                     >
                       {parts.map((part, i) =>
@@ -279,8 +279,11 @@ export default function NewsArticle() {
                     href={displayNews.projectLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    style={{
+                      marginTop: "24px",
+                    }}
                   >
-                    Click to View the Project
+                    View the Project
                   </a>
                 </div>
               )}

@@ -131,7 +131,12 @@ export default function ContactForm() {
           ></input>
         </div>
       </div>
-      <div className={classes.input}>
+      <div
+        className={classes.input}
+        style={{
+          marginTop: "24px",
+        }}
+      >
         <textarea
           placeholder="Message"
           type="text"
