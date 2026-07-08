@@ -73,6 +73,22 @@ export default function CoverSlider() {
       title: "Healthy House Design & Construction",
       type: "construction",
     },
+    {
+      title: "Building Design",
+      type: "residential",
+    },
+    {
+      title: "Interior Design",
+      type: "residential",
+    },
+    {
+      title: "Lighting Design",
+      type: "lighting",
+    },
+    {
+      title: "Healthy House Design & Construction",
+      type: "construction",
+    },
   ];
   const servicesBottom = [
     {
@@ -129,50 +145,52 @@ export default function CoverSlider() {
           <AudiotrackIcon className="icon" sx={{ fontSize: 16 }} />
         )}
       </div>
-      <div className={classes.sliderInfoTop}>
-        <div className={classes.slideTrackTop}>
-          {servicesTop.concat(servicesTop).map((service, index) => (
-            <Link
-              className={classes.slideItem}
-              key={index}
-              onClick={() => {
-                setProjectsCategory(service.type);
-              }}
-              href="/work"
-              passHref
-            >
-              <h3
-                style={{
-                  fontFamily: "RobotoRegular",
+      <div className={classes.sliderBox}>
+        <div className={classes.sliderInfoTop}>
+          <div className={classes.slideTrackTop}>
+            {servicesTop.concat(servicesTop).map((service, index) => (
+              <Link
+                className={classes.item}
+                key={index}
+                onClick={() => {
+                  setProjectsCategory(service.type);
                 }}
+                href="/work"
+                passHref
               >
-                {service.title}
-              </h3>
-            </Link>
-          ))}
+                <h3
+                  style={{
+                    fontFamily: "RobotoMedium",
+                  }}
+                >
+                  {service.title}
+                </h3>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className={classes.sliderInfoBottom}>
-        <div className={classes.slideTrackBottom}>
-          {servicesBottom.concat(servicesBottom).map((service, index) => (
-            <Link
-              className={classes.slideItem}
-              key={index}
-              onClick={() => {
-                setProjectsCategory(service.type);
-              }}
-              href="/work"
-              passHref
-            >
-              <h3
-                style={{
-                  fontFamily: "RobotoRegular",
+        <div className={classes.sliderInfoBottom}>
+          <div className={classes.slideTrackBottom}>
+            {servicesBottom.concat(servicesBottom).map((service, index) => (
+              <Link
+                className={classes.item}
+                key={index}
+                onClick={() => {
+                  setProjectsCategory(service.type);
                 }}
+                href="/work"
+                passHref
               >
-                {service.title}
-              </h3>
-            </Link>
-          ))}
+                <h4
+                  style={{
+                    fontFamily: "RobotoMedium",
+                  }}
+                >
+                  {service.title}
+                </h4>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>

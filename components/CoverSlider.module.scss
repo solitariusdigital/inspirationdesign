@@ -27,46 +27,41 @@
   }
 }
 
-.sliderInfoTop,
-.sliderInfoBottom {
+.sliderBox {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   z-index: 2;
   left: 50%;
   bottom: 0px;
+  width: 100vw;
+  max-width: 100%;
   transform: translateX(-50%);
+  color: config.$white;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.sliderInfoTop,
+.sliderInfoBottom {
   width: 100%;
   overflow: hidden;
-  color: config.$white;
 
   .slideTrackTop,
   .slideTrackBottom {
     display: flex;
-    width: calc(500px * 10);
-    animation: scroll 100s linear infinite;
-
-    @include mixins.mobile {
-      width: calc(400px * 10);
-    }
+    flex-wrap: nowrap;
+    width: max-content;
+    animation: scroll 50s linear infinite;
+    will-change: transform;
   }
 
-  .slideTrackTop {
-    width: calc(300px * 10);
-    animation: scroll 60s linear infinite;
+  .item {
+    flex-shrink: 0;
+    white-space: nowrap;
+    width: fit-content;
+    padding: 20px;
 
-    @include mixins.mobile {
-      width: calc(250px * 10);
-    }
-  }
-
-  .slideItem {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 15px 0px;
-
-    @include mixins.mobile {
-      padding: 20px 0px;
-    }
     @include mixins.allDesktop {
       &:hover {
         cursor: pointer;
@@ -77,15 +72,14 @@
 }
 
 .sliderInfoTop {
-  bottom: 65px;
   border-bottom: 1px solid config.$white;
 }
 
 @keyframes scroll {
-  0% {
+  from {
     transform: translateX(0);
   }
-  100% {
+  to {
     transform: translateX(-50%);
   }
 }

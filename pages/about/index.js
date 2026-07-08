@@ -117,7 +117,7 @@ export default function About() {
       link: "",
     },
     {
-      title: "Zain Jewelery",
+      title: "Zain Jewellery",
       link: "",
     },
     {
@@ -171,7 +171,7 @@ export default function About() {
       detail: "2025",
     },
     {
-      title: "Jewelery Arabia – Recognition For Best Design And Fitout",
+      title: "Jewellery Arabia – Recognition For Best Design And Fitout",
       detail: "2010",
     },
     {
@@ -196,17 +196,17 @@ export default function About() {
     {
       title: "Georgie Awards Finalists",
       description:
-        "Official Canadian Home Builders' Association of British Columbia (CHBA BC) PublicationOrchard Residence and Canyon Haven recognized as finalists in the 2025 Georgie Awards.",
+        "Official Canadian Home Builders Association of British Columbia (CHBA BC) Publication Orchard Residence and Canyon Haven recognized as finalists in the 2025 Georgie Awards.",
       detail: "",
     },
     {
       title: "HAVAN Awards Finalists",
       description:
-        "Official Homebuilders Association Vancouver (HAVAN) PublicationOrchard Residence and Canyon Haven recognized as finalists in the 2025 HAVAN Awards.",
+        "Official Homebuilders Association Vancouver (HAVAN) Publication Orchard Residence and Canyon Haven recognized as finalists in the 2025 HAVAN Awards.",
       detail: "",
     },
     {
-      title: `Middle East Interiors “ Inspired to Succeed ”`,
+      title: `Middle East Interiors “Inspired to Succeed”`,
       description:
         "Feature article highlighting Inspiration Interior Design and its projects.",
       detail: "November 2009 | pp. 30–32",
@@ -218,25 +218,25 @@ export default function About() {
       detail: "18 November 2009 | Page 3",
     },
     {
-      title: `Middle East Interiors “ Design Calls for Dexterity ”`,
+      title: `Middle East Interiors “Design Calls for Dexterity”`,
       description:
         "Feature article discussing Inspiration Interior Design's turnkey design philosophy and selected projects.",
       detail: "May 2009 | pp. 30–32",
     },
     {
-      title: `Middle East Interiors “ Design on Inspiration ”`,
+      title: `Middle East Interiors “Design on Inspiration”`,
       description:
         "Feature article presenting Inspiration Interior Design and a selection of completed projects.",
       detail: "April 2009 | pp. 36–39",
     },
     {
-      title: `Middle East Interiors “ Growth-driven Inspiration ”`,
+      title: `Middle East Interiors “Growth-driven Inspiration”`,
       description:
         "Feature article introducing Inspiration Interior Design and its expanding portfolio.",
       detail: "November 2007 | pp. 20–21",
     },
     {
-      title: `Gulf Weekly “ Jacque's Memento ”`,
+      title: `Gulf Weekly “Jacque's Memento”`,
       description:
         "Feature article on the ARKHEO exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain.",
       detail: "31 October – 6 November 2007 | Vol. 6 | Page 11",
@@ -248,7 +248,7 @@ export default function About() {
       detail: "2 November 2007 | No. 6781",
     },
     {
-      title: `Gulf Daily News “ Exhibition Digs into the Past ”`,
+      title: `Gulf Daily News “Exhibition Digs into the Past”`,
       description: "",
       detail: "31 October 2007 | Vol. XXX | No. 225 | Page 19",
     },
@@ -264,17 +264,17 @@ export default function About() {
       detail: "31 October 2007 | No. 6779 | Page 16",
     },
     {
-      title: `Gulf Daily News “ Heritage on Show ”`,
+      title: `Gulf Daily News “Heritage on Show”`,
       description: "",
       detail: "30 October 2007 | Vol. XXX | No. 224 | Page 20",
     },
     {
-      title: `Gulf Daily News “ Heritage Expo Focus ”`,
+      title: `Gulf Daily News “Heritage Expo Focus”`,
       description: "",
       detail: "22 October 2007 | Vol. XXX | No. 216 | Page 18",
     },
     {
-      title: `Architecture & Urbanism “ Evolution of Iranian Architecture in View of the Influences of Western Technology ”`,
+      title: `Architecture & Urbanism “Evolution of Iranian Architecture in View of the Influences of Western Technology”`,
       description: "Research article by Dr. Parastoo Jafari.",
       detail: "February 2000 | Nos. 54–55",
     },
