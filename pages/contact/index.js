@@ -75,7 +75,7 @@ export default function Contact() {
                     marginBottom: "8px",
                   }}
                 >
-                  Contact us
+                  Phone
                 </h2>
                 <h4
                   className={classes.phone}
@@ -89,7 +89,6 @@ export default function Contact() {
                 >
                   C 604 365 9191
                 </h4>
-                <h4>info@inspirationdesigns.ca</h4>
               </div>
               <div className={classes.item}>
                 <h2
@@ -98,14 +97,15 @@ export default function Contact() {
                     marginBottom: "8px",
                   }}
                 >
-                  Reach us
+                  Email
                 </h2>
-                <h4
+                <h4>info@inspirationdesigns.ca</h4>
+                {/* <h4
                   className={classes.direction}
                   onClick={() => window.open(headLocationLink)}
                 >
                   Get directions
-                </h4>
+                </h4> */}
               </div>
             </div>
           </div>

@@ -172,8 +172,9 @@
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   gap: 12px;
   margin: 50px auto;
-  width: config.$content-width;
   max-width: config.$max-widthHeigh;
+  width: config.$content-widthText;
+
   user-select: none;
 
   .imageBox {
@@ -190,6 +191,10 @@
   }
   @include mixins.tabletPortrait {
     grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    width: 100%;
+  }
+  @include mixins.tabletLandscape {
+    width: 100%;
   }
 }
 
