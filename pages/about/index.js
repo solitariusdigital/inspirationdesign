@@ -7,6 +7,7 @@ import logoBlack from "@/assets/logo-black.png";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import FirebaseImage from "@/components/FirebaseImage";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { subscribe } from "firebase/data-connect";
 
 export default function About() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
@@ -97,99 +98,143 @@ export default function About() {
   ];
   const testimonials = [
     {
-      title: "AFDON Construction Company",
-      link: "",
+      title: "Marjan Mazaheri, Principal, Coldwell Banker Prestige Realty",
+      subTitle: "Luxury Renovations & Custom Homes, West Vancouver",
+      description:
+        "Dr. Parastoo Jafari transformed my own home exactly as I had envisioned, and since then I have confidently recommended Inspiration Design to several of my clients for luxury renovations and custom homes. Her creativity, professionalism, and commitment to every detail consistently deliver outstanding results.",
+      year: "2026",
     },
     {
-      title: "French Ambassador In Bahrain",
-      link: "",
+      title: "Eiman Mohammad, Scavolini Vancouver",
+      subTitle: "Luxury Custom Homes, West & North Vancouver",
+      description:
+        "For more than fourteen years, we have collaborated with Dr. Parastoo Jafari on the design and installation of Scavolini kitchens in many high-end homes throughout West and North Vancouver. Her design expertise, attention to detail, and careful project supervision consistently deliver outstanding results, and we highly recommend Inspiration Design.",
+      year: "2025",
     },
     {
-      title: "NYIT, New York Intitute Of Technolongy",
-      link: "",
+      title: "Shelly & Ash Bivadi, Owners",
+      subTitle: "Luxury 9000 S.F. Residence, Russet Way, West Vancouver",
+      description:
+        "Dr. Parastoo Jafari captured exactly the minimalist style we were looking for, creating a timeless interior through natural materials, soft colors, and exceptional attention to detail. We couldn't be happier with the result.",
+      year: "2025",
     },
     {
-      title: "University Of Bahrain",
-      link: "",
+      title: "Sara & Ali Sadaghdar, Owners",
+      subTitle: "Luxury Residence Renovation, North Vancouver",
+      description:
+        "Dr. Parastoo Jafari transformed our home into a modern, elegant space that exceeded our expectations. Her attention to detail, thoughtful material selection, and careful supervision throughout the renovation resulted in a beautiful home that perfectly reflects our lifestyle",
+      year: "2024",
     },
     {
-      title: "NIA Construction Company",
-      link: "",
+      title: "Mahmood Saii, Owner",
+      subTitle:
+        "Award-Winning Multifamily Residential Projects, Avesta I and II",
+      description:
+        "I highly recommend Inspiration Design and Dr. Parastoo Jafari for their professional design services. Their expertise, creativity, attention to detail, flexibility, work ethic, and extensive construction knowledge contributed to the successful completion of the interior design of the award-winning Avesta I project. Following its success, we continued our collaboration on Avesta II, where Inspiration Design provided the interior design, exterior lighting design, and elevation color consultation for the 48-unit purpose-built rental residential development inaugurated in 2022.",
+      year: "2023",
     },
     {
-      title: "Zain Jewellery",
-      link: "",
+      title: "Afshin Tajbakhsh, Afdon Contracting",
+      subTitle: "High-End Custom Residential Projects",
+      description:
+        "During more than fourteen years of collaboration on many high-end custom homes in West and North Vancouver, Inspiration Design Ltd., under the leadership of Dr. Parastoo Jafari, provided building design, interior design, lighting design, project management, and on-site construction support. We highly recommend the company for professional residential design and project management.",
+      year: "2015",
     },
     {
-      title: "Mr. McNeill",
-      link: "",
+      title: "Nasser Kharkheiran, Owner",
+      subTitle: "Luxury 6000 S.F. Residence, Queens Av, West Vancouver",
+      description:
+        "Following our two-year collaboration on this project, we highly recommend Inspiration Design for professional residential design services. The company provided the building design, interior design, and site supervision, while Dr. Parastoo Jafari's architectural education, extensive experience, attention to detail, ability to understand issues, flexibility, work ethic, and can-do attitude contributed to the successful delivery of the project.",
+      year: "2015",
     },
     {
-      title: "Ms. Mazaheri",
-      link: "",
+      title: "Farokh Tabeshi, Owner",
+      subTitle: "Luxury 9000 S.F. Residence, Southborough Dr, West Vancouver",
+      description:
+        "Following interior design consultation, site visits, drawings, and design advice provided by Inspiration Design, I greatly appreciated the positive contribution of the company's services to the project",
+      year: "2014",
     },
     {
-      title: "Mrs. Tabeshi",
-      link: "",
+      title: "Azadeh Alimadad, Owner",
+      subTitle: "Luxury Residence 9000 S.F. Fairmile Rd, West Vancouver",
+      description:
+        "Mrs. Parastoo Jafari is recommended for interior design services for a 9,000 S.F. luxury residence in Fairmile Road, West Vancouver. Her education and experience in architecture, interior architecture, interior design, and construction enabled her to deliver precise construction documents and details, while her attention to detail, ability to understand issues, and work ethic consistently resulted in quality work.",
+      year: "2013",
     },
     {
-      title: "Mr. Karkheiran",
-      link: "",
+      title: "Nabeel Al Zain, Managing Director",
+      subTitle: "Jewellery Arabia 2009 Exhibition Stand for Al Zain Jewellery",
+      description:
+        "Al Zain Trading Management extends its sincere appreciation for the excellent performance in the design and execution of the jewelry Arabia stand, and for Dr. Parastoo Jafari's personal participation during the inauguration visit of His Excellency HRH Prime Minister Prince Khalifa Bin Salman Al Khalifa.",
+      year: "2010",
     },
     {
-      title: "Mr. Saii",
-      link: "",
+      title:
+        "Treena Crochet, Associate Professor & Dean, School of Architecture",
+      subTitle:
+        "Interior Design Studio Teaching, NYIT (New York Institute of Technology), Bahrain",
+      description:
+        "Dr. Parastoo Jafari served as a Distinguished Associate Adjunct Professor for the Spring and Fall 2009 academic terms, teaching second and fourth year Design Studio courses. Her exceptional professionalism, keen interest in teaching, and willingness to share her professional design office, construction sites, and practical experience made a valuable contribution to the advancement of the students.",
+      year: "2009",
     },
     {
-      title: "Mrs. Alimadad",
-      link: "",
+      title:
+        "Recommendation by Prof. Dr. Ali Mansour Al-Shehab, Vice-President for Planning & Community Service, University of Bahrain",
+      subTitle: "University Internship Program 2008–2009",
+      description:
+        "The University of Bahrain extends its sincere appreciation for Inspiration Interior Design's continuous involvement in its internship program. Dr. Parastoo Jafari's personal guidance, knowledge, and interest in the students contributed to the successful completion of their internships, and the University expresses its gratitude for the company's valued support.",
+      year: "2009",
     },
     {
-      title: "Mr. White",
-      link: "",
+      title:
+        "Embassy of France in the Kingdom of Bahrain Malika Berak, French Ambassador",
+      subTitle: "ARKHEO Exhibition, 30 Years of French Archaeology in Bahrain",
+      description:
+        "The Embassy of France congratulates Dr. Parastoo Jafari for the modern and elegant scenography created for the ARKHEO, 30 Years of French Archaeology in Bahrain exhibition. Presented at La Maison Jamsheer, the exhibition remained faithful to the Embassy's expectations and fully met the agreement signed with Inspiration Interior Design.",
+      year: "2007",
     },
   ];
   const awards = [
     {
       title:
         "Orchard Residence – George Awards Finalist (Best Custom Home: $3 Million – Under $6 Million)",
-      detail: "2025",
+      year: "2025",
     },
     {
       title:
         "Orchard Residence – HAVAN Awards Finalist (Best Custom Home: $3 Million – Under $6 Million)",
-      detail: "2025",
+      year: "2025",
     },
     {
       title:
         "Canyon Haven (Clements I & II) – George Awards Finalist (Custom Home Valued Under $1 Million)",
-      detail: "2025",
+      year: "2025",
     },
     {
       title:
         "Canyon Haven (Clements I & II) – HAVAN Awards Finalist (Custom Home Valued Under $1 Million)",
-      detail: "2025",
+      year: "2025",
     },
     {
       title: "Jewellery Arabia – Recognition For Best Design And Fitout",
-      detail: "2010",
+      year: "2010",
     },
     {
       title: "Bahrain City Center – Recognition For Best Fitout",
-      detail: "2009",
+      year: "2009",
     },
     {
       title:
         "NYIT (New York Institute Of Technology) – Recognition For Cooperation",
-      detail: "2009",
+      year: "2009",
     },
     {
       title: "University Of Bahrain – Recognition For Cooperation",
-      detail: "2009",
+      year: "2009",
     },
     {
       title: "French Embassy –Recognition For Arkheo Exhibition",
-      detail: "2008",
+      year: "2008",
     },
   ];
   const publications = [
@@ -437,7 +482,31 @@ export default function About() {
             <div className={classes.layout}>
               {testimonials.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <p>{item.title}</p>
+                  <div
+                    className={classes.info}
+                    style={{
+                      fontFamily: "RobotoRegular",
+                    }}
+                  >
+                    <h4>{item.year}</h4>
+                    <p
+                      style={{
+                        margin: "8px 0px",
+                      }}
+                    >
+                      {item.title}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "RobotoItalic",
+                      }}
+                    >
+                      {item.subTitle}
+                    </p>
+                  </div>
+                  <div className={classes.detail}>
+                    <p>" {item.description} "</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -460,7 +529,7 @@ export default function About() {
                       fontFamily: "RobotoRegular",
                     }}
                   >
-                    {item.detail}
+                    {item.year}
                   </h4>
                   <div className={classes.detail}>
                     <p>{item.title}</p>
@@ -490,7 +559,13 @@ export default function About() {
                     {item.title}
                   </h4>
                   <div className={classes.detail}>
-                    <p>{item.description}</p>
+                    <p
+                      style={{
+                        marginBottom: "4px",
+                      }}
+                    >
+                      {item.description}
+                    </p>
                     <p
                       style={{
                         fontFamily: "RobotoItalic",

@@ -24,8 +24,8 @@ export default function Work() {
   const [firstColumn, setFirstColumn] = useState([]);
   const [secondColumn, setSecondColumn] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
-  const [displayInfo, setDisplayInfo] = useState(false);
   const [displayArrow, setDisplayArrow] = useState(false);
+
   const router = useRouter();
   let pathname = router.pathname;
 
@@ -34,9 +34,8 @@ export default function Work() {
     residential: "Building & Interior Design",
     commercial: "Building & Interior Design",
     lighting: "Lighting Design",
-    construction: "Lightweight Steel Framing",
+    construction: "Healthy House Design",
   };
-
   const marginStyle = {
     marginTop: "24px",
     marginBottom: "12px",
@@ -300,17 +299,332 @@ export default function Work() {
             <div className={classes.section}>
               <div className={classes.row}>
                 <div className={classes.imageBox}>
+                  <FirebaseImage
+                    path="Resources/Construction/1.jpg"
+                    alt="about"
+                    mode="intrinsic"
+                  />
+                </div>
+                <div className={classes.infoBox}>
+                  <h2>Lightweight Steel Framing - LSF</h2>
+                </div>
+              </div>
+            </div>
+            <div
+              className={classes.section}
+              style={{
+                marginTop: screenSize === "mobile" ? "50px" : "100px",
+              }}
+            >
+              <div className={classes.row}>
+                <div className={classes.imageBoxGrid}>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/8.jpg"
+                      alt="about"
+                    />
+                  </div>
+                  <p>North Vancouver, Canada, 2025</p>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/10.jpg"
+                      alt="about"
+                    />
+                  </div>
+                  <p>
+                    Mold inside the wall of a two-year-old residential building,
+                    Kelowna, BC
+                  </p>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/12.jpg"
+                      alt="about"
+                    />
+                  </div>
+                  <p>Galvanized steel framing</p>
+                </div>
+                <div className={classes.infoBox}>
+                  <h2>Mold & Rot</h2>
+                  <h4 style={marginStyle}>
+                    LSF resists mold and moisture, unlike wood.
+                  </h4>
+                  <p>
+                    Wood absorbs moisture and can develop mold before
+                    construction is complete.
+                  </p>
+                  <p>
+                    Wood provides a food source for mold and termite growth.
+                    Steel framing requires no mold and termite treatments,
+                    resins, or chemical preservatives commonly used in wood
+                    construction.
+                  </p>
+                  <p>
+                    Mold develops inside wall assemblies and remains invisible
+                    for years, while airborne spores are released into the
+                    indoor environment and inhaled long before mold becomes
+                    visible, posing significant health risks.
+                  </p>
+                  <p>
+                    Damp wood is wrapped by insulation and finishes, increasing
+                    mold risk. Mold threatens human health and destroys the
+                    building. Galvanized eliminates this risk.
+                  </p>
+                  <p>
+                    As an inorganic material, steel emits no VOCs (volatile
+                    organic compounds) and does not compromise indoor air
+                    quality over time.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className={classes.section}>
+              <div className={classes.row}>
+                <div className={classes.imageBoxGrid}>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/13.jpg"
+                      alt="about"
+                    />
+                  </div>
+                  <p>
+                    Santa Rosa, California, USA, October 2018 - Over 5,600
+                    structures destroyed in one of California’s most destructive
+                    wildfires. Source: Insurance Journal
+                  </p>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/14.jpg"
+                      alt="about"
+                    />
+                  </div>
+                  <p>Single-Family, West Kelowna Fire, BC, Canada 2023</p>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/15.jpg"
+                      alt="about"
+                    />
+                  </div>
+                  <p>Single-Family, West Kelowna Fire, BC, Canada 2023</p>
+                </div>
+                <div className={classes.infoBox}>
+                  <h2>Fire</h2>
+                  <h4 style={marginStyle}>
+                    LSF is non-combustible, unlike wood.
+                  </h4>
+                  <p>
+                    Wood can ignite from heat, even without direct flame and
+                    spread fire rapidly unlike non-combustible materials.
+                  </p>
+                  <p>
+                    Fire destroys homes in minutes, loss that insurance can
+                    never replace.
+                  </p>
+                  <p>
+                    Non-combustible galvanized steel framing does not ignite or
+                    spread fire like wood.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className={classes.section}>
+              <div className={classes.row}>
+                <div className={classes.imageBox}>
+                  <FirebaseImage
+                    path="Resources/Construction/16.jpg"
+                    alt="about"
+                    mode="intrinsic"
+                  />
+                  <p>
+                    Single-Family Housing Structure with Lightweight Steel
+                    Framing. Image courtesy of BONE Structure
+                  </p>
+                </div>
+                <div className={classes.infoBox}>
+                  <h2>Strength & Durability</h2>
+                  <p>
+                    LSF provides high structural strength, long-term durability
+                    and larger spans than wood, while remaining dimensionally
+                    stable and free from warping, shrinking, or deformation.
+                  </p>
+                  <p>
+                    With one of the highest strength-to-weight ratios among
+                    traditional building materials, lightweight steel framing is
+                    stronger yet significantly lighter than wood, allowing for
+                    lighter foundations, reduced structural and seismic loads
+                    and a longer service life. Its ductile behavior supports
+                    predictable seismic performance, with steel members weighing
+                    up to 60% less than comparable wood members.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className={classes.section}>
+              <div className={classes.row}>
+                <div className={classes.imageBox}>
                   <div
                     style={{
                       marginBottom: "8px",
                     }}
                   >
                     <FirebaseImage
-                      path="Resources/Construction/1.jpg"
+                      path="Resources/Construction/17.jpg"
                       alt="about"
                       mode="intrinsic"
                     />
                   </div>
+                  <FirebaseImage
+                    path="Resources/Construction/18.jpg"
+                    alt="about"
+                    mode="intrinsic"
+                  />
+                  <p>
+                    House Design Using a Lightweight Steel Framing by
+                    Inspiration Design Ltd.
+                  </p>
+                </div>
+                <div className={classes.infoBox}>
+                  <h2>Design Freedom & Precision</h2>
+                  <h4 style={marginStyle}>
+                    Lightweight steel framing allows larger spans, open layouts
+                    and greater architectural freedom.
+                  </h4>
+                  <p>
+                    Computer-controlled fabrication produces precise, straight
+                    floor and roof components, enabling larger window and door
+                    openings, unlike wood.
+                  </p>
+                  <p>
+                    Wood framing typically spans up to 14–20 ft (4.3–6 m), often
+                    requiring deep beams and lowered ceilings. LSF achieves 30
+                    ft (9 m) spans in homes and up to 70 ft (21.3 m) in
+                    engineered systems, level of design flexibility well beyond
+                    conventional wood construction.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className={classes.section}>
+              <div className={classes.row}>
+                <div className={classes.imageBoxGrid}>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/19.jpg"
+                      alt="about"
+                      mode="intrinsic"
+                    />
+                  </div>
+                  <p>Image courtesy of Bailey Metal Products Limited</p>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/20.jpg"
+                      alt="about"
+                      mode="intrinsic"
+                    />
+                  </div>
+                  <p>
+                    Images are provided by Fifthshire Homes and showing houses
+                    built of lightweight steel structure
+                  </p>
+                </div>
+                <div className={classes.infoBox}>
+                  <h2>Sustainability</h2>
+                  <h4 style={marginStyle}>
+                    Steel is the most recycled material in the world.
+                  </h4>
+                  <p>
+                    Lightweight steel framing is made primarily from recyclable
+                    steel. At the end of a home’s life, steel can be fully
+                    recycled.
+                  </p>
+                  <p>
+                    Unlike wood, it does not end up in landfills due to decay,
+                    contamination, or chemical treatments.
+                  </p>
+                  <h4 style={marginStyle}>
+                    Steel framing has a long service life.
+                  </h4>
+                  <p>
+                    Building to last, reduces the need for replacement or repair
+                    over time.
+                  </p>
+                  <h4 style={marginStyle}>
+                    Prefabrication and precision fabrication reduce waste.
+                  </h4>
+                  <p>
+                    Computer-controlled and AI-based design optimizes each steel
+                    component for maximum structural performance with minimal
+                    material use.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className={classes.section}>
+              <div className={classes.row}>
+                <div className={classes.imageBoxGrid}>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/21.jpg"
+                      alt="about"
+                    />
+                  </div>
+                  <p>
+                    Prefabricated LSF Exterior Wall Panel with Integrated Window
+                    Openings. Buildsmartr project, Burnaby, BC, Canada (2023)
+                  </p>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/22.jpg"
+                      alt="about"
+                    />
+                  </div>
+                  <p>
+                    Computer-Calculated Prefabricated Steel Roof Truss
+                    Installation. Image source: Unbak Machinery
+                  </p>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/23.jpg"
+                      alt="about"
+                    />
+                  </div>
+                  <p>Image courtesy of Bailey Metal Products Limited</p>
+                </div>
+                <div className={classes.infoBox}>
+                  <h2>Speed & Cost</h2>
+                  <p>LSF reduces overall construction time and cost.</p>
+                  <h4 style={marginStyle}>Speed</h4>
+                  <p>
+                    Computer-calculated components are delivered pre-cut or
+                    panelized as wall panels, joists and trusses, allowing
+                    faster installation and quicker enclosure compared to
+                    traditional wood framing. Factory-precision fabrication
+                    minimizes material waste, reduces on-site cleanup, and
+                    lowers labor time. Pre-engineered service openings in steel
+                    studs and joists make electrical, plumbing and mechanical
+                    installations faster, cleaner and more accurate, eliminating
+                    much of the drilling and modification required in wood
+                    framing. For a typical 4,000 sq ft (370 m²) single-family
+                    home, wood framing can take 1.5 to 2 months, while LSF takes
+                    about two weeks.
+                  </p>
+                  <h4 style={marginStyle}>Cost</h4>
+                  <p>
+                    The non-combustible nature and durability of steel framing
+                    can reduce insurance risk and long-term maintenance costs.
+                    Non-combustible construction materials such as LSF may
+                    benefit from lower insurance rates.
+                  </p>
+                  <p>
+                    Steel framing offers a service life that can exceed that of
+                    conventional wood framing, making it a durable,
+                    cost-effective investment over the life of the home.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className={classes.section}>
+              <div className={classes.row}>
+                <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/3.jpg"
                     alt="about"
@@ -523,332 +837,6 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className="scrollUp">
-              <button onClick={() => setDisplayInfo(!displayInfo)}>
-                <span>{displayInfo ? "Read Less" : "Read More"}</span>
-              </button>
-            </div>
-            {displayInfo && (
-              <>
-                <div
-                  className={classes.section}
-                  style={{
-                    marginTop: screenSize === "mobile" ? "50px" : "100px",
-                  }}
-                >
-                  <div className={classes.row}>
-                    <div className={classes.imageBoxGrid}>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/8.jpg"
-                          alt="about"
-                        />
-                      </div>
-                      <p>North Vancouver, Canada, 2025</p>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/10.jpg"
-                          alt="about"
-                        />
-                      </div>
-                      <p>
-                        Mold inside the wall of a two-year-old residential
-                        building, Kelowna, BC
-                      </p>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/12.jpg"
-                          alt="about"
-                        />
-                      </div>
-                      <p>Galvanized steel framing</p>
-                    </div>
-                    <div className={classes.infoBox}>
-                      <h2>Mold & Rot</h2>
-                      <h4 style={marginStyle}>
-                        LSF resists mold and moisture, unlike wood.
-                      </h4>
-                      <p>
-                        Wood absorbs moisture and can develop mold before
-                        construction is complete.
-                      </p>
-                      <p>
-                        Wood provides a food source for mold and termite growth.
-                        Steel framing requires no mold and termite treatments,
-                        resins, or chemical preservatives commonly used in wood
-                        construction.
-                      </p>
-                      <p>
-                        Mold develops inside wall assemblies and remains
-                        invisible for years, while airborne spores are released
-                        into the indoor environment and inhaled long before mold
-                        becomes visible, posing significant health risks.
-                      </p>
-                      <p>
-                        Damp wood is wrapped by insulation and finishes,
-                        increasing mold risk. Mold threatens human health and
-                        destroys the building. Galvanized eliminates this risk.
-                      </p>
-                      <p>
-                        As an inorganic material, steel emits no VOCs (volatile
-                        organic compounds) and does not compromise indoor air
-                        quality over time.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className={classes.section}>
-                  <div className={classes.row}>
-                    <div className={classes.imageBoxGrid}>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/13.jpg"
-                          alt="about"
-                        />
-                      </div>
-                      <p>
-                        Santa Rosa, California, USA, October 2018 - Over 5,600
-                        structures destroyed in one of California’s most
-                        destructive wildfires. Source: Insurance Journal
-                      </p>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/14.jpg"
-                          alt="about"
-                        />
-                      </div>
-                      <p>Single-Family, West Kelowna Fire, BC, Canada 2023</p>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/15.jpg"
-                          alt="about"
-                        />
-                      </div>
-                      <p>Single-Family, West Kelowna Fire, BC, Canada 2023</p>
-                    </div>
-                    <div className={classes.infoBox}>
-                      <h2>Fire</h2>
-                      <h4 style={marginStyle}>
-                        LSF is non-combustible, unlike wood.
-                      </h4>
-                      <p>
-                        Wood can ignite from heat, even without direct flame and
-                        spread fire rapidly unlike non-combustible materials.
-                      </p>
-                      <p>
-                        Fire destroys homes in minutes, loss that insurance can
-                        never replace.
-                      </p>
-                      <p>
-                        Non-combustible galvanized steel framing does not ignite
-                        or spread fire like wood.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className={classes.section}>
-                  <div className={classes.row}>
-                    <div className={classes.imageBox}>
-                      <FirebaseImage
-                        path="Resources/Construction/16.jpg"
-                        alt="about"
-                        mode="intrinsic"
-                      />
-                      <p>
-                        Single-Family Housing Structure with Lightweight Steel
-                        Framing. Image courtesy of BONE Structure
-                      </p>
-                    </div>
-                    <div className={classes.infoBox}>
-                      <h2>Strength & Durability</h2>
-                      <p>
-                        LSF provides high structural strength, long-term
-                        durability and larger spans than wood, while remaining
-                        dimensionally stable and free from warping, shrinking,
-                        or deformation.
-                      </p>
-                      <p>
-                        With one of the highest strength-to-weight ratios among
-                        traditional building materials, lightweight steel
-                        framing is stronger yet significantly lighter than wood,
-                        allowing for lighter foundations, reduced structural and
-                        seismic loads and a longer service life. Its ductile
-                        behavior supports predictable seismic performance, with
-                        steel members weighing up to 60% less than comparable
-                        wood members.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className={classes.section}>
-                  <div className={classes.row}>
-                    <div className={classes.imageBox}>
-                      <div
-                        style={{
-                          marginBottom: "8px",
-                        }}
-                      >
-                        <FirebaseImage
-                          path="Resources/Construction/17.jpg"
-                          alt="about"
-                          mode="intrinsic"
-                        />
-                      </div>
-                      <FirebaseImage
-                        path="Resources/Construction/18.jpg"
-                        alt="about"
-                        mode="intrinsic"
-                      />
-                      <p>
-                        House Design Using a Lightweight Steel Framing by
-                        Inspiration Design Ltd.
-                      </p>
-                    </div>
-                    <div className={classes.infoBox}>
-                      <h2>Design Freedom & Precision</h2>
-                      <h4 style={marginStyle}>
-                        Lightweight steel framing allows larger spans, open
-                        layouts and greater architectural freedom.
-                      </h4>
-                      <p>
-                        Computer-controlled fabrication produces precise,
-                        straight floor and roof components, enabling larger
-                        window and door openings, unlike wood.
-                      </p>
-                      <p>
-                        Wood framing typically spans up to 14–20 ft (4.3–6 m),
-                        often requiring deep beams and lowered ceilings. LSF
-                        achieves 30 ft (9 m) spans in homes and up to 70 ft
-                        (21.3 m) in engineered systems, level of design
-                        flexibility well beyond conventional wood construction.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className={classes.section}>
-                  <div className={classes.row}>
-                    <div className={classes.imageBoxGrid}>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/19.jpg"
-                          alt="about"
-                          mode="intrinsic"
-                        />
-                      </div>
-                      <p>Image courtesy of Bailey Metal Products Limited</p>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/20.jpg"
-                          alt="about"
-                          mode="intrinsic"
-                        />
-                      </div>
-                      <p>
-                        Images are provided by Fifthshire Homes and showing
-                        houses built of lightweight steel structure
-                      </p>
-                    </div>
-                    <div className={classes.infoBox}>
-                      <h2>Sustainability</h2>
-                      <h4 style={marginStyle}>
-                        Steel is the most recycled material in the world.
-                      </h4>
-                      <p>
-                        Lightweight steel framing is made primarily from
-                        recyclable steel. At the end of a home’s life, steel can
-                        be fully recycled.
-                      </p>
-                      <p>
-                        Unlike wood, it does not end up in landfills due to
-                        decay, contamination, or chemical treatments.
-                      </p>
-                      <h4 style={marginStyle}>
-                        Steel framing has a long service life.
-                      </h4>
-                      <p>
-                        Building to last, reduces the need for replacement or
-                        repair over time.
-                      </p>
-                      <h4 style={marginStyle}>
-                        Prefabrication and precision fabrication reduce waste.
-                      </h4>
-                      <p>
-                        Computer-controlled and AI-based design optimizes each
-                        steel component for maximum structural performance with
-                        minimal material use.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className={classes.section}>
-                  <div className={classes.row}>
-                    <div className={classes.imageBoxGrid}>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/21.jpg"
-                          alt="about"
-                        />
-                      </div>
-                      <p>
-                        Prefabricated LSF Exterior Wall Panel with Integrated
-                        Window Openings. Buildsmartr project, Burnaby, BC,
-                        Canada (2023)
-                      </p>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/22.jpg"
-                          alt="about"
-                        />
-                      </div>
-                      <p>
-                        Computer-Calculated Prefabricated Steel Roof Truss
-                        Installation. Image source: Unbak Machinery
-                      </p>
-                      <div className={classes.imageFrame}>
-                        <FirebaseImage
-                          path="Resources/Construction/23.jpg"
-                          alt="about"
-                        />
-                      </div>
-                      <p>Image courtesy of Bailey Metal Products Limited</p>
-                    </div>
-                    <div className={classes.infoBox}>
-                      <h2>Speed & Cost</h2>
-                      <p>LSF reduces overall construction time and cost.</p>
-                      <h4 style={marginStyle}>Speed</h4>
-                      <p>
-                        Computer-calculated components are delivered pre-cut or
-                        panelized as wall panels, joists and trusses, allowing
-                        faster installation and quicker enclosure compared to
-                        traditional wood framing. Factory-precision fabrication
-                        minimizes material waste, reduces on-site cleanup, and
-                        lowers labor time. Pre-engineered service openings in
-                        steel studs and joists make electrical, plumbing and
-                        mechanical installations faster, cleaner and more
-                        accurate, eliminating much of the drilling and
-                        modification required in wood framing. For a typical
-                        4,000 sq ft (370 m²) single-family home, wood framing
-                        can take 1.5 to 2 months, while LSF takes about two
-                        weeks.
-                      </p>
-                      <h4 style={marginStyle}>Cost</h4>
-                      <p>
-                        The non-combustible nature and durability of steel
-                        framing can reduce insurance risk and long-term
-                        maintenance costs. Non-combustible construction
-                        materials such as LSF may benefit from lower insurance
-                        rates.
-                      </p>
-                      <p>
-                        Steel framing offers a service life that can exceed that
-                        of conventional wood framing, making it a durable,
-                        cost-effective investment over the life of the home.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
           </div>
         )}
       </div>

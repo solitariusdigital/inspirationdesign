@@ -95,10 +95,9 @@
   margin-top: 24px;
 
   .item {
-    padding: 16px 0px;
+    padding: 24px 0px;
     border-bottom: 1px solid config.$lightgrey;
     @include mixins.row-space-between-center();
-    align-items: first baseline;
 
     @include mixins.mobile {
       display: flex;
@@ -107,10 +106,23 @@
     }
 
     h4 {
-      width: 45%;
+      width: 50%;
+      padding-right: 12px;
 
       @include mixins.mobile {
         width: 100%;
+        padding: 0px;
+      }
+    }
+
+    .info {
+      width: 50%;
+      padding-right: 12px;
+      margin: 0px;
+
+      @include mixins.mobile {
+        width: 100%;
+        padding: 0px;
       }
     }
 
