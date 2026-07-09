@@ -58,18 +58,10 @@
   }
 
   .icons {
-    min-width: 15%;
     @include mixins.row-space-between-center();
 
     @include mixins.mobile {
-      width: 40%;
-      scale: 0.8;
-    }
-    @include mixins.tabletPortrait {
-      width: 30%;
-    }
-    @include mixins.tabletLandscape {
-      width: 20%;
+      margin-bottom: 12px;
     }
 
     .icon {

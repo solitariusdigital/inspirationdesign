@@ -349,10 +349,6 @@
           width: 55%;
           margin: auto;
 
-          h4 {
-            margin-bottom: 8px;
-          }
-
           @include mixins.mobile {
             width: calc(100% - 24px);
             margin-top: 24px;

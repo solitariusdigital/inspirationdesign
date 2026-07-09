@@ -183,7 +183,13 @@ export default function NewsArticle() {
                   </h1>
                   <div className={classes.info}>
                     <h4>{displayNews.description.split("\n\n")[0]}</h4>
-                    <p>{displayNews.date}</p>
+                    <h4
+                      style={{
+                        margin: "8px 0px",
+                      }}
+                    >
+                      {displayNews.date}
+                    </h4>
                     <p>{getTotalReadingTime(displayNews)}</p>
                   </div>
                 </div>

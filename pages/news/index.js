@@ -121,7 +121,7 @@ export default function News() {
                         marginTop: "8px",
                       }}
                     >
-                      {sliceString(news.description, 80)}
+                      {sliceString(news.description, 100)}
                     </p>
                   </div>
                 </div>

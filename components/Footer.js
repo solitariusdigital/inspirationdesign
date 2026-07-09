@@ -3,11 +3,7 @@ import { StateContext } from "@/context/stateContext";
 import classes from "./Footer.module.scss";
 import Link from "next/link";
 import Router from "next/router";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import XIcon from "@mui/icons-material/X";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import PinterestIcon from "@mui/icons-material/Pinterest";
 
 export default function Footer() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
@@ -48,21 +44,13 @@ export default function Footer() {
         ))}
       </nav>
       <div className={classes.icons}>
-        <Link href="" target="_blank" rel="noopener noreferrer" passHref>
-          <LinkedInIcon sx={{ fontSize: 20 }} className={classes.icon} />
-        </Link>
-        <Link href="" target="_blank" rel="noopener noreferrer" passHref>
-          <InstagramIcon sx={{ fontSize: 20 }} className={classes.icon} />
-        </Link>
-        <Link href="" target="_blank" rel="noopener noreferrer" passHref>
-          <XIcon sx={{ fontSize: 20 }} className={classes.icon} />
-        </Link>
-        <Link href="" target="_blank" rel="noopener noreferrer" passHref>
-          <FacebookIcon sx={{ fontSize: 20 }} className={classes.icon} />
-        </Link>
-        <Link href="" target="_blank" rel="noopener noreferrer" passHref>
-          <PinterestIcon sx={{ fontSize: 20 }} className={classes.icon} />
-        </Link>
+        <InstagramIcon
+          sx={{ fontSize: 24 }}
+          className={classes.icon}
+          onClick={() =>
+            window.open("https://instagram.com/inspirationdesigns.ca", "_ self")
+          }
+        />
       </div>
     </div>
   );

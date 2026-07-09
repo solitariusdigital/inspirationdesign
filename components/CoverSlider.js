@@ -193,6 +193,7 @@ export default function CoverSlider() {
           </div>
         </div>
       </div>
+      <div className="fadeOverlayBottom"></div>
     </div>
   );
 }
