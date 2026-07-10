@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { StateContext } from "@/context/stateContext";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
@@ -6,6 +6,7 @@ import classes from "./work.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Tooltip from "@mui/material/Tooltip";
 import Link from "next/link";
@@ -26,6 +27,7 @@ export default function Work() {
   const [hoveredId, setHoveredId] = useState(null);
   const [displayArrow, setDisplayArrow] = useState(false);
 
+  const refs = useRef([]);
   const router = useRouter();
   let pathname = router.pathname;
 
@@ -39,6 +41,33 @@ export default function Work() {
   const marginStyle = {
     marginTop: "24px",
     marginBottom: "12px",
+  };
+
+  const topics = [
+    "Mold & Rot",
+    "Fire",
+    "Strength & Durability",
+    "Design Freedom & Precision",
+    "Sustainability",
+    "Speed & Cost",
+    "Healthy Buildings, Designed with Science",
+    "Why Lightweight Steel Framing in Housing",
+    "Our Expertise is What We Offer",
+    "Design, Consultation & Coordination",
+    "Research-Based Practice",
+  ];
+
+  const scrollToDiv = (index) => {
+    const element = refs.current[index];
+    if (element) {
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - 100;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
   };
 
   useEffect(() => {
@@ -306,11 +335,33 @@ export default function Work() {
                   />
                 </div>
                 <div className={classes.infoBox}>
-                  <h2>Lightweight Steel Framing - LSF</h2>
+                  <h2
+                    style={{
+                      marginBottom: "12px",
+                    }}
+                  >
+                    Lightweight Steel Framing - LSF
+                  </h2>
+                  <>
+                    {topics.map((item, index) => (
+                      <div className={classes.list} key={index}>
+                        <CircleOutlinedIcon
+                          sx={{ fontSize: 8 }}
+                          style={{
+                            marginRight: "4px",
+                          }}
+                        />
+                        <p onClick={() => scrollToDiv(index)}>{item}</p>
+                      </div>
+                    ))}
+                  </>
                 </div>
               </div>
             </div>
-            <div className={classes.section}>
+            <div
+              className={classes.section}
+              ref={(el) => (refs.current[0] = el)}
+            >
               <div className={classes.row}>
                 <div className={classes.imageBoxGrid}>
                   <div className={classes.imageFrame}>
@@ -372,7 +423,10 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.section}>
+            <div
+              className={classes.section}
+              ref={(el) => (refs.current[1] = el)}
+            >
               <div className={classes.row}>
                 <div className={classes.imageBoxGrid}>
                   <div className={classes.imageFrame}>
@@ -421,7 +475,10 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.section}>
+            <div
+              className={classes.section}
+              ref={(el) => (refs.current[2] = el)}
+            >
               <div className={classes.row}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
@@ -453,7 +510,10 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.section}>
+            <div
+              className={classes.section}
+              ref={(el) => (refs.current[3] = el)}
+            >
               <div className={classes.row}>
                 <div className={classes.imageBox}>
                   <div
@@ -498,7 +558,10 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.section}>
+            <div
+              className={classes.section}
+              ref={(el) => (refs.current[4] = el)}
+            >
               <div className={classes.row}>
                 <div className={classes.imageBoxGrid}>
                   <div className={classes.imageFrame}>
@@ -553,7 +616,10 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.section}>
+            <div
+              className={classes.section}
+              ref={(el) => (refs.current[5] = el)}
+            >
               <div className={classes.row}>
                 <div className={classes.imageBoxGrid}>
                   <div className={classes.imageFrame}>
@@ -617,7 +683,10 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.section}>
+            <div
+              className={classes.section}
+              ref={(el) => (refs.current[6] = el)}
+            >
               <div className={classes.row}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
@@ -658,7 +727,10 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.section}>
+            <div
+              className={classes.section}
+              ref={(el) => (refs.current[7] = el)}
+            >
               <div className={classes.row}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
@@ -705,7 +777,10 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.section}>
+            <div
+              className={classes.section}
+              ref={(el) => (refs.current[8] = el)}
+            >
               <div className={classes.row}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
@@ -747,7 +822,10 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.section}>
+            <div
+              className={classes.section}
+              ref={(el) => (refs.current[9] = el)}
+            >
               <div className={classes.row}>
                 <div className={classes.boxRow}>
                   <div className={classes.imageBoxGridRow}>
@@ -789,7 +867,10 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div className={classes.section}>
+            <div
+              className={classes.section}
+              ref={(el) => (refs.current[10] = el)}
+            >
               <div className={classes.row}>
                 <div className={classes.imageBox}>
                   <FirebaseImage

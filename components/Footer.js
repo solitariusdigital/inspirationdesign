@@ -10,7 +10,9 @@ export default function Footer() {
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
 
   const activateNav = (link, index) => {
-    setProjectsCategory("residential");
+    setTimeout(() => {
+      setProjectsCategory("residential");
+    }, 1000);
     navigationTopBar.map((nav, i) => {
       if (i === index) {
         Router.push(link);

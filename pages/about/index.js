@@ -7,7 +7,6 @@ import logoBlack from "@/assets/logo-black.png";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import FirebaseImage from "@/components/FirebaseImage";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { subscribe } from "firebase/data-connect";
 
 export default function About() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
@@ -505,7 +504,7 @@ export default function About() {
                     </p>
                   </div>
                   <div className={classes.detail}>
-                    <p>" {item.description} "</p>
+                    <p>"{item.description}"</p>
                   </div>
                 </div>
               ))}
@@ -561,7 +560,7 @@ export default function About() {
                   <div className={classes.detail}>
                     <p
                       style={{
-                        marginBottom: "4px",
+                        marginBottom: "8px",
                       }}
                     >
                       {item.description}
@@ -569,7 +568,6 @@ export default function About() {
                     <p
                       style={{
                         fontFamily: "RobotoItalic",
-                        fontSize: "14px",
                       }}
                     >
                       {item.detail}
