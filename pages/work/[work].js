@@ -283,7 +283,7 @@ export default function Project() {
                       className={classes.subTitle}
                       style={{
                         fontFamily: "RobotoRegular",
-                        marginTop: "24px",
+                        marginTop: "50px",
                       }}
                       key={index}
                     >

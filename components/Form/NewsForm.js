@@ -154,6 +154,7 @@ export default function NewsForm() {
         style={{
           fontFamily: "RobotoRegular",
           margin: "24px 0px",
+          marginBottom: "50px",
         }}
       >
         {editNews ? "Edit" : "Add"} News

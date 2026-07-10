@@ -156,6 +156,7 @@ export default function ProjectForm() {
         style={{
           fontFamily: "RobotoRegular",
           margin: "24px 0px",
+          marginBottom: "50px",
         }}
       >
         {editProject ? "Edit" : "Add"} Project

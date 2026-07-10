@@ -87,27 +87,18 @@ export default function Portal() {
       />
       <div className={classes.container}>
         {!displayAdmin ? (
-          <>
-            <h2
-              style={{
-                fontFamily: "RobotoRegular",
-              }}
-            >
-              Portal
-            </h2>
-            <div className={classes.form}>
-              <div className={classes.formAction}>
-                <p className={classes.alert}>{alert}</p>
-                {!disableButton ? (
-                  <button onClick={() => handleLogin()}>
-                    <span>Login with Google</span>
-                  </button>
-                ) : (
-                  <Image width={50} height={50} src={loading} alt="isLoading" />
-                )}
-              </div>
+          <div className={classes.form}>
+            <div className={classes.formAction}>
+              <p className={classes.alert}>{alert}</p>
+              {!disableButton ? (
+                <button onClick={() => handleLogin()}>
+                  <span>Login with Google</span>
+                </button>
+              ) : (
+                <Image width={50} height={50} src={loading} alt="isLoading" />
+              )}
             </div>
-          </>
+          </div>
         ) : (
           <Admin />
         )}

@@ -71,7 +71,7 @@ export default function Admin() {
           {inquiries?.length === 0 && (
             <p
               style={{
-                marginTop: "24px",
+                marginTop: "50px",
               }}
             >
               Empty
@@ -81,20 +81,50 @@ export default function Admin() {
             {inquiries?.map((item, index) => (
               <div key={index} className={classes.item}>
                 <div className={classes.message}>
-                  <p>{item.subject}</p>
-                  <p>{item.message}</p>
+                  <p
+                    style={{
+                      fontFamily: "RobotoRegular",
+                    }}
+                  >
+                    {item.subject}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "RobotoRegular",
+                    }}
+                  >
+                    {item.message}
+                  </p>
                 </div>
                 <div className={classes.row}>
                   <p className={classes.title}>Name</p>
-                  <p>{item.name}</p>
+                  <p
+                    style={{
+                      fontFamily: "RobotoRegular",
+                    }}
+                  >
+                    {item.name}
+                  </p>
                 </div>
                 <div className={classes.row}>
                   <p className={classes.title}>Email</p>
-                  <p>{item.email}</p>
+                  <p
+                    style={{
+                      fontFamily: "RobotoRegular",
+                    }}
+                  >
+                    {item.email}
+                  </p>
                 </div>
                 <div className={classes.row}>
                   <p className={classes.title}>Phone</p>
-                  <p>{item.phone}</p>
+                  <p
+                    style={{
+                      fontFamily: "RobotoRegular",
+                    }}
+                  >
+                    {item.phone}
+                  </p>
                 </div>
                 <div className={classes.row}>
                   <Tooltip title="Delete">
@@ -104,7 +134,14 @@ export default function Admin() {
                       onClick={() => handleDelete(item.id)}
                     />
                   </Tooltip>
-                  <p className={classes.title}>{convertDate(item.createdAt)}</p>
+                  <p
+                    className={classes.title}
+                    style={{
+                      fontFamily: "RobotoRegular",
+                    }}
+                  >
+                    {convertDate(item.createdAt)}
+                  </p>
                 </div>
               </div>
             ))}

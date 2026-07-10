@@ -44,7 +44,7 @@ export default function Work() {
   useEffect(() => {
     setTimeout(() => {
       setDisplayArrow(true);
-    }, 2000);
+    }, 3000);
   }, []);
 
   useEffect(() => {
@@ -310,12 +310,7 @@ export default function Work() {
                 </div>
               </div>
             </div>
-            <div
-              className={classes.section}
-              style={{
-                marginTop: screenSize === "mobile" ? "50px" : "100px",
-              }}
-            >
+            <div className={classes.section}>
               <div className={classes.row}>
                 <div className={classes.imageBoxGrid}>
                   <div className={classes.imageFrame}>
