@@ -84,11 +84,7 @@
     cursor: pointer;
 
     &:hover {
-      color: config.$lightgrey;
-
-      @include mixins.mobile {
-        color: config.$grey;
-      }
+      color: config.$grey;
     }
 
     @include mixins.mobile {
@@ -98,12 +94,11 @@
 
   .navActive {
     font-size: small;
-    color: config.$lightgrey;
+    color: config.$grey;
     cursor: pointer;
 
     @include mixins.mobile {
       font-size: large;
-      color: config.$grey;
     }
   }
 

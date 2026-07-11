@@ -251,8 +251,8 @@
     @include mixins.allDesktop {
       &:hover {
         cursor: pointer;
-        color: config.$lightgrey;
-        border-bottom: 1px solid config.$lightgrey;
+        color: config.$grey;
+        border-bottom: 1px solid config.$grey;
       }
     }
   }
@@ -377,8 +377,7 @@
     z-index: 2;
     left: 8px;
     top: 8px;
-    padding: 4px;
-    background: config.$background;
+    color: config.$white;
   }
 }
 
@@ -493,7 +492,7 @@
         @include mixins.allDesktop {
           &:hover {
             cursor: pointer;
-            color: config.$lightgrey;
+            color: config.$grey;
           }
         }
 

@@ -83,7 +83,7 @@ p {
 
 .icon {
   &:hover {
-    color: config.$lightgrey;
+    color: config.$grey;
     cursor: pointer;
   }
 }
@@ -139,7 +139,7 @@ label.file input[type="file"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid config.$lightgrey;
+  border: 1px solid config.$grey;
   padding: 8px;
   color: config.$dark;
   height: 50px;

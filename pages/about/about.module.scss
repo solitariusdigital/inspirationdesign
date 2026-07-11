@@ -97,7 +97,7 @@
 
   .item {
     padding: 24px 0px;
-    border-bottom: 1px solid config.$lightgrey;
+    border-bottom: 1px solid config.$grey;
     @include mixins.row-space-between-center();
     align-items: first baseline;
 
@@ -124,8 +124,8 @@
         @include mixins.allDesktop {
           &:hover {
             cursor: pointer;
-            color: config.$lightgrey;
-            border-bottom: 1px solid config.$lightgrey;
+            color: config.$grey;
+            border-bottom: 1px solid config.$grey;
           }
         }
       }

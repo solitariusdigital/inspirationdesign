@@ -46,14 +46,14 @@
     cursor: pointer;
 
     &:hover {
-      color: config.$lightgrey;
+      color: config.$grey;
     }
   }
 
   .navActive {
     font-size: small;
     text-align: center;
-    color: config.$lightgrey;
+    color: config.$grey;
     cursor: pointer;
   }
 
@@ -68,7 +68,7 @@
       display: flex;
 
       &:hover {
-        color: config.$lightgrey;
+        color: config.$grey;
         cursor: pointer;
       }
     }
