@@ -294,7 +294,6 @@ export default function NewsArticle() {
                 </div>
               )}
             </div>
-
             <div className={classes.newsImageBox}>
               {displayNews.path
                 .filter((item) => item !== displayNews.hero)

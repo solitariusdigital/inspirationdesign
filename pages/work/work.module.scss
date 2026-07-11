@@ -249,10 +249,12 @@
     color: config.$text;
     border-bottom: 1px solid config.$text;
 
-    &:hover {
-      cursor: pointer;
-      color: config.$brand;
-      border-bottom: 1px solid config.$brand;
+    @include mixins.allDesktop {
+      &:hover {
+        cursor: pointer;
+        color: config.$lightgrey;
+        border-bottom: 1px solid config.$lightgrey;
+      }
     }
   }
 

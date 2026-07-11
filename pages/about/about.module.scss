@@ -99,6 +99,7 @@
     padding: 24px 0px;
     border-bottom: 1px solid config.$lightgrey;
     @include mixins.row-space-between-center();
+    align-items: first baseline;
 
     @include mixins.mobile {
       display: flex;
@@ -106,33 +107,33 @@
       align-items: flex-start;
     }
 
-    h4 {
-      width: 50%;
-      padding-right: 12px;
+    .detailTop,
+    .detailBottom {
+      width: 49%;
 
       @include mixins.mobile {
         width: 100%;
-        padding: 0px;
       }
-    }
 
-    .info {
-      width: 50%;
-      padding-right: 12px;
-      margin: 0px;
-
-      @include mixins.mobile {
-        width: 100%;
-        padding: 0px;
-      }
-    }
-
-    .detail {
-      width: 50%;
-
-      @include mixins.mobile {
-        width: 100%;
+      .link {
+        width: fit-content;
+        color: config.$text;
+        border-bottom: 1px solid config.$text;
         margin-top: 8px;
+
+        @include mixins.allDesktop {
+          &:hover {
+            cursor: pointer;
+            color: config.$lightgrey;
+            border-bottom: 1px solid config.$lightgrey;
+          }
+        }
+      }
+    }
+
+    .detailTop {
+      @include mixins.mobile {
+        margin-bottom: 8px;
       }
     }
   }

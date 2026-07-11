@@ -198,29 +198,35 @@ export default function About() {
       title:
         "Orchard Residence – George Awards Finalist (Best Custom Home: $3 Million – Under $6 Million)",
       year: "2025",
+      link: "work/Orchard-Residence",
     },
     {
       title:
         "Orchard Residence – HAVAN Awards Finalist (Best Custom Home: $3 Million – Under $6 Million)",
       year: "2025",
+      link: "work/Orchard-Residence",
     },
     {
       title:
         "Canyon Haven (Clements I & II) – George Awards Finalist (Custom Home Valued Under $1 Million)",
       year: "2025",
+      link: "work/Clements-I-&-II-Residence",
     },
     {
       title:
         "Canyon Haven (Clements I & II) – HAVAN Awards Finalist (Custom Home Valued Under $1 Million)",
       year: "2025",
+      link: "work/Clements-I-&-II-Residence",
     },
     {
       title: "Jewellery Arabia – Recognition For Best Design And Fitout",
       year: "2010",
+      link: "work/Al-Zain-Jewellery-Stand",
     },
     {
       title: "Bahrain City Center – Recognition For Best Fitout",
       year: "2009",
+      link: "work/Al-Bait-Fashion-House",
     },
     {
       title:
@@ -232,8 +238,9 @@ export default function About() {
       year: "2009",
     },
     {
-      title: "French Embassy –Recognition For Arkheo Exhibition",
+      title: "French Embassy – Recognition For Arkheo Exhibition",
       year: "2008",
+      link: "work/ARKHEO-Exhibition,-30-years-of-French-Archeology",
     },
   ];
   const publications = [
@@ -242,12 +249,14 @@ export default function About() {
       description:
         "Official Canadian Home Builders Association of British Columbia (CHBA BC) Publication Orchard Residence and Canyon Haven recognized as finalists in the 2025 Georgie Awards.",
       detail: "",
+      link: "work/Orchard-Residence",
     },
     {
       title: "HAVAN Awards Finalists",
       description:
         "Official Homebuilders Association Vancouver (HAVAN) Publication Orchard Residence and Canyon Haven recognized as finalists in the 2025 HAVAN Awards.",
       detail: "",
+      link: "work/Orchard-Residence",
     },
     {
       title: `Middle East Interiors “Inspired to Succeed”`,
@@ -260,6 +269,7 @@ export default function About() {
       description:
         "Feature article covering Jewellery Arabia and the award-winning Al Zain Jewellery stand designed by Inspiration Interior Design.",
       detail: "18 November 2009 | Page 3",
+      link: "work/Al-Zain-Jewellery-Stand",
     },
     {
       title: `Middle East Interiors “Design Calls for Dexterity”`,
@@ -284,12 +294,14 @@ export default function About() {
       description:
         "Feature article on the ARKHEO exhibition designed by Inspiration Interior Design for the French Embassy in Bahrain.",
       detail: "31 October – 6 November 2007 | Vol. 6 | Page 11",
+      link: "work/ARKHEO-Exhibition,-30-years-of-French-Archeology",
     },
     {
       title: "Al Ayam",
       description:
         "Coverage of the ARKHEO exhibition and the French–Bahraini archaeological collaboration.",
       detail: "2 November 2007 | No. 6781",
+      link: "work/ARKHEO-Exhibition,-30-years-of-French-Archeology",
     },
     {
       title: `Gulf Daily News “Exhibition Digs into the Past”`,
@@ -301,11 +313,13 @@ export default function About() {
       description:
         "Coverage of the inauguration of the ARKHEO exhibition at La Maison Jamsheer, Muharraq, Bahrain.",
       detail: "31 October 200",
+      link: "work/ARKHEO-Exhibition,-30-years-of-French-Archeology",
     },
     {
       title: "Al Ayam",
       description: "Coverage of the ARKHEO exhibition.",
       detail: "31 October 2007 | No. 6779 | Page 16",
+      link: "work/ARKHEO-Exhibition,-30-years-of-French-Archeology",
     },
     {
       title: `Gulf Daily News “Heritage on Show”`,
@@ -482,7 +496,7 @@ export default function About() {
               {testimonials.map((item, index) => (
                 <div key={index} className={classes.item}>
                   <div
-                    className={classes.info}
+                    className={classes.detailTop}
                     style={{
                       fontFamily: "RobotoRegular",
                     }}
@@ -503,7 +517,7 @@ export default function About() {
                       {item.subTitle}
                     </p>
                   </div>
-                  <div className={classes.detail}>
+                  <div className={classes.detailBottom}>
                     <p>"{item.description}"</p>
                   </div>
                 </div>
@@ -523,14 +537,28 @@ export default function About() {
             <div className={classes.layout}>
               {awards.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <h4
-                    style={{
-                      fontFamily: "RobotoRegular",
-                    }}
-                  >
-                    {item.year}
-                  </h4>
-                  <div className={classes.detail}>
+                  <div className={classes.detailTop}>
+                    <h4
+                      style={{
+                        fontFamily: "RobotoRegular",
+                      }}
+                    >
+                      {item.year}
+                    </h4>
+                    {item.link && (
+                      <div className={classes.link}>
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View the Project
+                        </a>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className={classes.detailBottom}>
                     <p>{item.title}</p>
                   </div>
                 </div>
@@ -550,14 +578,27 @@ export default function About() {
             <div className={classes.layout}>
               {publications.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <h4
-                    style={{
-                      fontFamily: "RobotoRegular",
-                    }}
-                  >
-                    {item.title}
-                  </h4>
-                  <div className={classes.detail}>
+                  <div className={classes.detailTop}>
+                    <h4
+                      style={{
+                        fontFamily: "RobotoRegular",
+                      }}
+                    >
+                      {item.title}
+                    </h4>
+                    {item.link && (
+                      <div className={classes.link}>
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View the Project
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                  <div className={classes.detailBottom}>
                     <p
                       style={{
                         marginBottom: "8px",
@@ -590,14 +631,16 @@ export default function About() {
             <div className={classes.layout}>
               {team.map((item, index) => (
                 <div key={index} className={classes.item}>
-                  <h4
-                    style={{
-                      fontFamily: "RobotoRegular",
-                    }}
-                  >
-                    {item.name}
-                  </h4>
-                  <div className={classes.detail}>
+                  <div className={classes.detailTop}>
+                    <h4
+                      style={{
+                        fontFamily: "RobotoRegular",
+                      }}
+                    >
+                      {item.name}
+                    </h4>
+                  </div>
+                  <div className={classes.detailBottom}>
                     <p>{item.description}</p>
                   </div>
                 </div>
