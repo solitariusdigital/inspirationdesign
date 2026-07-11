@@ -511,7 +511,7 @@ export default function About() {
                     </p>
                     <p
                       style={{
-                        fontFamily: "RobotoItalic",
+                        fontFamily: "RobotoThin",
                       }}
                     >
                       {item.subTitle}
@@ -606,13 +606,7 @@ export default function About() {
                     >
                       {item.description}
                     </p>
-                    <p
-                      style={{
-                        fontFamily: "RobotoItalic",
-                      }}
-                    >
-                      {item.detail}
-                    </p>
+                    <p>{item.detail}</p>
                   </div>
                 </div>
               ))}

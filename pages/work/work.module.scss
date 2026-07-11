@@ -489,16 +489,18 @@
         display: flex;
         flex-direction: row;
         align-items: first baseline;
+        width: fit-content;
 
-        p {
-          width: fit-content;
-          margin: 4px 0px;
-          font-size: small;
-
+        @include mixins.allDesktop {
           &:hover {
             cursor: pointer;
-            color: config.$brand;
+            color: config.$lightgrey;
           }
+        }
+
+        p {
+          margin: 4px 0px;
+          font-size: small;
         }
       }
 
