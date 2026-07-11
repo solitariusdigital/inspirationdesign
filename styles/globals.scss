@@ -83,7 +83,7 @@ p {
 
 .icon {
   &:hover {
-    color: config.$brand;
+    color: config.$lightgrey;
     cursor: pointer;
   }
 }
@@ -94,13 +94,6 @@ p {
   color: config.$white;
   height: 100dvh;
   user-select: none;
-
-  .border {
-    height: 2px;
-    width: 70px;
-    margin-bottom: 8px;
-    background: config.$brand;
-  }
 
   .typewrite {
     position: absolute;

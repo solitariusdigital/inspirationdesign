@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
             name="viewport"
             content="width=device-width, initial-scale=1, viewport-fit=cover"
           />
-          <meta name="theme-color" content="#f2f0f0" />
+          <meta name="theme-color" content="#23282b" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"

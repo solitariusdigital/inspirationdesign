@@ -144,21 +144,17 @@ export default function Menu() {
         <nav>
           <div className={classes.control}>
             {menuMobile ? (
-              <Tooltip title="Close">
-                <CloseIcon
-                  className="icon"
-                  onClick={() => setMenuMobile(!menuMobile)}
-                  sx={{ fontSize: 30, color: "white" }}
-                />
-              </Tooltip>
+              <CloseIcon
+                className="icon"
+                onClick={() => setMenuMobile(!menuMobile)}
+                sx={{ fontSize: 28, color: "white" }}
+              />
             ) : (
-              <Tooltip title="Menu">
-                <MenuIcon
-                  className="icon"
-                  onClick={() => setMenuMobile(!menuMobile)}
-                  sx={{ fontSize: 30, color: colorCode }}
-                />
-              </Tooltip>
+              <MenuIcon
+                className="icon"
+                onClick={() => setMenuMobile(!menuMobile)}
+                sx={{ fontSize: 28, color: colorCode }}
+              />
             )}
           </div>
           {menuMobile && (

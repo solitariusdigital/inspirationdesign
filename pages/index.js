@@ -131,8 +131,8 @@ export default function Home() {
               key={index}
               className={classes.infoBox}
               style={{
-                paddingBottom: index === 2 ? "150px" : "0px",
-                marginBottom: index === 2 ? "0px" : "150px",
+                paddingBottom: index === 2 ? "100px" : "0px",
+                marginBottom: index === 2 ? "0px" : "100px",
               }}
             >
               <Link

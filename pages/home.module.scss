@@ -2,13 +2,7 @@
 @use "styles/_mixins.scss" as mixins;
 
 .container {
-  @include mixins.mobile {
-    padding-bottom: 80px;
-  }
-
-  p {
-    color: config.$white;
-  }
+  color: config.$white;
 
   .button {
     position: relative;
@@ -38,8 +32,7 @@
   position: relative;
   text-align: center;
   background: config.$dark;
-  color: config.$white;
-  padding-top: 150px;
+  padding-top: 100px;
 
   .light {
     margin-top: 12px !important;
@@ -50,22 +43,16 @@
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
     gap: 16px;
     margin: auto;
-    width: config.$content-width;
-    max-width: config.$max-widthHeigh;
+    width: 100%;
     direction: rtl;
 
     @include mixins.mobile {
       display: flex;
       flex-direction: column;
-      width: 100%;
     }
     @include mixins.tabletPortrait {
       display: flex;
       flex-direction: column;
-      width: 100%;
-    }
-    @include mixins.tabletLandscape {
-      width: config.$content-width;
     }
 
     .info {
@@ -76,14 +63,17 @@
       justify-content: center;
       text-align: left;
       direction: ltr;
+      padding-right: 5%;
 
       @include mixins.mobile {
         margin: auto;
         width: calc(100% - 24px);
+        padding: 0px;
       }
       @include mixins.tabletPortrait {
         margin: auto;
         width: config.$content-width;
+        padding: 0px;
       }
 
       .light {

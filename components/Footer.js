@@ -4,6 +4,7 @@ import classes from "./Footer.module.scss";
 import Link from "next/link";
 import Router from "next/router";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function Footer() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
@@ -46,13 +47,18 @@ export default function Footer() {
         ))}
       </nav>
       <div className={classes.icons}>
-        <InstagramIcon
-          sx={{ fontSize: 24 }}
-          className={classes.icon}
-          onClick={() =>
-            window.open("https://instagram.com/inspirationdesigns.ca", "_ self")
-          }
-        />
+        <Tooltip title="Instagram">
+          <InstagramIcon
+            sx={{ fontSize: 24 }}
+            className={classes.icon}
+            onClick={() =>
+              window.open(
+                "https://instagram.com/inspirationdesigns.ca",
+                "_ self",
+              )
+            }
+          />
+        </Tooltip>
       </div>
     </div>
   );

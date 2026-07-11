@@ -18,6 +18,9 @@ export default function CoverSlider() {
   const [videoFiles, setVideoFiles] = useState(null);
   const [isMuted, setIsMuted] = useState(true);
 
+  const fullSizeScreen =
+    screenSize === "desktop" || screenSize === "tablet-landscape";
+
   // useEffect(() => {
   //   const fetchFiles = async () => {
   //     const listRef = ref(storage, "Resources/Videos");
@@ -35,10 +38,9 @@ export default function CoverSlider() {
 
   useEffect(() => {
     const fetchVideo = async () => {
-      let sourceRef =
-        screenSize === "mobile"
-          ? "Resources/Videos/mobile.mov"
-          : "Resources/Videos/desktop.mov";
+      let sourceRef = fullSizeScreen
+        ? "Resources/Videos/desktop.mov"
+        : "Resources/Videos/mobile.mov";
       const videoRef = ref(storage, sourceRef);
       const url = await getDownloadURL(videoRef);
       setVideoFiles({
@@ -46,7 +48,7 @@ export default function CoverSlider() {
       });
     };
     fetchVideo();
-  }, [screenSize]);
+  }, [fullSizeScreen]);
 
   const videoRef = useRef(null);
   const handleVideoClick = () => {
