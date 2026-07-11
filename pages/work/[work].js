@@ -359,10 +359,11 @@ export default function Project() {
       )}
       {displayGallerySlider && (
         <div className={classes.gallerySlider}>
-          <div className={classes.icon}>
+          <div className={classes.bar}>
             <Tooltip title="Close">
               <CloseIcon
                 className="icon"
+                sx={{ fontSize: 28 }}
                 onClick={() => {
                   setMenuDisplay(true);
                   setFooterDisplay(true);

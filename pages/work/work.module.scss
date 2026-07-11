@@ -393,11 +393,8 @@
   overflow: hidden;
   @include mixins.transparentBackground(0.05, config.$dark);
 
-  .icon {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  .bar {
+    @include mixins.row-space-between-center();
     width: config.$content-width;
     margin: 24px 0px;
     direction: rtl;
