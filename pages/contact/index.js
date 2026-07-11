@@ -100,12 +100,6 @@ export default function Contact() {
                   Email
                 </h2>
                 <h4>info@inspirationdesigns.ca</h4>
-                {/* <h4
-                  className={classes.direction}
-                  onClick={() => window.open(headLocationLink)}
-                >
-                  Get directions
-                </h4> */}
               </div>
             </div>
           </div>

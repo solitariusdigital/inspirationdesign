@@ -92,17 +92,6 @@
           cursor: pointer;
         }
       }
-
-      .direction {
-        width: fit-content;
-        border-bottom: 1px solid config.$white;
-
-        &:hover {
-          color: config.$brand;
-          border-bottom: 1px solid config.$brand;
-          cursor: pointer;
-        }
-      }
     }
   }
 }

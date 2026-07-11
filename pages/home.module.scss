@@ -2,6 +2,10 @@
 @use "styles/_mixins.scss" as mixins;
 
 .container {
+  @include mixins.mobile {
+    padding-bottom: 50px;
+  }
+
   color: config.$white;
 
   .button {

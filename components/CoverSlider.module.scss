@@ -65,7 +65,7 @@
     @include mixins.allDesktop {
       &:hover {
         cursor: pointer;
-        color: config.$brand;
+        color: config.$lightgrey;
       }
     }
   }
