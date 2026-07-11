@@ -127,16 +127,15 @@ export default function Menu() {
           }}
         >
           {navigationTopBar.map((nav, index) => (
-            <Fragment key={index}>
-              <Link
-                className={!nav.active ? classes.nav : classes.navActive}
-                onClick={() => activateNav(nav.link, index)}
-                href={nav.link}
-                passHref
-              >
-                {nav.title}
-              </Link>
-            </Fragment>
+            <Link
+              key={index}
+              className={!nav.active ? classes.nav : classes.navActive}
+              onClick={() => activateNav(nav.link, index)}
+              href={nav.link}
+              passHref
+            >
+              {nav.title}
+            </Link>
           ))}
         </nav>
       )}
