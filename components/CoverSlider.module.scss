@@ -60,7 +60,7 @@
     flex-shrink: 0;
     white-space: nowrap;
     width: fit-content;
-    padding: 20px 40px;
+    padding: 10px 40px;
 
     @include mixins.allDesktop {
       &:hover {

@@ -71,6 +71,7 @@
 
         @include mixins.mobile {
           width: calc(100% + 24px);
+          margin-top: 24px;
         }
       }
 
