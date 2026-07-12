@@ -171,6 +171,28 @@ export default function Menu() {
                   {nav.title}
                 </Link>
               ))}
+              <div
+                className={classes.logo}
+                style={{
+                  marginTop: "50px",
+                }}
+                onClick={() =>
+                  setTimeout(() => {
+                    setMenuMobile(!menuMobile);
+                  }, 250)
+                }
+              >
+                <Link href="/" passHref>
+                  <Image
+                    src={logoWhite}
+                    layout="fill"
+                    objectFit="contain"
+                    alt="logo"
+                    as="image"
+                    priority
+                  />
+                </Link>
+              </div>
             </nav>
           )}
         </nav>
