@@ -181,12 +181,10 @@ export default function Home() {
                         marginTop: "8px",
                       }}
                     >
-                      {constructionItems.map((item, index) => (
-                        <>
-                          <RevealText direction="up" delay={250}>
-                            <p key={index}>{item}</p>
-                          </RevealText>
-                        </>
+                      {constructionItems.map((item, itemIndex) => (
+                        <RevealText direction="up" delay={250} key={itemIndex}>
+                          <p>{item}</p>
+                        </RevealText>
                       ))}
                     </div>
                   )}
