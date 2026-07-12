@@ -157,12 +157,7 @@ export default function Menu() {
             )}
           </div>
           {menuMobile && (
-            <nav
-              className={classes.mobileNavigation}
-              style={{
-                fontFamily: "RobotoThin",
-              }}
-            >
+            <nav className={classes.mobileNavigation}>
               {navigationTopBar.map((nav, index) => (
                 <Link
                   key={nav.link}

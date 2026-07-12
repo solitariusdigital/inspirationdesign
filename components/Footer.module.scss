@@ -13,9 +13,9 @@
   @include mixins.mobile {
     display: flex;
     flex-direction: column;
-    padding: 12px;
     height: fit-content;
     width: calc(100% - 24px);
+    padding: 12px 0px;
   }
   @include mixins.tabletPortrait {
     width: config.$content-width;
@@ -25,7 +25,7 @@
   }
 
   .fullSizeNavigation {
-    width: 30%;
+    width: 25%;
     @include mixins.row-space-between-center();
 
     @include mixins.mobile {

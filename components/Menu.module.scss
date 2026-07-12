@@ -20,7 +20,7 @@
   }
 
   .fullSizeNavigation {
-    width: 30%;
+    width: 25%;
     @include mixins.row-space-between-center();
 
     @include mixins.tabletPortrait {

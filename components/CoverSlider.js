@@ -122,7 +122,7 @@ export default function CoverSlider() {
       type: "construction",
     },
     {
-      title: "Fire-Resistant House Deign",
+      title: "Fire-Resistant House Design",
       type: "construction",
     },
   ];

@@ -9,7 +9,7 @@
 }
 
 .navigation {
-  width: 30%;
+  width: 20%;
   height: fit-content;
   text-transform: capitalize;
   margin: auto;
@@ -20,28 +20,30 @@
   text-transform: uppercase;
 
   @include mixins.mobile {
-    width: calc(100% - 24px);
+    width: 60%;
   }
   @include mixins.tabletPortrait {
-    width: 50%;
+    width: 30%;
   }
   @include mixins.tabletLandscape {
-    width: 50%;
+    width: 30%;
   }
 
   .nav {
     width: fit-content;
     font-size: small;
+    font-family: "RobotoRegular";
 
     &:hover {
       cursor: pointer;
-      color: config.$dark;
+      color: config.$grey;
     }
   }
 
   .navActive {
     width: fit-content;
-    font-size: medium;
+    font-size: small;
+    color: config.$grey;
     font-family: "RobotoRegular";
   }
 }
