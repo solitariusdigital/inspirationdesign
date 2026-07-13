@@ -42,7 +42,7 @@ export default function Typewriter({ text, font, speed, margin }) {
           style={{
             fontFamily: font,
             fontSize: "inherit",
-            letterSpacing: "0.1em",
+            letterSpacing: "0.2em",
           }}
           key={index}
           className={`${classes.letter} ${visibleIndices.has(index) ? classes.show : ""}`}
