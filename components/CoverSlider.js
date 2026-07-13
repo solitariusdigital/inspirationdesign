@@ -162,7 +162,7 @@ export default function CoverSlider() {
               >
                 <h3
                   style={{
-                    fontFamily: "RobotoMedium",
+                    fontFamily: "RobotoRegular",
                   }}
                 >
                   {service.title}
@@ -185,7 +185,7 @@ export default function CoverSlider() {
               >
                 <h4
                   style={{
-                    fontFamily: "RobotoMedium",
+                    fontFamily: "RobotoRegular",
                   }}
                 >
                   {service.title}

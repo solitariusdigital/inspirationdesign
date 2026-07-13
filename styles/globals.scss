@@ -100,6 +100,10 @@ p {
     left: 2.5%;
     top: 20%;
     @include mixins.row-space-between-center();
+
+    @include mixins.mobile {
+      left: 4%;
+    }
   }
 }
 
