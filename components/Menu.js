@@ -172,7 +172,7 @@ export default function Menu() {
                 </Link>
               ))}
               <div
-                className={classes.logo}
+                className={`${classes.logo} animate__animated animate__slideInDown`}
                 style={{
                   marginTop: "50px",
                 }}
