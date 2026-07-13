@@ -248,13 +248,12 @@
   .link {
     width: fit-content;
     color: config.$text;
-    border-bottom: 1px solid config.$text;
+    border-bottom: 1px solid config.$grey;
 
     @include mixins.allDesktop {
       &:hover {
         cursor: pointer;
         color: config.$grey;
-        border-bottom: 1px solid config.$grey;
       }
     }
   }

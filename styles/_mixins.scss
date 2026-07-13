@@ -112,8 +112,8 @@ $screen-fourK: 6000px;
 
   &:focus {
     outline: none;
-    background: config.$background;
     border: none;
+    background: config.$background;
     border-bottom: 1px solid config.$dark;
   }
 }
