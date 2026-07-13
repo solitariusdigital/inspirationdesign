@@ -98,7 +98,7 @@
 
   .item {
     padding: 24px 0px;
-    border-bottom: 1px solid config.$grey;
+    border-bottom: 1px solid config.$lightGrey;
     @include mixins.row-space-between-center();
     align-items: first baseline;
 
