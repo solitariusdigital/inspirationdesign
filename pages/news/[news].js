@@ -287,7 +287,7 @@ export default function NewsArticle() {
                     rel="noopener noreferrer"
                     style={{
                       marginTop: "24px",
-                      fontSize: "1em",
+                      fontSize: "1.1em",
                     }}
                   >
                     View the Project
