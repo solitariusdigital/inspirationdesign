@@ -90,7 +90,7 @@ export default function RootLayout({ children }) {
       {appLoader ? (
         <div
           style={{
-            fontFamily: "RobotoThin",
+            fontFamily: "RobotoLight",
           }}
         >
           {menuDisplay && (
@@ -118,7 +118,7 @@ export default function RootLayout({ children }) {
             />
             <Typewriter
               text="DESIGN"
-              font="RobotoThin"
+              font="RobotoLight"
               speed={300}
               margin={true}
             />

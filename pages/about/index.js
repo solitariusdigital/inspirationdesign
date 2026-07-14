@@ -452,7 +452,7 @@ export default function About() {
                           fontFamily:
                             index === 0 && i === 0
                               ? "RobotoItalic"
-                              : "RobotoThin",
+                              : "RobotoLight",
                         }}
                         className={classes.row}
                       >
@@ -511,7 +511,7 @@ export default function About() {
                     </p>
                     <p
                       style={{
-                        fontFamily: "RobotoThin",
+                        fontFamily: "RobotoLight",
                       }}
                     >
                       {item.subTitle}
