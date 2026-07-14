@@ -122,6 +122,9 @@
         border-bottom: 1px solid config.$grey;
         margin-top: 8px;
 
+        @include mixins.mobile {
+          margin-bottom: 12px;
+        }
         @include mixins.allDesktop {
           &:hover {
             cursor: pointer;
