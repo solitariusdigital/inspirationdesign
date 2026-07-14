@@ -45,7 +45,6 @@
       width: 100%;
       bottom: 0px !important;
       color: config.$white;
-      max-width: config.$max-widthHeigh;
       @include mixins.transparentBackground(0.4, config.$dark);
 
       @include mixins.mobile {
@@ -55,11 +54,12 @@
     }
 
     .row {
-      margin: auto;
-      width: config.$content-widthText;
       display: flex;
       flex-direction: row;
+      margin: auto;
       padding: 24px 0px;
+      width: config.$content-widthText;
+      max-width: config.$max-widthHeigh;
 
       @include mixins.mobile {
         display: flex;
