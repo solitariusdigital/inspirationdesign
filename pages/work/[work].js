@@ -271,7 +271,8 @@ export default function Project() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Open Link
+                        {" "}
+                        Open Link{" "}
                       </a>
                     ) : (
                       <span key={i}>{part}</span>

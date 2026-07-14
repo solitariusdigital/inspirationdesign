@@ -252,8 +252,7 @@ export default function NewsArticle() {
                     <div
                       key={index}
                       style={{
-                        marginBottom:
-                          trimmedDesc.charAt(0) === "-" ? "4px" : "8px",
+                        marginBottom: "8px",
                       }}
                     >
                       {parts.map((part, i) =>
@@ -265,7 +264,8 @@ export default function NewsArticle() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Open Link
+                            {" "}
+                            Open Link{" "}
                           </a>
                         ) : (
                           <span key={i}>{part}</span>
