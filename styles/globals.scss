@@ -102,7 +102,9 @@ p {
     @include mixins.row-space-between-center();
 
     @include mixins.mobile {
-      left: 4%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 24px);
     }
   }
 }
