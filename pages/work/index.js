@@ -31,6 +31,7 @@ export default function Work() {
   const router = useRouter();
   let pathname = router.pathname;
 
+  const fullSizeScreen = screenSize === "desktop";
   const navigation = ["residential", "commercial", "lighting", "construction"];
   const services = {
     residential: "Building & Interior Design",
@@ -228,7 +229,7 @@ export default function Work() {
                             alt={project.title}
                           />
                         </div>
-                        {hoveredId === project.id && (
+                        {fullSizeScreen && hoveredId === project.id && (
                           <div className={classes.overlay}>
                             <h2
                               className="animate__animated animate__slideInUp"
@@ -241,7 +242,7 @@ export default function Work() {
                             </h3>
                           </div>
                         )}
-                        {screenSize === "mobile" && (
+                        {!fullSizeScreen && (
                           <div className={classes.overlay}>
                             <h3>{project.title}</h3>
                             <p>{project.location}</p>
@@ -296,7 +297,7 @@ export default function Work() {
                             alt={project.title}
                           />
                         </div>
-                        {hoveredId === project.id && (
+                        {fullSizeScreen && hoveredId === project.id && (
                           <div className={classes.overlay}>
                             <h2
                               className="animate__animated animate__slideInUp"
@@ -309,7 +310,7 @@ export default function Work() {
                             </h3>
                           </div>
                         )}
-                        {screenSize === "mobile" && (
+                        {!fullSizeScreen && (
                           <div className={classes.overlay}>
                             <h3>{project.title}</h3>
                             <p>{project.location}</p>

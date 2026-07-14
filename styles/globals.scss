@@ -103,7 +103,7 @@ p {
     @include mixins.row-space-between-center();
 
     @include mixins.mobile {
-      left: 4%;
+      left: 3.5%;
     }
   }
 }
