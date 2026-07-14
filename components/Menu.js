@@ -144,13 +144,11 @@ export default function Menu() {
           <div className={classes.control}>
             {menuMobile ? (
               <CloseIcon
-                className="icon"
                 onClick={() => setMenuMobile(!menuMobile)}
                 sx={{ fontSize: 28, color: "white" }}
               />
             ) : (
               <MenuIcon
-                className="icon"
                 onClick={() => setMenuMobile(!menuMobile)}
                 sx={{ fontSize: 28, color: colorCode }}
               />
