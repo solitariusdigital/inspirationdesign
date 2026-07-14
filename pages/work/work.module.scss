@@ -339,7 +339,7 @@
         }
 
         h1 {
-          width: 45%;
+          width: 50%;
 
           @include mixins.mobile {
             width: calc(100% - 24px);
@@ -347,7 +347,7 @@
         }
 
         .info {
-          width: 55%;
+          width: 50%;
           margin: auto;
 
           @include mixins.mobile {

@@ -185,7 +185,8 @@ export default function NewsArticle() {
                     <h4>{displayNews.description.split("\n\n")[0]}</h4>
                     <h4
                       style={{
-                        margin: "8px 0px",
+                        marginTop: "12px",
+                        marginBottom: "4px",
                       }}
                     >
                       {displayNews.date}
