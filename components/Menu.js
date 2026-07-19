@@ -44,9 +44,6 @@ export default function Menu() {
   }, [menuMobile]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setProjectsCategory("residential");
-    }, 100);
     navigationTopBar.map((nav) => {
       nav.active = nav.link === pathname;
     });
@@ -117,6 +114,11 @@ export default function Menu() {
             <Link
               key={index}
               className={!nav.active ? classes.nav : classes.navActive}
+              onClick={() =>
+                setTimeout(() => {
+                  setProjectsCategory("residential");
+                }, 200)
+              }
               href={nav.link}
               passHref
             >
@@ -147,6 +149,11 @@ export default function Menu() {
                   key={nav.link}
                   href={nav.link}
                   className={nav.active ? classes.navActive : classes.nav}
+                  onClick={() =>
+                    setTimeout(() => {
+                      setProjectsCategory("residential");
+                    }, 200)
+                  }
                   style={{
                     animationDelay: `${index * 180}ms`,
                   }}
