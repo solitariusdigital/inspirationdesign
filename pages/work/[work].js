@@ -261,23 +261,38 @@ export default function Project() {
                 const trimmedDesc = desc.trim();
                 const urlRegex = /(https?:\/\/[^\s]+)/g;
                 const parts = trimmedDesc.split(urlRegex);
+
                 const renderWithLinks = () =>
-                  parts.map((part, i) =>
-                    urlRegex.test(part) ? (
-                      <a
-                        className={classes.link}
+                  parts.map((part, i) => {
+                    const isUrl = i % 2 === 1;
+                    if (isUrl) {
+                      return (
+                        <a
+                          className={classes.link}
+                          key={i}
+                          href={part}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {" "}
+                          Open Link{" "}
+                        </a>
+                      );
+                    }
+                    const trimmedPart = part.trim();
+                    const isQuoted =
+                      trimmedPart.startsWith("“") && trimmedPart.endsWith("”");
+                    return (
+                      <span
                         key={i}
-                        href={part}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        style={
+                          isQuoted ? { fontFamily: "RobotoItalic" } : undefined
+                        }
                       >
-                        {" "}
-                        Open Link{" "}
-                      </a>
-                    ) : (
-                      <span key={i}>{part}</span>
-                    ),
-                  );
+                        {part}
+                      </span>
+                    );
+                  });
                 if (trimmedDesc === "Credits") {
                   return (
                     <h2

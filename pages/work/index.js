@@ -35,7 +35,7 @@ export default function Work() {
   const navigation = ["residential", "commercial", "lighting", "construction"];
   const services = {
     residential: "Building & Interior Design",
-    commercial: "Building & Interior Design",
+    commercial: "Commercial Buildings & Interiors",
     lighting: "Lighting Design",
     construction: "Healthy House Design",
   };
@@ -341,7 +341,7 @@ export default function Work() {
                       marginBottom: "12px",
                     }}
                   >
-                    Lightweight Steel Framing - LSF
+                    Lightweight Steel Framing (LSF)
                   </h2>
                   <>
                     {topics.map((item, index) => (

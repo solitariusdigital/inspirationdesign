@@ -79,6 +79,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    setProjectsCategory("residential");
     navigationTopBar.map((nav) => {
       nav.active = false;
     });
@@ -132,7 +133,7 @@ export default function Home() {
               className={classes.infoBox}
               style={{
                 paddingBottom: index === 2 ? "100px" : "0px",
-                marginBottom: index === 2 ? "0px" : "100px",
+                marginBottom: index === 2 ? "0px" : "50px",
               }}
             >
               <Link
@@ -154,14 +155,15 @@ export default function Home() {
                     </h1>
                   </RevealText>
                   <RevealText direction="up" delay={200}>
-                    <h3
+                    <p
+                      className={classes.subTitle}
                       style={{
                         fontFamily: "RobotoItalic",
                         margin: "8px 0px",
                       }}
                     >
                       {service.subTitle}
-                    </h3>
+                    </p>
                   </RevealText>
                   <RevealText direction="up" delay={250}>
                     <p

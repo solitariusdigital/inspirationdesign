@@ -19,7 +19,7 @@ export default function GallerySlider({ media, startIndex }) {
           spaceBetween={0}
           navigation={true}
           mousewheel={true}
-          loop={true}
+          loop={false}
           modules={[Navigation, Mousewheel]}
         >
           {media.map((image, index) => (

@@ -185,7 +185,7 @@ export default function CoverSlider() {
               >
                 <h4
                   style={{
-                    fontFamily: "RobotoRegular",
+                    fontFamily: "RobotoLight",
                   }}
                 >
                   {service.title}

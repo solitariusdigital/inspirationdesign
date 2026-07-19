@@ -13,7 +13,7 @@ export default function Footer() {
   const activateNav = (link, index) => {
     setTimeout(() => {
       setProjectsCategory("residential");
-    }, 1000);
+    }, 100);
     navigationTopBar.map((nav, i) => {
       if (i === index) {
         Router.push(link);

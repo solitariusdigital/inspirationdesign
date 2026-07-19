@@ -46,7 +46,7 @@ export default function Menu() {
   const activateNav = (link, index) => {
     setTimeout(() => {
       setProjectsCategory("residential");
-    }, 1000);
+    }, 100);
     setMenuMobile(false);
     navigationTopBar.map((nav, i) => {
       if (i === index) {

@@ -52,7 +52,7 @@
     display: flex;
     flex-wrap: nowrap;
     width: max-content;
-    animation: scroll 50s linear infinite;
+    animation: scroll 100s linear infinite;
     will-change: transform;
   }
 
@@ -60,7 +60,7 @@
     flex-shrink: 0;
     white-space: nowrap;
     width: fit-content;
-    padding: 10px 40px;
+    padding: 10px 80px;
 
     @include mixins.allDesktop {
       &:hover {
