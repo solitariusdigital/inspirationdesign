@@ -684,6 +684,7 @@ export default function Work() {
                 </div>
               </div>
             </div>
+            <div className={classes.border}></div>
             <div
               className={classes.section}
               ref={(el) => (refs.current[6] = el)}
@@ -728,6 +729,7 @@ export default function Work() {
                 </div>
               </div>
             </div>
+            <div className={classes.border}></div>
             <div
               className={classes.section}
               ref={(el) => (refs.current[7] = el)}
@@ -778,6 +780,7 @@ export default function Work() {
                 </div>
               </div>
             </div>
+            <div className={classes.border}></div>
             <div
               className={classes.section}
               ref={(el) => (refs.current[8] = el)}
@@ -823,6 +826,7 @@ export default function Work() {
                 </div>
               </div>
             </div>
+            <div className={classes.border}></div>
             <div
               className={classes.section}
               ref={(el) => (refs.current[9] = el)}
@@ -868,6 +872,7 @@ export default function Work() {
                 </div>
               </div>
             </div>
+            <div className={classes.border}></div>
             <div
               className={classes.section}
               ref={(el) => (refs.current[10] = el)}

@@ -414,6 +414,11 @@
     width: config.$content-width;
   }
 
+  .border {
+    border-bottom: 1px solid config.$lightGrey;
+    margin-bottom: 50px;
+  }
+
   .section {
     margin-bottom: 50px;
 
