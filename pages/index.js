@@ -15,7 +15,6 @@ import { collection, getDocs } from "@firebase/firestore";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 export default function Home() {
-  const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
   const [displayProjects, setDisplayProjects] = useState(null);
 
@@ -76,14 +75,6 @@ export default function Home() {
       setDisplayProjects(data.sort((a, b) => b.year - a.year));
     };
     fetchData();
-  }, []);
-
-  useEffect(() => {
-    setProjectsCategory("residential");
-    navigationTopBar.map((nav) => {
-      nav.active = false;
-    });
-    setNavigationTopBar([...navigationTopBar]);
   }, []);
 
   const scrollToDivBox = () => {

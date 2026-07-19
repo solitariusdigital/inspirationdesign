@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext, useRef } from "react";
 import { StateContext } from "@/context/stateContext";
-import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import classes from "./work.module.scss";
 import logoBlack from "@/assets/logo-black.png";
@@ -19,7 +18,6 @@ import { RevealText } from "@/components/RevealText";
 export default function Work() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
-  const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
   const { screenSize, setScreenSize } = useContext(StateContext);
   const [displayProjects, setDisplayProjects] = useState(null);
   const [firstColumn, setFirstColumn] = useState([]);
@@ -28,8 +26,6 @@ export default function Work() {
   const [displayArrow, setDisplayArrow] = useState(false);
 
   const refs = useRef([]);
-  const router = useRouter();
-  let pathname = router.pathname;
 
   const fullSizeScreen = screenSize === "desktop";
   const navigation = ["residential", "commercial", "lighting", "construction"];
@@ -75,16 +71,6 @@ export default function Work() {
     setTimeout(() => {
       setDisplayArrow(true);
     }, 3000);
-  }, []);
-
-  useEffect(() => {
-    navigationTopBar.map((nav) => {
-      if (pathname === nav.link) {
-        nav.active = true;
-      }
-    });
-    setNavigationTopBar([...navigationTopBar]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -338,7 +324,7 @@ export default function Work() {
                 <div className={classes.infoBox}>
                   <h1
                     style={{
-                      marginBottom: "12px",
+                      marginBottom: "24px",
                     }}
                   >
                     Lightweight Steel Framing (LSF)

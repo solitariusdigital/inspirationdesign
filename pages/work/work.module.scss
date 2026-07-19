@@ -536,8 +536,12 @@
     h4 {
       font-family: "RobotoRegular";
     }
+    h3,
+    h2 {
+      margin-bottom: 12px;
+    }
     p {
-      margin: 8px 0px;
+      margin-bottom: 8px;
     }
   }
 }

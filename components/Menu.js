@@ -1,4 +1,4 @@
-import { useEffect, useContext, Fragment } from "react";
+import { useEffect, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -43,23 +43,10 @@ export default function Menu() {
     };
   }, [menuMobile]);
 
-  const activateNav = (link, index) => {
+  useEffect(() => {
     setTimeout(() => {
       setProjectsCategory("residential");
     }, 100);
-    setMenuMobile(false);
-    navigationTopBar.map((nav, i) => {
-      if (i === index) {
-        Router.push(link);
-        nav.active = true;
-      } else {
-        nav.active = false;
-      }
-    });
-    setNavigationTopBar([...navigationTopBar]);
-  };
-
-  useEffect(() => {
     navigationTopBar.map((nav) => {
       nav.active = nav.link === pathname;
     });
@@ -130,7 +117,6 @@ export default function Menu() {
             <Link
               key={index}
               className={!nav.active ? classes.nav : classes.navActive}
-              onClick={() => activateNav(nav.link, index)}
               href={nav.link}
               passHref
             >
@@ -164,7 +150,6 @@ export default function Menu() {
                   style={{
                     animationDelay: `${index * 180}ms`,
                   }}
-                  onClick={() => activateNav(nav.link, index)}
                 >
                   {nav.title}
                 </Link>

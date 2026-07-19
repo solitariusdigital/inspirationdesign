@@ -1,30 +1,13 @@
-import { useContext, Fragment, useState } from "react";
+import { useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./Footer.module.scss";
 import Link from "next/link";
-import Router from "next/router";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Tooltip from "@mui/material/Tooltip";
 
 export default function Footer() {
   const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
-  const { projectsCategory, setProjectsCategory } = useContext(StateContext);
-
-  const activateNav = (link, index) => {
-    setTimeout(() => {
-      setProjectsCategory("residential");
-    }, 100);
-    navigationTopBar.map((nav, i) => {
-      if (i === index) {
-        Router.push(link);
-        nav.active = true;
-      } else {
-        nav.active = false;
-      }
-    });
-    setNavigationTopBar([...navigationTopBar]);
-  };
 
   return (
     <div
@@ -38,7 +21,6 @@ export default function Footer() {
           <Link
             key={index}
             className={!nav.active ? classes.nav : classes.navActive}
-            onClick={() => activateNav(nav.link, index)}
             href={nav.link}
             passHref
           >

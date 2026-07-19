@@ -12,7 +12,6 @@ import { auth, googleProvider } from "@/services/firebase";
 
 export default function Portal() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
-  const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
   const [alert, setAlert] = useState("");
   const [disableButton, setDisableButton] = useState(false);
   const [displayAdmin, setDisplayAdmin] = useState(false);
@@ -24,14 +23,6 @@ export default function Portal() {
     } else {
       setDisplayAdmin(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    navigationTopBar.map((nav) => {
-      nav.active = false;
-    });
-    setNavigationTopBar([...navigationTopBar]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

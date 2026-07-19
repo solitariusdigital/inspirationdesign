@@ -1,6 +1,5 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { StateContext } from "@/context/stateContext";
-import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import classes from "./about.module.scss";
 import logoBlack from "@/assets/logo-black.png";
@@ -9,24 +8,11 @@ import FirebaseImage from "@/components/FirebaseImage";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 export default function About() {
-  const { navigationTopBar, setNavigationTopBar } = useContext(StateContext);
   const { screenSize, setScreenSize } = useContext(StateContext);
 
   const [pageType, setPageType] = useState(
     "company" || "testimonials" || "awards" || "publications" || "team",
   );
-  const router = useRouter();
-  let pathname = router.pathname;
-
-  useEffect(() => {
-    navigationTopBar.map((nav) => {
-      if (pathname === nav.link) {
-        nav.active = true;
-      }
-    });
-    setNavigationTopBar([...navigationTopBar]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const navigation = [
     "company",
