@@ -4,6 +4,7 @@ import classes from "./Footer.module.scss";
 import Link from "next/link";
 import Router from "next/router";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Tooltip from "@mui/material/Tooltip";
 
 export default function Footer() {
@@ -48,6 +49,18 @@ export default function Footer() {
       <div className={classes.icons}>
         <Tooltip title="Instagram">
           <InstagramIcon
+            sx={{ fontSize: 24 }}
+            className={classes.icon}
+            onClick={() =>
+              window.open(
+                "https://instagram.com/inspirationdesigns.ca",
+                "_ self",
+              )
+            }
+          />
+        </Tooltip>
+        <Tooltip title="LinkedIn">
+          <LinkedInIcon
             sx={{ fontSize: 24 }}
             className={classes.icon}
             onClick={() =>

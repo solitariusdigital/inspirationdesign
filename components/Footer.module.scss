@@ -66,6 +66,7 @@
 
     .icon {
       display: flex;
+      margin-left: 8px;
 
       &:hover {
         color: config.$grey;
