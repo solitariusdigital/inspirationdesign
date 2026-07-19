@@ -5,7 +5,7 @@
   margin: 120px auto;
 
   .navigation {
-    width: 35%;
+    width: 40%;
     height: fit-content;
     text-transform: capitalize;
     margin: auto;
@@ -68,7 +68,8 @@
       }
 
       .imageBox {
-        width: 35%;
+        width: 40%;
+        filter: grayscale(90%);
 
         @include mixins.mobile {
           width: calc(100% + 24px);
@@ -77,7 +78,7 @@
       }
 
       .infoBox {
-        width: 60%;
+        width: 55%;
 
         @include mixins.mobile {
           width: 100%;

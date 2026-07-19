@@ -51,11 +51,11 @@ export default function Work() {
     "Design Freedom & Precision",
     "Sustainability",
     "Speed & Cost",
-    "Healthy Buildings, Designed with Science",
-    "Why Lightweight Steel Framing in Housing",
-    "Our Expertise is What We Offer",
-    "Design, Consultation & Coordination",
-    "Research-Based Practice",
+    // "Healthy Buildings, Designed with Science",
+    // "Why Lightweight Steel Framing in Housing",
+    // "Our Expertise is What We Offer",
+    // "Design, Consultation & Coordination",
+    // "Research-Based Practice",
   ];
 
   const scrollToDiv = (index) => {
@@ -336,13 +336,13 @@ export default function Work() {
                   />
                 </div>
                 <div className={classes.infoBox}>
-                  <h2
+                  <h1
                     style={{
                       marginBottom: "12px",
                     }}
                   >
                     Lightweight Steel Framing (LSF)
-                  </h2>
+                  </h1>
                   <>
                     {topics.map((item, index) => (
                       <div className={classes.list} key={index}>
@@ -391,7 +391,7 @@ export default function Work() {
                   <p>Galvanized steel framing</p>
                 </div>
                 <div className={classes.infoBox}>
-                  <h2>Mold & Rot</h2>
+                  <h3>Mold & Rot</h3>
                   <h4 style={marginStyle}>
                     LSF resists mold and moisture, unlike wood.
                   </h4>
@@ -457,7 +457,7 @@ export default function Work() {
                   <p>Single-Family, West Kelowna Fire, BC, Canada 2023</p>
                 </div>
                 <div className={classes.infoBox}>
-                  <h2>Fire</h2>
+                  <h3>Fire</h3>
                   <h4 style={marginStyle}>
                     LSF is non-combustible, unlike wood.
                   </h4>
@@ -493,7 +493,7 @@ export default function Work() {
                   </p>
                 </div>
                 <div className={classes.infoBox}>
-                  <h2>Strength & Durability</h2>
+                  <h3>Strength & Durability</h3>
                   <p>
                     LSF provides high structural strength, long-term durability
                     and larger spans than wood, while remaining dimensionally
@@ -539,7 +539,7 @@ export default function Work() {
                   </p>
                 </div>
                 <div className={classes.infoBox}>
-                  <h2>Design Freedom & Precision</h2>
+                  <h3>Design Freedom & Precision</h3>
                   <h4 style={marginStyle}>
                     Lightweight steel framing allows larger spans, open layouts
                     and greater architectural freedom.
@@ -586,7 +586,7 @@ export default function Work() {
                   </p>
                 </div>
                 <div className={classes.infoBox}>
-                  <h2>Sustainability</h2>
+                  <h3>Sustainability</h3>
                   <h4 style={marginStyle}>
                     Steel is the most recycled material in the world.
                   </h4>
@@ -652,7 +652,7 @@ export default function Work() {
                   <p>Image courtesy of Bailey Metal Products Limited</p>
                 </div>
                 <div className={classes.infoBox}>
-                  <h2>Speed & Cost</h2>
+                  <h3>Speed & Cost</h3>
                   <p>LSF reduces overall construction time and cost.</p>
                   <h4 style={marginStyle}>Speed</h4>
                   <p>
@@ -688,7 +688,7 @@ export default function Work() {
               className={classes.section}
               ref={(el) => (refs.current[6] = el)}
             >
-              <div className={classes.row}>
+              <div className={classes.rowSection}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/3.jpg"
@@ -732,7 +732,7 @@ export default function Work() {
               className={classes.section}
               ref={(el) => (refs.current[7] = el)}
             >
-              <div className={classes.row}>
+              <div className={classes.rowSection}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/4.jpg"
@@ -782,7 +782,7 @@ export default function Work() {
               className={classes.section}
               ref={(el) => (refs.current[8] = el)}
             >
-              <div className={classes.row}>
+              <div className={classes.rowSection}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/5.jpg"
@@ -827,7 +827,7 @@ export default function Work() {
               className={classes.section}
               ref={(el) => (refs.current[9] = el)}
             >
-              <div className={classes.row}>
+              <div className={classes.rowSection}>
                 <div className={classes.boxRow}>
                   <div className={classes.imageBoxGridRow}>
                     <div className={classes.imageFrame}>
@@ -872,7 +872,7 @@ export default function Work() {
               className={classes.section}
               ref={(el) => (refs.current[10] = el)}
             >
-              <div className={classes.row}>
+              <div className={classes.rowSection}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/2.jpg"
@@ -900,13 +900,7 @@ export default function Work() {
                     construction strategies that prioritize health, safety and
                     long-term performance.
                   </p>
-                  <h2
-                    style={{
-                      marginTop: "50px",
-                    }}
-                  >
-                    Our Goal
-                  </h2>
+                  <h3 style={marginStyle}>Our Goal</h3>
                   <p>
                     Designing homes that are healthier, safer and built to last
                     from the structure outward.

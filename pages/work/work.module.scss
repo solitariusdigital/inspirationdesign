@@ -417,17 +417,24 @@
   .section {
     margin-bottom: 50px;
 
+    .rowSection,
     .row {
       @include mixins.row-space-between-center();
+      align-items: flex-start;
 
       @include mixins.mobile {
         display: flex;
         flex-direction: column-reverse;
+        align-items: center;
       }
+    }
+    .rowSection {
+      padding-top: 50px;
+      border-top: 1px solid config.$lightGrey;
     }
 
     .boxRow {
-      width: 35%;
+      width: 40%;
 
       @include mixins.mobile {
         width: calc(100% + 24px);
@@ -447,15 +454,16 @@
     .imageBoxGrid,
     .imageBoxGridRow {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(35%, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
       gap: 8px;
-      width: 35%;
+      width: 40%;
       font-size: small;
       user-select: none;
 
       .imageFrame {
         position: relative;
         aspect-ratio: 4 / 3;
+        filter: grayscale(90%);
       }
 
       @include mixins.mobile {
@@ -475,7 +483,7 @@
     }
 
     .infoBox {
-      width: 60%;
+      width: 55%;
 
       .list {
         display: flex;
@@ -503,8 +511,9 @@
     }
 
     .imageBox {
-      width: 35%;
+      width: 40%;
       user-select: none;
+      filter: grayscale(90%);
 
       @include mixins.mobile {
         width: calc(100% + 24px);
@@ -522,7 +531,9 @@
       }
     }
 
+    h1,
     h2,
+    h3,
     h4 {
       font-family: "RobotoRegular";
     }
