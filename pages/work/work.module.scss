@@ -417,7 +417,6 @@
   .section {
     margin-bottom: 50px;
 
-    .rowSection,
     .row {
       @include mixins.row-space-between-center();
       align-items: flex-start;
@@ -427,10 +426,6 @@
         flex-direction: column-reverse;
         align-items: center;
       }
-    }
-    .rowSection {
-      padding-top: 50px;
-      border-top: 1px solid config.$lightGrey;
     }
 
     .boxRow {

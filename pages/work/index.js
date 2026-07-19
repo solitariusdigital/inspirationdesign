@@ -688,7 +688,7 @@ export default function Work() {
               className={classes.section}
               ref={(el) => (refs.current[6] = el)}
             >
-              <div className={classes.rowSection}>
+              <div className={classes.row}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/3.jpg"
@@ -732,7 +732,7 @@ export default function Work() {
               className={classes.section}
               ref={(el) => (refs.current[7] = el)}
             >
-              <div className={classes.rowSection}>
+              <div className={classes.row}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/4.jpg"
@@ -782,7 +782,7 @@ export default function Work() {
               className={classes.section}
               ref={(el) => (refs.current[8] = el)}
             >
-              <div className={classes.rowSection}>
+              <div className={classes.row}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/5.jpg"
@@ -827,7 +827,7 @@ export default function Work() {
               className={classes.section}
               ref={(el) => (refs.current[9] = el)}
             >
-              <div className={classes.rowSection}>
+              <div className={classes.row}>
                 <div className={classes.boxRow}>
                   <div className={classes.imageBoxGridRow}>
                     <div className={classes.imageFrame}>
@@ -872,7 +872,7 @@ export default function Work() {
               className={classes.section}
               ref={(el) => (refs.current[10] = el)}
             >
-              <div className={classes.rowSection}>
+              <div className={classes.row}>
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/2.jpg"

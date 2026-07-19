@@ -132,8 +132,8 @@ export default function Home() {
               key={index}
               className={classes.infoBox}
               style={{
-                paddingBottom: index === 2 ? "100px" : "0px",
                 marginBottom: index === 2 ? "0px" : "50px",
+                paddingBottom: index === 2 ? "100px" : "0px",
               }}
             >
               <div
@@ -146,7 +146,6 @@ export default function Home() {
                 <RevealText direction="up" delay={100}>
                   <h1
                     style={{
-                      fontFamily: "RobotoRegular",
                       marginBottom: "12px",
                     }}
                   >
