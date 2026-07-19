@@ -44,7 +44,7 @@ export default function About() {
         `Founded in 2006, Inspiration Design Ltd. is a full-service turnkey design firm specializing in building design, interior design, lighting design, and project management, with a growing focus on healthy, high-performance houses using lightweight steel framing.`,
         `The firm originally began as a specialized design and project management company in Dubai and Bahrain, working with some of the most talented architects, designers, and builders internationally. Highlights include prestigious projects for the Royal family and the French Embassy in Bahrain, as well as private residences, multifamily buildings, retail and restaurant projects, offices, banks, and exhibitions, many of which included specialized exterior lighting design. This international experience was followed by over 15 years of specialization in residential and luxury single-family projects in Canada, including multifamily buildings in North Vancouver and high-end houses in West Vancouver.`,
       ],
-      path: "Resources/AboutCompany.jpg",
+      path: "Resources/Company.jpg",
     },
     {
       title: "Professional Background",
@@ -61,7 +61,7 @@ export default function About() {
         `An important focus of the practice is the design of healthy houses using lightweight steel framing. Through ongoing PhD research at the University of British Columbia, Dr. Jafari explores mold-free wall systems, building envelope performance, and structural testing.`,
         `At the same time, the company team researches and designs houses based on the health and safety advantages of lightweight steel framing, including fire resistance, durability, and the environmental benefits of steel compared to traditional wood framing. This expertise allows the firm to integrate high-performance construction systems, healthy living environments, and advanced building technologies into its projects, helping homeowners build safer, healthier, and longer-lasting homes.`,
       ],
-      path: "Resources/Construction/20.jpg",
+      path: "Resources/House.jpg",
     },
     {
       title: "Full-Service Expertise",
@@ -464,17 +464,7 @@ export default function About() {
                             }}
                           />
                         )}
-                        {index === 0 && i === 0 ? (
-                          <h3
-                            style={{
-                              margin: "8px 0px",
-                            }}
-                          >
-                            {text}
-                          </h3>
-                        ) : (
-                          <p>{text}</p>
-                        )}
+                        <p>{text}</p>
                       </div>
                     ))}
                   </div>

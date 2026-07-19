@@ -156,7 +156,6 @@ export default function Home() {
                   </RevealText>
                   <RevealText direction="up" delay={200}>
                     <p
-                      className={classes.subTitle}
                       style={{
                         fontFamily: "RobotoItalic",
                         margin: "8px 0px",
