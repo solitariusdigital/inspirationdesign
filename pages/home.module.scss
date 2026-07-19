@@ -38,10 +38,6 @@
   background: config.$dark;
   padding-top: 100px;
 
-  .light {
-    margin-top: 12px !important;
-  }
-
   .infoBox {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
@@ -68,6 +64,7 @@
       text-align: left;
       direction: ltr;
       padding-right: 5%;
+      cursor: pointer;
 
       @include mixins.mobile {
         margin: auto;

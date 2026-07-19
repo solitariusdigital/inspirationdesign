@@ -136,71 +136,69 @@ export default function Home() {
                 marginBottom: index === 2 ? "0px" : "50px",
               }}
             >
-              <Link
+              <div
+                className={classes.info}
                 onClick={() => {
+                  Router.push("/work");
                   setProjectsCategory(service.type);
                 }}
-                href="/work"
-                passHref
               >
-                <div className={classes.info}>
-                  <RevealText direction="up" delay={100}>
-                    <h1
-                      style={{
-                        fontFamily: "RobotoRegular",
-                        marginBottom: "12px",
-                      }}
-                    >
-                      {service.title}
-                    </h1>
-                  </RevealText>
-                  <RevealText direction="up" delay={200}>
-                    <p
-                      style={{
-                        fontFamily: "RobotoItalic",
-                        margin: "8px 0px",
-                      }}
-                    >
-                      {service.subTitle}
-                    </p>
-                  </RevealText>
-                  <RevealText direction="up" delay={250}>
-                    <p
-                      style={{
-                        margin: "8px 0px",
-                      }}
-                    >
-                      {service.descriptionOne}
-                    </p>
-                  </RevealText>
-                  <RevealText direction="up" delay={250}>
-                    <p>{service.descriptionTwo}</p>
-                  </RevealText>
-                  {service.type === "construction" && (
-                    <div
-                      style={{
-                        marginTop: "8px",
-                      }}
-                    >
-                      {constructionItems.map((item, itemIndex) => (
-                        <RevealText direction="up" delay={250} key={itemIndex}>
-                          <p>{item}</p>
-                        </RevealText>
-                      ))}
-                    </div>
-                  )}
-                  <div className={classes.arrow}>
-                    <ArrowForwardIosIcon
-                      className="icon"
-                      sx={{ fontSize: 20 }}
-                      onClick={() => {
-                        setProjectsCategory(service.type);
-                        Router.push("/work");
-                      }}
-                    />
+                <RevealText direction="up" delay={100}>
+                  <h1
+                    style={{
+                      fontFamily: "RobotoRegular",
+                      marginBottom: "12px",
+                    }}
+                  >
+                    {service.title}
+                  </h1>
+                </RevealText>
+                <RevealText direction="up" delay={200}>
+                  <p
+                    style={{
+                      fontFamily: "RobotoItalic",
+                      margin: "8px 0px",
+                    }}
+                  >
+                    {service.subTitle}
+                  </p>
+                </RevealText>
+                <RevealText direction="up" delay={250}>
+                  <p
+                    style={{
+                      margin: "8px 0px",
+                    }}
+                  >
+                    {service.descriptionOne}
+                  </p>
+                </RevealText>
+                <RevealText direction="up" delay={250}>
+                  <p>{service.descriptionTwo}</p>
+                </RevealText>
+                {service.type === "construction" && (
+                  <div
+                    style={{
+                      marginTop: "8px",
+                    }}
+                  >
+                    {constructionItems.map((item, itemIndex) => (
+                      <RevealText direction="up" delay={250} key={itemIndex}>
+                        <p>{item}</p>
+                      </RevealText>
+                    ))}
                   </div>
+                )}
+                <div className={classes.arrow}>
+                  <ArrowForwardIosIcon
+                    className="icon"
+                    sx={{ fontSize: 20 }}
+                    onClick={() => {
+                      setProjectsCategory(service.type);
+                      Router.push("/work");
+                    }}
+                  />
                 </div>
-              </Link>
+              </div>
               <div
                 className={classes.imageBox}
                 style={{
