@@ -9,8 +9,9 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
-import { getDownloadURL, listAll, ref } from "firebase/storage";
+import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "@/services/firebase";
+import FirebaseImage from "@/components/FirebaseImage";
 
 export default function CoverSlider() {
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
@@ -21,20 +22,24 @@ export default function CoverSlider() {
   const fullSizeScreen =
     screenSize === "desktop" || screenSize === "tablet-landscape";
 
-  // useEffect(() => {
-  //   const fetchFiles = async () => {
-  //     const listRef = ref(storage, "Resources/Videos");
-  //     const res = await listAll(listRef);
-  //     const fetchedFiles = await Promise.all(
-  //       res.items.map(async (itemRef) => {
-  //         const url = await getDownloadURL(itemRef);
-  //         return { name: itemRef.name, url };
-  //       }),
-  //     );
-  //     setVideoFiles(fetchedFiles);
-  //   };
-  //   fetchFiles();
-  // }, []);
+  const coverMedia = [
+    {
+      path: videoFiles?.url,
+      type: "video",
+    },
+    {
+      path: "Resources/Cover/chinatown.jpg",
+      type: "image",
+    },
+    {
+      path: "Resources/Cover/orchard.jpg",
+      type: "image",
+    },
+    {
+      path: "Resources/Cover/lowry.jpg",
+      type: "image",
+    },
+  ];
 
   useEffect(() => {
     const fetchVideo = async () => {
@@ -129,17 +134,34 @@ export default function CoverSlider() {
 
   return (
     <div className={classes.container}>
-      <video
-        className={classes.video}
-        src={videoFiles?.url}
-        muted={isMuted}
-        onClick={handleVideoClick}
-        ref={videoRef}
-        autoPlay
-        loop
-        playsInline
-        preload="metadata"
-      />
+      <Swiper
+        spaceBetween={0}
+        navigation={true}
+        loop={true}
+        modules={[Navigation]}
+      >
+        {coverMedia.map((item, index) => (
+          <SwiperSlide key={index}>
+            <div className={classes.media}>
+              {item.type === "image" ? (
+                <FirebaseImage path={item.path} alt="image" />
+              ) : (
+                <video
+                  className={classes.video}
+                  src={videoFiles?.url}
+                  muted={isMuted}
+                  onClick={handleVideoClick}
+                  ref={videoRef}
+                  autoPlay
+                  loop
+                  playsInline
+                  preload="metadata"
+                />
+              )}
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <div className={classes.control} onClick={handleVideoClick}>
         {isMuted ? (
           <MusicOffIcon className="icon" sx={{ fontSize: 16 }} />

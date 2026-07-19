@@ -8,6 +8,11 @@
   height: 100dvh;
   background: config.$dark;
 
+  .media {
+    position: relative;
+    height: 100dvh;
+  }
+
   .video {
     position: relative;
     width: 100%;
@@ -21,6 +26,7 @@
 
   .control {
     position: absolute;
+    z-index: 5;
     top: 15%;
     right: 2.5%;
     color: config.$white;
