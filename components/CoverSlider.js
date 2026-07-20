@@ -139,21 +139,18 @@ export default function CoverSlider() {
   };
   // For swiper slide change — always force mute, never toggle
   const handleSlideChange = (swiper) => {
-    let activeIndex = swiper.realIndex;
+    const activeIndex = swiper.realIndex;
     setActiveIndex(activeIndex);
-    let activeItem = coverMedia[activeIndex];
-    if (videoRef.current) {
-      if (activeItem?.type === "video") {
-        // this is the video slide — mute it since user just arrived via swipe
-        videoRef.current.muted = true;
-        setIsMuted(true);
-        videoRef.current.play().catch(() => {});
-      } else {
-        // left the video slide — mute + pause it in the background
-        videoRef.current.muted = true;
-        setIsMuted(true);
-        videoRef.current.pause();
-      }
+    const activeItem = coverMedia[activeIndex];
+    if (!videoRef.current) return;
+    if (activeIndex === 0 && activeItem?.type === "video") {
+      // Back on the video slide — resume, muted
+      videoRef.current.muted = true;
+      setIsMuted(true);
+      videoRef.current.play().catch(() => {});
+    } else {
+      // Any other slide — pause in the background
+      videoRef.current.pause();
     }
   };
 

@@ -158,19 +158,11 @@ label.file input[type="file"] {
 
 .swiper-button-next {
   color: config.$white !important;
-  scale: 0.5 !important;
-
-  @include mixins.mobile {
-    scale: 0.4 !important;
-  }
+  scale: 0.4 !important;
 }
 .swiper-button-prev {
   color: config.$white !important;
-  scale: 0.5 !important;
-
-  @include mixins.mobile {
-    scale: 0.4 !important;
-  }
+  scale: 0.4 !important;
 }
 
 ::selection {
