@@ -44,7 +44,6 @@
     align-items: center;
     height: 100dvh;
     width: 70%;
-    @include mixins.transparentBackground(0.01, config.$dark);
     background: config.$dark;
 
     .nav {
