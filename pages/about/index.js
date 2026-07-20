@@ -432,7 +432,7 @@ export default function About() {
                     {index === 4 ? (
                       <h3
                         style={{
-                          marginBottom: "12px",
+                          marginBottom: "24px",
                           fontFamily: "RobotoRegular",
                         }}
                       >

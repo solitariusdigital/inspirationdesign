@@ -3,6 +3,7 @@ import { StateContext } from "@/context/stateContext";
 import classes from "./CoverSlider.module.scss";
 import Link from "next/link";
 import MusicOffIcon from "@mui/icons-material/MusicOff";
+import Router from "next/router";
 import AudiotrackIcon from "@mui/icons-material/Audiotrack";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -18,6 +19,7 @@ export default function CoverSlider() {
   const { screenSize, setScreenSize } = useContext(StateContext);
   const [videoFiles, setVideoFiles] = useState(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const fullSizeScreen =
     screenSize === "desktop" || screenSize === "tablet-landscape";
@@ -26,43 +28,24 @@ export default function CoverSlider() {
     {
       path: videoFiles?.url,
       type: "video",
+      // link: "work/Chinatown-Millennium-Gate",
     },
     {
       path: "Resources/Cover/chinatown.jpg",
       type: "image",
+      link: "work/Chinatown-Millennium-Gate",
     },
     {
       path: "Resources/Cover/orchard.jpg",
       type: "image",
+      link: "work/Orchard-Residence",
     },
     {
       path: "Resources/Cover/lowry.jpg",
       type: "image",
+      link: "work/Lowry-Residence",
     },
   ];
-
-  useEffect(() => {
-    const fetchVideo = async () => {
-      let sourceRef = fullSizeScreen
-        ? "Resources/Videos/desktop.mov"
-        : "Resources/Videos/mobile.mov";
-      const videoRef = ref(storage, sourceRef);
-      const url = await getDownloadURL(videoRef);
-      setVideoFiles({
-        url,
-      });
-    };
-    fetchVideo();
-  }, [fullSizeScreen]);
-
-  const videoRef = useRef(null);
-  const handleVideoClick = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(videoRef.current.muted);
-    }
-  };
-
   const servicesTop = [
     {
       title: "Building Design",
@@ -132,6 +115,48 @@ export default function CoverSlider() {
     },
   ];
 
+  useEffect(() => {
+    const fetchVideo = async () => {
+      let sourceRef = fullSizeScreen
+        ? "Resources/Videos/desktop.mov"
+        : "Resources/Videos/mobile.mov";
+      const videoRef = ref(storage, sourceRef);
+      const url = await getDownloadURL(videoRef);
+      setVideoFiles({
+        url,
+      });
+    };
+    fetchVideo();
+  }, [fullSizeScreen]);
+
+  const videoRef = useRef(null);
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      const newMuted = !videoRef.current.muted;
+      videoRef.current.muted = newMuted;
+      setIsMuted(newMuted);
+    }
+  };
+  // For swiper slide change — always force mute, never toggle
+  const handleSlideChange = (swiper) => {
+    let activeIndex = swiper.realIndex;
+    setActiveIndex(activeIndex);
+    let activeItem = coverMedia[activeIndex];
+    if (videoRef.current) {
+      if (activeItem?.type === "video") {
+        // this is the video slide — mute it since user just arrived via swipe
+        videoRef.current.muted = true;
+        setIsMuted(true);
+        videoRef.current.play().catch(() => {});
+      } else {
+        // left the video slide — mute + pause it in the background
+        videoRef.current.muted = true;
+        setIsMuted(true);
+        videoRef.current.pause();
+      }
+    }
+  };
+
   return (
     <div className={classes.container}>
       <Swiper
@@ -139,16 +164,19 @@ export default function CoverSlider() {
         navigation={true}
         loop={true}
         modules={[Navigation]}
+        onSlideChange={handleSlideChange}
       >
         {coverMedia.map((item, index) => (
           <SwiperSlide key={index}>
             <div className={classes.media}>
               {item.type === "image" ? (
-                <FirebaseImage path={item.path} alt="image" />
+                <div onClick={() => Router.push(item.link)}>
+                  <FirebaseImage path={item.path} alt="image" />
+                </div>
               ) : (
                 <video
                   className={classes.video}
-                  src={videoFiles?.url}
+                  src={item.path}
                   muted={isMuted}
                   onClick={handleVideoClick}
                   ref={videoRef}
@@ -162,13 +190,15 @@ export default function CoverSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className={classes.control} onClick={handleVideoClick}>
-        {isMuted ? (
-          <MusicOffIcon className="icon" sx={{ fontSize: 16 }} />
-        ) : (
-          <AudiotrackIcon className="icon" sx={{ fontSize: 16 }} />
-        )}
-      </div>
+      {activeIndex === 0 && (
+        <div className={classes.control} onClick={handleVideoClick}>
+          {isMuted ? (
+            <MusicOffIcon className="icon" sx={{ fontSize: 16 }} />
+          ) : (
+            <AudiotrackIcon className="icon" sx={{ fontSize: 16 }} />
+          )}
+        </div>
+      )}
       <div className={classes.sliderBox}>
         <div className={classes.sliderInfoTop}>
           <div className={classes.slideTrackTop}>
