@@ -69,7 +69,14 @@ export default function Menu() {
         fontFamily: "RobotoRegular",
       }}
     >
-      <div className={classes.logo}>
+      <div
+        className={classes.logo}
+        onClick={() =>
+          setTimeout(() => {
+            setProjectsCategory("residential");
+          }, 200)
+        }
+      >
         <Link href="/" passHref>
           <Image
             src={isHome ? logoWhite : logoBlack}
@@ -149,11 +156,12 @@ export default function Menu() {
                   key={nav.link}
                   href={nav.link}
                   className={nav.active ? classes.navActive : classes.nav}
-                  onClick={() =>
+                  onClick={() => {
+                    setMenuMobile(!menuMobile);
                     setTimeout(() => {
                       setProjectsCategory("residential");
-                    }, 200)
-                  }
+                    }, 200);
+                  }}
                   style={{
                     animationDelay: `${index * 180}ms`,
                   }}
@@ -169,7 +177,8 @@ export default function Menu() {
                 onClick={() =>
                   setTimeout(() => {
                     setMenuMobile(!menuMobile);
-                  }, 250)
+                    setProjectsCategory("residential");
+                  }, 200)
                 }
               >
                 <Link href="/" passHref>

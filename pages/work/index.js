@@ -37,7 +37,7 @@ export default function Work() {
   };
   const marginStyle = {
     marginTop: "24px",
-    marginBottom: "12px",
+    marginBottom: "8px",
   };
 
   const topics = [

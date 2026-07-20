@@ -415,12 +415,7 @@ export default function About() {
               <div key={index} className={classes.info}>
                 <div className={classes.box}>
                   {section.path && (
-                    <div
-                      className={classes.imageBox}
-                      style={{
-                        marginBottom: screenSize === "mobile" ? "24px" : "0px",
-                      }}
-                    >
+                    <div className={classes.imageBox}>
                       <FirebaseImage
                         path={section.path}
                         alt="about"
@@ -434,17 +429,29 @@ export default function About() {
                       width: !section.path ? "100%" : "",
                     }}
                   >
-                    <h2
-                      style={{
-                        marginBottom: "12px",
-                        fontFamily: "RobotoRegular",
-                      }}
-                    >
-                      {section.title}
-                    </h2>
+                    {index === 4 ? (
+                      <h3
+                        style={{
+                          marginBottom: "12px",
+                          fontFamily: "RobotoRegular",
+                        }}
+                      >
+                        {section.title}
+                      </h3>
+                    ) : (
+                      <h2
+                        style={{
+                          marginBottom: "24px",
+                          fontFamily: "RobotoRegular",
+                        }}
+                      >
+                        {section.title}
+                      </h2>
+                    )}
                     {section.paragraphs.map((text, i) => (
                       <div
                         key={i}
+                        className={classes.row}
                         style={{
                           margin: index !== 4 ? "8px 0px" : "4px 0px",
                           fontFamily:
@@ -452,7 +459,6 @@ export default function About() {
                               ? "RobotoItalic"
                               : "RobotoLight",
                         }}
-                        className={classes.row}
                       >
                         {index === 4 && (
                           <CircleOutlinedIcon
