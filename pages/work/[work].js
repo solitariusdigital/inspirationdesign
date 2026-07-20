@@ -84,17 +84,26 @@ export default function Project() {
     const confirm = window.confirm(confirmMessage);
     if (!confirm) return;
     try {
-      const docRef = doc(db, "Projects", project.id);
-      await deleteDoc(docRef);
       const storage = getStorage();
       const folderRef = ref(storage, `Projects/${project.folder}`);
       const items = await listAll(folderRef);
-      for (const itemRef of items.items) {
-        await deleteObject(itemRef);
-      }
+      await Promise.all(
+        items.items.map(async (itemRef) => {
+          try {
+            await deleteObject(itemRef);
+          } catch (error) {
+            if (error.code !== "storage/object-not-found") {
+              throw error;
+            }
+          }
+        }),
+      );
+      const docRef = doc(db, "Projects", project.id);
+      await deleteDoc(docRef);
       Router.push("/work");
     } catch (error) {
       console.error("Error deleting project:", error);
+      alert("Failed to delete project.");
     }
   };
 
@@ -105,17 +114,21 @@ export default function Project() {
     try {
       const storage = getStorage();
       const storageRef = ref(storage, image);
-      await deleteObject(storageRef);
-
-      const newPath = [...displayProject.path];
-      newPath.splice(index, 1);
+      try {
+        await deleteObject(storageRef);
+      } catch (error) {
+        if (error.code !== "storage/object-not-found") {
+          throw error;
+        }
+      }
+      const newPath = displayProject.path.filter((p) => p !== image);
       const docRef = doc(db, "Projects", displayProject.id);
       await updateDoc(docRef, { path: newPath });
+      setRefresh((prev) => prev + 1);
     } catch (error) {
       console.error("Error deleting image:", error);
       alert("Failed to delete image.");
     }
-    setRefresh((prev) => prev + 1);
   };
 
   const makeHeroImage = async (image) => {

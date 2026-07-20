@@ -78,17 +78,26 @@ export default function NewsArticle() {
     const confirm = window.confirm(confirmMessage);
     if (!confirm) return;
     try {
-      const docRef = doc(db, "News", news.id);
-      await deleteDoc(docRef);
       const storage = getStorage();
       const folderRef = ref(storage, `News/${news.folder}`);
       const items = await listAll(folderRef);
-      for (const itemRef of items.items) {
-        await deleteObject(itemRef);
-      }
+      await Promise.all(
+        items.items.map(async (itemRef) => {
+          try {
+            await deleteObject(itemRef);
+          } catch (error) {
+            if (error.code !== "storage/object-not-found") {
+              throw error;
+            }
+          }
+        }),
+      );
+      const docRef = doc(db, "News", news.id);
+      await deleteDoc(docRef);
       Router.push("/news");
     } catch (error) {
       console.error("Error deleting news:", error);
+      alert("Failed to delete news.");
     }
   };
 
@@ -99,17 +108,21 @@ export default function NewsArticle() {
     try {
       const storage = getStorage();
       const storageRef = ref(storage, image);
-      await deleteObject(storageRef);
-
-      const newPath = [...displayNews.path];
-      newPath.splice(index, 1);
+      try {
+        await deleteObject(storageRef);
+      } catch (error) {
+        if (error.code !== "storage/object-not-found") {
+          throw error;
+        }
+      }
+      const newPath = displayNews.path.filter((p) => p !== image);
       const docRef = doc(db, "News", displayNews.id);
       await updateDoc(docRef, { path: newPath });
+      setRefresh((prev) => prev + 1);
     } catch (error) {
       console.error("Error deleting image:", error);
       alert("Failed to delete image.");
     }
-    setRefresh((prev) => prev + 1);
   };
 
   const makeHeroImage = async (image) => {
