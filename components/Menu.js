@@ -74,7 +74,7 @@ export default function Menu() {
         onClick={() =>
           setTimeout(() => {
             setProjectsCategory("residential");
-          }, 200)
+          }, 500)
         }
       >
         <Link href="/" passHref>
@@ -124,7 +124,7 @@ export default function Menu() {
               onClick={() =>
                 setTimeout(() => {
                   setProjectsCategory("residential");
-                }, 200)
+                }, 500)
               }
               href={nav.link}
               passHref
@@ -157,10 +157,10 @@ export default function Menu() {
                   href={nav.link}
                   className={nav.active ? classes.navActive : classes.nav}
                   onClick={() => {
-                    setMenuMobile(!menuMobile);
                     setTimeout(() => {
+                      setMenuMobile(!menuMobile);
                       setProjectsCategory("residential");
-                    }, 200);
+                    }, 500);
                   }}
                   style={{
                     animationDelay: `${index * 180}ms`,
@@ -174,12 +174,12 @@ export default function Menu() {
                 style={{
                   marginTop: "50px",
                 }}
-                onClick={() =>
+                onClick={() => {
                   setTimeout(() => {
                     setMenuMobile(!menuMobile);
                     setProjectsCategory("residential");
-                  }, 200)
-                }
+                  }, 500);
+                }}
               >
                 <Link href="/" passHref>
                   <Image

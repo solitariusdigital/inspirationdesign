@@ -412,7 +412,13 @@ export default function About() {
         {pageType === "company" && (
           <>
             {information.map((section, index) => (
-              <div key={index} className={classes.info}>
+              <div
+                key={index}
+                className={classes.info}
+                style={{
+                  marginTop: index === 4 ? "24px" : "50px",
+                }}
+              >
                 <div className={classes.box}>
                   {section.path && (
                     <div className={classes.imageBox}>
@@ -430,14 +436,14 @@ export default function About() {
                     }}
                   >
                     {index === 4 ? (
-                      <h3
+                      <h4
                         style={{
-                          marginBottom: "24px",
+                          marginBottom: "12px",
                           fontFamily: "RobotoRegular",
                         }}
                       >
                         {section.title}
-                      </h3>
+                      </h4>
                     ) : (
                       <h2
                         style={{

@@ -47,7 +47,7 @@
   .info {
     width: config.$content-widthText;
     max-width: config.$max-widthHeigh;
-    margin: 50px auto;
+    margin: auto;
 
     @include mixins.mobile {
       width: calc(100% - 24px);
