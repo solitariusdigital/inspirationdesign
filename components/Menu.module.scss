@@ -9,9 +9,6 @@
   user-select: none;
   text-transform: uppercase;
 
-  @include mixins.mobile {
-    width: calc(100% - 24px);
-  }
   @include mixins.tabletPortrait {
     width: config.$content-width;
   }
@@ -39,15 +36,16 @@
   .mobileNavigation {
     position: absolute;
     z-index: 1;
-    left: -12px;
+    right: -12px;
     top: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: config.$dark;
     height: 100dvh;
-    width: calc(100% + 24px);
+    width: 70%;
+    @include mixins.transparentBackground(0.01, config.$dark);
+    background: config.$dark;
 
     .nav {
       color: config.$white;
@@ -75,6 +73,14 @@
       to {
         opacity: 1;
         transform: translateY(0) scale(1);
+      }
+    }
+
+    .icons {
+      margin-top: 50px;
+
+      .icon {
+        margin: 0px 8px;
       }
     }
   }

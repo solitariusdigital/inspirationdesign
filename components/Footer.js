@@ -47,7 +47,7 @@ export default function Footer() {
             className={classes.icon}
             onClick={() =>
               window.open(
-                "https://instagram.com/inspirationdesigns.ca",
+                "https://www.linkedin.com/in/parastoojafari",
                 "_ self",
               )
             }

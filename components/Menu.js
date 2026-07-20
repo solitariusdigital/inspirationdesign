@@ -15,6 +15,8 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import secureLocalStorage from "react-secure-storage";
 import { signOut } from "firebase/auth";
 import { auth } from "@/services/firebase";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function Menu() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
@@ -169,28 +171,27 @@ export default function Menu() {
                   {nav.title}
                 </Link>
               ))}
-              <div
-                className={`${classes.logo} animate__animated animate__slideInDown`}
-                style={{
-                  marginTop: "50px",
-                }}
-                onClick={() => {
-                  setTimeout(() => {
-                    setMenuMobile(!menuMobile);
-                    setProjectsCategory("residential");
-                  }, 500);
-                }}
-              >
-                <Link href="/" passHref>
-                  <Image
-                    src={logoWhite}
-                    layout="fill"
-                    objectFit="contain"
-                    alt="logo"
-                    as="image"
-                    priority
-                  />
-                </Link>
+              <div className={classes.icons}>
+                <InstagramIcon
+                  sx={{ fontSize: 24, color: "white" }}
+                  className={classes.icon}
+                  onClick={() =>
+                    window.open(
+                      "https://instagram.com/inspirationdesigns.ca",
+                      "_ self",
+                    )
+                  }
+                />
+                <LinkedInIcon
+                  sx={{ fontSize: 24, color: "white" }}
+                  className={classes.icon}
+                  onClick={() =>
+                    window.open(
+                      "https://www.linkedin.com/in/parastoojafari",
+                      "_ self",
+                    )
+                  }
+                />
               </div>
             </nav>
           )}
