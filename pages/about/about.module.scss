@@ -169,7 +169,7 @@
   .layoutTeam {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-    gap: 24px;
+    gap: 12px;
     margin-top: 50px;
 
     @include mixins.mobile {
@@ -186,7 +186,14 @@
       }
 
       p {
-        min-height: 3rem;
+        min-height: 2.2rem;
+
+        @include mixins.tabletPortrait {
+          min-height: 3rem;
+        }
+        @include mixins.tabletLandscape {
+          min-height: 3rem;
+        }
       }
     }
 
