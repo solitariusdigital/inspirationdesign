@@ -23,7 +23,7 @@ export default function Menu() {
   const { editProject, setEditProject } = useContext(StateContext);
   const { editNews, setEditNews } = useContext(StateContext);
   const { menuMobile, setMenuMobile } = useContext(StateContext);
-  const { projectsCategory, setProjectsCategory } = useContext(StateContext);
+  const { menuBackground, setMenuBackground } = useContext(StateContext);
 
   const router = useRouter();
   let pathname = router.pathname;
@@ -67,97 +67,100 @@ export default function Menu() {
       className={classes.container}
       style={{
         fontFamily: "RobotoRegular",
+        backgroundColor: menuBackground,
       }}
     >
-      <div className={classes.logo}>
-        <Link href="/" passHref>
-          <Image
-            src={isHome ? logoWhite : logoBlack}
-            layout="fill"
-            objectFit="contain"
-            alt="logo"
-            as="image"
-            priority
-          />
-        </Link>
-      </div>
-      {currentUser && (
-        <div className={classes.portal}>
-          <Tooltip title="Logout">
-            <LogoutIcon
-              className="icon"
-              sx={{ fontSize: 18, color: colorCode }}
-              onClick={() => logout()}
+      <div className={classes.fullMenu}>
+        <div className={classes.logo}>
+          <Link href="/" passHref>
+            <Image
+              src={isHome ? logoWhite : logoBlack}
+              layout="fill"
+              objectFit="contain"
+              alt="logo"
+              as="image"
+              priority
             />
-          </Tooltip>
-          <Tooltip title="Portal">
-            <SpaceDashboardIcon
-              className="icon"
-              sx={{ fontSize: 18, color: colorCode }}
-              onClick={() => {
-                Router.push("/portal");
-                setEditProject(null);
-                setEditNews(null);
-              }}
-            />
-          </Tooltip>
+          </Link>
         </div>
-      )}
-      {fullSizeScreen && (
-        <nav
-          className={classes.fullSizeNavigation}
-          style={{
-            color: colorCode,
-          }}
-        >
-          {navigationTopBar.map((nav, index) => (
-            <Link
-              key={index}
-              className={!nav.active ? classes.nav : classes.navActive}
-              href={nav.link}
-              passHref
-            >
-              {nav.title}
-            </Link>
-          ))}
-        </nav>
-      )}
-      {!fullSizeScreen && (
-        <nav>
-          <div className={classes.control}>
-            {menuMobile ? (
-              <CloseIcon
-                onClick={() => setMenuMobile(!menuMobile)}
-                sx={{ fontSize: 28, color: "white" }}
+        {currentUser && (
+          <div className={classes.portal}>
+            <Tooltip title="Logout">
+              <LogoutIcon
+                className="icon"
+                sx={{ fontSize: 18, color: colorCode }}
+                onClick={() => logout()}
               />
-            ) : (
-              <MenuIcon
-                onClick={() => setMenuMobile(!menuMobile)}
-                sx={{ fontSize: 28, color: colorCode }}
+            </Tooltip>
+            <Tooltip title="Portal">
+              <SpaceDashboardIcon
+                className="icon"
+                sx={{ fontSize: 18, color: colorCode }}
+                onClick={() => {
+                  Router.push("/portal");
+                  setEditProject(null);
+                  setEditNews(null);
+                }}
               />
-            )}
+            </Tooltip>
           </div>
-          {menuMobile && (
-            <nav className={classes.mobileNavigation}>
-              {navigationTopBar.map((nav, index) => (
-                <Link
-                  key={nav.link}
-                  href={nav.link}
-                  className={nav.active ? classes.navActive : classes.nav}
-                  style={{
-                    animationDelay: `${index * 180}ms`,
-                  }}
-                  onClick={() => {
-                    setMenuMobile(!menuMobile);
-                  }}
-                >
-                  {nav.title}
-                </Link>
-              ))}
-            </nav>
-          )}
-        </nav>
-      )}
+        )}
+        {fullSizeScreen && (
+          <nav
+            className={classes.fullNavigation}
+            style={{
+              color: colorCode,
+            }}
+          >
+            {navigationTopBar.map((nav, index) => (
+              <Link
+                key={index}
+                className={!nav.active ? classes.nav : classes.navActive}
+                href={nav.link}
+                passHref
+              >
+                {nav.title}
+              </Link>
+            ))}
+          </nav>
+        )}
+        {!fullSizeScreen && (
+          <nav>
+            <div className={classes.control}>
+              {menuMobile ? (
+                <CloseIcon
+                  onClick={() => setMenuMobile(!menuMobile)}
+                  sx={{ fontSize: 28, color: "white" }}
+                />
+              ) : (
+                <MenuIcon
+                  onClick={() => setMenuMobile(!menuMobile)}
+                  sx={{ fontSize: 28, color: colorCode }}
+                />
+              )}
+            </div>
+            {menuMobile && (
+              <nav className={classes.mobileNavigation}>
+                {navigationTopBar.map((nav, index) => (
+                  <Link
+                    key={nav.link}
+                    href={nav.link}
+                    className={nav.active ? classes.navActive : classes.nav}
+                    style={{
+                      animationDelay: `${index * 180}ms`,
+                    }}
+                    onClick={() => {
+                      setMenuMobile(!menuMobile);
+                    }}
+                  >
+                    {nav.title}
+                  </Link>
+                ))}
+              </nav>
+            )}
+          </nav>
+        )}
+      </div>
     </div>
   );
 }

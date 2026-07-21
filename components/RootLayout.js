@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useContext, useEffect } from "react";
 import { StateContext } from "@/context/stateContext";
+import { useRouter } from "next/router";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 import secureLocalStorage from "react-secure-storage";
@@ -12,8 +13,14 @@ export default function RootLayout({ children }) {
   const { menuDisplay, setMenuDisplay } = useContext(StateContext);
   const { footerDisplay, setFooterDisplay } = useContext(StateContext);
   const { menuMobile, setMenuMobile } = useContext(StateContext);
+  const { menuBackground, setMenuBackground } = useContext(StateContext);
   const [appLoader, setAppLoader] = useState(false);
   const [moveLogo, setMoveLogo] = useState(false);
+
+  const router = useRouter();
+  let pathname = router.pathname;
+
+  const isHome = pathname === "/";
 
   const handleResize = () => {
     let element = document.getElementById("detailsInformation");
@@ -72,18 +79,21 @@ export default function RootLayout({ children }) {
     let prevScrollY = window.scrollY;
     const handleScroll = () => {
       if (menuMobile) return;
-
       const currentScrollY = window.scrollY;
       if (currentScrollY <= 0) {
         setMenuDisplay(true);
+        setMenuBackground("transparent");
       } else if (currentScrollY > prevScrollY) {
         setMenuDisplay(false);
+      } else if (currentScrollY < prevScrollY) {
+        setMenuDisplay(true);
+        setMenuBackground(isHome ? "#23282b" : "#ffffff");
       }
       prevScrollY = currentScrollY;
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [menuMobile]);
+  }, [menuMobile, isHome]);
 
   return (
     <>
