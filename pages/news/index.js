@@ -14,7 +14,13 @@ import { collection, getDocs } from "@firebase/firestore";
 
 export default function News() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
+  const { projectsCategory, setProjectsCategory } = useContext(StateContext);
   const [displayNews, setDisplayNews] = useState(null);
+
+  useEffect(() => {
+    setProjectsCategory("residential");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

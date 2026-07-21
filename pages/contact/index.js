@@ -1,3 +1,5 @@
+import { useEffect, useContext } from "react";
+import { StateContext } from "@/context/stateContext";
 import { NextSeo } from "next-seo";
 import classes from "./contact.module.scss";
 import logoBlack from "@/assets/logo-black.png";
@@ -5,7 +7,12 @@ import ContactForm from "@/components/Form/ContactForm";
 import FirebaseImage from "@/components/FirebaseImage";
 
 export default function Contact() {
-  const headLocationLink = "https://maps.app.goo.gl/PL91GoWmYGTzhMqt6";
+  const { projectsCategory, setProjectsCategory } = useContext(StateContext);
+
+  useEffect(() => {
+    setProjectsCategory("residential");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

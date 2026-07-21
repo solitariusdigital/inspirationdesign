@@ -71,6 +71,7 @@ export default function Work() {
     setTimeout(() => {
       setDisplayArrow(true);
     }, 3000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

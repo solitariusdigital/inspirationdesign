@@ -29,18 +29,6 @@ export default function Footer() {
         ))}
       </nav>
       <div className={classes.icons}>
-        <Tooltip title="Instagram">
-          <InstagramIcon
-            sx={{ fontSize: 24 }}
-            className={classes.icon}
-            onClick={() =>
-              window.open(
-                "https://instagram.com/inspirationdesigns.ca",
-                "_ self",
-              )
-            }
-          />
-        </Tooltip>
         <Tooltip title="LinkedIn">
           <LinkedInIcon
             sx={{ fontSize: 24 }}
@@ -48,6 +36,18 @@ export default function Footer() {
             onClick={() =>
               window.open(
                 "https://www.linkedin.com/in/parastoojafari",
+                "_ self",
+              )
+            }
+          />
+        </Tooltip>
+        <Tooltip title="Instagram">
+          <InstagramIcon
+            sx={{ fontSize: 24 }}
+            className={classes.icon}
+            onClick={() =>
+              window.open(
+                "https://instagram.com/inspirationdesigns.ca",
                 "_ self",
               )
             }

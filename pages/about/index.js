@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { StateContext } from "@/context/stateContext";
 import { NextSeo } from "next-seo";
 import classes from "./about.module.scss";
@@ -8,7 +8,7 @@ import FirebaseImage from "@/components/FirebaseImage";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 export default function About() {
-  const { screenSize, setScreenSize } = useContext(StateContext);
+  const { projectsCategory, setProjectsCategory } = useContext(StateContext);
 
   const [pageType, setPageType] = useState(
     "company" || "testimonials" || "awards" || "publications" || "team",
@@ -21,7 +21,6 @@ export default function About() {
     "awards",
     "publications",
   ];
-
   const information = [
     {
       title: "The Company",
@@ -363,16 +362,24 @@ export default function About() {
     {
       name: "Parastoo Jafari",
       description: "Owner - PhD in Architecture",
+      path: "Resources/Team/parastoo.jpg",
     },
     {
       name: "Bahar Jafarinejad",
       description: "Lighting Designer - M.Arch.",
+      path: "Resources/Team/bahar.jpg",
     },
     {
       name: "Ario Pourturk",
       description: "Design Technologist - Applied Science",
+      path: "Resources/Team/ario.jpg",
     },
   ];
+
+  useEffect(() => {
+    setProjectsCategory("residential");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -484,7 +491,12 @@ export default function About() {
           </>
         )}
         {pageType === "testimonials" && (
-          <div className={classes.info}>
+          <div
+            className={classes.info}
+            style={{
+              marginTop: "50px",
+            }}
+          >
             <h2
               style={{
                 fontFamily: "RobotoRegular",
@@ -533,7 +545,12 @@ export default function About() {
           </div>
         )}
         {pageType === "awards" && (
-          <div className={classes.info}>
+          <div
+            className={classes.info}
+            style={{
+              marginTop: "50px",
+            }}
+          >
             <h2
               style={{
                 fontFamily: "RobotoRegular",
@@ -574,7 +591,12 @@ export default function About() {
           </div>
         )}
         {pageType === "publications" && (
-          <div className={classes.info}>
+          <div
+            className={classes.info}
+            style={{
+              marginTop: "50px",
+            }}
+          >
             <h2
               style={{
                 fontFamily: "RobotoRegular",
@@ -621,7 +643,12 @@ export default function About() {
           </div>
         )}
         {pageType === "team" && (
-          <div className={classes.info}>
+          <div
+            className={classes.infoTeam}
+            style={{
+              marginTop: "50px",
+            }}
+          >
             <h2
               style={{
                 fontFamily: "RobotoRegular",
@@ -629,20 +656,26 @@ export default function About() {
             >
               Team
             </h2>
-            <div className={classes.layout}>
+            <div className={classes.layoutTeam}>
               {team.map((item, index) => (
                 <div key={index} className={classes.item}>
                   <div className={classes.detailTop}>
-                    <h4
+                    <h3
                       style={{
                         fontFamily: "RobotoRegular",
+                        marginBottom: "8px",
                       }}
                     >
                       {item.name}
-                    </h4>
+                    </h3>
+                    <p>{item.description}</p>
                   </div>
                   <div className={classes.detailBottom}>
-                    <p>{item.description}</p>
+                    <FirebaseImage
+                      path={item.path}
+                      alt="team"
+                      mode="intrinsic"
+                    />
                   </div>
                 </div>
               ))}

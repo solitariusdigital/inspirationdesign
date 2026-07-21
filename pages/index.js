@@ -66,6 +66,11 @@ export default function Home() {
   ];
 
   useEffect(() => {
+    setProjectsCategory("residential");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     const fetchData = async () => {
       const querySnapshot = await getDocs(collection(db, "Projects"));
       const data = querySnapshot.docs.map((doc) => ({

@@ -15,8 +15,6 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import secureLocalStorage from "react-secure-storage";
 import { signOut } from "firebase/auth";
 import { auth } from "@/services/firebase";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function Menu() {
   const { currentUser, setCurrentUser } = useContext(StateContext);
@@ -71,14 +69,7 @@ export default function Menu() {
         fontFamily: "RobotoRegular",
       }}
     >
-      <div
-        className={classes.logo}
-        onClick={() =>
-          setTimeout(() => {
-            setProjectsCategory("residential");
-          }, 500)
-        }
-      >
+      <div className={classes.logo}>
         <Link href="/" passHref>
           <Image
             src={isHome ? logoWhite : logoBlack}
@@ -123,11 +114,6 @@ export default function Menu() {
             <Link
               key={index}
               className={!nav.active ? classes.nav : classes.navActive}
-              onClick={() =>
-                setTimeout(() => {
-                  setProjectsCategory("residential");
-                }, 500)
-              }
               href={nav.link}
               passHref
             >
@@ -158,41 +144,16 @@ export default function Menu() {
                   key={nav.link}
                   href={nav.link}
                   className={nav.active ? classes.navActive : classes.nav}
-                  onClick={() => {
-                    setTimeout(() => {
-                      setMenuMobile(!menuMobile);
-                      setProjectsCategory("residential");
-                    }, 500);
-                  }}
                   style={{
                     animationDelay: `${index * 180}ms`,
+                  }}
+                  onClick={() => {
+                    setMenuMobile(!menuMobile);
                   }}
                 >
                   {nav.title}
                 </Link>
               ))}
-              <div className={classes.icons}>
-                <InstagramIcon
-                  sx={{ fontSize: 24, color: "white" }}
-                  className={classes.icon}
-                  onClick={() =>
-                    window.open(
-                      "https://instagram.com/inspirationdesigns.ca",
-                      "_ self",
-                    )
-                  }
-                />
-                <LinkedInIcon
-                  sx={{ fontSize: 24, color: "white" }}
-                  className={classes.icon}
-                  onClick={() =>
-                    window.open(
-                      "https://www.linkedin.com/in/parastoojafari",
-                      "_ self",
-                    )
-                  }
-                />
-              </div>
             </nav>
           )}
         </nav>
