@@ -180,17 +180,19 @@
     }
 
     .detailTop {
-      margin-bottom: 24px;
-
       @include mixins.mobile {
         margin: auto;
-        margin-bottom: 24px;
         width: calc(100% - 24px);
+      }
+
+      p {
+        min-height: 3rem;
       }
     }
 
     .detailBottom {
       filter: grayscale(100%);
+      user-select: none;
     }
   }
 }
