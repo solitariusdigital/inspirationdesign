@@ -156,7 +156,7 @@ label.file input[type="file"] {
 .custom-prev,
 .custom-next {
   position: absolute;
-  z-index: 10;
+  z-index: 2;
   top: 45%;
   transform: translateY(-50%);
   cursor: pointer;
