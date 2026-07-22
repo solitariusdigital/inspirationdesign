@@ -157,13 +157,13 @@ label.file input[type="file"] {
 .custom-next {
   position: absolute;
   z-index: 10;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   cursor: pointer;
   color: config.$white;
 
-  @include mixins.mobile {
-    top: 45%;
+  @include mixins.allDesktop {
+    top: 50%;
   }
 
   &:hover {
