@@ -491,6 +491,17 @@
     .infoBox {
       width: 55%;
 
+      @include mixins.mobile {
+        width: 100%;
+      }
+
+      h1 {
+        @include mixins.mobile {
+          display: flex;
+          text-align: center;
+        }
+      }
+
       .list {
         display: flex;
         flex-direction: row;
@@ -508,10 +519,6 @@
           margin: 4px 0px;
           font-size: small;
         }
-      }
-
-      @include mixins.mobile {
-        width: 100%;
       }
     }
 
