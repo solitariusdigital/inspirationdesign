@@ -57,6 +57,23 @@ export default function Project() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refresh]);
 
+  useEffect(() => {
+    if (displayGallerySlider) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
+    }
+  }, [displayGallerySlider]);
+
   const handlePublish = async (project, type) => {
     const confirmMessage = `${type} project - Are you sure?`;
     const confirm = window.confirm(confirmMessage);
@@ -145,7 +162,6 @@ export default function Project() {
     setFooterDisplay(false);
     setDisplayGallerySlider(true);
     window.scrollTo(0, 0);
-    document.body.style.overflow = "hidden";
     let index = displayProject.path.indexOf(path);
     setSelectedIndex(index);
   };
@@ -398,7 +414,6 @@ export default function Project() {
                   setFooterDisplay(true);
                   setDisplayGallerySlider(false);
                   setSelectedIndex(0);
-                  document.body.style.overflow = "";
                 }}
               />
             </Tooltip>
