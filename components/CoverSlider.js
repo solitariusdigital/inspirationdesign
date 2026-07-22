@@ -10,9 +10,11 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import FirebaseImage from "@/components/FirebaseImage";
 import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "@/services/firebase";
-import FirebaseImage from "@/components/FirebaseImage";
 
 export default function CoverSlider() {
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
@@ -154,14 +156,30 @@ export default function CoverSlider() {
     }
   };
 
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
+
   return (
     <div className={classes.container}>
+      <div className="custom-prev" ref={navigationPrevRef}>
+        <ArrowBackIosNewIcon sx={{ fontSize: 20 }} />
+      </div>
+      <div className="custom-next" ref={navigationNextRef}>
+        <ArrowForwardIosIcon sx={{ fontSize: 20 }} />
+      </div>
       <Swiper
         spaceBetween={0}
-        navigation={true}
         loop={true}
         modules={[Navigation]}
         onSlideChange={handleSlideChange}
+        navigation={{
+          prevEl: navigationPrevRef.current,
+          nextEl: navigationNextRef.current,
+        }}
+        onBeforeInit={(swiper) => {
+          swiper.params.navigation.prevEl = navigationPrevRef.current;
+          swiper.params.navigation.nextEl = navigationNextRef.current;
+        }}
       >
         {coverMedia.map((item, index) => (
           <SwiperSlide key={index}>

@@ -176,7 +176,7 @@
 .newsImageBox {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-  gap: 12px;
+  gap: 24px;
   margin: 50px auto;
   max-width: config.$max-widthHeigh;
   width: config.$content-widthText;
@@ -364,7 +364,7 @@
   .imageBox {
     position: relative;
     user-select: none;
-    margin: 12px auto;
+    margin: 24px auto;
     max-width: config.$max-widthHeigh;
     cursor: pointer;
 

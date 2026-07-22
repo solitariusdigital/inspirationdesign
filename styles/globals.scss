@@ -152,13 +152,32 @@ label.file input[type="file"] {
   border: 1px solid config.$dark;
 }
 
-.swiper-button-next {
-  color: config.$white !important;
-  scale: 0.4 !important;
+// swiper
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  color: config.$white;
+
+  &:hover {
+    color: config.$grey;
+  }
 }
-.swiper-button-prev {
-  color: config.$white !important;
-  scale: 0.4 !important;
+
+.custom-prev {
+  left: 2.5%;
+}
+
+.custom-next {
+  right: 2.5%;
+}
+
+.custom-prev.swiper-button-disabled,
+.custom-next.swiper-button-disabled {
+  pointer-events: none;
 }
 
 ::selection {
