@@ -61,6 +61,7 @@
 
     .box {
       @include mixins.row-space-between-center();
+      align-items: flex-start;
 
       @include mixins.mobile {
         display: flex;
