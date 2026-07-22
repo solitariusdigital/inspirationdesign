@@ -564,7 +564,7 @@ export default function Work() {
                     <FirebaseImage
                       path="Resources/Construction/20.jpg"
                       alt="about"
-                      mode="intrinsic"
+                      // mode="intrinsic"
                     />
                   </div>
                   <p>

@@ -66,6 +66,7 @@
       @include mixins.mobile {
         display: flex;
         flex-direction: column-reverse;
+        align-items: center;
       }
 
       .imageBox {
