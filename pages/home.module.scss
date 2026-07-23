@@ -29,6 +29,10 @@
     left: 50%;
     bottom: 12%;
     transform: translateX(-50%);
+
+    @include mixins.mobile {
+      bottom: 15%;
+    }
   }
 }
 
