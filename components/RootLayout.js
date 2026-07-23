@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
   const { menuBackground, setMenuBackground } = useContext(StateContext);
   const [appLoader, setAppLoader] = useState(false);
   const [moveLogo, setMoveLogo] = useState(false);
+  const [animKey, setAnimKey] = useState(0);
 
   const router = useRouter();
   let pathname = router.pathname;
@@ -41,6 +42,12 @@ export default function RootLayout({ children }) {
     }
     setScreenSize(screenSize);
   };
+
+  useEffect(() => {
+    if (menuDisplay) {
+      setAnimKey((prev) => prev + 1);
+    }
+  }, [menuDisplay]);
 
   useEffect(() => {
     const localCurrentUser = JSON.parse(
@@ -119,7 +126,10 @@ export default function RootLayout({ children }) {
           }}
         >
           {menuDisplay && (
-            <section className="menu animate__animated animate__slideInDown">
+            <section
+              key={animKey}
+              className="menu animate__animated animate__slideInDown"
+            >
               <Menu />
             </section>
           )}
