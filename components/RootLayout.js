@@ -77,21 +77,36 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     let prevScrollY = window.scrollY;
+    let ticking = false;
+
     const handleScroll = () => {
       if (menuMobile) return;
-      const currentScrollY = window.scrollY;
-      if (currentScrollY <= 0) {
-        setMenuDisplay(true);
-        setMenuBackground("transparent");
-      } else if (currentScrollY > prevScrollY) {
-        setMenuDisplay(false);
-      } else if (currentScrollY < prevScrollY) {
-        setMenuDisplay(true);
-        setMenuBackground(isHome ? "#23282b" : "#ffffff");
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = Math.max(window.scrollY, 0);
+          const delta = currentScrollY - prevScrollY;
+
+          if (currentScrollY <= 0) {
+            setMenuDisplay(true);
+            setMenuBackground("transparent");
+          } else if (Math.abs(delta) > 5) {
+            if (delta > 0) {
+              setMenuDisplay(false);
+            } else {
+              setMenuDisplay(true);
+              setMenuBackground(isHome ? "#23282b" : "#ffffff");
+            }
+          }
+
+          prevScrollY = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
       }
-      prevScrollY = currentScrollY;
     };
-    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [menuMobile, isHome]);
 
