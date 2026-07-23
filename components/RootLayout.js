@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
   const { menuBackground, setMenuBackground } = useContext(StateContext);
   const [appLoader, setAppLoader] = useState(false);
   const [moveLogo, setMoveLogo] = useState(false);
-  const [animKey, setAnimKey] = useState(0);
 
   const router = useRouter();
   let pathname = router.pathname;
@@ -42,12 +41,6 @@ export default function RootLayout({ children }) {
     }
     setScreenSize(screenSize);
   };
-
-  useEffect(() => {
-    if (menuDisplay) {
-      setAnimKey((prev) => prev + 1);
-    }
-  }, [menuDisplay]);
 
   useEffect(() => {
     const localCurrentUser = JSON.parse(
@@ -84,36 +77,21 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     let prevScrollY = window.scrollY;
-    let ticking = false;
-
     const handleScroll = () => {
       if (menuMobile) return;
-
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScrollY = Math.max(window.scrollY, 0);
-          const delta = currentScrollY - prevScrollY;
-
-          if (currentScrollY <= 0) {
-            setMenuDisplay(true);
-            setMenuBackground("transparent");
-          } else if (Math.abs(delta) > 5) {
-            if (delta > 0) {
-              setMenuDisplay(false);
-            } else {
-              setMenuDisplay(true);
-              setMenuBackground(isHome ? "#23282b" : "#ffffff");
-            }
-          }
-
-          prevScrollY = currentScrollY;
-          ticking = false;
-        });
-        ticking = true;
+      const currentScrollY = window.scrollY;
+      if (currentScrollY <= 0) {
+        setMenuDisplay(true);
+        setMenuBackground("transparent");
+      } else if (currentScrollY > prevScrollY) {
+        setMenuDisplay(false);
+      } else if (currentScrollY < prevScrollY) {
+        setMenuDisplay(true);
+        setMenuBackground(isHome ? "#23282b" : "#ffffff");
       }
+      prevScrollY = currentScrollY;
     };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [menuMobile, isHome]);
 
@@ -126,10 +104,7 @@ export default function RootLayout({ children }) {
           }}
         >
           {menuDisplay && (
-            <section
-              key={animKey}
-              className="menu animate__animated animate__slideInDown"
-            >
+            <section className="menu animate__animated animate__slideInDown">
               <Menu />
             </section>
           )}
