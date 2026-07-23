@@ -27,12 +27,8 @@
     position: absolute;
     z-index: 2;
     left: 50%;
-    bottom: 12%;
+    bottom: 15%;
     transform: translateX(-50%);
-
-    @include mixins.mobile {
-      bottom: 15%;
-    }
   }
 }
 
