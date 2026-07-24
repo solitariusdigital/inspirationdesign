@@ -475,7 +475,7 @@ export default function About() {
                       >
                         {index === 4 && (
                           <CircleOutlinedIcon
-                            sx={{ fontSize: 10 }}
+                            sx={{ fontSize: 8 }}
                             style={{
                               marginRight: "8px",
                             }}
