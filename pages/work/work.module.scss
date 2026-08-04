@@ -25,22 +25,20 @@
       width: 60%;
     }
 
-    .nav {
+    .nav,
+    .navActive {
       width: fit-content;
       font-size: small;
       font-family: "RobotoRegular";
-
+    }
+    .nav {
       &:hover {
         cursor: pointer;
         color: config.$grey;
       }
     }
-
     .navActive {
-      width: fit-content;
-      font-size: small;
       color: config.$grey;
-      font-family: "RobotoRegular";
     }
   }
 

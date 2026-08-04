@@ -17,6 +17,7 @@
 
     @include mixins.mobile {
       width: calc(100% - 24px);
+      flex-wrap: wrap;
     }
     @include mixins.tabletPortrait {
       width: 60%;
@@ -25,22 +26,25 @@
       width: 50%;
     }
 
-    .nav {
+    .nav,
+    .navActive {
       width: fit-content;
       font-size: small;
       font-family: "RobotoRegular";
 
+      @include mixins.mobile {
+        width: 50%;
+        margin: 4px 0px;
+      }
+    }
+    .nav {
       &:hover {
         cursor: pointer;
         color: config.$grey;
       }
     }
-
     .navActive {
-      width: fit-content;
-      font-size: small;
       color: config.$grey;
-      font-family: "RobotoRegular";
     }
   }
 
