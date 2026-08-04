@@ -43,7 +43,9 @@ export default function CoverSlider() {
       link: "work/Orchard-Residence",
     },
     {
-      path: "Resources/Cover/lowry.jpg",
+      path: fullSizeScreen
+        ? "Resources/Cover/lowry.jpg"
+        : "Resources/Cover/lowry-mobile.jpg",
       type: "image",
       link: "work/Lowry-Residence",
     },
