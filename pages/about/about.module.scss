@@ -16,8 +16,9 @@
     text-transform: uppercase;
 
     @include mixins.mobile {
-      width: calc(100% - 24px);
       flex-wrap: wrap;
+      justify-content: flex-start;
+      width: calc(100% - 24px);
     }
     @include mixins.tabletPortrait {
       width: 60%;
@@ -33,7 +34,7 @@
       font-family: "RobotoRegular";
 
       @include mixins.mobile {
-        width: 50%;
+        width: 30%;
         margin: 4px 0px;
       }
     }
