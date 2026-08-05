@@ -7,7 +7,7 @@ export default function FirebaseImage({
   path,
   alt,
   objectFit = "cover",
-  mode = "fill", // "fill" or "intrinsic"
+  mode = "fill",
 }) {
   const [url, setUrl] = useState(null);
   const [loaded, setLoaded] = useState(false);
@@ -15,10 +15,12 @@ export default function FirebaseImage({
   useEffect(() => {
     if (!path) {
       setUrl(null);
+      setLoaded(false);
       return;
     }
     let cancelled = false;
     setUrl(null);
+    setLoaded(false);
     const imageRef = ref(storage, path);
     getDownloadURL(imageRef)
       .then((downloadURL) => {
@@ -30,10 +32,10 @@ export default function FirebaseImage({
     };
   }, [path]);
 
-  if (!url) return;
+  if (!url) return null;
 
   const baseStyle = {
-    objectFit: objectFit,
+    objectFit,
     opacity: loaded ? 1 : 0,
     filter: loaded ? "none" : "blur(20px)",
     transition: "opacity 0.2s ease-in, filter 0.3s ease-in",
@@ -44,6 +46,7 @@ export default function FirebaseImage({
   if (mode === "fill") {
     return (
       <Image
+        key={url}
         src={url}
         alt={alt}
         fill
@@ -55,18 +58,14 @@ export default function FirebaseImage({
     );
   }
 
-  // intrinsic mode
   return (
     <Image
+      key={url}
       src={url}
       alt={alt}
       width={1200}
       height={800}
-      style={{
-        ...baseStyle,
-        width: "100%",
-        height: "auto",
-      }}
+      style={{ ...baseStyle, width: "100%", height: "auto" }}
       unoptimized
       priority
       onLoad={() => setLoaded(true)}
