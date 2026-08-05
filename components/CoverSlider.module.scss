@@ -12,6 +12,11 @@
     position: relative;
     height: 100dvh;
     cursor: pointer;
+
+    .imageBox {
+      position: relative;
+      height: 100%;
+    }
   }
 
   .video {

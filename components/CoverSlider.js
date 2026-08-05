@@ -187,7 +187,10 @@ export default function CoverSlider() {
           <SwiperSlide key={index}>
             <div className={classes.media}>
               {item.type === "image" ? (
-                <div onClick={() => Router.push(item.link)}>
+                <div
+                  onClick={() => Router.push(item.link)}
+                  className={classes.imageBox}
+                >
                   <FirebaseImage path={item.path} alt="image" />
                 </div>
               ) : (
