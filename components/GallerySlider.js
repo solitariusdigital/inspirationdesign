@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef, useState } from "react";
 import classes from "./GallerySlider.module.scss";
 import FirebaseImage from "./FirebaseImage";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,10 +8,13 @@ import "swiper/css/navigation";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
+const RENDER_WINDOW = 2;
+
 export default function GallerySlider({ media, startIndex }) {
   const swiperRef = useRef(null);
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(startIndex ?? 0);
 
   return (
     <div className={classes.slider}>
@@ -38,14 +41,27 @@ export default function GallerySlider({ media, startIndex }) {
             swiper.params.navigation.prevEl = navigationPrevRef.current;
             swiper.params.navigation.nextEl = navigationNextRef.current;
           }}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         >
-          {media.map((image, index) => (
-            <SwiperSlide key={index}>
-              <div className={classes.image}>
-                <FirebaseImage path={image} alt="image" objectFit="contain" />
-              </div>
-            </SwiperSlide>
-          ))}
+          {media.map((image, index) => {
+            const isNearActive = Math.abs(index - activeIndex) <= RENDER_WINDOW;
+
+            return (
+              <SwiperSlide key={index}>
+                <div className={classes.image}>
+                  {isNearActive ? (
+                    <FirebaseImage
+                      path={image}
+                      alt="image"
+                      objectFit="contain"
+                    />
+                  ) : (
+                    <div className={classes.placeholder} />
+                  )}
+                </div>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </div>
