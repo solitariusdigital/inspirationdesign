@@ -17,13 +17,17 @@ export default function FirebaseImage({
       setUrl(null);
       return;
     }
+    let cancelled = false;
     setUrl(null);
     const imageRef = ref(storage, path);
     getDownloadURL(imageRef)
       .then((downloadURL) => {
-        setUrl(downloadURL);
+        if (!cancelled) setUrl(downloadURL);
       })
       .catch((err) => console.error("Error loading Firebase image:", err));
+    return () => {
+      cancelled = true;
+    };
   }, [path]);
 
   if (!url) return;
