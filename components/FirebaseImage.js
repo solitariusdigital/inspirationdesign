@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "@/services/firebase";
@@ -11,6 +11,7 @@ export default function FirebaseImage({
 }) {
   const [url, setUrl] = useState(null);
   const [loaded, setLoaded] = useState(false);
+  const wrapperRef = useRef(null);
 
   useEffect(() => {
     if (!path) {
@@ -34,6 +35,17 @@ export default function FirebaseImage({
 
   if (!url) return null;
 
+  const forceRepaint = () => {
+    setLoaded(true);
+    requestAnimationFrame(() => {
+      const el = wrapperRef.current;
+      if (!el) return;
+      el.style.display = "none";
+      void el.offsetHeight; // force synchronous reflow
+      el.style.display = "";
+    });
+  };
+
   const baseStyle = {
     objectFit,
     opacity: loaded ? 1 : 0,
@@ -41,34 +53,35 @@ export default function FirebaseImage({
     transition: "opacity 0.2s ease-in, filter 0.3s ease-in",
     boxShadow: `rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px`,
+    transform: "translateZ(0)",
+    WebkitTransform: "translateZ(0)",
+    backfaceVisibility: "hidden",
+    WebkitBackfaceVisibility: "hidden",
   };
 
-  if (mode === "fill") {
-    return (
+  return (
+    <div
+      ref={wrapperRef}
+      style={{
+        position: mode === "fill" ? "relative" : "static",
+        width: "100%",
+        height: mode === "fill" ? "100%" : "auto",
+      }}
+    >
       <Image
         key={url}
         src={url}
         alt={alt}
-        fill
-        style={baseStyle}
+        {...(mode === "fill" ? { fill: true } : { width: 1200, height: 800 })}
+        style={
+          mode === "fill"
+            ? baseStyle
+            : { ...baseStyle, width: "100%", height: "auto" }
+        }
         unoptimized
         priority
-        onLoad={() => setLoaded(true)}
+        onLoad={forceRepaint}
       />
-    );
-  }
-
-  return (
-    <Image
-      key={url}
-      src={url}
-      alt={alt}
-      width={1200}
-      height={800}
-      style={{ ...baseStyle, width: "100%", height: "auto" }}
-      unoptimized
-      priority
-      onLoad={() => setLoaded(true)}
-    />
+    </div>
   );
 }
