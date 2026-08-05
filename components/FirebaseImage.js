@@ -13,7 +13,11 @@ export default function FirebaseImage({
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (!path) return;
+    if (!path) {
+      setUrl(null);
+      return;
+    }
+    setUrl(null);
     const imageRef = ref(storage, path);
     getDownloadURL(imageRef)
       .then((downloadURL) => {

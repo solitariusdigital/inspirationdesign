@@ -19,6 +19,7 @@
       flex-wrap: wrap;
       justify-content: flex-start;
       width: calc(100% - 24px);
+      row-gap: 8px;
     }
     @include mixins.tabletPortrait {
       width: 60%;
@@ -35,7 +36,6 @@
 
       @include mixins.mobile {
         width: 30%;
-        margin: 4px 0px;
       }
     }
     .nav {

@@ -428,7 +428,10 @@ export default function About() {
               >
                 <div className={classes.box}>
                   {section.path && (
-                    <div className={classes.imageBox}>
+                    <div
+                      className={classes.imageBox}
+                      key={section.path || index}
+                    >
                       <FirebaseImage
                         path={section.path}
                         alt="about"
