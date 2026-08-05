@@ -8,17 +8,34 @@ export default function FirebaseImage({
   alt,
   objectFit = "cover",
   mode = "fill",
+  priority = false, // only pass true explicitly for true hero/above-fold images
 }) {
   const [url, setUrl] = useState(null);
   const [loaded, setLoaded] = useState(false);
+  const [inView, setInView] = useState(priority); // priority images skip the observer
   const wrapperRef = useRef(null);
 
+  // Gate everything behind visibility, unless this is a priority image
   useEffect(() => {
-    if (!path) {
-      setUrl(null);
-      setLoaded(false);
-      return;
-    }
+    if (priority || inView) return;
+    const el = wrapperRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" }, // start loading a bit before it's actually visible
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [priority, inView]);
+
+  useEffect(() => {
+    if (!path || !inView) return;
     let cancelled = false;
     setUrl(null);
     setLoaded(false);
@@ -31,9 +48,7 @@ export default function FirebaseImage({
     return () => {
       cancelled = true;
     };
-  }, [path]);
-
-  if (!url) return null;
+  }, [path, inView]);
 
   const forceRepaint = () => {
     setLoaded(true);
@@ -66,22 +81,25 @@ export default function FirebaseImage({
         position: mode === "fill" ? "relative" : "static",
         width: "100%",
         height: mode === "fill" ? "100%" : "auto",
+        minHeight: mode === "fill" ? undefined : "1px", // keeps observer able to measure before image loads
       }}
     >
-      <Image
-        key={url}
-        src={url}
-        alt={alt}
-        {...(mode === "fill" ? { fill: true } : { width: 1200, height: 800 })}
-        style={
-          mode === "fill"
-            ? baseStyle
-            : { ...baseStyle, width: "100%", height: "auto" }
-        }
-        unoptimized
-        priority
-        onLoad={forceRepaint}
-      />
+      {url && (
+        <Image
+          key={url}
+          src={url}
+          alt={alt}
+          {...(mode === "fill" ? { fill: true } : { width: 1200, height: 800 })}
+          style={
+            mode === "fill"
+              ? baseStyle
+              : { ...baseStyle, width: "100%", height: "auto" }
+          }
+          unoptimized
+          priority={priority}
+          onLoad={forceRepaint}
+        />
+      )}
     </div>
   );
 }
