@@ -255,13 +255,7 @@ export default function CoverSlider() {
                 href="/work"
                 passHref
               >
-                <h4
-                  style={{
-                    fontFamily: "RobotoRegular",
-                  }}
-                >
-                  {service.title}
-                </h4>
+                <h4>{service.title}</h4>
               </Link>
             ))}
           </div>
