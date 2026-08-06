@@ -322,9 +322,12 @@ export default function Project() {
                       </span>
                     );
                   });
-                if (trimmedDesc === "Credits") {
+                if (
+                  trimmedDesc === "Credits" ||
+                  trimmedDesc === "Project Note"
+                ) {
                   return (
-                    <h2
+                    <h3
                       className={classes.subTitle}
                       style={{
                         fontFamily: "RobotoRegular",
@@ -333,7 +336,7 @@ export default function Project() {
                       key={index}
                     >
                       {trimmedDesc}
-                    </h2>
+                    </h3>
                   );
                 }
                 return (

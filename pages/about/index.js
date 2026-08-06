@@ -534,7 +534,7 @@ export default function About() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          View the Certificate
+                          View the Document
                         </a>
                       </div>
                     )}

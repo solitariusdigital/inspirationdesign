@@ -188,7 +188,7 @@ export default function CoverSlider() {
             <div className={classes.media}>
               {item.type === "image" ? (
                 <div
-                  onClick={() => Router.push(item.link)}
+                  // onClick={() => Router.push(item.link)}
                   className={classes.imageBox}
                 >
                   <FirebaseImage path={item.path} alt="image" />

@@ -333,12 +333,6 @@ export default function Work() {
                   <>
                     {topics.map((item, index) => (
                       <div className={classes.list} key={index}>
-                        <CircleOutlinedIcon
-                          sx={{ fontSize: 8 }}
-                          style={{
-                            marginRight: "4px",
-                          }}
-                        />
                         <p onClick={() => scrollToDiv(index)}>{item}</p>
                       </div>
                     ))}

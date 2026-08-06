@@ -174,7 +174,7 @@
 
 .newsImageBox {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   gap: 24px;
   margin: 50px auto;
   max-width: config.$max-widthHeigh;
@@ -190,6 +190,7 @@
   }
 
   @include mixins.mobile {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
     width: 100%;
   }
   @include mixins.tabletPortrait {
@@ -266,7 +267,7 @@
     user-select: none;
   }
   .imageBoxPortrait {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 5;
 
     @include mixins.mobile {
       aspect-ratio: 4 / 5;
@@ -516,7 +517,7 @@
 
         p {
           margin: 4px 0px;
-          font-size: small;
+          font-size: medium;
         }
       }
     }
