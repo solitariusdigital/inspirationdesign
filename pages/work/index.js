@@ -318,7 +318,7 @@ export default function Work() {
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/1.jpg"
-                    alt="about"
+                    alt="construction"
                     mode="intrinsic"
                   />
                 </div>
@@ -349,27 +349,27 @@ export default function Work() {
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/8.jpg"
-                      alt="about"
+                      alt="construction"
                     />
+                    <p>North Vancouver, Canada, 2025</p>
                   </div>
-                  <p>North Vancouver, Canada, 2025</p>
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/10.jpg"
-                      alt="about"
+                      alt="construction"
                     />
+                    <p>
+                      Mold inside the wall of a two-year-old residential
+                      building, Kelowna, BC
+                    </p>
                   </div>
-                  <p>
-                    Mold inside the wall of a two-year-old residential building,
-                    Kelowna, BC
-                  </p>
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/12.jpg"
-                      alt="about"
+                      alt="construction"
                     />
+                    <p>Galvanized steel framing</p>
                   </div>
-                  <p>Galvanized steel framing</p>
                 </div>
                 <div className={classes.infoBox}>
                   <h3>Mold & Rot</h3>
@@ -414,28 +414,28 @@ export default function Work() {
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/13.jpg"
-                      alt="about"
+                      alt="construction"
                     />
+                    <p>
+                      Santa Rosa, California, USA, October 2018 - Over 5,600
+                      structures destroyed in one of California’s most
+                      destructive wildfires. Source: Insurance Journal
+                    </p>
                   </div>
-                  <p>
-                    Santa Rosa, California, USA, October 2018 - Over 5,600
-                    structures destroyed in one of California’s most destructive
-                    wildfires. Source: Insurance Journal
-                  </p>
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/14.jpg"
-                      alt="about"
+                      alt="construction"
                     />
+                    <p>Single-Family, West Kelowna Fire, BC, Canada 2023</p>
                   </div>
-                  <p>Single-Family, West Kelowna Fire, BC, Canada 2023</p>
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/15.jpg"
-                      alt="about"
+                      alt="construction"
                     />
+                    <p>Single-Family, West Kelowna Fire, BC, Canada 2023</p>
                   </div>
-                  <p>Single-Family, West Kelowna Fire, BC, Canada 2023</p>
                 </div>
                 <div className={classes.infoBox}>
                   <h3>Fire</h3>
@@ -465,7 +465,7 @@ export default function Work() {
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/16.jpg"
-                    alt="about"
+                    alt="construction"
                     mode="intrinsic"
                   />
                   <p>
@@ -505,13 +505,13 @@ export default function Work() {
                   >
                     <FirebaseImage
                       path="Resources/Construction/17.jpg"
-                      alt="about"
+                      alt="construction"
                       mode="intrinsic"
                     />
                   </div>
                   <FirebaseImage
                     path="Resources/Construction/18.jpg"
-                    alt="about"
+                    alt="construction"
                     mode="intrinsic"
                   />
                   <p>
@@ -549,22 +549,20 @@ export default function Work() {
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/19.jpg"
-                      alt="about"
-                      mode="intrinsic"
+                      alt="construction"
                     />
+                    <p>Image courtesy of Bailey Metal Products Limited</p>
                   </div>
-                  <p>Image courtesy of Bailey Metal Products Limited</p>
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/20.jpg"
-                      alt="about"
-                      // mode="intrinsic"
+                      alt="construction"
                     />
+                    <p>
+                      Images are provided by Fifthshire Homes and showing houses
+                      built of lightweight steel structure
+                    </p>
                   </div>
-                  <p>
-                    Images are provided by Fifthshire Homes and showing houses
-                    built of lightweight steel structure
-                  </p>
                 </div>
                 <div className={classes.infoBox}>
                   <h3>Sustainability</h3>
@@ -607,30 +605,31 @@ export default function Work() {
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/21.jpg"
-                      alt="about"
+                      alt="construction"
                     />
+                    <p>
+                      Prefabricated LSF Exterior Wall Panel with Integrated
+                      Window Openings. Buildsmartr project, Burnaby, BC, Canada
+                      (2023)
+                    </p>
                   </div>
-                  <p>
-                    Prefabricated LSF Exterior Wall Panel with Integrated Window
-                    Openings. Buildsmartr project, Burnaby, BC, Canada (2023)
-                  </p>
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/22.jpg"
-                      alt="about"
+                      alt="construction"
                     />
+                    <p>
+                      Computer-Calculated Prefabricated Steel Roof Truss
+                      Installation. Image source: Unbak Machinery
+                    </p>
                   </div>
-                  <p>
-                    Computer-Calculated Prefabricated Steel Roof Truss
-                    Installation. Image source: Unbak Machinery
-                  </p>
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/23.jpg"
-                      alt="about"
+                      alt="construction"
                     />
+                    <p>Image courtesy of Bailey Metal Products Limited</p>
                   </div>
-                  <p>Image courtesy of Bailey Metal Products Limited</p>
                 </div>
                 <div className={classes.infoBox}>
                   <h3>Speed & Cost</h3>
@@ -674,7 +673,7 @@ export default function Work() {
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/3.jpg"
-                    alt="about"
+                    alt="construction"
                     mode="intrinsic"
                   />
                   <p>
@@ -719,7 +718,7 @@ export default function Work() {
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/4.jpg"
-                    alt="about"
+                    alt="construction"
                     mode="intrinsic"
                   />
                   <p>
@@ -770,7 +769,7 @@ export default function Work() {
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/5.jpg"
-                    alt="about"
+                    alt="construction"
                     mode="intrinsic"
                   />
                   <p>
@@ -813,28 +812,32 @@ export default function Work() {
               ref={(el) => (refs.current[9] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.boxRow}>
-                  <div className={classes.imageBoxGridRow}>
-                    <div className={classes.imageFrame}>
-                      <FirebaseImage
-                        path="Resources/Construction/6.jpg"
-                        alt="about"
-                        mode="intrinsic"
-                      />
-                    </div>
-                    <div className={classes.imageFrame}>
-                      <FirebaseImage
-                        path="Resources/Construction/7.jpg"
-                        alt="about"
-                        mode="intrinsic"
-                      />
-                    </div>
+                <div className={classes.imageBoxGrid}>
+                  <div
+                    className={classes.imageFrame}
+                    style={{
+                      marginBottom: "8px",
+                    }}
+                  >
+                    <FirebaseImage
+                      path="Resources/Construction/6.jpg"
+                      alt="construction"
+                      mode="intrinsic"
+                    />
+                  </div>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/7.jpg"
+                      alt="construction"
+                      mode="intrinsic"
+                    />
                   </div>
                   <p>
                     Images are provided by Fifthshire Homes and showing houses
                     built of lightweight steel structure
                   </p>
                 </div>
+
                 <div className={classes.infoBox}>
                   <h2>Design, Consultation & Coordination</h2>
                   <p>
@@ -862,7 +865,7 @@ export default function Work() {
                 <div className={classes.imageBox}>
                   <FirebaseImage
                     path="Resources/Construction/2.jpg"
-                    alt="about"
+                    alt="construction"
                     mode="intrinsic"
                   />
                 </div>
