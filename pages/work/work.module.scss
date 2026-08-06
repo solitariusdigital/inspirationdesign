@@ -433,28 +433,43 @@
 
       @include mixins.mobile {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
       }
     }
 
-    .imageBoxGrid {
+    .imageBoxGridDouble,
+    .imageBoxGridThree {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-      gap: 1px;
-      width: 30%;
+      grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+      gap: 12px;
+      width: 100%;
+      margin-top: 28px;
       user-select: none;
       font-size: small;
 
-      .imageFrame {
+      @include mixins.mobile {
+        width: calc(100% + 24px);
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+      }
+
+      .imageFrame,
+      .imageFrameLandscape {
         position: relative;
         aspect-ratio: 4 / 3;
         filter: grayscale(100%);
 
+        @include mixins.mobile {
+          margin-top: 12px;
+        }
+
         p {
           margin-top: 8px;
-          margin-bottom: 16px;
         }
+      }
+
+      .imageFrameLandscape {
+        aspect-ratio: 16 / 9;
       }
 
       @include mixins.mobile {
@@ -469,7 +484,21 @@
       }
     }
 
-    .infoBox {
+    .imageBoxGridDouble {
+      grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+
+      @include mixins.mobile {
+        width: calc(100% + 24px);
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+      }
+    }
+
+    .infoBox,
+    .infoBoxSmall {
+      width: 100%;
+    }
+
+    .infoBoxSmall {
       width: 55%;
 
       @include mixins.mobile {
@@ -515,11 +544,11 @@
 
       p {
         font-size: small;
-        margin-top: 4px;
+        margin-top: 8px;
 
         @include mixins.mobile {
           margin: auto;
-          margin-top: 4px;
+          margin-top: 8px;
           width: calc(100% - 24px);
         }
       }

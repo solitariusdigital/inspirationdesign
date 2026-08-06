@@ -5,7 +5,6 @@ import classes from "./work.module.scss";
 import logoBlack from "@/assets/logo-black.png";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Tooltip from "@mui/material/Tooltip";
 import Link from "next/link";
@@ -315,14 +314,7 @@ export default function Work() {
           <div className={classes.constructionLayout}>
             <div className={classes.section}>
               <div className={classes.row}>
-                <div className={classes.imageBox}>
-                  <FirebaseImage
-                    path="Resources/Construction/1.jpg"
-                    alt="construction"
-                    mode="intrinsic"
-                  />
-                </div>
-                <div className={classes.infoBox}>
+                <div className={classes.infoBoxSmall}>
                   <h1
                     style={{
                       marginBottom: "24px",
@@ -338,6 +330,13 @@ export default function Work() {
                     ))}
                   </>
                 </div>
+                <div className={classes.imageBox}>
+                  <FirebaseImage
+                    path="Resources/Construction/1.jpg"
+                    alt="construction"
+                    mode="intrinsic"
+                  />
+                </div>
               </div>
             </div>
             <div
@@ -345,32 +344,6 @@ export default function Work() {
               ref={(el) => (refs.current[0] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.imageBoxGrid}>
-                  <div className={classes.imageFrame}>
-                    <FirebaseImage
-                      path="Resources/Construction/8.jpg"
-                      alt="construction"
-                    />
-                    <p>North Vancouver, Canada, 2025</p>
-                  </div>
-                  <div className={classes.imageFrame}>
-                    <FirebaseImage
-                      path="Resources/Construction/10.jpg"
-                      alt="construction"
-                    />
-                    <p>
-                      Mold inside the wall of a two-year-old residential
-                      building, Kelowna, BC
-                    </p>
-                  </div>
-                  <div className={classes.imageFrame}>
-                    <FirebaseImage
-                      path="Resources/Construction/12.jpg"
-                      alt="construction"
-                    />
-                    <p>Galvanized steel framing</p>
-                  </div>
-                </div>
                 <div className={classes.infoBox}>
                   <h3>Mold & Rot</h3>
                   <h4 style={marginStyle}>
@@ -404,13 +377,61 @@ export default function Work() {
                   </p>
                 </div>
               </div>
+              <div className={classes.row}>
+                <div className={classes.imageBoxGridThree}>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/8.jpg"
+                      alt="construction"
+                    />
+                    <p>North Vancouver, Canada, 2025</p>
+                  </div>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/10.jpg"
+                      alt="construction"
+                    />
+                    <p>
+                      Mold inside the wall of a two-year-old residential
+                      building, Kelowna, BC
+                    </p>
+                  </div>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/12.jpg"
+                      alt="construction"
+                    />
+                    <p>Galvanized steel framing</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div
               className={classes.section}
               ref={(el) => (refs.current[1] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.imageBoxGrid}>
+                <div className={classes.infoBox}>
+                  <h3>Fire</h3>
+                  <h4 style={marginStyle}>
+                    LSF is non-combustible, unlike wood.
+                  </h4>
+                  <p>
+                    Wood can ignite from heat, even without direct flame and
+                    spread fire rapidly unlike non-combustible materials.
+                  </p>
+                  <p>
+                    Fire destroys homes in minutes, loss that insurance can
+                    never replace.
+                  </p>
+                  <p>
+                    Non-combustible galvanized steel framing does not ignite or
+                    spread fire like wood.
+                  </p>
+                </div>
+              </div>
+              <div className={classes.row}>
+                <div className={classes.imageBoxGridThree}>
                   <div className={classes.imageFrame}>
                     <FirebaseImage
                       path="Resources/Construction/13.jpg"
@@ -437,24 +458,6 @@ export default function Work() {
                     <p>Single-Family, West Kelowna Fire, BC, Canada 2023</p>
                   </div>
                 </div>
-                <div className={classes.infoBox}>
-                  <h3>Fire</h3>
-                  <h4 style={marginStyle}>
-                    LSF is non-combustible, unlike wood.
-                  </h4>
-                  <p>
-                    Wood can ignite from heat, even without direct flame and
-                    spread fire rapidly unlike non-combustible materials.
-                  </p>
-                  <p>
-                    Fire destroys homes in minutes, loss that insurance can
-                    never replace.
-                  </p>
-                  <p>
-                    Non-combustible galvanized steel framing does not ignite or
-                    spread fire like wood.
-                  </p>
-                </div>
               </div>
             </div>
             <div
@@ -462,18 +465,7 @@ export default function Work() {
               ref={(el) => (refs.current[2] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.imageBox}>
-                  <FirebaseImage
-                    path="Resources/Construction/16.jpg"
-                    alt="construction"
-                    mode="intrinsic"
-                  />
-                  <p>
-                    Single-Family Housing Structure with Lightweight Steel
-                    Framing. Image courtesy of BONE Structure
-                  </p>
-                </div>
-                <div className={classes.infoBox}>
+                <div className={classes.infoBoxSmall}>
                   <h3>Strength & Durability</h3>
                   <p>
                     LSF provides high structural strength, long-term durability
@@ -490,6 +482,17 @@ export default function Work() {
                     up to 60% less than comparable wood members.
                   </p>
                 </div>
+                <div className={classes.imageBox}>
+                  <FirebaseImage
+                    path="Resources/Construction/16.jpg"
+                    alt="construction"
+                    mode="intrinsic"
+                  />
+                  <p>
+                    Single-Family Housing Structure with Lightweight Steel
+                    Framing. Image courtesy of BONE Structure
+                  </p>
+                </div>
               </div>
             </div>
             <div
@@ -497,28 +500,6 @@ export default function Work() {
               ref={(el) => (refs.current[3] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.imageBox}>
-                  <div
-                    style={{
-                      marginBottom: "8px",
-                    }}
-                  >
-                    <FirebaseImage
-                      path="Resources/Construction/17.jpg"
-                      alt="construction"
-                      mode="intrinsic"
-                    />
-                  </div>
-                  <FirebaseImage
-                    path="Resources/Construction/18.jpg"
-                    alt="construction"
-                    mode="intrinsic"
-                  />
-                  <p>
-                    House Design Using a Lightweight Steel Framing by
-                    Inspiration Design Ltd.
-                  </p>
-                </div>
                 <div className={classes.infoBox}>
                   <h3>Design Freedom & Precision</h3>
                   <h4 style={marginStyle}>
@@ -539,31 +520,32 @@ export default function Work() {
                   </p>
                 </div>
               </div>
+              <div className={classes.row}>
+                <div className={classes.imageBoxGridDouble}>
+                  <div className={classes.imageFrameLandscape}>
+                    <FirebaseImage
+                      path="Resources/Construction/17.jpg"
+                      alt="construction"
+                    />
+                    <p>
+                      House Design Using a Lightweight Steel Framing by
+                      Inspiration Design Ltd.
+                    </p>
+                  </div>
+                  <div className={classes.imageFrameLandscape}>
+                    <FirebaseImage
+                      path="Resources/Construction/18.jpg"
+                      alt="construction"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
             <div
               className={classes.section}
               ref={(el) => (refs.current[4] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.imageBoxGrid}>
-                  <div className={classes.imageFrame}>
-                    <FirebaseImage
-                      path="Resources/Construction/19.jpg"
-                      alt="construction"
-                    />
-                    <p>Image courtesy of Bailey Metal Products Limited</p>
-                  </div>
-                  <div className={classes.imageFrame}>
-                    <FirebaseImage
-                      path="Resources/Construction/20.jpg"
-                      alt="construction"
-                    />
-                    <p>
-                      Images are provided by Fifthshire Homes and showing houses
-                      built of lightweight steel structure
-                    </p>
-                  </div>
-                </div>
                 <div className={classes.infoBox}>
                   <h3>Sustainability</h3>
                   <h4 style={marginStyle}>
@@ -595,42 +577,33 @@ export default function Work() {
                   </p>
                 </div>
               </div>
+              <div className={classes.row}>
+                <div className={classes.imageBoxGridDouble}>
+                  <div className={classes.imageFrameLandscape}>
+                    <FirebaseImage
+                      path="Resources/Construction/19.jpg"
+                      alt="construction"
+                    />
+                    <p>Image courtesy of Bailey Metal Products Limited</p>
+                  </div>
+                  <div className={classes.imageFrameLandscape}>
+                    <FirebaseImage
+                      path="Resources/Construction/20.jpg"
+                      alt="construction"
+                    />
+                    <p>
+                      Images are provided by Fifthshire Homes and showing houses
+                      built of lightweight steel structure
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div
               className={classes.section}
               ref={(el) => (refs.current[5] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.imageBoxGrid}>
-                  <div className={classes.imageFrame}>
-                    <FirebaseImage
-                      path="Resources/Construction/21.jpg"
-                      alt="construction"
-                    />
-                    <p>
-                      Prefabricated LSF Exterior Wall Panel with Integrated
-                      Window Openings. Buildsmartr project, Burnaby, BC, Canada
-                      (2023)
-                    </p>
-                  </div>
-                  <div className={classes.imageFrame}>
-                    <FirebaseImage
-                      path="Resources/Construction/22.jpg"
-                      alt="construction"
-                    />
-                    <p>
-                      Computer-Calculated Prefabricated Steel Roof Truss
-                      Installation. Image source: Unbak Machinery
-                    </p>
-                  </div>
-                  <div className={classes.imageFrame}>
-                    <FirebaseImage
-                      path="Resources/Construction/23.jpg"
-                      alt="construction"
-                    />
-                    <p>Image courtesy of Bailey Metal Products Limited</p>
-                  </div>
-                </div>
                 <div className={classes.infoBox}>
                   <h3>Speed & Cost</h3>
                   <p>LSF reduces overall construction time and cost.</p>
@@ -663,6 +636,38 @@ export default function Work() {
                   </p>
                 </div>
               </div>
+              <div className={classes.row}>
+                <div className={classes.imageBoxGridThree}>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/21.jpg"
+                      alt="construction"
+                    />
+                    <p>
+                      Prefabricated LSF Exterior Wall Panel with Integrated
+                      Window Openings. Buildsmartr project, Burnaby, BC, Canada
+                      (2023)
+                    </p>
+                  </div>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/22.jpg"
+                      alt="construction"
+                    />
+                    <p>
+                      Computer-Calculated Prefabricated Steel Roof Truss
+                      Installation. Image source: Unbak Machinery
+                    </p>
+                  </div>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/23.jpg"
+                      alt="construction"
+                    />
+                    <p>Image courtesy of Bailey Metal Products Limited</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className={classes.border}></div>
             <div
@@ -670,18 +675,7 @@ export default function Work() {
               ref={(el) => (refs.current[6] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.imageBox}>
-                  <FirebaseImage
-                    path="Resources/Construction/3.jpg"
-                    alt="construction"
-                    mode="intrinsic"
-                  />
-                  <p>
-                    Computer-Controlled Manufacturing of Lightweight Steel
-                    Sections - Courtesy & Source: Bradbury Group,
-                  </p>
-                </div>
-                <div className={classes.infoBox}>
+                <div className={classes.infoBoxSmall}>
                   <h2>Healthy Buildings, Designed with Science</h2>
                   <p>
                     At Inspiration Design Ltd., healthy house design is guided
@@ -707,6 +701,17 @@ export default function Work() {
                     realistic timelines and budgets.
                   </p>
                 </div>
+                <div className={classes.imageBox}>
+                  <FirebaseImage
+                    path="Resources/Construction/3.jpg"
+                    alt="construction"
+                    mode="intrinsic"
+                  />
+                  <p>
+                    Computer-Controlled Manufacturing of Lightweight Steel
+                    Sections - Courtesy & Source: Bradbury Group,
+                  </p>
+                </div>
               </div>
             </div>
             <div className={classes.border}></div>
@@ -715,18 +720,7 @@ export default function Work() {
               ref={(el) => (refs.current[7] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.imageBox}>
-                  <FirebaseImage
-                    path="Resources/Construction/4.jpg"
-                    alt="construction"
-                    mode="intrinsic"
-                  />
-                  <p>
-                    Residential Lightweight Steel Framing System - Image
-                    courtesy of Bailey Metal Products Limited
-                  </p>
-                </div>
-                <div className={classes.infoBox}>
+                <div className={classes.infoBoxSmall}>
                   <h2>Why Lightweight Steel Framing in Housing</h2>
                   <p>
                     Lightweight steel framing has long been used worldwide in
@@ -758,6 +752,17 @@ export default function Work() {
                     efficiently.
                   </p>
                 </div>
+                <div className={classes.imageBox}>
+                  <FirebaseImage
+                    path="Resources/Construction/4.jpg"
+                    alt="construction"
+                    mode="intrinsic"
+                  />
+                  <p>
+                    Residential Lightweight Steel Framing System - Image
+                    courtesy of Bailey Metal Products Limited
+                  </p>
+                </div>
               </div>
             </div>
             <div className={classes.border}></div>
@@ -766,19 +771,7 @@ export default function Work() {
               ref={(el) => (refs.current[8] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.imageBox}>
-                  <FirebaseImage
-                    path="Resources/Construction/5.jpg"
-                    alt="construction"
-                    mode="intrinsic"
-                  />
-                  <p>
-                    Computer-Controlled Roll-Forming of Lightweight Steel
-                    Framing Components Image courtesy of Kingreal Roll Forming
-                    Company
-                  </p>
-                </div>
-                <div className={classes.infoBox}>
+                <div className={classes.infoBoxSmall}>
                   <h2>Our Expertise is What We Offer</h2>
                   <p>
                     We provide building design, interior design, lighting
@@ -804,6 +797,18 @@ export default function Work() {
                     integrated into residential projects.
                   </p>
                 </div>
+                <div className={classes.imageBox}>
+                  <FirebaseImage
+                    path="Resources/Construction/5.jpg"
+                    alt="construction"
+                    mode="intrinsic"
+                  />
+                  <p>
+                    Computer-Controlled Roll-Forming of Lightweight Steel
+                    Framing Components Image courtesy of Kingreal Roll Forming
+                    Company
+                  </p>
+                </div>
               </div>
             </div>
             <div className={classes.border}></div>
@@ -812,32 +817,6 @@ export default function Work() {
               ref={(el) => (refs.current[9] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.imageBoxGrid}>
-                  <div
-                    className={classes.imageFrame}
-                    style={{
-                      marginBottom: "8px",
-                    }}
-                  >
-                    <FirebaseImage
-                      path="Resources/Construction/6.jpg"
-                      alt="construction"
-                      mode="intrinsic"
-                    />
-                  </div>
-                  <div className={classes.imageFrame}>
-                    <FirebaseImage
-                      path="Resources/Construction/7.jpg"
-                      alt="construction"
-                      mode="intrinsic"
-                    />
-                  </div>
-                  <p>
-                    Images are provided by Fifthshire Homes and showing houses
-                    built of lightweight steel structure
-                  </p>
-                </div>
-
                 <div className={classes.infoBox}>
                   <h2>Design, Consultation & Coordination</h2>
                   <p>
@@ -855,6 +834,26 @@ export default function Work() {
                   </p>
                 </div>
               </div>
+              <div className={classes.row}>
+                <div className={classes.imageBoxGridDouble}>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/6.jpg"
+                      alt="construction"
+                    />
+                    <p>
+                      Images are provided by Fifthshire Homes and showing houses
+                      built of lightweight steel structure
+                    </p>
+                  </div>
+                  <div className={classes.imageFrame}>
+                    <FirebaseImage
+                      path="Resources/Construction/7.jpg"
+                      alt="construction"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
             <div className={classes.border}></div>
             <div
@@ -862,14 +861,7 @@ export default function Work() {
               ref={(el) => (refs.current[10] = el)}
             >
               <div className={classes.row}>
-                <div className={classes.imageBox}>
-                  <FirebaseImage
-                    path="Resources/Construction/2.jpg"
-                    alt="construction"
-                    mode="intrinsic"
-                  />
-                </div>
-                <div className={classes.infoBox}>
+                <div className={classes.infoBoxSmall}>
                   <h2>Research-Based Practice</h2>
                   <p>
                     Inspiration Design Ltd. is led by Dr. Parastoo Jafari, who
@@ -894,6 +886,13 @@ export default function Work() {
                     Designing homes that are healthier, safer and built to last
                     from the structure outward.
                   </p>
+                </div>
+                <div className={classes.imageBox}>
+                  <FirebaseImage
+                    path="Resources/Construction/2.jpg"
+                    alt="construction"
+                    mode="intrinsic"
+                  />
                 </div>
               </div>
             </div>
