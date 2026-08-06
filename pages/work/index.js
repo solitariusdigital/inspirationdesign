@@ -325,7 +325,7 @@ export default function Work() {
                   <>
                     {topics.map((item, index) => (
                       <div className={classes.list} key={index}>
-                        <p onClick={() => scrollToDiv(index)}>{item}</p>
+                        <h4 onClick={() => scrollToDiv(index)}>{item}</h4>
                       </div>
                     ))}
                   </>

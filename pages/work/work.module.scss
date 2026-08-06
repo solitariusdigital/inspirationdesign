@@ -518,16 +518,16 @@
         align-items: first baseline;
         width: fit-content;
 
-        @include mixins.allDesktop {
-          &:hover {
-            cursor: pointer;
-            color: config.$grey;
-          }
-        }
-
-        p {
+        h4 {
           margin: 4px 0px;
-          font-size: medium;
+          color: config.$grey;
+
+          @include mixins.allDesktop {
+            &:hover {
+              cursor: pointer;
+              color: config.$lightGrey;
+            }
+          }
         }
       }
     }
