@@ -6,13 +6,17 @@
   width: config.$content-width;
   max-width: config.$max-widthHeigh;
 
+  @include mixins.mobile {
+    width: 100%;
+  }
+
   .form {
     @include mixins.row-space-between-center();
     margin: auto;
     width: config.$content-widthText;
 
     @include mixins.mobile {
-      width: 100%;
+      width: calc(100% - 24px);
     }
 
     input {
@@ -48,6 +52,13 @@
       &:hover {
         h2 {
           color: config.$grey;
+        }
+      }
+
+      h2 {
+        @include mixins.mobile {
+          margin: auto;
+          width: calc(100% - 24px);
         }
       }
     }
