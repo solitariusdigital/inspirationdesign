@@ -89,7 +89,7 @@ export default function Menu() {
           <div
             className={classes.logo}
             onClick={() => {
-              setMenuMobile(!menuMobile);
+              setMenuMobile(false);
             }}
           >
             <Link href="/" passHref>
