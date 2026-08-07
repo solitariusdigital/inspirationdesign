@@ -6,11 +6,11 @@
   user-select: none;
   text-transform: uppercase;
   width: 100%;
-  max-width: config.$max-widthHeigh;
 
   .fullMenu {
     margin: auto;
     width: config.$content-width;
+    max-width: config.$max-widthHeigh;
     @include mixins.row-space-between-center();
   }
 

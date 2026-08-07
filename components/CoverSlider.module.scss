@@ -4,9 +4,10 @@
 .container {
   position: relative;
   margin: auto;
-  user-select: none;
   height: 100dvh;
   background: config.$dark;
+  user-select: none;
+  max-width: config.$max-widthHeigh;
 
   .media {
     position: relative;
@@ -52,6 +53,7 @@
   color: config.$white;
   text-transform: uppercase;
   overflow: hidden;
+  max-width: config.$max-widthHeigh;
 }
 
 .sliderInfoTop,

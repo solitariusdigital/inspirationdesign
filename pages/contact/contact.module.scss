@@ -29,6 +29,8 @@
   .contact {
     position: relative;
     margin-bottom: 50px;
+    max-width: config.$max-widthHeigh;
+    margin: auto;
 
     .imageBox {
       position: relative;

@@ -3,6 +3,7 @@
 
 .container {
   color: config.$white;
+  background: config.$dark;
 
   @include mixins.mobile {
     padding-bottom: 50px;
@@ -10,7 +11,7 @@
 
   .button {
     position: relative;
-    bottom: 20px;
+    top: 20px;
     display: flex;
     justify-content: center;
 
@@ -35,8 +36,9 @@
 .services {
   position: relative;
   text-align: center;
-  background: config.$dark;
+  margin: auto;
   padding-top: 100px;
+  max-width: config.$max-widthHeigh;
 
   .infoBox {
     display: grid;
