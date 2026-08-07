@@ -112,15 +112,17 @@ export default function Menu() {
               </Tooltip>
             </>
           )}
-          <Tooltip title="Search">
-            <SearchIcon
-              className="icon"
-              sx={{ fontSize: 18, color: colorCode }}
-              onClick={() => {
-                Router.push("/search");
-              }}
-            />
-          </Tooltip>
+          {fullSizeScreen && (
+            <Tooltip title="Search">
+              <SearchIcon
+                className="icon"
+                sx={{ fontSize: 18, color: colorCode }}
+                onClick={() => {
+                  Router.push("/search");
+                }}
+              />
+            </Tooltip>
+          )}
         </div>
         {fullSizeScreen && (
           <nav
@@ -173,6 +175,22 @@ export default function Menu() {
                     {nav.title}
                   </Link>
                 ))}
+                <Tooltip
+                  title="Search"
+                  className={classes.nav}
+                  style={{
+                    animationDelay: `${4 * 180}ms`,
+                  }}
+                >
+                  <SearchIcon
+                    className="icon"
+                    sx={{ fontSize: 18 }}
+                    onClick={() => {
+                      Router.push("/search");
+                      setMenuMobile(!menuMobile);
+                    }}
+                  />
+                </Tooltip>
               </nav>
             )}
           </nav>
