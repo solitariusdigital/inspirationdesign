@@ -13,6 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import LogoutIcon from "@mui/icons-material/Logout";
 import secureLocalStorage from "react-secure-storage";
+import SearchIcon from "@mui/icons-material/Search";
 import { signOut } from "firebase/auth";
 import { auth } from "@/services/firebase";
 
@@ -83,28 +84,44 @@ export default function Menu() {
             />
           </Link>
         </div>
-        {currentUser && (
-          <div className={classes.portal}>
-            <Tooltip title="Logout">
-              <LogoutIcon
-                className="icon"
-                sx={{ fontSize: 18, color: colorCode }}
-                onClick={() => logout()}
-              />
-            </Tooltip>
-            <Tooltip title="Portal">
-              <SpaceDashboardIcon
-                className="icon"
-                sx={{ fontSize: 18, color: colorCode }}
-                onClick={() => {
-                  Router.push("/portal");
-                  setEditProject(null);
-                  setEditNews(null);
+        <div className={classes.portal}>
+          {currentUser && (
+            <>
+              <Tooltip title="Logout">
+                <LogoutIcon
+                  className="icon"
+                  sx={{ fontSize: 18, color: colorCode }}
+                  onClick={() => logout()}
+                />
+              </Tooltip>
+              <Tooltip
+                title="Portal"
+                style={{
+                  margin: "0px 8px",
                 }}
-              />
-            </Tooltip>
-          </div>
-        )}
+              >
+                <SpaceDashboardIcon
+                  className="icon"
+                  sx={{ fontSize: 18, color: colorCode }}
+                  onClick={() => {
+                    Router.push("/portal");
+                    setEditProject(null);
+                    setEditNews(null);
+                  }}
+                />
+              </Tooltip>
+            </>
+          )}
+          <Tooltip title="Search">
+            <SearchIcon
+              className="icon"
+              sx={{ fontSize: 18, color: colorCode }}
+              onClick={() => {
+                Router.push("/search");
+              }}
+            />
+          </Tooltip>
+        </div>
         {fullSizeScreen && (
           <nav
             className={classes.fullNavigation}

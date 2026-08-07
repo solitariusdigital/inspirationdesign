@@ -1,0 +1,55 @@
+@use "styles/_config.scss" as config;
+@use "styles/_mixins.scss" as mixins;
+
+.container {
+  margin: 120px auto;
+  width: config.$content-width;
+  max-width: config.$max-widthHeigh;
+
+  .form {
+    @include mixins.row-space-between-center();
+    margin: auto;
+    width: config.$content-widthText;
+
+    @include mixins.mobile {
+      width: 100%;
+    }
+
+    input {
+      @include mixins.input();
+      width: 100%;
+    }
+  }
+
+  .gridLayout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    gap: 12px;
+    margin: 50px auto;
+    user-select: none;
+
+    @include mixins.mobile {
+      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+      width: 100%;
+    }
+    @include mixins.tabletPortrait {
+      width: 100%;
+    }
+    @include mixins.tabletLandscape {
+      width: 100%;
+    }
+
+    .imageBox {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      margin-bottom: 12px;
+
+      &:hover {
+        h2 {
+          color: config.$grey;
+        }
+      }
+    }
+  }
+}
