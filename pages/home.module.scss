@@ -5,10 +5,6 @@
   color: config.$white;
   background: config.$dark;
 
-  @include mixins.mobile {
-    padding-bottom: 50px;
-  }
-
   .button {
     position: relative;
     top: 20px;

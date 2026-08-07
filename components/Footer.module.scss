@@ -9,6 +9,7 @@
   @include mixins.row-space-between-center();
   user-select: none;
   text-transform: uppercase;
+  margin-top: 50px;
 
   @include mixins.mobile {
     display: flex;
