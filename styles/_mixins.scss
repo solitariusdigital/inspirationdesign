@@ -53,8 +53,8 @@ $screen-fourK: 6000px;
   height: 40px;
   width: fit-content;
   min-width: 150px;
-  cursor: pointer;
   user-select: none;
+  cursor: pointer;
 
   &:after {
     content: "";

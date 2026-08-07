@@ -44,10 +44,10 @@
   .nav {
     font-size: small;
     text-align: center;
-    cursor: pointer;
 
     &:hover {
       color: config.$grey;
+      cursor: pointer;
     }
   }
 
@@ -55,7 +55,7 @@
     font-size: small;
     text-align: center;
     color: config.$grey;
-    cursor: pointer;
+    cursor: default;
   }
 
   .icons {

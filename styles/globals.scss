@@ -161,8 +161,8 @@ label.file input[type="file"] {
   z-index: 2;
   top: 50%;
   transform: translateY(-50%);
-  cursor: pointer;
   color: config.$white;
+  cursor: pointer;
 
   @include mixins.allDesktop {
     &:hover {

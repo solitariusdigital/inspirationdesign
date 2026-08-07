@@ -76,21 +76,21 @@
 
   .nav {
     font-size: small;
-    cursor: pointer;
-
-    &:hover {
-      color: config.$grey;
-    }
 
     @include mixins.mobile {
       font-size: medium;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: config.$grey;
     }
   }
 
   .navActive {
     font-size: small;
     color: config.$grey;
-    cursor: pointer;
+    cursor: default;
 
     @include mixins.mobile {
       font-size: medium;
@@ -104,8 +104,8 @@
       position: relative;
       width: 150px;
       height: 100px;
-      cursor: pointer;
       margin-right: 24px;
+      cursor: pointer;
     }
   }
 }
