@@ -34,13 +34,26 @@ export default function Menu() {
   const colorCode = isHome ? "white" : "black";
 
   useEffect(() => {
-    if (menuMobile) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    if (!menuMobile) return;
+
+    const scrollY = window.scrollY;
+
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.overflow = "hidden";
+    document.body.style.width = "100%";
+
     return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
       document.body.style.overflow = "";
+      document.body.style.width = "";
+
+      window.scrollTo(0, scrollY);
     };
   }, [menuMobile]);
 
@@ -73,7 +86,12 @@ export default function Menu() {
     >
       <div className={classes.fullMenu}>
         <div className={classes.portal}>
-          <div className={classes.logo}>
+          <div
+            className={classes.logo}
+            onClick={() => {
+              setMenuMobile(!menuMobile);
+            }}
+          >
             <Link href="/" passHref>
               <Image
                 src={isHome ? logoWhite : logoBlack}
