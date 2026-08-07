@@ -285,6 +285,7 @@
     .imageBoxLandscape,
     .imageBoxPortrait {
       width: 100%;
+      max-height: config.$max-Height;
     }
   }
 
