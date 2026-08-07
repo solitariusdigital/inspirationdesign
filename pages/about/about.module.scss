@@ -9,7 +9,7 @@
     height: fit-content;
     text-transform: capitalize;
     margin: auto;
-    max-width: config.$max-widthHeigh;
+    max-width: config.$max-width;
     user-select: none;
     padding: 10px 0px;
     @include mixins.row-space-between-center();
@@ -51,7 +51,7 @@
 
   .info {
     width: config.$content-widthText;
-    max-width: config.$max-widthHeigh;
+    max-width: config.$max-width;
     margin: auto;
 
     @include mixins.mobile {
@@ -153,7 +153,7 @@
 
 .infoTeam {
   width: config.$content-widthText;
-  max-width: config.$max-widthHeigh;
+  max-width: config.$max-width;
   margin: auto;
   padding-bottom: 24px;
 

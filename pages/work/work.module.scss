@@ -9,7 +9,7 @@
     height: fit-content;
     text-transform: capitalize;
     margin: auto;
-    max-width: config.$max-widthHeigh;
+    max-width: config.$max-width;
     user-select: none;
     padding: 10px 0px;
     @include mixins.row-space-between-center();
@@ -60,7 +60,7 @@
   gap: 12px;
   margin: 34px auto;
   width: config.$content-width;
-  max-width: config.$max-widthHeigh;
+  max-width: config.$max-width;
   user-select: none;
 
   @include mixins.mobile {
@@ -177,7 +177,7 @@
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   gap: 24px;
   margin: 50px auto;
-  max-width: config.$max-widthHeigh;
+  max-width: config.$max-width;
   width: config.$content-widthText;
   user-select: none;
 
@@ -222,7 +222,7 @@
   .imageBoxPortrait,
   .description {
     width: config.$content-width;
-    max-width: config.$max-widthHeigh;
+    max-width: config.$max-width;
     margin: auto;
 
     @include mixins.mobile {
@@ -276,7 +276,7 @@
 
   .heroBase {
     margin: auto;
-    max-width: config.$max-widthHeigh;
+    max-width: config.$max-width;
 
     @include mixins.mobile {
       width: 100%;
@@ -313,7 +313,7 @@
       width: 100%;
       bottom: 0px !important;
       color: config.$white;
-      max-width: config.$max-widthHeigh;
+      max-width: config.$max-width;
       @include mixins.transparentBackground(0.4, config.$dark);
       height: fit-content;
       @include mixins.mobile {
@@ -365,7 +365,7 @@
     position: relative;
     user-select: none;
     margin: 24px auto;
-    max-width: config.$max-widthHeigh;
+    max-width: config.$max-width;
     cursor: pointer;
 
     @include mixins.mobile {
@@ -407,7 +407,7 @@
 .constructionLayout {
   margin: 34px auto;
   width: config.$content-widthText;
-  max-width: config.$max-widthHeigh;
+  max-width: config.$max-width;
 
   @include mixins.mobile {
     width: calc(100% - 24px);

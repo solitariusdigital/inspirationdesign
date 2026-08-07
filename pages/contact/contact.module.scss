@@ -16,7 +16,7 @@
 
     p {
       width: config.$content-widthText;
-      max-width: config.$max-widthHeigh;
+      max-width: config.$max-width;
       margin: 12px auto;
       text-align: left;
 
@@ -29,13 +29,14 @@
   .contact {
     position: relative;
     margin-bottom: 50px;
-    max-width: config.$max-widthHeigh;
+    max-width: config.$max-width;
     margin: auto;
 
     .imageBox {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
+      max-height: config.$max-Height;
 
       @include mixins.allDesktop {
         height: 100dvh;
@@ -61,7 +62,7 @@
       margin: auto;
       padding: 24px 0px;
       width: config.$content-widthText;
-      max-width: config.$max-widthHeigh;
+      max-width: config.$max-width;
 
       @include mixins.mobile {
         display: flex;

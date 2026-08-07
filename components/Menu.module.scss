@@ -11,7 +11,7 @@
     position: relative;
     margin: auto;
     width: config.$content-width;
-    max-width: config.$max-widthHeigh;
+    max-width: config.$max-width;
     @include mixins.row-space-between-center();
   }
 
