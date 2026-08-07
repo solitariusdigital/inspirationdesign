@@ -72,19 +72,19 @@ export default function Menu() {
       }}
     >
       <div className={classes.fullMenu}>
-        <div className={classes.logo}>
-          <Link href="/" passHref>
-            <Image
-              src={isHome ? logoWhite : logoBlack}
-              layout="fill"
-              objectFit="contain"
-              alt="logo"
-              as="image"
-              priority
-            />
-          </Link>
-        </div>
         <div className={classes.portal}>
+          <div className={classes.logo}>
+            <Link href="/" passHref>
+              <Image
+                src={isHome ? logoWhite : logoBlack}
+                layout="fill"
+                objectFit="contain"
+                alt="logo"
+                as="image"
+                priority
+              />
+            </Link>
+          </div>
           {currentUser && (
             <>
               <Tooltip title="Logout">

@@ -8,7 +8,6 @@
   width: 100%;
 
   .fullMenu {
-    position: relative;
     margin: auto;
     width: config.$content-width;
     max-width: config.$max-width;
@@ -35,7 +34,7 @@
   .mobileNavigation {
     position: absolute;
     z-index: 3;
-    right: -15px;
+    right: 0px;
     top: 0px;
     display: flex;
     flex-direction: column;
@@ -98,27 +97,15 @@
     }
   }
 
-  .logo {
-    position: relative;
-    width: 150px;
-    height: 100px;
-    cursor: pointer;
-  }
-
   .portal {
-    display: flex;
-    position: absolute;
-    left: 15%;
+    @include mixins.row-space-between-center();
 
-    @include mixins.mobile {
-      left: auto;
-      right: 15%;
-    }
-    @include mixins.tabletPortrait {
-      left: 25%;
-    }
-    @include mixins.tabletLandscape {
-      left: 20%;
+    .logo {
+      position: relative;
+      width: 150px;
+      height: 100px;
+      cursor: pointer;
+      margin-right: 20px;
     }
   }
 }
