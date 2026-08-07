@@ -28,7 +28,7 @@ export default function FirebaseImage({
           observer.disconnect();
         }
       },
-      { rootMargin: "300px" }, // start loading a bit before it's actually visible
+      { rootMargin: "900px" }, // start loading a bit before it's actually visible
     );
     observer.observe(el);
     return () => observer.disconnect();
