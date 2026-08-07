@@ -8,6 +8,7 @@
   width: 100%;
 
   .fullMenu {
+    position: relative;
     margin: auto;
     width: config.$content-width;
     max-width: config.$max-widthHeigh;
@@ -34,7 +35,7 @@
   .mobileNavigation {
     position: absolute;
     z-index: 3;
-    right: 0px;
+    right: -10px;
     top: 0px;
     display: flex;
     flex-direction: column;
