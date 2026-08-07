@@ -13,7 +13,7 @@
   height: fit-content;
   text-transform: capitalize;
   margin: auto;
-  max-width: config.$max-width;
+  max-width: config.$max-navigation;
   user-select: none;
   padding: 10px 0px;
   @include mixins.row-space-between-center();
