@@ -276,7 +276,7 @@ export default function ProjectForm() {
         <div className={classes.input}>
           <div className={classes.bar}>
             <p className={classes.label}>
-              Oreder
+              Order
               <span>*</span>
             </p>
           </div>
