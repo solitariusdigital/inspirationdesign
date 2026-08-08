@@ -7,14 +7,11 @@
   height: 100dvh;
   background: config.$dark;
   user-select: none;
-  max-width: config.$max-width;
-  max-height: config.$max-Height;
 
   .media {
     position: relative;
     height: 100dvh;
     cursor: pointer;
-    max-height: config.$max-Height;
 
     .imageBox {
       position: relative;
@@ -55,7 +52,6 @@
   color: config.$white;
   text-transform: uppercase;
   overflow: hidden;
-  max-width: config.$max-width;
 }
 
 .sliderInfoTop,
