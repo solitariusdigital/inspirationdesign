@@ -325,7 +325,14 @@ export default function Work() {
                   <>
                     {topics.map((item, index) => (
                       <div className={classes.list} key={index}>
-                        <h5 onClick={() => scrollToDiv(index)}>{item}</h5>
+                        <h4
+                          onClick={() => scrollToDiv(index)}
+                          style={{
+                            fontFamily: "RobotoLight",
+                          }}
+                        >
+                          {item}
+                        </h4>
                       </div>
                     ))}
                   </>
