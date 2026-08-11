@@ -73,20 +73,21 @@ export default function Work() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, "Projects"));
-      const data = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      if (currentUser) {
-        setDisplayProjects(data);
-      } else {
-        setDisplayProjects(data.filter((project) => project.active));
+      try {
+        const querySnapshot = await getDocs(collection(db, "Projects"));
+        const data = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setDisplayProjects(
+          currentUser ? data : data.filter((project) => project.active),
+        );
+      } catch (err) {
+        console.error("Failed to fetch projects:", err);
       }
     };
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [currentUser]);
 
   const [firstColumn, secondColumn] = useMemo(() => {
     const filtered =
