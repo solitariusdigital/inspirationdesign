@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState, useEffect, useContext, useRef, useMemo } from "react";
 import { StateContext } from "@/context/stateContext";
 import { NextSeo } from "next-seo";
 import classes from "./work.module.scss";
@@ -19,8 +19,6 @@ export default function Work() {
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
   const { screenSize, setScreenSize } = useContext(StateContext);
   const [displayProjects, setDisplayProjects] = useState(null);
-  const [firstColumn, setFirstColumn] = useState([]);
-  const [secondColumn, setSecondColumn] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
   const [displayArrow, setDisplayArrow] = useState(false);
 
@@ -69,7 +67,7 @@ export default function Work() {
   useEffect(() => {
     setTimeout(() => {
       setDisplayArrow(true);
-    }, 3000);
+    }, 6000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -90,37 +88,29 @@ export default function Work() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
+  const [firstColumn, secondColumn] = useMemo(() => {
     const filtered =
-      displayProjects?.filter(
-        (project) => project.category === projectsCategory,
-      ) || [];
+      displayProjects?.filter((p) => p.category === projectsCategory) ?? [];
 
-    const alphaOrder = [...filtered].sort((a, b) => {
-      const nameA = (a.order || "").toLowerCase();
-      const nameB = (b.order || "").toLowerCase();
-      return nameA.localeCompare(nameB);
-    });
-
-    let col1 = [];
-    let col2 = [];
+    const sorted = filtered
+      .slice()
+      .sort((a, b) =>
+        (a.order || "")
+          .toLowerCase()
+          .localeCompare((b.order || "").toLowerCase()),
+      );
 
     if (screenSize === "mobile") {
-      const half = Math.ceil(alphaOrder.length / 2);
-      col1 = alphaOrder.slice(0, half);
-      col2 = alphaOrder.slice(half);
-    } else {
-      alphaOrder.forEach((project, index) => {
-        if (index % 2 === 0) {
-          col1.push(project);
-        } else {
-          col2.push(project);
-        }
-      });
+      const half = Math.ceil(sorted.length / 2);
+      return [sorted.slice(0, half), sorted.slice(half)];
     }
 
-    setFirstColumn(col1);
-    setSecondColumn(col2);
+    const col1 = [];
+    const col2 = [];
+    for (let i = 0; i < sorted.length; i++) {
+      (i % 2 === 0 ? col1 : col2).push(sorted[i]);
+    }
+    return [col1, col2];
   }, [projectsCategory, displayProjects, screenSize]);
 
   return (
