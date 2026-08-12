@@ -20,7 +20,6 @@ export default function Work() {
   const { screenSize, setScreenSize } = useContext(StateContext);
   const [displayProjects, setDisplayProjects] = useState(null);
   const [hoveredId, setHoveredId] = useState(null);
-  const [displayArrow, setDisplayArrow] = useState(false);
 
   const refs = useRef([]);
 
@@ -63,13 +62,6 @@ export default function Work() {
       });
     }
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setDisplayArrow(true);
-    }, 6000);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -923,21 +915,22 @@ export default function Work() {
           </div>
         )}
       </div>
-      {displayArrow && (
-        <div className="scrollUp">
-          <KeyboardArrowUpIcon
-            className="icon"
-            sx={{ fontSize: 30 }}
-            onClick={() =>
-              window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "smooth",
-              })
-            }
-          />
-        </div>
-      )}
+      {(firstColumn.length > 0 && secondColumn.length > 0) ||
+        (projectsCategory === "construction" && (
+          <div className="scrollUp">
+            <KeyboardArrowUpIcon
+              className="icon"
+              sx={{ fontSize: 30 }}
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                })
+              }
+            />
+          </div>
+        ))}
     </>
   );
 }
