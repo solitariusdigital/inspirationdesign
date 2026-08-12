@@ -100,35 +100,45 @@ export default function Work() {
     prevDepsRef.current = { displayProjects, screenSize };
   }
 
-  if (!columnCacheRef.current[projectsCategory]) {
-    const filtered =
-      displayProjects?.filter((p) => p.category === projectsCategory) ?? [];
+  let firstColumn = [];
+  let secondColumn = [];
 
-    const sorted = filtered
-      .slice()
-      .sort((a, b) =>
-        (a.order || "")
-          .toLowerCase()
-          .localeCompare((b.order || "").toLowerCase()),
-      );
+  if (projectsCategory !== "construction") {
+    const cached = columnCacheRef.current[projectsCategory];
+    const cachedIsEmpty =
+      cached && cached[0].length === 0 && cached[1].length === 0;
+    const hasData = (displayProjects?.length ?? 0) > 0;
 
-    if (screenSize === "mobile") {
-      const half = Math.ceil(sorted.length / 2);
-      columnCacheRef.current[projectsCategory] = [
-        sorted.slice(0, half),
-        sorted.slice(half),
-      ];
-    } else {
-      const col1 = [];
-      const col2 = [];
-      for (let i = 0; i < sorted.length; i++) {
-        (i % 2 === 0 ? col1 : col2).push(sorted[i]);
+    if (!cached || (cachedIsEmpty && hasData)) {
+      const filtered =
+        displayProjects?.filter((p) => p.category === projectsCategory) ?? [];
+
+      const sorted = filtered
+        .slice()
+        .sort((a, b) =>
+          (a.order || "")
+            .toLowerCase()
+            .localeCompare((b.order || "").toLowerCase()),
+        );
+
+      if (screenSize === "mobile") {
+        const half = Math.ceil(sorted.length / 2);
+        columnCacheRef.current[projectsCategory] = [
+          sorted.slice(0, half),
+          sorted.slice(half),
+        ];
+      } else {
+        const col1 = [];
+        const col2 = [];
+        for (let i = 0; i < sorted.length; i++) {
+          (i % 2 === 0 ? col1 : col2).push(sorted[i]);
+        }
+        columnCacheRef.current[projectsCategory] = [col1, col2];
       }
-      columnCacheRef.current[projectsCategory] = [col1, col2];
     }
-  }
 
-  const [firstColumn, secondColumn] = columnCacheRef.current[projectsCategory];
+    [firstColumn, secondColumn] = columnCacheRef.current[projectsCategory];
+  }
 
   return (
     <>
