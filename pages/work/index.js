@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useRef, useMemo } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { StateContext } from "@/context/stateContext";
 import { NextSeo } from "next-seo";
 import classes from "./work.module.scss";
@@ -89,7 +89,18 @@ export default function Work() {
     fetchData();
   }, [currentUser]);
 
-  const [firstColumn, secondColumn] = useMemo(() => {
+  const columnCacheRef = useRef({});
+  const prevDepsRef = useRef({ displayProjects, screenSize });
+
+  if (
+    prevDepsRef.current.displayProjects !== displayProjects ||
+    prevDepsRef.current.screenSize !== screenSize
+  ) {
+    columnCacheRef.current = {};
+    prevDepsRef.current = { displayProjects, screenSize };
+  }
+
+  if (!columnCacheRef.current[projectsCategory]) {
     const filtered =
       displayProjects?.filter((p) => p.category === projectsCategory) ?? [];
 
@@ -103,16 +114,21 @@ export default function Work() {
 
     if (screenSize === "mobile") {
       const half = Math.ceil(sorted.length / 2);
-      return [sorted.slice(0, half), sorted.slice(half)];
+      columnCacheRef.current[projectsCategory] = [
+        sorted.slice(0, half),
+        sorted.slice(half),
+      ];
+    } else {
+      const col1 = [];
+      const col2 = [];
+      for (let i = 0; i < sorted.length; i++) {
+        (i % 2 === 0 ? col1 : col2).push(sorted[i]);
+      }
+      columnCacheRef.current[projectsCategory] = [col1, col2];
     }
+  }
 
-    const col1 = [];
-    const col2 = [];
-    for (let i = 0; i < sorted.length; i++) {
-      (i % 2 === 0 ? col1 : col2).push(sorted[i]);
-    }
-    return [col1, col2];
-  }, [projectsCategory, displayProjects, screenSize]);
+  const [firstColumn, secondColumn] = columnCacheRef.current[projectsCategory];
 
   return (
     <>
