@@ -7,6 +7,11 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link
+            rel="preconnect"
+            href="https://firebasestorage.googleapis.com"
+            crossorigin
+          />
+          <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
           />

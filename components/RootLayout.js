@@ -15,7 +15,6 @@ export default function RootLayout({ children }) {
   const { menuMobile, setMenuMobile } = useContext(StateContext);
   const { menuBackground, setMenuBackground } = useContext(StateContext);
   const [appLoader, setAppLoader] = useState(false);
-  const [moveLogo, setMoveLogo] = useState(false);
 
   const router = useRouter();
   let pathname = router.pathname;
@@ -43,39 +42,6 @@ export default function RootLayout({ children }) {
   };
 
   useEffect(() => {
-    const localCurrentUser = JSON.parse(
-      secureLocalStorage.getItem("currentUser"),
-    );
-    if (localCurrentUser) {
-      setCurrentUser(localCurrentUser);
-    }
-    setTimeout(() => {
-      setAppLoader(true);
-    }, 1000);
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMoveLogo(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const handleResizeDebounced = () => {
-      clearTimeout(window._resizeTimeout);
-      window._resizeTimeout = setTimeout(handleResize, 150);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResizeDebounced);
-    return () => {
-      window.removeEventListener("resize", handleResizeDebounced);
-      clearTimeout(window._resizeTimeout);
-    };
-  }, []);
-
-  useEffect(() => {
     let prevScrollY = window.scrollY;
     const handleScroll = () => {
       if (menuMobile) return;
@@ -94,6 +60,31 @@ export default function RootLayout({ children }) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [menuMobile, isHome]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAppLoader(true);
+    }, 1500);
+    const localCurrentUser = JSON.parse(
+      secureLocalStorage.getItem("currentUser"),
+    );
+    if (localCurrentUser) {
+      setCurrentUser(localCurrentUser);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleResizeDebounced = () => {
+      clearTimeout(window._resizeTimeout);
+      window._resizeTimeout = setTimeout(handleResize, 150);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResizeDebounced);
+    return () => {
+      window.removeEventListener("resize", handleResizeDebounced);
+      clearTimeout(window._resizeTimeout);
+    };
+  }, []);
 
   return (
     <>
@@ -119,7 +110,7 @@ export default function RootLayout({ children }) {
         </div>
       ) : (
         <div className="appload">
-          <div className={`typewrite ${moveLogo ? "moveLogo" : ""}`}>
+          <div className="typewrite">
             <Typewriter
               text="INSPIRATION"
               font="RobotoMedium"
