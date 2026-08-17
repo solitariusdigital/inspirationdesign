@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
     }
     setTimeout(() => {
       setAppLoader(true);
-    }, 3500);
+    }, 1000);
   }, []);
 
   useEffect(() => {
@@ -123,13 +123,13 @@ export default function RootLayout({ children }) {
             <Typewriter
               text="INSPIRATION"
               font="RobotoMedium"
-              speed={150}
+              speed={50}
               margin={false}
             />
             <Typewriter
               text="DESIGN"
               font="RobotoLight"
-              speed={300}
+              speed={100}
               margin={true}
             />
           </div>
