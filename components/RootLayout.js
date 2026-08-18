@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     setTimeout(() => {
       setAppLoader(true);
-    }, 2000);
+    }, 1500);
     const localCurrentUser = JSON.parse(
       secureLocalStorage.getItem("currentUser"),
     );
