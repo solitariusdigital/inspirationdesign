@@ -1,53 +1,56 @@
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState, useContext, useRef } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./CoverSlider.module.scss";
 import Link from "next/link";
 import MusicOffIcon from "@mui/icons-material/MusicOff";
-import Router from "next/router";
 import AudiotrackIcon from "@mui/icons-material/Audiotrack";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FirebaseImage from "@/components/FirebaseImage";
-import { getDownloadURL, ref } from "firebase/storage";
-import { storage } from "@/services/firebase";
 
 export default function CoverSlider() {
   const { projectsCategory, setProjectsCategory } = useContext(StateContext);
   const { screenSize, setScreenSize } = useContext(StateContext);
-  const [videoFiles, setVideoFiles] = useState(null);
   const [isMuted, setIsMuted] = useState(true);
   const [activeIndex, setActiveIndex] = useState(null);
+
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
 
   const fullSizeScreen =
     screenSize === "desktop" || screenSize === "tablet-landscape";
 
+  const videoFiles = fullSizeScreen
+    ? "https://firebasestorage.googleapis.com/v0/b/inspirationdesign-a9691.firebasestorage.app/o/Resources%2FVideos%2Fdesktop.mp4?alt=media&token=60130489-1f6a-4d76-82ac-2f7102e13430"
+    : "https://firebasestorage.googleapis.com/v0/b/inspirationdesign-a9691.firebasestorage.app/o/Resources%2FVideos%2Fmobile.mp4?alt=media&token=3994a5bd-3069-4151-9c86-4e67888fce56";
+
+  const posterImage = fullSizeScreen
+    ? "https://firebasestorage.googleapis.com/v0/b/inspirationdesign-a9691.firebasestorage.app/o/Resources%2FVideos%2FposterDesktop.webp?alt=media&token=5c68a83e-d95b-4d44-86b6-196e5f708b84"
+    : "https://firebasestorage.googleapis.com/v0/b/inspirationdesign-a9691.firebasestorage.app/o/Resources%2FVideos%2FposterMobile.webp?alt=media&token=19e4ab66-733d-4a6e-a1bf-9192620987bf";
+
   const coverMedia = [
     {
-      path: videoFiles?.url,
+      path: videoFiles,
       type: "video",
-      // link: "work/Chinatown-Millennium-Gate",
     },
     {
       path: "Resources/Cover/chinatown.jpg",
       type: "image",
-      link: "work/Chinatown-Millennium-Gate",
     },
     {
       path: "Resources/Cover/orchard.jpg",
       type: "image",
-      link: "work/Orchard-Residence",
     },
     {
       path: fullSizeScreen
         ? "Resources/Cover/lowry.jpg"
         : "Resources/Cover/lowry-mobile.jpg",
       type: "image",
-      link: "work/Lowry-Residence",
     },
   ];
   const servicesTop = [
@@ -119,20 +122,6 @@ export default function CoverSlider() {
     },
   ];
 
-  useEffect(() => {
-    const fetchVideo = async () => {
-      let sourceRef = fullSizeScreen
-        ? "Resources/Videos/desktop.mov"
-        : "Resources/Videos/mobile.mov";
-      const videoRef = ref(storage, sourceRef);
-      const url = await getDownloadURL(videoRef);
-      setVideoFiles({
-        url,
-      });
-    };
-    fetchVideo();
-  }, [fullSizeScreen]);
-
   const videoRef = useRef(null);
   const handleVideoClick = () => {
     if (videoRef.current) {
@@ -141,6 +130,7 @@ export default function CoverSlider() {
       setIsMuted(newMuted);
     }
   };
+
   // For swiper slide change — always force mute, never toggle
   const handleSlideChange = (swiper) => {
     const activeIndex = swiper.realIndex;
@@ -157,9 +147,6 @@ export default function CoverSlider() {
       videoRef.current.pause();
     }
   };
-
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
 
   return (
     <div className={classes.container}>
@@ -187,16 +174,14 @@ export default function CoverSlider() {
           <SwiperSlide key={index}>
             <div className={classes.media}>
               {item.type === "image" ? (
-                <div
-                  // onClick={() => Router.push(item.link)}
-                  className={classes.imageBox}
-                >
+                <div className={classes.imageBox}>
                   <FirebaseImage path={item.path} alt="image" />
                 </div>
               ) : (
                 <video
                   className={classes.video}
                   src={item.path}
+                  poster={posterImage}
                   muted={isMuted}
                   // onClick={handleVideoClick}
                   ref={videoRef}

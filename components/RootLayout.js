@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     setTimeout(() => {
       setAppLoader(true);
-    }, 1500);
+    }, 2000);
     const localCurrentUser = JSON.parse(
       secureLocalStorage.getItem("currentUser"),
     );
@@ -72,6 +72,33 @@ export default function RootLayout({ children }) {
       setCurrentUser(localCurrentUser);
     }
   }, []);
+
+  useEffect(() => {
+    if (!appLoader) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.overflow = "hidden";
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.overflow = "";
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
+    }
+
+    return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.overflow = "";
+    };
+  }, [appLoader]);
 
   useEffect(() => {
     const handleResizeDebounced = () => {
@@ -88,27 +115,7 @@ export default function RootLayout({ children }) {
 
   return (
     <>
-      {appLoader ? (
-        <div
-          style={{
-            fontFamily: "RobotoLight",
-          }}
-        >
-          {menuDisplay && (
-            <section className="menu animate__animated animate__slideInDown">
-              <Menu />
-            </section>
-          )}
-          <section className="main">
-            <main>{children}</main>
-          </section>
-          {footerDisplay && (
-            <section className="footer">
-              <Footer />
-            </section>
-          )}
-        </div>
-      ) : (
+      {!appLoader && (
         <div className="appload">
           <div className="typewrite">
             <Typewriter
@@ -126,6 +133,25 @@ export default function RootLayout({ children }) {
           </div>
         </div>
       )}
+      <div
+        style={{
+          fontFamily: "RobotoLight",
+        }}
+      >
+        {menuDisplay && (
+          <section className="menu animate__animated animate__slideInDown">
+            <Menu />
+          </section>
+        )}
+        <section className="main">
+          <main>{children}</main>
+        </section>
+        {footerDisplay && (
+          <section className="footer">
+            <Footer />
+          </section>
+        )}
+      </div>
     </>
   );
 }

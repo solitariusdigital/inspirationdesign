@@ -93,6 +93,7 @@ p {
 
 .appload {
   position: relative;
+  z-index: 10;
   background: config.$dark;
   color: config.$white;
   height: 100dvh;
