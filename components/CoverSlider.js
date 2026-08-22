@@ -183,7 +183,7 @@ export default function CoverSlider() {
                   src={item.path}
                   poster={posterImage}
                   muted={isMuted}
-                  // onClick={handleVideoClick}
+                  onClick={handleVideoClick}
                   ref={videoRef}
                   autoPlay
                   loop
@@ -195,7 +195,7 @@ export default function CoverSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* {activeIndex === 0 && (
+      {activeIndex === 0 && (
         <div className={classes.control} onClick={handleVideoClick}>
           {isMuted ? (
             <MusicOffIcon className="icon" sx={{ fontSize: 16 }} />
@@ -203,7 +203,7 @@ export default function CoverSlider() {
             <AudiotrackIcon className="icon" sx={{ fontSize: 16 }} />
           )}
         </div>
-      )} */}
+      )}
       <div className={classes.sliderBox}>
         <div className={classes.sliderInfoTop}>
           <div className={classes.slideTrackTop}>

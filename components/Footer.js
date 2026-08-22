@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { StateContext } from "@/context/stateContext";
 import classes from "./Footer.module.scss";
+import Router from "next/router";
 import Link from "next/link";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import SearchIcon from "@mui/icons-material/Search";
 import Tooltip from "@mui/material/Tooltip";
 
 export default function Footer() {
@@ -29,6 +31,15 @@ export default function Footer() {
         ))}
       </nav>
       <div className={classes.icons}>
+        <Tooltip title="Search">
+          <SearchIcon
+            sx={{ fontSize: 24 }}
+            className={classes.icon}
+            onClick={() => {
+              Router.push("/search");
+            }}
+          />
+        </Tooltip>
         <Tooltip title="LinkedIn">
           <LinkedInIcon
             sx={{ fontSize: 24 }}

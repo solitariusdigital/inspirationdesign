@@ -13,7 +13,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import LogoutIcon from "@mui/icons-material/Logout";
 import secureLocalStorage from "react-secure-storage";
-import SearchIcon from "@mui/icons-material/Search";
 import { signOut } from "firebase/auth";
 import { auth } from "@/services/firebase";
 
@@ -130,17 +129,6 @@ export default function Menu() {
               </Tooltip>
             </>
           )}
-          {fullSizeScreen && (
-            <Tooltip title="Search">
-              <SearchIcon
-                className="icon"
-                sx={{ fontSize: 18, color: colorCode }}
-                onClick={() => {
-                  Router.push("/search");
-                }}
-              />
-            </Tooltip>
-          )}
         </div>
         {fullSizeScreen && (
           <nav
@@ -193,22 +181,6 @@ export default function Menu() {
                     {nav.title}
                   </Link>
                 ))}
-                <Tooltip
-                  title="Search"
-                  className={classes.nav}
-                  style={{
-                    animationDelay: `${4 * 180}ms`,
-                  }}
-                >
-                  <SearchIcon
-                    className="icon"
-                    sx={{ fontSize: 18 }}
-                    onClick={() => {
-                      Router.push("/search");
-                      setMenuMobile(!menuMobile);
-                    }}
-                  />
-                </Tooltip>
               </nav>
             )}
           </nav>
